@@ -1,0 +1,57 @@
+# Deploys a preview of the site for every pull request.
+# After this runs, a comment appears on the PR with a unique preview URL.
+# This lets the Writer (and reviewers) see exactly what the changes look like
+# before merging — no need to pull the branch and build locally.
+#
+# SETUP REQUIRED:
+#   1. Go to https://app.netlify.com → create a new site (import from GitHub)
+#   2. Build command: npm run docs:build
+#   3. Publish directory: docs/.vitepress/dist
+#   4. In Netlify site settings, grab your Site ID
+#   5. In your user settings, create a Personal Access Token
+#   6. In GitHub repo → Settings → Secrets → Actions, add:
+#      - NETLIFY_AUTH_TOKEN  (your personal access token)
+#      - NETLIFY_SITE_ID    (from site settings)
+#
+# If you're using Vercel instead of Netlify, you can skip this file entirely —
+# Vercel's GitHub integration automatically creates preview deploys for every PR
+# with zero configuration. Just connect the repo at https://vercel.com/new.
+
+name: Deploy Preview
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  deploy-preview:
+    name: Deploy preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build VitePress site
+        run: npm run docs:build
+
+      - name: Deploy to Netlify (preview)
+        id: netlify
+        uses: nwtgck/actions-netlify@v3
+        with:
+          publish-dir: docs/.vitepress/dist
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Preview for PR #${{ github.event.pull_request.number }}"
+          enable-pull-request-comment: true
+          enable-commit-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

@@ -1,0 +1,40 @@
+# Validates that the site builds successfully on every pull request.
+# Catches: broken links, bad frontmatter, missing images, syntax errors.
+# If this fails, the PR author sees a red X and knows to fix before merging.
+
+name: Build & Validate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build VitePress site
+        run: npm run docs:build
+        # VitePress will fail the build if:
+        #   - Markdown has invalid frontmatter
+        #   - A referenced file/image doesn't exist (with deadLinks config)
+        #   - There's a syntax error in any .md or .vue file
+
+      # Optional: check for dead internal links after build.
+      # Uncomment once you have enough content migrated to make this useful.
+      # - name: Check for broken links
+      #   run: npx linkinator ./docs/.vitepress/dist --recurse --skip "^(?!https?://help\.branch\.io)"

@@ -1,0 +1,58 @@
+# This is the issue template that powers the "Suggest an edit" button.
+# When a user who doesn't have a GitHub account (or doesn't want to fork/PR)
+# clicks "Suggest an edit" on any docs page, it opens this form.
+#
+# The page URL is pre-filled via query parameters in the link:
+# https://github.com/your-org/branch-help-center/issues/new?template=suggest-edit.yml&title=Suggested+edit&labels=content-suggestion&page-url=https://help.branch.io/...
+
+name: Suggest an Edit
+description: Suggest a change to a documentation page. No GitHub account required to view, but you'll need one to submit.
+title: "Suggested edit: "
+labels: ["content-suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve our documentation! Please describe the change you'd like to see.
+
+  - type: input
+    id: page-url
+    attributes:
+      label: Page URL
+      description: Which page needs updating? Paste the full URL.
+      placeholder: "https://help.branch.io/developer-hub/docs/..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: What kind of change?
+      options:
+        - Something is incorrect or outdated
+        - Something is unclear or confusing
+        - Something is missing
+        - Typo or formatting issue
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What should change?
+      description: Describe what's wrong and what the content should say instead.
+      placeholder: |
+        The section on "Configuring Link Domains" says to use the v1 API,
+        but the v1 API was deprecated. It should reference the v2 endpoint instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-text
+    attributes:
+      label: Suggested text (optional)
+      description: If you know exactly what the text should say, paste it here.
+      placeholder: "Replace 'Use the /v1/links endpoint' with 'Use the /v2/links endpoint (see migration guide)'."
+    validations:
+      required: false
