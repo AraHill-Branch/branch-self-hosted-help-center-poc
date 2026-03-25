@@ -77,6 +77,10 @@ export default defineConfig({
       { text: 'Developer Hub', link: '/developer-hub/' }
     ],
     sidebar,
+    editLink: {
+      pattern: 'https://github.com/AraHill-Branch/branch-self-hosted-help-center-poc/edit/main/:path',
+      text: 'Suggest an edit'
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/AraHill-Branch/branch-self-hosted-help-center-poc' }
     ]
