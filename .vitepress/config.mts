@@ -253,7 +253,14 @@ export default defineConfig({
       { text: 'Marketer Hub', link: '/marketer-hub/' },
       { text: 'Developer Hub', link: '/developer-hub/' }
     ],
+    search: {
+      provider: 'local'
+    },
     sidebar,
+    editLink: {
+      pattern: 'https://github.com/AraHill-Branch/branch-self-hosted-help-center-poc/edit/main/:path',
+      text: 'Suggest an edit'
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/AraHill-Branch/branch-self-hosted-help-center-poc' }
     ]
