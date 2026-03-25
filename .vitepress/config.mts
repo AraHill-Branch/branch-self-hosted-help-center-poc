@@ -56,7 +56,7 @@ const sidebar = generateSidebar([
 ])
 
 export default defineConfig({
-  title: "Branch Self-Hosted Help Center POC",
+  title: "Branch Help Center",
   description: "Product Documentation",
   ignoreDeadLinks: true,
   vite: {
