@@ -36,28 +36,39 @@ features:
 
 <style>
 /* ================================
-   HOMEPAGE SECTIONS
+   LAYOUT
    ================================ */
 .home-sections {
   max-width: 1152px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 24px 64px;
+}
+
+.home-section {
+  padding: 56px 0;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.home-section:first-child {
+  padding-top: 48px;
+  border-top: none;
+}
+
+.section-heading {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 32px;
+  letter-spacing: -0.3px;
+  color: var(--vp-c-text-1);
 }
 
 /* ================================
-   SECTION HEADINGS
+   FEATURE CARD ICON FIX (light mode)
    ================================ */
-.section-heading {
-  font-size: 32px;
-  font-weight: 700;
-  margin: 0 0 40px;
-  letter-spacing: -0.3px;
-}
-
-.section-divider {
-  margin: 80px 0 0;
-  padding-top: 80px;
-  border-top: 1px solid var(--vp-c-divider);
+.VPFeature .icon img {
+  padding: 8px;
+  border-radius: 10px;
+  background: #0F021F;
 }
 
 /* ================================
@@ -66,7 +77,7 @@ features:
 .resources-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  gap: 32px;
 }
 
 @media (max-width: 960px) {
@@ -85,11 +96,14 @@ features:
   content: "";
   position: absolute;
   top: 0;
-  right: -20px;
+  right: -16px;
   width: 1px;
   height: 100%;
-  background: linear-gradient(180deg, var(--vp-c-brand-1) 0%, transparent 100%);
-  opacity: 0.25;
+  background: linear-gradient(180deg, var(--vp-c-divider) 0%, transparent 100%);
+}
+
+.dark .resources-col:not(:last-child)::after {
+  background: linear-gradient(180deg, rgba(101, 27, 200, 0.3) 0%, transparent 100%);
 }
 
 @media (max-width: 960px) {
@@ -97,44 +111,45 @@ features:
 }
 
 .resources-col h3 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
   color: var(--vp-c-text-1);
 }
 
 .resources-col ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 20px;
-}
-
-.resources-col li {
-  margin: 0;
+  margin: 0 0 16px;
 }
 
 .resources-col li a {
   display: block;
-  padding: 8px 0;
+  padding: 7px 0 7px 16px;
   color: var(--vp-c-text-2);
   text-decoration: none;
   font-size: 14px;
   border-bottom: 1px solid var(--vp-c-divider);
   transition: all 0.2s ease;
-}
-
-.resources-col li a:hover {
-  color: #48BC7D;
-  padding-left: 6px;
+  position: relative;
 }
 
 .resources-col li a::before {
   content: "•";
-  margin-right: 8px;
-  color: var(--vp-c-brand-1);
-  opacity: 0.5;
+  position: absolute;
+  left: 0;
+  color: #651BC8;
+}
+
+.dark .resources-col li a::before {
+  color: #9241FF;
+}
+
+.resources-col li a:hover {
+  color: #48BC7D;
+  padding-left: 20px;
 }
 
 .view-all {
@@ -155,14 +170,23 @@ features:
 .university-card {
   display: flex;
   align-items: center;
-  gap: 48px;
-  margin: 0;
-  padding: 48px;
+  gap: 40px;
+  padding: 40px;
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
   border-radius: 12px;
   overflow: hidden;
   position: relative;
+}
+
+.university-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #651BC8, #00B8DB);
 }
 
 .dark .university-card {
@@ -172,50 +196,45 @@ features:
 }
 
 .dark .university-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
   background: linear-gradient(90deg, #FF6C04, #651BC8, #00B8DB);
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
   .university-card {
     flex-direction: column;
-    padding: 32px;
+    padding: 0;
     text-align: center;
   }
+  .university-card .uni-text { padding: 24px; }
 }
 
 .university-card img {
-  width: 340px;
+  width: 320px;
   max-width: 100%;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
 }
 
 .dark .university-card img {
   border-radius: 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .university-card h3 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
+  color: var(--vp-c-text-1);
 }
 
 .university-card p {
   font-size: 14px;
   color: var(--vp-c-text-2);
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   line-height: 1.7;
 }
 
-.university-card a.uni-link {
+.uni-link {
   color: #00B8DB;
   text-decoration: none;
   font-weight: 600;
@@ -223,7 +242,7 @@ features:
   transition: color 0.2s ease;
 }
 
-.university-card a.uni-link:hover {
+.uni-link:hover {
   color: #48BC7D;
 }
 
@@ -232,8 +251,7 @@ features:
    ================================ */
 .faq-layout {
   display: flex;
-  gap: 64px;
-  margin: 0;
+  gap: 56px;
 }
 
 @media (max-width: 768px) {
@@ -241,7 +259,7 @@ features:
 }
 
 .faq-heading {
-  width: 35%;
+  width: 30%;
   flex-shrink: 0;
 }
 
@@ -250,27 +268,23 @@ features:
 }
 
 .faq-heading h2 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
-  margin: 0 0 28px;
+  margin: 0 0 24px;
   letter-spacing: -0.3px;
+  color: var(--vp-c-text-1);
 }
 
 .faq-btn {
   display: inline-block;
-  padding: 14px 28px;
+  padding: 12px 24px;
   color: var(--vp-c-text-1);
-  border: 1px solid rgba(101, 27, 200, 0.5);
+  border: 1px solid #651BC8;
   background: transparent;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.dark .faq-btn {
-  border-color: #651BC8;
-  box-shadow: 0 0 0 0 rgba(101, 27, 200, 0);
+  transition: all 0.25s ease;
 }
 
 .faq-btn:hover {
@@ -279,17 +293,13 @@ features:
   color: #fff;
 }
 
-.dark .faq-btn:hover {
-  box-shadow: 0 4px 16px rgba(72, 188, 125, 0.2);
-}
-
 .faq-list {
   flex: 1;
 }
 
 .faq-item {
-  padding: 24px 0;
-  border-top: 1px solid var(--vp-c-brand-1);
+  padding: 20px 0;
+  border-top: 1px solid #e2e0e6;
 }
 
 .dark .faq-item {
@@ -297,7 +307,7 @@ features:
 }
 
 .faq-item:last-child {
-  border-bottom: 1px solid var(--vp-c-brand-1);
+  border-bottom: 1px solid #e2e0e6;
 }
 
 .dark .faq-item:last-child {
@@ -306,12 +316,13 @@ features:
 
 .faq-item summary {
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--vp-c-text-2);
   list-style: none;
-  transition: color 0.25s ease;
+  transition: color 0.2s ease;
   padding-right: 32px;
   position: relative;
+  line-height: 1.5;
 }
 
 .faq-item summary::-webkit-details-marker { display: none; }
@@ -321,39 +332,39 @@ features:
   position: absolute;
   right: 0;
   top: 0;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
-  color: var(--vp-c-brand-1);
+  color: #651BC8;
   transition: transform 0.3s ease;
+}
+
+.dark .faq-item summary::after {
+  color: #9241FF;
 }
 
 .faq-item[open] summary::after {
   transform: rotate(45deg);
 }
 
-.faq-item[open] summary {
-  color: var(--vp-c-text-1);
-}
-
+.faq-item[open] summary,
 .faq-item summary:hover {
   color: var(--vp-c-text-1);
 }
 
-.faq-item .faq-answer {
+.faq-answer {
   font-size: 14px;
   color: var(--vp-c-text-2);
-  margin: 16px 0 0;
+  margin: 12px 0 0;
   line-height: 1.7;
   padding-right: 32px;
 }
 
-.faq-item .faq-answer a {
+.faq-answer a {
   color: #00B8DB;
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
-.faq-item .faq-answer a:hover {
+.faq-answer a:hover {
   color: #48BC7D;
 }
 
@@ -363,8 +374,7 @@ features:
 .links-section {
   display: flex;
   align-items: center;
-  gap: 56px;
-  margin: 0;
+  gap: 48px;
 }
 
 @media (max-width: 768px) {
@@ -375,27 +385,27 @@ features:
   flex: 1;
 }
 
-.links-text .mono-label {
+.mono-label {
   font-family: var(--vp-font-family-mono);
   font-size: 12px;
   color: #FF6C04;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin: 0 0 16px;
-  font-weight: 400;
+  margin: 0 0 12px;
 }
 
 .links-text h2 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
-  margin: 0 0 16px;
+  margin: 0 0 12px;
   letter-spacing: -0.3px;
+  color: var(--vp-c-text-1);
 }
 
 .links-text p {
   font-size: 15px;
   color: var(--vp-c-text-2);
-  margin: 0 0 28px;
+  margin: 0 0 24px;
   line-height: 1.7;
 }
 
@@ -407,28 +417,22 @@ features:
 .links-visual img {
   max-width: 100%;
   border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .dark .links-visual img {
   border-radius: 0;
-  box-shadow: 0 8px 40px rgba(101, 27, 200, 0.15);
 }
 
 .cta-outline {
   display: inline-block;
-  padding: 14px 36px;
+  padding: 12px 32px;
   color: var(--vp-c-text-1);
-  border: 1px solid rgba(101, 27, 200, 0.5);
+  border: 1px solid #651BC8;
   background: transparent;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.dark .cta-outline {
-  border-color: #651BC8;
+  transition: all 0.25s ease;
 }
 
 .cta-outline:hover {
@@ -437,18 +441,13 @@ features:
   color: #fff;
 }
 
-.dark .cta-outline:hover {
-  box-shadow: 0 4px 16px rgba(72, 188, 125, 0.2);
-}
-
 /* ================================
    CONTACT SECTION
    ================================ */
 .contact-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin: 0 0 64px;
+  gap: 24px;
 }
 
 @media (max-width: 768px) {
@@ -456,11 +455,11 @@ features:
 }
 
 .contact-item {
-  padding: 32px;
+  padding: 28px;
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .dark .contact-item {
@@ -471,31 +470,32 @@ features:
 
 .contact-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border-color: #651BC8;
+  box-shadow: 0 4px 16px rgba(101, 27, 200, 0.08);
 }
 
 .dark .contact-item:hover {
-  border-color: #651BC8;
-  box-shadow: 0 6px 24px rgba(101, 27, 200, 0.12);
+  box-shadow: 0 4px 20px rgba(101, 27, 200, 0.15);
 }
 
 .contact-item h3 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
+  color: var(--vp-c-text-1);
 }
 
 .contact-item p {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--vp-c-text-2);
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   line-height: 1.6;
 }
 
 .contact-link {
   color: #00B8DB;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   transition: color 0.2s ease;
 }
@@ -507,53 +507,52 @@ features:
 
 <div class="home-sections">
 
-<div class="section-divider">
+<div class="home-section">
   <h2 class="section-heading">Featured Resources</h2>
+  <div class="resources-row">
+    <div class="resources-col">
+      <h3>Beginner Resources</h3>
+      <ul>
+        <li><a href="/account-hub/what-is-branch">What is Branch?</a></li>
+        <li><a href="/account-hub/onboarding-guide">Onboarding Guide</a></li>
+        <li><a href="/account-hub/glossary">Glossary</a></li>
+      </ul>
+      <a href="/account-hub/getting-started" class="view-all">View All →</a>
+    </div>
+    <div class="resources-col">
+      <h3>Use Cases</h3>
+      <ul>
+        <li><a href="/marketer-hub/ads-overview">SEO and AIO App Attribution</a></li>
+        <li><a href="/account-hub/qr-codes">QR Codes</a></li>
+        <li><a href="/account-hub/household-measurement">Household Measurement</a></li>
+      </ul>
+      <a href="/account-hub/" class="view-all">View All →</a>
+    </div>
+    <div class="resources-col">
+      <h3>Branch Dashboard</h3>
+      <ul>
+        <li><a href="/account-hub/branch-dashboard-overview">Dashboard Overview</a></li>
+        <li><a href="/account-hub/configure-default-link-behaviors">Configure Link Behaviors</a></li>
+        <li><a href="/account-hub/attribution-windows-link-settings">Adjust Attribution Windows</a></li>
+      </ul>
+      <a href="/account-hub/dashboard-configuration" class="view-all">View All →</a>
+    </div>
+    <div class="resources-col">
+      <h3>Branch Links</h3>
+      <ul>
+        <li><a href="/account-hub/creating-a-deep-link">Create Deep Links</a></li>
+        <li><a href="/account-hub/create-quick-links">Create Quick Links</a></li>
+        <li><a href="/marketer-hub/ad-links">Create Ad Links</a></li>
+      </ul>
+      <a href="/account-hub/create-branch-links" class="view-all">View All →</a>
+    </div>
+  </div>
 </div>
 
-<div class="resources-row">
-  <div class="resources-col">
-    <h3>Beginner Resources</h3>
-    <ul>
-      <li><a href="/account-hub/what-is-branch">What is Branch?</a></li>
-      <li><a href="/account-hub/onboarding-guide">Onboarding Guide</a></li>
-      <li><a href="/account-hub/glossary">Glossary</a></li>
-    </ul>
-    <a href="/account-hub/getting-started" class="view-all">View All →</a>
-  </div>
-  <div class="resources-col">
-    <h3>Use Cases</h3>
-    <ul>
-      <li><a href="/marketer-hub/ads-overview">SEO and AIO App Attribution</a></li>
-      <li><a href="/account-hub/qr-codes">QR Codes</a></li>
-      <li><a href="/account-hub/household-measurement">Household Measurement</a></li>
-    </ul>
-    <a href="/account-hub/" class="view-all">View All →</a>
-  </div>
-  <div class="resources-col">
-    <h3>Branch Dashboard</h3>
-    <ul>
-      <li><a href="/account-hub/branch-dashboard-overview">Dashboard Overview</a></li>
-      <li><a href="/account-hub/configure-default-link-behaviors">Configure Link Behaviors</a></li>
-      <li><a href="/account-hub/attribution-windows-link-settings">Adjust Attribution Windows</a></li>
-    </ul>
-    <a href="/account-hub/dashboard-configuration" class="view-all">View All →</a>
-  </div>
-  <div class="resources-col">
-    <h3>Branch Links</h3>
-    <ul>
-      <li><a href="/account-hub/creating-a-deep-link">Create Deep Links</a></li>
-      <li><a href="/account-hub/create-quick-links">Create Quick Links</a></li>
-      <li><a href="/marketer-hub/ad-links">Create Ad Links</a></li>
-    </ul>
-    <a href="/account-hub/create-branch-links" class="view-all">View All →</a>
-  </div>
-</div>
-
-<div class="section-divider">
+<div class="home-section">
   <div class="university-card">
     <img src="/img/new_visual_img_01_2.png" alt="Branch University" />
-    <div>
+    <div class="uni-text">
       <h3>Branch University</h3>
       <p>Branch University offers self-paced learning with curated training paths, certifications, and hands-on modules to help marketers master deep linking, attribution, and the Branch Growth Platform for effective mobile marketing.</p>
       <a href="https://university.branch.io" target="_blank" class="uni-link">Learn More About Branch →</a>
@@ -561,7 +560,7 @@ features:
   </div>
 </div>
 
-<div class="section-divider">
+<div class="home-section">
   <div class="faq-layout">
     <div class="faq-heading">
       <h2>Frequently Asked Questions</h2>
@@ -596,7 +595,7 @@ features:
   </div>
 </div>
 
-<div class="section-divider">
+<div class="home-section">
   <div class="links-section">
     <div class="links-text">
       <p class="mono-label">/ Deep Linking</p>
@@ -610,7 +609,7 @@ features:
   </div>
 </div>
 
-<div class="section-divider">
+<div class="home-section">
   <h2 class="section-heading">Can't find what you're looking for?</h2>
   <div class="contact-row">
     <div class="contact-item">
