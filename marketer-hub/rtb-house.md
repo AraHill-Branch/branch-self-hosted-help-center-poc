@@ -3,7 +3,7 @@ title: "RTB House"
 slug: rtb-house
 ---
 
-![1328](/img/92eae3c-RTB_House__branch(3).png "RTB House + branch.png")
+*[Image: 1328]*.png "RTB House + branch.png")
 
 ## Overview
 
@@ -57,7 +57,7 @@ You'll need to input your Region.
 
 Click the **Save & Enable** button.
 
-![](/img/6dcaf12-RTB_House_enable(3).png "RTB House enable.png")
+.png "RTB House enable.png")
 
 ### 2. Configure Postbacks
 
@@ -65,7 +65,7 @@ Enabling RTB House will automatically enable the following postbacks:
 
 - INSTALL
 
-![](/img/d2c3066-rtb_house_postbacks(3).png "rtb house postbacks.png")
+.png "rtb house postbacks.png")
 
 You can configure these postbacks or add more under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_rtb_house_sa?tab=postback) tab.
 
@@ -77,7 +77,7 @@ Optionally, you can check the checkbox for a given postback for sending all even
 
 Click the **Add New Postback** button at the bottom of the screen. A modal will appear that will allow you to select an event that you are tracking with the Branch SDKs (including Custom Events).
 
-![](/img/c1b289e-Add_New_Postbacks(105).gif "Add New Postbacks.gif")
+.gif "Add New Postbacks.gif")
 
 For more in-depth postback configurations, view our guides:
 
@@ -110,15 +110,15 @@ To set up cost ingestion for RTB House, you will need to authenticate using your
 
 Enter your **User Name and Password**, and click **Save Authentication**
 
-![](/img/b1f8d54-RTB_House_Cost_Data_Enable(3).png)
+.png)
 
 ### 5. Create Branch Ad Link
 
 Next, you'll need to create a Branch Ad Link for your RTB House campaigns in order for Branch to properly attribute conversions.
 
-[![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/a516deb-small-95b5d97-small-Vectorlogo_1(98).png)
+[.png)
 
-![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/feddb04-Branch_badge_light_default-32x32.ico) help.branch.io
+ help.branch.io
 
 Create Ad Links](/docs/ad-links)
 

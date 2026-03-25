@@ -3,7 +3,7 @@ title: "Sendgrid Configuration"
 slug: sendgrid-configuration
 ---
 
-![1328](/img/5fbb135-Sendgrid_branch.png "Sendgrid+ branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -11,7 +11,7 @@ Effortless Email. Partner with the communication platform trusted by developers 
 
 ## How does it work?
 
-![](../../../assets/media/images/4bb45f42-5ff3-4a71-bcc1-5f98e7ba3169 "Branch Email Flow.PNG")
+
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.
@@ -51,7 +51,7 @@ In order to enable Sendgrid, you must first:
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Sendgrid** and click **Enable**
 
-![1428](/img/f48f129-86e4676-sendgrid-enable.gif "86e4676-sendgrid-enable.gif")
+*[Image: 1428]*
 
 ### Input Click Tracking Domain
 
@@ -69,7 +69,7 @@ For additional help, please see Sendgrid's [documentation](https://sendgrid.com/
 - You can enable the integration with multiple CTDs, if needed, but you **cannot** add the same CTD to multiple Branch Dashboards or ESP integrations.
 :::
 
-![](/img/c2cd92e-sendgrid_ctd.png "sendgrid ctd.png")
+
 
 ### Point DNS CNAME to Branch
 
@@ -90,13 +90,13 @@ Update the DNS CNAME and point it to `thirdparty.bnc.lt`. Once the CNAME record 
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#3-configure-associated-domains).
 
-![](/img/9f475e3-Associated_Domains(17).png "Associated Domains.png")
+.png "Associated Domains.png")
 
 ### Return `YES` to `continueUserActivity`
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md#return-yes-to-continueuseractivity).
 
-![](/img/13dc276-branch-universal-link-domain(17).png "branch-universal-link-domain.png")
+.png "branch-universal-link-domain.png")
 
 ## Add Branch Links to your Emails
 

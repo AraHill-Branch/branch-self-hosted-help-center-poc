@@ -118,7 +118,7 @@ No, unfortunately this isn't possible. In order to know IF a user is coming from
 
 Yes, it is possible to link the user into the Settings page to change this the ATT setting, *if the user hasn't disabled tracking requests at the device level*. Apple even mentions this here: <https://developer.apple.com/app-store/user-privacy-and-data-use/>.
 
-![1e6bf1b-image.png](/img/1e6bf1b-image.png)
+
 
 It won't reset the prompt to show a second time, but the user can go there and manually change the toggle setting.
 
@@ -131,7 +131,7 @@ The Apple Human Interface Guidelines [contain specific instructions](https://dev
 
 The short version is that the official ATT modal can only be displayed once, shouldn't contain anything resembling a mockup of the system prompt, and must not function as a custom prompt that could be shown multiple times to 'protect' against the user opting out.
 
-![379f574-Screen_Shot_2021-02-22_at_10.56.10.png](/img/379f574-Screen_Shot_2021-02-22_at_10.56.10.png)
+
 
 Also, once you implement the `ATTrackingManager` class in your app, Apple's reviewers expect to see the prompt and they appear to be rejecting any subsequent app updates that do not include the framework.
 

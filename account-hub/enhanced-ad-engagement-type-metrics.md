@@ -37,7 +37,7 @@ Branch now supports **engagement** conversion metrics for ads on TikTok and Goog
 Use the `touch subtype` metric to view your engagement attribution
 :::
 
-![](/img/e7a7f0f-Touch_Subtype.png)
+
 
 ### Exports
 

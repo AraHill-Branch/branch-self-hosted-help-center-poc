@@ -23,7 +23,7 @@ To confirm that the AASA file has successfully downloaded:
 
 You should see content that looks similar to this if the file downloaded successfully:
 
-![1436](/img/8bceb75-1520880422940-og_image.png "1520880422940-og_image.png")
+*[Image: 1436]*
 
 If the AASA file did not download, then you must uninstall the app, restart the device, and then reinstall the app.
 
@@ -267,16 +267,16 @@ To use Branch's Link Debugger:
 
    1. For example, the Branch Link `https://branchster.app.link/3vqEJflHrGb` would become `https://branchster.app.link/3vqEJflHrGb?debug=1`
 4. Paste this link, including the `?debug=1` flag, into your browser. This will open the Link Debugger view:  
-   ![](/img/f757723-image13-1.png)
+   
 
 This tool includes the Link Routing Debugger, which allows you to view the expected behavior for each operating system and click location.
 
 To use the Link Routing Debugger:
 
 1. Select an operating system and location using the dropdown menus.  
-   ![](/img/54d61d5-image12-1.png)
+   
 2. View the redirect results table for the link.  
-   ![](/img/303b95d-image5-1.png)
+   
 
 Based on the operating system and click location you have selected, you’ll see the click redirect outcome for when a user does and does not have the app installed.
 

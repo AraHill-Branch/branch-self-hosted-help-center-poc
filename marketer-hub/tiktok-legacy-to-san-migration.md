@@ -34,13 +34,13 @@ In the Branch Dashboard under **Ads** → [**Partner Management**](https://dashb
 
 Then, click the **Log In With TikTok** button and follow the prompts to authenticate your TikTok For Business account
 
-![](/img/image(85).png)
+.png)
 
 Be sure to read and agree to the permissions requested by Branch in order to properly authenticate.
 
-![](/img/image-1743447791939.png)
 
-Once enabled, Branch will automatically pull your iOS/Android App IDs from the ads legacy integration as well the set attribution windows.![](/img/image(88).png)
+
+Once enabled, Branch will automatically pull your iOS/Android App IDs from the ads legacy integration as well the set attribution windows..png)
 
 ### 2. Configure Events
 
@@ -48,7 +48,7 @@ After authenticating your TikTok For Business account to Branch, navigate to the
 
 It is important to add your event mappings here for Branch to properly send event metadata to TikTok For Business for attribution. You should see the events you are tracking with the Branch SDK here when you **Add Event Mappings**. For more details on the TikTok For Business and Branch event and metadata mapping, see the specifications [here](https://dashboard.branch.io/ads/partner-management/a_tiktok?tab=event_config).
 
-![](/img/image(89).png)
+.png)
 
 ::: info Additional Event Details
 If you plan to run TikTok SKAN campaigns and you are tracking Custom Branch Events, make sure you map your Custom Branch Event to TikTok’s Standard Event.
@@ -66,7 +66,7 @@ As campaigns run, TikTok For Business will begin sending Branch attribution clai
 
 In the [TikTok Ads Manager](https://ads.tiktok.com/), you can verify the status of your campaigns to make sure metrics are populating correctly.
 
-![](/img/image(90).png)
+.png)
 
 ### 5. Verify Metrics in the Branch Dashboard
 
@@ -78,7 +78,7 @@ In the Branch Dashboard under **Ads** →[Analytics](https://dashboard.branch.io
 | Where | - last attributed touch type equals `CLICK` and `IMPRESSION` - ad partner (3p) equals `a_tiktok` |
 | Table Columns | - cost - clicks - impressions - install - reinstalls - Custom Branch Events you are tracking |
 
-![](/img/image(91).png)
+.png)
 
 Once you see metrics come in for `a_tiktok` then Branch is receiving attribution claims from TikTok for Business through the SAN integration. You may still see metrics for `a_tiktok_ads` from previous attribution claims. Any new claims should report to `a_tiktok`.
 

@@ -13,7 +13,7 @@ Our product and engineering teams are always looking out for any optimizations t
 
 We tested **Five Andoird & iOS apps** where we showed different Deepview variants from a sharing link. From there, we measured the differences between treatment and control when looking at CTI.
 
-![](/img/c2db13d-Deepview_Variants.png)
+
 
 From the investigation, we found the following results:
 

@@ -16,7 +16,7 @@ In the Branch Dashboard, unless a credit card is entered, the following features
 
 Accessing a Dashboard feature without a credit card entered for that Branch app will result in the following prompt:
 
-![](/img/f1b5936-Feature_Locked.png)
+
 
 ---
 
@@ -46,7 +46,7 @@ For Branch [Redirects Configuration](configure-default-link-behaviors.md), unles
 - Android Tablet Redirects
 - WeChat Redirects
 
-![](/img/4774ee8-Branch_Link_Redirects.png)
+
 
 ---
 

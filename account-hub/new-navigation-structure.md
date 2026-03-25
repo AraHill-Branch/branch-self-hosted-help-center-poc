@@ -33,4 +33,4 @@ There are now four main sections:
 
 View the following image to see the improvements:
 
-![](/img/image(93).png)
+.png)

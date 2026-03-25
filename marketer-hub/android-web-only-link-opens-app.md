@@ -15,7 +15,7 @@ slug: android-web-only-link-opens-app
 2. Check if the link data has `$web_only : true`; if it doesn’t, edit the link and add `$web_only` in the Link Data.
 3. If this exists and the link still opens the app, check if **app links are enabled** see below:
 
-![](/img/14f3969-img_1.png "img_1.png")
+
 
 6. If app links are enabled, the app will always open on Android.
 7. Execute [this](https://github.com/BranchMetrics/Branch-Example-Deep-Linking-Branchster-Android/blob/master/app/src/main/java/io/branch/branchster/SplashActivity.java#L43) code before the deep linking logic to open the web URL in Chrome or a webview. If you don’t want to add the code, disable app links for Android. Branch will be able to open the app via [URI schemes](https://branch.io/glossary/uri-schemes/).

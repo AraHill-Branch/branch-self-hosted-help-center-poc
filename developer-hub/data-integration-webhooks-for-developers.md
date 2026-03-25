@@ -218,7 +218,7 @@ This example **does not include the entire list** of IP addresses you need to ma
 
 :::
 
-![AWS security group details showing inbound rules and IP allowlist configurations for postbacks.](/img/Branch_IP_Allowlist_SG_Example.png)
+
 
 ### Optional: Configure GCP firewall policy
 
@@ -226,7 +226,7 @@ This example **does not include the entire list** of IP addresses you need to ma
 
 This example **does not include the entire list** of IP addresses you need to make rules for. Find those [above](webhooks-for-developers.md#allowlist-webhook-ip-addresses).
 
-![GCP firewall policy details showing various rules and their configurations for postbacks.](/img/Branch_IP_Allowlist_GCPFWRules_Example.png)
+
 
 ### Authenticating webhook events
 
@@ -247,7 +247,7 @@ To test whether your webhook is configured correctly, you can use [RequestBin](h
 3. Create a new webhook and use the **Endpoint URL** as your webhook URL.
 4. Whenever your webhook is triggered, you will see a full report on RequestBin:
 
-   ![](/img/7afbeb0-Screenshot_2020-07-03_at_10.56.25_AM.png "Screenshot 2020-07-03 at 10.56.25 AM.png")
+   
 
 ::: warning Warning
 Please archive your Requestbin webhook when you have finished testing. Requestbins only last for 24 hours and return errors once they expire.

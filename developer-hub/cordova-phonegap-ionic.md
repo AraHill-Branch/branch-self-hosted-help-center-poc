@@ -7,9 +7,9 @@ slug: cordova-phonegap-ionic
 
 - Complete your [Branch Dashboard](https://dashboard.branch.io/settings/link)
 
-![](/img/12c44b1-cordova-configure.png "cordova-configure.png")
 
-![](/img/7cbb6f2-cordova-link-domain.png "cordova-link-domain.png")
+
+
 
 ## Configure App
 
@@ -192,7 +192,7 @@ slug: cordova-phonegap-ionic
 - Long press on the deep link *(not 3D Touch)*
 - Click **Open in "APP\_NAME"** to open your app
 
-![](/img/a420386-ios-notes.png "ios-notes.png")
+
 
 ## Test deep link Android
 
@@ -813,7 +813,7 @@ Branch.getStandardEvents().then(function success(res) {
 | $ios\_redirect\_timeout | `750` | Control the timeout that the client-side JS waits after trying to open up the app before redirecting to the App Store. Specified in milliseconds |
 | $android\_redirect\_timeout | `750` | Control the timeout that the clientside JS waits after trying to open up the app before redirecting to the Play Store. Specified in milliseconds |
 | $one\_time\_use | `false` | Set to `true` to limit deep linking behavior of the generated link to a single use. Can also be set using type |
-| $custom\_sms\_text |  | Text for SMS link sent for desktop clicks to this link. Must contain `{{ link }}` Value of Text me the app page in Settings |
+| $custom\_sms\_text |  | Text for SMS link sent for desktop clicks to this link. Must contain &#123;&#123; link &#125;&#125; Value of Text me the app page in Settings |
 | $marketing\_title |  | The Marketing Title for the deep link in the [Marketing Dashboard](https://dashboard.branch.io/marketing) |
 
 ```

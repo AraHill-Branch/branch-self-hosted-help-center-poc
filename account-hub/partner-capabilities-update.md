@@ -13,7 +13,7 @@ A [Movable Ink](movable-ink.md) Data Integration has been created! You can now s
 | --- | --- | --- | --- |
 | - Install  - Open | - Add to Cart  - Purchase | - View Item  - View Items  - Search | - Custom Event |
 
-![](/img/c08d667-Movable_Ink_Report.png)
+
 
 ---
 
@@ -29,7 +29,7 @@ A [Movable Ink](movable-ink.md) Data Integration has been created! You can now s
 - Timestamp
 - Attributes (JSON)
 
-![](/img/b492d2d-MoEngage_Verify.png)
+
 
 ---
 
@@ -37,7 +37,7 @@ A [Movable Ink](movable-ink.md) Data Integration has been created! You can now s
 
 [Pinterest](pinterest.md) has released Version 5 of their [Conversions API](https://developers.pinterest.com/docs/conversions/updated/), and Branch now supports it! If you already had Pinterest enabled for your Branch account and just need to enable support for Conversions, you just need to [reset your partner settings](reset-my-ad-partners-settings.md) for Pinterest with your **Ad Account Id** and **Conversion Token**.
 
-![](/img/8f04020-small-Pinterest_Conversion_Token.png)
+
 
 ---
 
@@ -45,7 +45,7 @@ A [Movable Ink](movable-ink.md) Data Integration has been created! You can now s
 
 [Oracle Responsys](oracle-responsys.md) has been one of Branch's popular email service providers to integrate Branch Email with. Because of its popularity, there was a need to revamp our partner documentation, so the entire guide has been updated based on how current customers use Responsys today.
 
-![](/img/d63292d-3b8ad86-oracle-responsys-enable.gif)
+
 
 A few notable updates:
 

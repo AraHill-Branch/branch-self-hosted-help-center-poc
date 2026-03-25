@@ -3,7 +3,7 @@ title: "MAAS (Powered by Affle)"
 slug: maas
 ---
 
-![1328](/img/af4bdc1-MAAS__Branch(3).png "MAAS + Branch.png")
+*[Image: 1328]*.png "MAAS + Branch.png")
 
 ## Overview
 
@@ -43,7 +43,7 @@ In the Branch Dashboard under **Ads** > [**Partner Management**](https://dashboa
 
 Click the **Save & Enable** button.
 
-![](/img/8db1e7b-Enable_maas(3).png "Enable maas.png")
+.png "Enable maas.png")
 
 ### 2. Configure Postbacks
 
@@ -51,7 +51,7 @@ Enabling MAAS will automatically enable the following postbacks:
 
 - INSTALL
 
-![](/img/5c56dd9-maas_postbacks(3).png "maas postbacks.png")
+.png "maas postbacks.png")
 
 You can configure these postbacks or add more under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_affle?tab=postback) tab.
 
@@ -63,7 +63,7 @@ Optionally, you can check the checkbox for a given postback for sending all even
 
 Click the **Add New Postback** button at the bottom of the screen. A modal will appear that will allow you to select an event that you are tracking with the Branch SDKs (including Custom Events).
 
-![](/img/c1b289e-Add_New_Postbacks(97).gif "Add New Postbacks.gif")
+.gif "Add New Postbacks.gif")
 
 For more in-depth postback configurations, view our guides:
 
@@ -90,9 +90,9 @@ After configuring your events, navigate to the [**Attribution Windows**](https:/
 
 Next, you'll need to create a Branch Ad Link for your MAAS campaigns in order for Branch to properly attribute conversions.
 
-[![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/a516deb-small-95b5d97-small-Vectorlogo_1(98).png)
+[.png)
 
-![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/feddb04-Branch_badge_light_default-32x32.ico) help.branch.io
+ help.branch.io
 
 Create Ad Links](/docs/ad-links)
 

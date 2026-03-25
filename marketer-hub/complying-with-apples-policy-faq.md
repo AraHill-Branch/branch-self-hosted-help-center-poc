@@ -10,7 +10,7 @@ App Tracking Transparency policy does not apply to tracking of owned channels.
 
 This is a broad industry consensus, supported by the language of the ATT prompt.
 
-![](/img/image(100).png)
+.png)
 
 **Examples of Owned Channels:**
 
@@ -44,7 +44,7 @@ Based on both the spirit and direct language of [Apple’s new guidance](https:/
 
 This is also reflected in the presentation of the ATT modal itself, via the extremely specific language about tracking across apps and website owned by *other companies*:
 
-![](/img/image(102).png)
+.png)
 
 Had Apple intended to restrict owned or organic-channel tracking, Apple easily could have used different language or taken the technical blocking route, as they did with IDFA approach, and restricted access to IDFV, making even multi-session context preservation impossible to the individual company without ATT consent.
 
@@ -72,7 +72,7 @@ Based on Apple's language on their [User Privacy and Data Use](https://developer
 
 On April 19, 2021, Apple further reinforced this distinction around ad-related use cases via a new FAQ item on the User Privacy and Data Use page:
 
-![](/img/image(103).png)
+.png)
 
 The wording of the question references 'deep linking' and 'deferred deep linking', and the answer makes it clear that the behavior Apple considers objectionable is using such functionality to *'…pass unique identifiers or create a shared identity of the user between applications from different companies for ad targeting, ad measurement or sharing with a data broker'.*
 
@@ -177,7 +177,7 @@ Technically, nothing is stopping browser apps like Chrome from implementing the 
 
 No, it is not necessary for users to opt in under AppTrackingTransparency for SKAdNetwork. This is addressed in [Apple's FAQ](https://developer.apple.com/app-store/user-privacy-and-data-use/):
 
-![](/img/image(104).png)
+.png)
 
 </details>
 

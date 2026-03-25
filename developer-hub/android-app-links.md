@@ -74,6 +74,6 @@ The system must be able to verify every host specified in a URL intent filtersâ€
    5. All link domains must be publicly accessible (not behind firewall/vpn) and accessible by Google's bots
 3. **Validate App Links :** Install app > connect device to Android Studio > [*./adb shell dumpsys package d*](https://developer.android.com/training/app-links/verify-site-associations.html#check-link-policies)
 
-![1212](/img/97e9b95-Android_App_Links_Verification.png "Android App Links Verification.png")
+*[Image: 1212]*
 
 </details>

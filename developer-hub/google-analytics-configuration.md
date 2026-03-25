@@ -3,7 +3,7 @@ title: "Google Analytics Configuration"
 slug: google-analytics-configuration
 ---
 
-![1328](/img/f77bbef-Google_Analytics__branch.png "Google Analytics + branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -21,11 +21,11 @@ Branch will send referred **installs** and **opens**, **commerce**, **content**,
 
 Branch events will appear alongside your other tracked events in Google Analytics. Here is an example of the Sources screen with test information set.
 
-![](/img/cf2271f-google-analytics-sources.png "google-analytics-sources.png")
+
 
 To view **installs** and **opens**, as well as any custom events you track with Branch as they are occur, navigate to Real-Time > Events. The event category for all Branch events is **BranchEvent**.
 
-![](/img/1ff87f7-google-analytics-open.png "google-analytics-open.png")
+
 
 ## Prerequisites
 
@@ -50,14 +50,14 @@ For **Google Analytics 4** you need to retrieve your **Measurement ID**:
 - In [Admin](https://support.google.com/analytics/answer/6132368), make sure that you have the desired account and property selected.
 - In the *Property* column, click **Data Streams**, then click your web data stream. Your `G-XXXX` Measurement ID appears in the upper right portion of the panel.
 
-![](/img/7174a38-GA4_Credentials.png "GA4 Credentials.png")
+
 
 For **Universal Analytics (Legacy)** you need to retrieve your **Tracking ID**:
 
 - Go to [Admin](https://support.google.com/analytics/answer/6132368).
 - In the *Property* column, click **Property Settings**. Your `UA-XXXX` Tracking ID appears at the top of the Property Settings Page
 
-![](/img/b63f98e-Universal_Analytics_Credentials.png "Universal Analytics Credentials.png")
+
 
 ## 2. Connect Google Analytics in Branch
 
@@ -65,7 +65,7 @@ In the Branch Dashboard in Data Feeds → [**Data Integrations** tab](https://da
 
 Enter the IDs from the previous step. Enter them into the iOS and Android fields in the Branch Dashboard, and hit **Save**.
 
-![1714](../../../assets/media/images/8dac80f9-aeb9-4f57-8428-f5f3c973281a "Google Analytics Branch Dashboard.JPG")
+*[Image: 1714]*
 
 Note: If you only have one **Measurement/Tracking ID**, then enter the same ID for both iOS and Android.
 
@@ -132,7 +132,7 @@ Once the above steps are complete, you are now ready to start launching campaign
 | --- | --- | --- |
 | webhook partner key | equals | di\_google\_analytics |
 
-![](../../../assets/media/images/7a1978a2-22bd-4da6-a4f9-59746956a899 "Google Analytics Liveview.JPG")
+
 
 ::: info Wait Period
 Please be patient as data may take some time to flow through Branch's attribution systems and onto Google Analytics. If data has not appeared in Google Analytics after 30 minutes of completing a test conversion, review the above steps to see if you may have missed something.

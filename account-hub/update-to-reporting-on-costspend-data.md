@@ -17,7 +17,7 @@ In cases where there are multiple data sources for Cost/Click/Impression data fr
 
 During report creation in the [Events Table](paid-ads-analytics.md) and when dimensions have been selected from one data source, Branch dynamically adds new icon tooltips that will indicate a warning about incompatible dimensions.
 
-![](/img/f1badc6-Cost_Improvement.png)
+
 
 ::: tip
 Ready to learn more about your ads analytics? Visit our guide on Ads Analytics here: [Ads Analytics](paid-ads-analytics.md)

@@ -38,7 +38,7 @@ If you're working with an Ad Partner in a paid advertising campaign and would li
 
 4. When you're done, click **Invite**.
 
-   ![708](/img/d200215-Screen_Shot_2022-03-09_at_11.04.30_AM.png "Screen Shot 2022-03-09 at 11.04.30 AM.png")
+   *[Image: 708]*
 
 ## Default Agency Access Level Restrictions
 

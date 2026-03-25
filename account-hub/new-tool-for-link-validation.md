@@ -26,7 +26,7 @@ Please note that the Link Validator only accepts the following link types:
 To find the Link Validator tool:
 
 1. Go to the [Branch Dashboard](https://dashboard.branch.io/quick-links/validator) and use the left-side navigation bar to click on **LinkHub**, which is in the **Channels & Links** section.
-2. Click **Validator** in the dropdown under **LinkHub**. ![](/img/2b618f84dc304e69a75c26253f0edb18366a995785dd2cc76de93fd7016466dc-Screenshot_2024-11-13_at_4.54.19_PM.png)
+2. Click **Validator** in the dropdown under **LinkHub**. 
 
 ## Learn More
 

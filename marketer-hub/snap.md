@@ -3,7 +3,7 @@ title: "Snap Overview"
 slug: snap
 ---
 
-![](/img/d784578-snap.png "snap.png")
+
 
 ## Overview
 
@@ -51,7 +51,7 @@ In the Branch Dashboard under **Ads >** [**Partner Management**](https://branch.
 
 Click the **Log In With Snapchat** button to authenticate with your Snap account.
 
-![](/img/78f9402-Enable_Snap.png)
+
 
 After connecting, Snap should be connected to Branch!
 
@@ -63,11 +63,11 @@ Enter your **Snap App ID**. To use different IDs for your Android and iOS apps, 
 All SANs - including Snap - accept multiple accounts. However, only a single Branch user can authenticate the integration. This means that the single user must have access to all of the accounts you wish to connect.
 :::
 
-![](/img/6ceb749-Snap_App_ID.png)
+
 
 Click the **Save** button, and you can verify all of your Snap information:
 
-![](/img/fcd905c-Snap_Authenticated.png)
+
 
 ## Viewing Snap Data
 
@@ -166,7 +166,7 @@ Branch maps the following data fields from Snap to Branch.
 - Snap Ads Manager time zones are set at the time your ad account is created. You can see your Snap time zone in your Snap Ad Account Settings, but you cannot change it. You can change your Branch dashboard time zone in [Account Settings](https://dashboard.branch.io/account-settings/app) to match.
 - Verify your Snap attribution windows match your Branch attribution windows. Ask your Snap account manager for your attribution windows. Your Branch windows are visible either in Link Settings (global windows) or in the [Attribution Windows](https://dashboard.branch.io/ads/partner-management/a_snap?tab=attribution_windows) section of the Snap entry in Ads Partner Manager. Snap windows can be configured under "Customize Columns" in the Snap UI.
 
-![](/img/d904148-snap-attribution-windows.png "snap-attribution-windows.png")
+
 
 - When deep linking, create a link via the Branch dashboard. If you are running an app campaign, please ensure your link has `%24deeplink_no_attribution=true` as a query parameter to remove that link's ability to claim attribution, otherwise the link may claim attribution over the SAN claim. The link will still deep link.
 - Snap's reporting API does not provide any "compare by" functionality outside of the ads analytics tags. So, you cannot compare Snap click + impression data by platform, OS or country, for example.
@@ -233,7 +233,7 @@ To check if we will send Snap event names for your conversion value mapping:
 1. Go to Ads --> Partner Management --> Snap --> Event Config
 2. Add Branch MMP to Snap. Select Branch from the 'Please share postbacks with this MMP' drop down field in the **Snap App Details**
 
-![](/img/6f9752a-Snap_SKAN.jpeg "Snap SKAN.jpeg")
+
 
 3. Ensure that the Branch events you are using for Conversion Values are mapped to corresponding Snap event names
 
@@ -265,14 +265,14 @@ Your app needs to be able to read the Deep link URI **AND** any additional data 
 3. Combine your URI scheme with your required key:value pair (e.g. yourBranchappscheme://yourKeyValue).
 4. Set up your Snap campaign, selecting **Drive Traffic to App**.
 
-![](/img/b773bfe-Screenshot_2024-02-22_at_1.59.26_PM.png "drive-traffic-to-app.png")
+
 
 3. On the **Build Your Ads** page:
 
    1. Paste your Branch URI scheme into the **DEEPLINK URI** field.
    2. Select **Web Site** as the **FALLBACK TYPE** and add web URL to ensure routing for non-app users.
 
-![](/img/8cbe4fb-Screenshot_2024-02-22_at_2.28.25_PM.png "build-your-ad.png")
+
 
 4. Finish building your Snap campaign.
 

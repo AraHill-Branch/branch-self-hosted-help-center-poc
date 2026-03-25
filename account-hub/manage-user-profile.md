@@ -29,4 +29,4 @@ On the [Account Settings](https://dashboard.branch.io/account-settings) section,
 If you are using the [legacy version of Branch](branch-dashboard-overview.md) and need to change the email address associated with your account, please contact [Support](https://support.branch.io/hc/en-us/requests/new).
 :::
 
-![2250](/img/d53a6f1-user-profile.png "user-profile.png")
+*[Image: 2250]*

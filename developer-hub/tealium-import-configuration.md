@@ -3,7 +3,7 @@ title: "Tealium Configuration"
 slug: tealium-import-configuration
 ---
 
-![1328](/img/4648313-Tealium__branch.png "Tealium + branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -43,7 +43,7 @@ In order to enable Tealium (import), you need to have completed the following:
    - EventStream > Event Connectors.
    - AudienceStream > Audience Connectors (for visitor data connector)
 
-   ![](/img/a5b4459-tealium_import_1.png "tealium import 1.png")
+   
 
 ### 2. Configure Connector
 
@@ -51,7 +51,7 @@ In order to enable Tealium (import), you need to have completed the following:
 2. Set a name for your Connector.
 3. Add your Branch Key from your [Branch Dashboard](https://dashboard.branch.io/account-settings/profile)
 
-   ![](/img/cacfe5d-tealium_import_2.png "tealium import 2.png")
+   
 
 ### 3. Configure Action
 
@@ -64,7 +64,7 @@ In order to enable Tealium (import), you need to have completed the following:
    - Mobile Device ID Mapping
 4. [OPTIONAL] Configure Optional event properties
 
-   ![](/img/feb91c1-tealium_import_3.png "tealium import 3.png")
+   
 
 ## Test your Connector
 

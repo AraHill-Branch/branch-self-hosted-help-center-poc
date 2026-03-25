@@ -3,7 +3,7 @@ title: "Batch Configuration"
 slug: batch-configuration
 ---
 
-![1328](/img/c9482d2-Batch__branch.png "Batch + branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -56,7 +56,7 @@ In the Branch Dashboard in Data Feeds → [**Data Integrations** tab](https://da
 
 Enter the API Keys from the previous step and hit **Save**.
 
-![](/img/51aedec-5330a16-batch-enable.gif "5330a16-batch-enable.gif")
+
 
 ## 3. Pass Metadata to the Branch SDK
 

@@ -3,7 +3,7 @@ title: "Answering the Google Play Store Privacy Questions"
 slug: answering-the-google-play-store-privacy-questions
 ---
 
-![](../../../assets/media/images/0b2b9beb-fd00-485f-aaba-f4b99f810302 "Google Play.PNG")
+
 
 ::: info New Safety Section Timeline
 Google has informed developers that all Google Play Store submissions with the new safety section information, **must be approved by April 2022**.

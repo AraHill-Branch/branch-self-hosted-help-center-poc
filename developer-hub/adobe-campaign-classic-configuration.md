@@ -3,7 +3,7 @@ title: "Adobe Campaign Classic Configuration"
 slug: adobe-campaign-classic-configuration
 ---
 
-![](/img/image(59).png)
+.png)
 
 ## Overview
 
@@ -11,7 +11,7 @@ Driving your customers from email to app is an amazing way for them to get more 
 
 ## How does it work?
 
-![](/img/image(60).png)
+.png)
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.
@@ -52,7 +52,7 @@ Add a custom click tracking domain at the **Brand Configuration** page in the fi
 
 [How to create delivery templates for a custom brand](https://docs.adobe.com/content/help/en/campaign-classic/using/sending-messages/using-delivery-templates/creating-a-delivery-template.html)
 
-![](/img/image(61).png)
+.png)
 
 ::: info If your domain is managed by Adobe
 Please reach out to Adobe Tech Ops, for Creating a new Click Tracking Domain.
@@ -74,7 +74,7 @@ Please include the following info:
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Adobe Campaign Classic** and click **Enable**
 
-![](/img/connect_adobe_campaign_classic_in_branch.gif)
+
 
 ### Input Click Tracking Domain
 
@@ -91,7 +91,7 @@ Enter your domains in the open fields and click **Save**
 - You can enable the integration with multiple CTDs, if needed, but you **cannot** add the same CTD to multiple Branch Dashboards or ESP integrations.
 :::
 
-![](/img/image(62).png)
+.png)
 
 ## Configure your App
 
@@ -99,13 +99,13 @@ Enter your domains in the open fields and click **Save**
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#3-configure-associated-domains).
 
-![](/img/image(63).png)
+.png)
 
 ### Return `YES` to `continueUserActivity`
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md).
 
-![](/img/image(64).png)
+.png)
 
 ## Point DNS CNAME to Branch
 

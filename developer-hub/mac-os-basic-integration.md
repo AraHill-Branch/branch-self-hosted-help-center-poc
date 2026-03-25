@@ -24,23 +24,23 @@ To add the Branch macOS SDK GitHub repo as a Swift Package dependency:
 
 1. With the project name selected in the project navigator and the project editor, click on the **Swift Packages** tab.
 
-   ![](/img/04d1096-swift1.png)
+   
 2. Click on the **+** button to add a package.
 
-   ![](/img/c158a2d-swift2.png)
+   
 3. Use the package URL for the Branch macOS SDK, "https://github.com/BranchMetrics/mac-branch-deep-linking", and continue.
 
-   ![](/img/3b2e74a-swift3.png)
+   
 4. Make sure the Branch Swift Package is being added to the correct target and click **Finish**.
 
-   ![](/img/23dc420-swift5.png)
+   
 5. If you have any other targets that need to use the Branch Swift Package, select the target and add it under **Frameworks, Libraries, and Embedded Content** in the General tab.
 
-   ![](/img/48ce69d-swift6.png)
+   
 
 The Swift Package tab for your project should now look like the following:
 
-![](/img/ecdcddc-SwiftPackageVerification.png)
+
 
 </details>
 
@@ -56,7 +56,7 @@ The Swift Package tab for your project should now look like the following:
    `platform :osx, '10.14' target 'Example' do use_frameworks! pod 'BranchMacOS' end`
 4. Now that you have your dependencies listed in your `Podfile`, go ahead and install your dependencies by running `pod install`. If you don’t have a workspace already CocoaPods will create one that includes the dependencies you just installed. The CocoaPods generated framework should already be added to the target you specified in your `Podfile`.
 
-   ![](/img/368de44-cocoapod1.png)
+   
 
 </details>
 
@@ -77,13 +77,13 @@ The Swift Package tab for your project should now look like the following:
 1. Clone the Branch macOS SDK: `git clone https://github.com/BranchMetrics/mac-branch-deep-linking`.
 2. In the lower right hand corner of Project Navigator in Xcode click on the **+** button and select the option to add files to your workspace.>
 
-   ![](/img/image-1739562972633.png)
+   
 3. Select the `Branch.xcodeproj` file which is located in the Branch macOS SDK directory you cloned in step 1. You should now see the Branch project in the Project Navigator on the left.
 
-   ![](/img/2c3bdc1-framework2.png)
+   
 4. For your main project, go to the targets that will require the Branch macOS SDK as a dependency and click on the **+** button under **Frameworks, Libraries, and Embedded Content** to add it.
 
-   ![](/img/7cbc295-framework3.png) ![](/img/21a7bfd-framework4.png) ![](/img/c3b8f3f-framework5.png)
+     
 
 </details>
 
@@ -93,19 +93,19 @@ In this step you will add a URL Scheme to your app so macOS knows what schemes t
 
 1. First off start off by adding the URL types property inside your target’s Info.plist. Open the Info.plist file, click on the “+” button that shows up when you hover over “Information Property List” and add the “URL types” if it doesn’t exist.
 
-   ![2362](/img/52ee9a1-infoplist1.png "infoplist1.png")
+   *[Image: 2362]*
 2. After you fully expand “URL types” add a “URL Schemes” property under “Item 0”.
 
-   ![2362](/img/e1d1d0c-infoplist2.png "infoplist2.png")
+   *[Image: 2362]*
 3. Provide a value for “Item 0” under “URL Schemes”. This will be the scheme your app will handle.
 
-   ![2362](/img/d354514-infoplist3.png "infoplist3.png")
+   *[Image: 2362]*
 
 ::: info NOTE
 If you want to edit the Info.plist as a XML document, right click on your Info.plist and open it as source code.
 :::
 
-![1166](/img/07c2360-infoplist4.png "infoplist4.png")
+*[Image: 1166]*
 
 You can paste this snippet before the final tag. Remember to change `YOUR-APP-SCHEME-HERE` to the app scheme for your app.
 
@@ -167,16 +167,16 @@ Universal Links are available on macOS Catalina or newer. When configured, Branc
    - **Legacy Branch**: Navigate to the [Configuration page](https://branch.dashboard.branch.io/configuration/general) to find your link domains.
 2. If you don't already have an Associated Domains section in the **Signing & Capabilities** tab for your target, go ahead and add it by clicking on the **+** sign.
 
-   ![1166](/img/10fbd1a-associated-domains1.png "associated-domains1.png") ![1936](/img/7e3c4c1-associated-domains2.png "associated-domains2.png")
+   *[Image: 1166]* *[Image: 1936]*
 3. Add the associated domains from your Branch Dashboard (see step 1 above for navigation instructions).
 
-   ![1936](/img/259e300-associated-domains3.png "associated-domains3.png")
+   *[Image: 1936]*
 
 ## b. Check Entitlements
 
 - Confirm entitlements are within target (This file is configured automatically when completing the steps above in [Capabilities tab of Xcode](https://developer.apple.com/documentation/security/password_autofill/setting_up_an_app_s_associated_domains#3001207))
 
-![2100](/img/755bdf6-checkEntitlements.png "checkEntitlements.png")
+*[Image: 2100]*
 
 ## c. Configure AppDelegate to handle Universal Links
 
@@ -202,7 +202,7 @@ func application(_ application: NSApplication, continue userActivity: NSUserActi
 
 The Branch SDK requires Outgoing Connections from your macOS application. Make sure your application has permissions to do so by going to the targets that your application uses and enable **Outgoing Connections (Client)** in the **Signing & Capabilities** tab.
 
-![2466](/img/2920225-initialize1.png "initialize1.png")
+*[Image: 2466]*
 
 Start Branch when your app first starts up. In your app delegate, make sure to first import the Branch SDK. Then, start Branch in your `applicationDidFinishLaunching: method`:
 

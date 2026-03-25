@@ -48,7 +48,7 @@ You can use the Branch Dashboard to view reporting on all of your SKAN-related c
 | --- | --- | --- |
 | ad network | equals | `a_google_adwords` |
 
-![](/img/ab60932-Google_SKAN.png)
+
 
 ::: info Additional resources
 You can see more ways to view SKAN Reports with our [guide](skadnetwork-dashboard-reports.md).

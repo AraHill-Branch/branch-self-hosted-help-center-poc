@@ -24,7 +24,7 @@ In order to enable Google Ads Web-based Campaigns, you need to have completed th
 
 After completing the prerequisites, [set up your Web Engagement campaign in Google Ads](https://support.google.com/google-ads/answer/7020291?hl=en-GB)
 
-![](/img/1248a6a-web_campaign.png "web campaign.png")
+
 
 For example for a **Display** campaign:
 
@@ -36,7 +36,7 @@ For example for a **Display** campaign:
 
 Log into the [Branch Dashboard](https://dashboard.branch.io/), and [create a Branch Ad Link](https://dashboard.branch.io/ads/analytics/activity?modal=ad-link) from the **Create** button on the top right. Make sure you set the Ad Partner to **Google Adwords**.
 
-![](../../../assets/media/images/4f8bb353-3b26-4326-8b02-110487ea5ab7 "Create Ad Link.PNG")
+
 
 Use the following table to determine the type of Branch Ad Link to create based on your campaign:
 
@@ -50,11 +50,11 @@ Use the following table to determine the type of Branch Ad Link to create based 
 
 Be sure to define your analytics tags to mirror what is in Google Ads. Additional details on creating Branch Ad Links can be found in our guide [**here**](ad-links.md).
 
-![](/img/4312eaa-Branch_Ad_Link_Tags.png "Branch Ad Link Tags.png")
+
 
 Once your Branch Ad Link is complete, be sure to copy the Click Tracking Link as this will be used in the next step.
 
-![](/img/3794a9d-Branch_Ad_Link_Final.png "Branch Ad Link Final.png")
+
 
 **Note:** You can append additional [macros](https://support.google.com/admanager/answer/2376981?hl=en) on your Branch Ad Link after the link is created.
 
@@ -62,7 +62,7 @@ Once your Branch Ad Link is complete, be sure to copy the Click Tracking Link as
 
 Add the Branch Click Tracking Link from [Step 2](enable-google-web-based-campaigns.md#2-build-a-branch-ad-link) to the Campaign Tracking Template. You can use the same one across ad groups or you can do this for each ad group separately.
 
-![](/img/1b8b8ef-Tracking_Template.png "Tracking Template.png")
+
 
 Once you are done with the campaign settings, just launch the campaign!
 
@@ -85,7 +85,7 @@ When setting up a Shopping campaign, you can use [your own product feeds](creati
 
 1. In Google Merchant Center, navigate to `Products` then `Feeds`.
 
-![](/img/06106b5-google-merchant-center-home.png "google-merchant-center-home.png")
+
 
 2. Click the large blue plus button to add a new feed.
 3. Follow the prompts to name your feed, select feed language, and upload or connect your feed.
@@ -95,7 +95,7 @@ When setting up a Shopping campaign, you can use [your own product feeds](creati
 
 1. In your Adwords dashboard, navigate to the All Campaigns page.
 
-![](/img/ac36f16-google-adwords-campaign-view.png "google-adwords-campaign-view.png")
+
 
 2. Click the red campaign button, and create a new Shopping Campaign.
 3. On the Shopping Ads Setup page, make sure the correct Merchant Identifier is selected (this should match the value in your Merchant Center Dashboard).
@@ -148,7 +148,7 @@ This documentation supports the following Google Campaign types:
 
 #### What is Parallel Tracking?
 
-![](/img/0ef254b-new-parallel-tracking.png "new-parallel-tracking.png")
+
 
 With the change to “parallel tracking”, Google sends the customer directly to the Final URL, and uses the new Beacon API to "click" the Tracking URL (including following any server side redirects) in the background. The key here is that the Tracking URL (and redirects) are still being visited by the end user's browser, but because this happens “in parallel” (i.e., not visible to the customer), the user experience is better. For browsers without Beacon API support, Google will fall back to legacy sequential tracking.
 
@@ -158,7 +158,7 @@ If you are running a Universal App Install Campaign, parallel tracking does not 
 
 If you are running a non-UAC Web-based Ad (Display, Search, Shopping, Video), and using a Branch Link as `Tracking Template`, parallel tracking ensures your users are directly routed to the final destination while also allowing Branch to properly measure and attribute the resulting actions/conversions.
 
-![](/img/e29ad03-google-ads-non-uac.png "google-ads-non-uac.png")
+
 
 ##### How does this impact me?
 

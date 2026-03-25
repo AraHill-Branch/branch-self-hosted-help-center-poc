@@ -9,4 +9,4 @@ Agency Admins can access and edit the Profile tab. You can edit your Agency name
 2. Here you can edit your **Agency Name**, and access your **Agency ID** (this is assigned by Branch and cannot be changed).
 3. If you make any changes, click **Save**.
 
-   ![1134](/img/5d9c900-Screenshot_6_4_20__8_01_PM.png "Screenshot_6_4_20__8_01_PM.png")
+   *[Image: 1134]*

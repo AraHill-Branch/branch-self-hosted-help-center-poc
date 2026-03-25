@@ -3,7 +3,7 @@ title: "Email to App"
 slug: email-to-app
 ---
 
-![](/img/8d09741-diag-2(1).svg "diag-2.svg")
+.svg "diag-2.svg")
 
 ## Overview
 

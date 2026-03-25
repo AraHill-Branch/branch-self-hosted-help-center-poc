@@ -163,11 +163,11 @@ On Android, **if the App Links are enabled correctly, they should never show the
 5. All link domains must be publicly accessible (not behind firewall/vpn) and accessible by Google's bots.
 6. Validate App Links: Install app > connect device to Android Studio > ./adb shell dumpsys package d.
 
-![520](/img/37b2356-img_1.png "img_1.png")
+*[Image: 520]*
 
 Successful verification
 
-![327](/img/9774ac4-img_2.png "img_2.png")
+*[Image: 327]*
 
 Failed verification
 

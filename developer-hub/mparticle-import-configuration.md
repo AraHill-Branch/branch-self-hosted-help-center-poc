@@ -3,7 +3,7 @@ title: "mParticle (Import) Configuration"
 slug: mparticle-import-configuration
 ---
 
-![1328](/img/6d9678e-Mparticle__branch.png "Mparticle + branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -74,7 +74,7 @@ Then, navigate to the [Data Integrations page](https://branch.dashboard.branch.i
 1. Select **mParticle** from the menu on the left.
 2. Select the platforms you would like to import events from and click **Save**.
 
-   ![](/img/249fa49-f3c4f78-mparticle-import.png "f3c4f78-mparticle-import.png")
+   
 
 ## 2. Setup mParticle
 
@@ -109,7 +109,7 @@ At this time, Branch [will not attribute logged out web events](mparticle-import
 
 Once you have import turned on in both mParticle and Branch, events should come through. You will see a green dot on the import card if Branch has seen events:
 
-![](/img/b6057e4-09a44fd-mparticle-import-status(1).png "09a44fd-mparticle-import-status.png")
+.png "09a44fd-mparticle-import-status.png")
 
 Branch imports events from mParticle as [commerce, user lifecycle, content, or custom events](mparticle-import.md#section-supported-events). To see more information on the events that are coming in, you can look at events with **origin** `MPARTICLE` in [Liveview](https://dashboard.branch.io/liveview/events).
 
@@ -140,7 +140,7 @@ Enabling the Connection in the mParticle Dashboard:
 1. Once the Branch S2S module has been configured, it can be selected as a destination via the mParticle connections UI (screenshot below).
 2. Select the Roku platform input and connect it to Branch without any transformations applied.
 
-   ![](/img/36cdda8-roku_ott.png "roku ott.png")
+   
 3. Enter your [Branch Key and Branch Secret](https://branch.dashboard.branch.io/account-settings/profile) in order to configure the Branch S2S integration.
 
-   ![](/img/442203a-e41d837-Screen_Shot_2020-12-07_at_10.33.56_AM.png "e41d837-Screen_Shot_2020-12-07_at_10.33.56_AM.png")
+   

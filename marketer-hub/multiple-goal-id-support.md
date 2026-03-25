@@ -27,7 +27,7 @@ In the example below, the HasOffers Postbacks are mapped as follows:
 - PURCHASE is mapped with **goalid\_2**
 - PAGEVIEW is mapped with **goalid\_3**
 
-![](/img/c75f4c0-multiple-goal-ids.png "multiple-goal-ids.png")
+
 
 This means that when a user triggers an OPEN event via the tracking link above, Branch returns the relevant value (XXX) and sends it in the Postback URL.
 

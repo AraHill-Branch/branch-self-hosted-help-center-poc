@@ -5,7 +5,7 @@ slug: yahoo-ads
 
 ## Overview
 
-![220](/img/c9c10ca-yahoo-76684_1280.png "yahoo-76684_1280.png")
+*[Image: 220]*
 
 Yahoo is a global media and tech company that reaches nearly 900 million people around the world, bringing them closer to finance, sports, shopping, gaming, and news—with the trusted products, content, and tech that fuel their day. For partners, we provide a full-stack platform for businesses to amplify growth and drive more meaningful connections across advertising, search, and media. To learn more, please visit [yahooinc.com](http://yahooinc.com).
 
@@ -38,7 +38,7 @@ Yahoo is a global media and tech company that reaches nearly 900 million people 
 
 #### 4. Read and **Accept** the Terms of Service.
 
-![1288](../../../assets/media/images/0e9f6efb-7c14-413d-9380-f7cb9a5f04ab "Yahoo SAN.PNG")
+*[Image: 1288]*
 
 #### 5. Configure your events under the [Events Config](https://dashboard.branch.io/ads/partner-management/a_yahoo_san?tab=events) tab.
 

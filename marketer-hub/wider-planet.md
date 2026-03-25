@@ -3,7 +3,7 @@ title: "Wider Planet"
 slug: wider-planet
 ---
 
-![1328](/img/b4a0e34-Wider_Planet__branch(3).png "Wider Planet + branch.png")
+*[Image: 1328]*.png "Wider Planet + branch.png")
 
 ## Overview
 
@@ -46,7 +46,7 @@ You'll need to input your **Wider Planet Client ID**. Please reach out to your W
 
 Click the **Save & Enable** button.
 
-![](/img/0910aa8-Wider_planet_enable(3).png "Wider planet enable.png")
+.png "Wider planet enable.png")
 
 ### 2. Configure Postbacks
 
@@ -56,7 +56,7 @@ Enabling Wider Planet will automatically enable the following postbacks:
 - OPEN
 - PURCHASE
 
-![](/img/a01c167-wider_planet_postbacks(3).png "wider planet postbacks.png")
+.png "wider planet postbacks.png")
 
 You can configure these postbacks or add more under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_wider_planet?tab=postback) tab.
 
@@ -68,7 +68,7 @@ Optionally, you can check the checkbox for a given postback for sending all even
 
 Click the **Add New Postback** button at the bottom of the screen. A modal will appear that will allow you to select an event that you are tracking with the Branch SDKs (including Custom Events).
 
-![](/img/c1b289e-Add_New_Postbacks(110).gif "Add New Postbacks.gif")
+.gif "Add New Postbacks.gif")
 
 For more in-depth postback configurations, view our guides:
 
@@ -95,9 +95,9 @@ After configuring your events, navigate to the [**Attribution Windows**](https:/
 
 Next, you'll need to create a Branch Ad Link for your Wider Planet campaigns in order for Branch to properly attribute conversions.
 
-[![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/a516deb-small-95b5d97-small-Vectorlogo_1(98).png)
+[.png)
 
-![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/feddb04-Branch_badge_light_default-32x32.ico) help.branch.io
+ help.branch.io
 
 Create Ad Links](/docs/ad-links)
 

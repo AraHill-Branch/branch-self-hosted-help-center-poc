@@ -13,7 +13,7 @@ QR codes (Quick Response codes) are a great way to advertise your brand and get 
 
 The **QR Code** [tab](https://dashboard.branch.io/configuration/qr-code) of the **Configuration** [section](https://dashboard.branch.io/configuration/) of the Branch Dashboard allows you to design and edit your Branch QR Code, so that your company's branding remains seamless and consistent, whenever and wherever you use Branch Links.
 
-![](../../../assets/media/images/da45bbdb-3d54-4b4a-bef2-0e2ab144be90 "QR Code Builder.PNG")
+
 
 ## QR Codes Customization
 
@@ -25,7 +25,7 @@ The configurator allows you to edit the following elements of your default Branc
 
 #### Style & Pattern
 
-![](/img/3c12898-Style__Pattern.png "Style & Pattern.png")
+
 
 **Finder Style** lets you change the shape of the three corner elements (top-left, bottom-right, and lower-left) of your QR Code.
 
@@ -33,7 +33,7 @@ The configurator allows you to edit the following elements of your default Branc
 
 #### Color
 
-![](/img/d297953-Color.png "Color.png")
+
 
 You are also able to change the **Code Pattern Color**, **Background Color**, and **Finder Color**. You can either input an HTML color code (hexadecimal triplet) or use the color picker to choose your preferred color.
 
@@ -63,7 +63,7 @@ When creating your Branch QR Code, consider the contrast level of your Branch QR
 
 Branch QR Code’s physical sizing should be determined by the QR code's scanning distance and the data to be encoded. The ratio of the scanning distance to the size of the QR code should be close to 10:1, and you can use the following basic rule as described by [scanova.io](https://scanova.io/blog/qr-code-minimum-size/).
 
-![](../../../assets/media/images/9c9cf7a7-3268-4b8e-836d-e0dfc9e0895e "QR_Code_Size.PNG")
+
 
 ##### File Format Best Practices
 

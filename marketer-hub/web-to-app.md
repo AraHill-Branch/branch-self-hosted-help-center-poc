@@ -3,7 +3,7 @@ title: "Web to App"
 slug: web-to-app
 ---
 
-![253](/img/f43a142-phone-1(1).svg "phone-1.svg")
+*[Image: 253]*.svg "phone-1.svg")
 
 ## Overview
 
@@ -26,7 +26,7 @@ Getting users to your app can be a challenge. Journeys helps drive growth and en
 2. App opens or user is taken to App/Play Store to download the app.
 3. User is taken to app content they were viewing on web
 
-![](/img/79808d5-Screen_Shot_2021-09-28_at_2.45.05_PM(1).png "Screen Shot 2021-09-28 at 2.45.05 PM.png")
+.png "Screen Shot 2021-09-28 at 2.45.05 PM.png")
 
 ## Access
 
@@ -52,10 +52,10 @@ You can also implement the Branch Web SDK through your preferred Tag Manager (ex
 
 Follow our guide on [creating Journeys Banners or Interstitials](create-journey-banner-or-interstitial.md).
 
-![](/img/37c45a8-Screen_Shot_2021-09-28_at_3.24.37_PM(1).png "Screen Shot 2021-09-28 at 3.24.37 PM.png")
+.png "Screen Shot 2021-09-28 at 3.24.37 PM.png")
 
 #### 4. Test your Journeys
 
 Test your Journeys banner or interstitial by placing a web URL that is initializing the Branch Web SDK to see the banner in action!
 
-![](/img/b4f7340-Screen_Shot_2021-09-28_at_3.19.51_PM(1).png "Screen Shot 2021-09-28 at 3.19.51 PM.png")
+.png "Screen Shot 2021-09-28 at 3.19.51 PM.png")

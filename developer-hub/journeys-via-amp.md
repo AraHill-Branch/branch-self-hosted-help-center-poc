@@ -45,7 +45,7 @@ AMP pages by design make it difficult for users to go anywhere except back to Go
 
 1. AMP Journeys can be created as part of the normal [Journeys creation flow](https://help.branch.io/using-branch/docs/create-journey-banner-or-interstitial#1-select-audience). You can target users on AMP pages by checking the box **AMP Web** on the Select Audience step:
 
-![](/img/00a6d6e-Screen_Shot_2020-04-28_at_12.13.25_PM.png "Screen Shot 2020-04-28 at 12.13.25 PM.png")
+
 
 2. Click **Save & Continue** to configure your Journeys template and views.
 
@@ -59,7 +59,7 @@ AMP pages by design make it difficult for users to go anywhere except back to Go
 
 1. On the **Validate & Test** phase, you will see AMP-specific messages if you have targeted **AMP Web** users on the [Select Audience](journeys-via-amp.md#targeting-audiences-with-a-url) step.
 
-![](/img/e4877bd-Screen_Shot_2020-04-28_at_12.35.51_PM.png "Screen Shot 2020-04-28 at 12.35.51 PM.png")
+
 
 ## Error Messages & Troubleshooting
 
@@ -113,7 +113,7 @@ You can customize the appearance of a Journey dynamically using query parameters
 
 You can also add deep link data to a Journey in the dashboard. In the **Customize Template** screen, click the button and add your key:value pairs in the deep link data fields. For example if your deep linking key was **productId**:
 
-![](/img/257eb5e-Screen_Shot_2020-04-28_at_12.41.34_PM.png "Screen Shot 2020-04-28 at 12.41.34 PM.png")
+
 
 ## AMP Journey Limitations
 
@@ -126,7 +126,7 @@ Because javascript is limited on AMP and cookies are restricted on both AMP and 
 - Auto-opening the app with open\_app: true is not supported.
 - [Deep linking with setBranchViewData](https://help.branch.io/using-branch/docs/advanced-journeys-configuration#setup-via-web-sdk) is not supported.
 - [Branch-hosted deep link data](https://help.branch.io/developers-hub/docs/web-advanced-features#include-deep-link-data-in-html) will not be scraped.
-- If your site uses a template engine like Jinja that looks for and replaces liquid tags (ex: {{ yourObject }}), then you should confirm that it does not remove Branch tags on render. For Jinja specifically, you should wrap the Branch code on your AMP page with raw tags:
+- If your site uses a template engine like Jinja that looks for and replaces liquid tags (ex: &#123;&#123; yourObject &#125;&#125;), then you should confirm that it does not remove Branch tags on render. For Jinja specifically, you should wrap the Branch code on your AMP page with raw tags:
 
 ```
 {% raw %}

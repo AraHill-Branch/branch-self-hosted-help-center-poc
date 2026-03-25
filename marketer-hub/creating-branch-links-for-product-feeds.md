@@ -57,10 +57,10 @@ Since your product feed items' landing pages must match your display URL and not
 | ~branch\_ad\_format | Cross-Platform Display OR App Only |
 | ~channel | Display OR Shopping |
 | ~feature | paid advertising |
-| ~campaign | {{campaign.name}} |
-| ~ad\_id | {{ad.id}} |
-| ~ad\_set\_id | {{adset.id}} |
-| ~campaign\_id | {{campaign.id}} |
+| ~campaign | &#123;&#123;campaign.name&#125;&#125; |
+| ~ad\_id | &#123;&#123;ad.id&#125;&#125; |
+| ~ad\_set\_id | &#123;&#123;adset.id&#125;&#125; |
+| ~campaign\_id | &#123;&#123;campaign.id&#125;&#125; |
 
 Your Branch long link for Google Ads should look like this:
 
@@ -101,7 +101,7 @@ To include your Branch long link in the campaign's settings:
 3. In the **Campaign URL options** section, place the Branch long link in the **Tracking Template** field.
 4. Click **Save**.
 
-![](/img/356bc1b-tracking-template(1).png "tracking-template.png")
+.png "tracking-template.png")
 
 ## Facebook Data Feeds
 
@@ -132,10 +132,10 @@ To create a Branch link:
 | ~branch\_ad\_format | Cross-Platform Display OR App Only |
 | ~channel | Facebook |
 | ~feature | paid advertising |
-| ~campaign | {{campaign.name}} |
-| ~ad\_id | {{ad.id}} |
-| ~ad\_set\_id | {{adset.id}} |
-| ~campaign\_id | {{campaign.id}} |
+| ~campaign | &#123;&#123;campaign.name&#125;&#125; |
+| ~ad\_id | &#123;&#123;ad.id&#125;&#125; |
+| ~ad\_set\_id | &#123;&#123;adset.id&#125;&#125; |
+| ~campaign\_id | &#123;&#123;campaign.id&#125;&#125; |
 
 Your final link for Facebook looks like this:
 

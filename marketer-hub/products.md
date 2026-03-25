@@ -15,7 +15,7 @@ The Branch Growth Platform offers three main product offerings: **Engagement**, 
 
 With personalized creative campaigns and **reliable linking** experiences, Engagement ensures a seamless customer experience across email, social, web, and even offline.
 
-![](/img/4a70ec147515703688093317e31b5244f906bd0db4d50c4fe874a284e3e6385d-products-1.png)
+
 
 The Engagement product empowers marketers to overcome their biggest pain points by maximizing the impact of **owned and organic channels**.
 
@@ -55,7 +55,7 @@ Use smart banners (Journeys) to seamlessly move users to specific in-app content
 
 ## Performance
 
-![](/img/40453e9ee0aec6153345da110fa1fd8c6ea681225d90bdc5d3192b0b89272c7a-products-2.png)
+
 
 Our Performance product is ideal for measuring and optimizing campaign performance.
 
@@ -105,7 +105,7 @@ Help prevent wasted spend with higher quality data based on a privacy-preserving
 
 ## Activation
 
-![Mobile and desktop interface showcasing social media engagement and advertising features.](/img/image(94).png)Address common challenges in link creation and analytics with a more streamlined approach.
+*[Image: Mobile and desktop interface showcasing social media engagement and advertising features.]*.png)Address common challenges in link creation and analytics with a more streamlined approach.
 
 Branch Activation is an enterprise custom QR and link shortening offering enabling you to activate your customers with web links, app links, and QR codes, and report on user interactions at scale.
 

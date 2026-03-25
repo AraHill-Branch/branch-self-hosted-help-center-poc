@@ -17,7 +17,7 @@ The **Recent Activity** page allows you to view changes made in your Branch acco
 2. **History** - See edit history for all Products, Configuration, etc; based on your account timezone.
 3. **Accessibility** - Available to users with **Read**  access to **Sensitive Data** and also **Admins**.
 
-![](/img/b17088a-recent-activity.png "recent-activity.png")
+
 
 ## Supported Features
 

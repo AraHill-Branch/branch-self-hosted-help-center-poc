@@ -5,7 +5,7 @@ slug: stitch
 
 ## Stitch Webhooks
 
-![533](/img/080fd12-header2-1-1587756104876(1).png "header2-1-1587756104876.png")
+*[Image: 533]*.png "header2-1-1587756104876.png")
 
 This guide will walk you through how to send your Branch data to [**Stitch**](https://www.stitchdata.com/) using Branch Webhooks. Enabling this integration will result in automatically forwarding Branch events to Stitch.
 
@@ -32,7 +32,7 @@ For additional information on Replication, Schema, Webhook URLs, & Security, ple
 
 Once Stitch has successfully saved and created the Branch integration, you’ll be redirected to a page that displays your Branch webhook URL and token (which is blurred in the image below):
 
-![625](/img/3b0aa82-webhook-url.png "webhook-url.png")
+*[Image: 625]*
 
 Click the **Copy** button to copy it.
 

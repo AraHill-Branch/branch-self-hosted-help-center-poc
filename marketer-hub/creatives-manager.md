@@ -16,13 +16,13 @@ slug: creatives-manager
 
 ### Templates
 
-![](../../../assets/media/images/f829447f-c736-4ed8-b07a-b18d00241aad "Creatives Manager Template.PNG")
+
 
 The [Templates Tab](https://dashboard.branch.io/journeys/creatives/templates) allows you to view all of the default Branch-provided creatives. These templates are used as a starting point for the creatives that you customize for your brand and use case. There are 20+ templates to choose from, and this is where you start to [build new creatives](creatives-manager.md#buildedit-creatives).
 
 ### My Creatives
 
-![](../../../assets/media/images/6b2c7372-d310-4d47-b829-10e2aea228f3 "Creatives Manager My Creatives.PNG")
+
 
 The [My Creatives Tab](https://dashboard.branch.io/journeys/creatives/my-creatives) allows you to view all of the custom creatives that you or other team members have created. The creatives here can be [edited](creatives-manager.md#buildedit-creatives), [deleted](creatives-manager.md#delete-creatives), or [duplicated](creatives-manager.md#duplicate-creatives). Some of the creatives here may already be assigned to a Journey, while others might not be assigned yet.
 
@@ -42,7 +42,7 @@ You will need to name your unique creative and
 
 ##### View Editor
 
-![](../../../assets/media/images/664a7311-12b1-4f06-8e26-0caa5ecf0c1c "View Editor.PNG")
+
 
 The *View Editor Tab* allows you to utilize Branch's WYSIWYG editor to customize your creative. Just click on the element you want to edit, and the View Editor Tab will populate with fields you can input details about that element for you to customize (text, font, color, alignment, etc.).
 
@@ -62,13 +62,13 @@ Customizable Elements (elements dependent on the selected template):
 
 ##### CSS Editor
 
-![](../../../assets/media/images/2d3e5c03-adf0-48cb-aee2-b7dbafa4e23b "CSS Editor.PNG")
+
 
 You can utilize the *CSS Editor Tab* to customize your creative even further closer to your brand. This is for advanced users who have familiarity with CSS.
 
 ##### Page Placement
 
-![](../../../assets/media/images/f9ef225e-acc6-4540-b178-0f561d9018a6 "Page Placement.PNG")
+
 
 Use the *Page Placement Tab* to set the different styles of the way the banner/interstitial sits on the page.
 
@@ -76,7 +76,7 @@ Use the *Page Placement Tab* to set the different styles of the way the banner/i
 
 ##### Dismissal Settings
 
-![](../../../assets/media/images/787df192-0dbb-4649-a3de-6c3587076412 "Dismissal Settings.PNG")
+
 
 Use the *Dismissal Settings Tab* to adjust the behavior of your Journey when the user dismisses it. In some cases, rather than simply ignoring your Journeys, your users may want to dismiss them (by clicking either the **“X”** or the dismissal text on the Journey). In order to make sure that your users are having the best possible experience while also converting at the highest rate, you can adjust your Journeys’ dismissal settings while you’re setting up your creative.
 
@@ -95,18 +95,18 @@ When deleting a creative from the [My Creatives Tab](https://dashboard.branch.io
 
 #### Deleting an Assigned Creative
 
-![757](../../../assets/media/images/5ca115c4-7ff9-4f98-b3fd-64e6d02d7e3d "Delete Assigned Creative.PNG")
+*[Image: 757]*
 
 Attempting to delete will have an impact on a created Journey, so clicking **"Yes, Continue"** will redirect you to managing that Journey. You will need to unassign the creative from that Journey before you are able to delete it.
 
 #### Deleting an Unassigned Creative
 
-![760](../../../assets/media/images/d1316658-3da9-4456-8722-2a85477a4e06 "Delete Unassigned Creative.PNG")
+*[Image: 760]*
 
 Click **"Yes, Delete"** to permanently delete the creative.
 
 ## Duplicate Creatives
 
-![](../../../assets/media/images/2084f860-57db-46b6-aa00-14c80e5d087e "Duplicate.PNG")
+
 
 Duplicating a creative from the [My Creatives Tab](https://dashboard.branch.io/journeys/creatives/my-creatives) will make an exact copy of the selected creative and redirect you to [edit the duplicate creative](creatives-manager.md#buildedit-creatives).

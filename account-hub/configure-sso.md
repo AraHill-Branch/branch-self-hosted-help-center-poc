@@ -33,7 +33,7 @@ This step is different depending on whether you are on the [legacy](branch-dashb
 
 ### Step 2: Configure custom SAML
 
-![Branch configuration settings for SAML application including Single Sign-On URL and Entity ID.](/img/image-1754949283900.png)
+
 
 #### Step 2.1: Create application
 
@@ -107,7 +107,7 @@ Configure your IdP to send the following three attributes in the SAML response:
    4. Select an option for **Sign Request Algorithm Digest** (SHA256 recommended).
    5. Select an option for **Request Protocol Binding** (HTTP-Post recommended).  
         
-      ![Branch settings for SAML authentication request signing and algorithm selection options displayed.](/img/image (3).png)
+      *[Image: Branch settings for SAML authentication request signing and algorithm selection options displayed.]*.png)
 3. Click **Create Connection**. You will see an alert modal letting you know that doing this will enable SSO access to Branch.
 4. Click **Proceed.**
 

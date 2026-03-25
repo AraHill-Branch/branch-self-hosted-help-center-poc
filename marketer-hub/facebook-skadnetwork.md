@@ -72,7 +72,7 @@ a. Log in to your [Branch Dashboard](https://dashboard.branch.io)
 b. On the left-hand navigation bar navigate to Ads → Partner Management  
 c. Search or scroll to find Facebook
 
-![](../../../assets/media/images/ab77fbf1-1d6f-4f95-b75a-b14efea4016f "Facebook Ad Partner.PNG")
+
 
 **Note:** Conversion Value URL will only be visible for customers that have [opted into Branch SDK support on the SKAdNetwork Configurations](https://dashboard.branch.io/ads/skadnetwork/configuration/sdk-opt-in).
 
@@ -82,17 +82,17 @@ c. Search or scroll to find Facebook
 
 #### 3. Go to Facebook Ads Manager and navigate to Events Manager
 
-![3208](/img/090d2a4-Screen_Shot_2021-02-19_at_12.36.51_PM.png "Screen Shot 2021-02-19 at 12.36.51 PM.png")
+*[Image: 3208]*
 
 #### 4. Go to "Settings" highlighted in the screenshot above and select "Set Up Events" under Configure App Events for SKAdNetwork
 
-![890](/img/b23ecd9-Screen_Shot_2021-02-19_at_12.37.14_PM.png "Screen Shot 2021-02-19 at 12.37.14 PM.png")
+*[Image: 890]*
 
 #### 5. Select "Import from Partner App"
 
 #### 6. Paste the URL copied from step 2 and click "Connect"
 
-![2110](/img/d389ac7-Screen_Shot_2021-02-19_at_12.46.48_PM.png "Screen Shot 2021-02-19 at 12.46.48 PM.png")
+*[Image: 2110]*
 
 ## SKAN Reports
 
@@ -102,7 +102,7 @@ You can use the Branch Dashboard to view reporting on all of your SKAN-related c
 | --- | --- | --- |
 | ad network | equals | `a_facebook` |
 
-![](/img/847c45a-FB_SKAN_4.png)
+
 
 ::: info Additional Resources
 You can see more ways to view SKAN Reports with our guide [here](skadnetwork-dashboard-reports.md).
@@ -114,7 +114,7 @@ You can see more ways to view SKAN Reports with our guide [here](skadnetwork-das
 
 If you receive the following error when pasting the Branch conversion schema URL:
 
-![1216](/img/d04a715-Image_2021-04-13_at_17.50.41.jpg "Image 2021-04-13 at 17.50.41.jpg")
+*[Image: 1216]*
 
 Please ensure the following:
 

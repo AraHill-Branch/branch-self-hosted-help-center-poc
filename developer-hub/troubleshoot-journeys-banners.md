@@ -62,4 +62,3 @@ The image will not look appropriately scaled in the editor view because the dash
 <div class="branch-journeys-top"></div>
 ```
 
-![](/img/85b2c45-Screen_Shot_2020-04-27_at_3.56.11_PM.png "Screen Shot 2020-04-27 at 3.56.11 PM.png")

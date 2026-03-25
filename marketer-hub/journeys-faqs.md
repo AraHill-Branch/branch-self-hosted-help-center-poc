@@ -20,7 +20,7 @@ Below are guidelines for reducing any negative contribution related to Journeys:
 
 1. Set the Page Placement of the banner/interstitial to the "Customize Container (iFrame)" option
 
-![954](/img/2f25336-Screen_Shot_2021-07-07_at_9.40.20_AM(1).png "Screen Shot 2021-07-07 at 9.40.20 AM.png")
+*[Image: 954]*.png "Screen Shot 2021-07-07 at 9.40.20 AM.png")
 
 2. Change the CSS based on the type of banner/interstitial:
 

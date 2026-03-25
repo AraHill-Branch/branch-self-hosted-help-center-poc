@@ -3,7 +3,7 @@ title: "Doubleclick (Legacy)"
 slug: doubleclick-legacy
 ---
 
-![533](/img/707a649-dc_newlogo-1528503421215.png "dc_newlogo-1528503421215.png")
+*[Image: 533]*
 
 ## Overview
 
@@ -31,13 +31,13 @@ Before we start anything on the Branch side, we need to configure options on the
 
 First, we'll need to grab the advertiser ID. Select the advertiser you want to track, and grab the Advertiser ID. In this example, it is 6637276. This is the advertiser you will track campaigns with. Please keep note of it.
 
-![534](/img/cf122b4-advertiser.png "advertiser.png")
+*[Image: 534]*
 
 ##### Grab Server to Server Token
 
 Once you've captured the advertiser ID and selected the advertiser, navigate to **Floodlight Configuration**. From there, go to "server to server", and make sure "in-app attribution tracking" is check-marked. Click new token, call it “Branch token”, and save it. Copy this value, as well.
 
-![988](/img/7ca7bf6-server-token.png "server-token.png")
+*[Image: 988]*
 
 Now that you have **Advertiser ID** and **Server to Server Token**, the last step is to find the events you need to track.
 
@@ -45,7 +45,7 @@ Now that you have **Advertiser ID** and **Server to Server Token**, the last ste
 
 Go to the **Floodlight activities** tab. For all the events you want to track, grab the **Activity tag String** and **Group tag String**.
 
-![1596](/img/553c612-cat-type.png "cat-type.png")
+*[Image: 1596]*
 
 In the above screenshot, the two values for **Activity tag String** are *act-ios* and *act-android*. The one value for **Group tag String** is *sales*. Do this for all activities you want to track.
 
@@ -85,7 +85,7 @@ If you don't have two different tags for iOS and Android, then it will look simp
 
 `https://ad.doubleclick.net/ddm/s2s/appactivity/src=6637276;cat=act-tag;type=sales;ord=${ (id)! }`
 
-![1300](/img/212c288-final-postback-doubleclick.png "final-postback-doubleclick.png")
+*[Image: 1300]*
 
 ## Setup 2: Seeing data in Branch, postbacks to ad partners
 

@@ -5,7 +5,7 @@ slug: household-measurement
 
 ## Overview
 
-![](/img/104de4ff57dfa6486d25573d6f673a38bcdf92101c420749b91cce6dc3d6d437-Screenshot_2024-09-25_at_3.50.18_PM(1).png)Users are spending more time with their connected TVs (CTVs) than ever before, making it an increasingly important part of any cross-platform growth strategy.
+.png)Users are spending more time with their connected TVs (CTVs) than ever before, making it an increasingly important part of any cross-platform growth strategy.
 
 CTV refers to the **devices** themselves that enable streaming video over the internet, e.g. smart TVs, streaming devices, and gaming consoles.
 
@@ -17,7 +17,7 @@ Read more about Household Measurement, the problem it's solving, and the benefit
 
 ## What is Household Measurement?
 
-![](/img/3a0c68f4fe2ac46d4f1d4840bff2349af5853a860770ca505522849fa6f3ee9b-household-1(2).png)Branch's Household Measurement feature is able to track downstream conversions across multiple household devices, such as mobile phones, desktops, laptops, and tablets.
+.png)Branch's Household Measurement feature is able to track downstream conversions across multiple household devices, such as mobile phones, desktops, laptops, and tablets.
 
 Household Measurement attributes TV ad engagements to downstream conversions on other devices, which gives you more precise performance tracking and enables you to justify your TV ad spend.
 
@@ -51,19 +51,19 @@ Household Measurement supports three attribution flows. Learn about each below.
 
 View-through and click-through attribution of TV ad engagements. Put differently, this measures **TV ad engagements to TV conversions**.
 
-![](/img/29001e4eeed980095d07caadacb38eb40ce23c8be7f5a82760faa6c460e576f2-Screenshot_2024-09-25_at_2.54.47_PM(1).png)
+.png)
 
 #### TV to Web/Mobile
 
 View-through attribution of TV ad impressions that lead to a conversion on web or mobile. Here we are measuring **TV ad engagements that lead to non-TV (web/mobile) ad engagements**.
 
-![](/img/e648023df82e68658f44fb4f036143f05be4c76a21e4eb62d76a42c921849563-Screenshot_2024-09-25_at_2.56.18_PM(1).png)
+.png)
 
 #### Web/Mobile to TV
 
 View-through of web or mobile ad impressions that lead to a TV conversion. This measures **non-TV (web/mobile) ad engagements to TV ad engagements**.
 
-![](/img/ef79766811a5607ebe93bb0c337ddebbd96c3f00ecab7242a38adbcc4704b097-Screenshot_2024-09-25_at_2.57.21_PM(1).png)
+.png)
 
 ## Use Cases
 

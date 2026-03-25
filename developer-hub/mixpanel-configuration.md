@@ -3,7 +3,7 @@ title: "Mixpanel Configuration"
 slug: mixpanel-configuration
 ---
 
-![1328](/img/8997fdb-Mixpanel__branch.png "Mixpanel + branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -21,11 +21,11 @@ Branch will send *referred* **installs** and **opens**, **commerce**, **content*
 
 Branch events will appear alongside your other tracked events in Mixpanel. These events will automatically have `[Branch]` prepended.
 
-![](/img/72745d3-5cfeff3-branch-mixpanel.png "5cfeff3-branch-mixpanel.png")
+
 
 Additionally, individual events, such as those seen in Live View or visible when looking at People, will have Branch Link data included. Here's an example:
 
-![](/img/db84f65-9a0b868-mixpanel-live-view.png "9a0b868-mixpanel-live-view.png")
+
 
 Branch events are similar to Mixpanel events in that they can be used in your existing funnels and tracked on the various pages and dashboards. However, unlike normal events, Branch events contain invaluable information about how users ended up in your app in the first place.
 
@@ -51,7 +51,7 @@ For the basic, codeless integration: find your Mixpanel Token and enter it into 
 2. Click on **Account** in the navigation bar at the top of the page.
 3. Choose **Projects** in the modal that appears, then copy your app’s Token:
 
-![](/img/ea2c577-91d9bde-mixpanel-token.png "91d9bde-mixpanel-token.png")
+
 
 ## 2. Connect Mixpanel in Branch
 
@@ -59,7 +59,7 @@ In the Branch Dashboard in Data Feeds → [**Data Integrations** tab](https://da
 
 Enter the Android and iOS tokens from the previous step, then hit **Enable**.
 
-![2332](/img/7e14904-mixpanel_enable.png "mixpanel enable.png")
+*[Image: 2332]*
 
 Note: If you only have one **Measurement/Tracking ID**, then enter the same ID for both iOS and Android.
 

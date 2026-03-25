@@ -36,13 +36,13 @@ Branch will notify those on the email list of the following alerts:
 
 Enabling the Alert Notification system can be accessed directly through the **Configuration** screen and on the [**Alert Notifications** tab](https://dashboard.branch.io/configuration/alert-notifications). For each alert, you can **configure recipients**, **enable/disable alerts**, **update configuration**, and **subscribe**.
 
-![](../../../assets/media/images/e3f8849d-7f08-44a8-9666-129961d86dd3 "Notification System.PNG")
+
 
 ### Recipients
 
 Selecting **Recipients** will allow you to view the full list of users who are receiving emails for a given alert. Here you'll be able to add/remove recipients by role or by email address. Only admins can add other recipients while individual users can subscribe themselves directly from the subscribe button.
 
-![](../../../assets/media/images/8d0bcde3-625b-4e65-bc03-b9e521580ad3 "Recipients.PNG")
+
 
 ### Subscribe
 
@@ -56,4 +56,3 @@ This action will change the status of the alert to be **ACTIVE** or **DISABLED**
 
 **Update Configuration** allows you to set the different thresholds for the success rate of *Postbacks* and *Webhooks*. Additionally, you can filters for specific ad partners by clicking the **+ Add More Partner(s) Filters** button.
 
-![](../../../assets/media/images/ae53ee8b-543d-471a-8ac5-266305fd84e7 "Update Configuration.PNG")

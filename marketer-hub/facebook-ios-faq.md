@@ -165,18 +165,18 @@ For example: `https://apps.apple.com/us/app/branch-monster-factory/id917737838` 
 1. Visit the *Ads → Partner Management → Facebook* page in the Branch dashboard.  
     Note: Conversion Value URL will only be visible for customers that have opted in to Branch SDK support on the SKAdNetwork Configurations dashboard
 
-   ![ae32d3f-Screen_Shot_2021-03-04_at_4.29.27_PM.png](/img/ae32d3f-Screen_Shot_2021-03-04_at_4.29.27_PM.png)
+   
 2. Copy and paste the URL.
 3. Go to Facebook Ads Manager and navigate to Events Manager.
 
-   ![090d2a4-Screen_Shot_2021-02-19_at_12.36.51_PM.png](/img/090d2a4-Screen_Shot_2021-02-19_at_12.36.51_PM(1).png)
+   *[Image: 090d2a4-Screen_Shot_2021-02-19_at_12.36.51_PM.png]*.png)
 4. Go to "Settings" highlighted in the screenshot above and select "Set Up Events" under Configure App Events for SKAdNetwork
 
-   ![b23ecd9-Screen_Shot_2021-02-19_at_12.37.14_PM.png](/img/b23ecd9-Screen_Shot_2021-02-19_at_12.37.14_PM(1).png)
+   *[Image: b23ecd9-Screen_Shot_2021-02-19_at_12.37.14_PM.png]*.png)
 5. Select "Import from Partner App"
 6. Copy and paste the URL and hit "Connect"
 
-   ![](/img/d389ac7-Screen_Shot_2021-02-19_at_12.46.48_PM.png)
+   
 
 The Conversion Bit Schema sync functionality is intended to support customers who are using the Branch SDK for SKAdNetwork support.
 
@@ -220,7 +220,7 @@ As of April 7, 2021, Facebook has provided the following guidance about this iss
 
 If you receive the following error when pasting the Branch conversion schema URL:
 
-![d04a715-Image_2021-04-13_at_17.50.41.jpg](/img/d04a715-Image_2021-04-13_at_17.50.41(1).jpg)
+*[Image: d04a715-Image_2021-04-13_at_17.50.41.jpg]*.jpg)
 
 Please ensure the following:
 

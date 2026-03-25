@@ -7,7 +7,7 @@ slug: flutter-sdk-full-reference
 
 | Method | Description |
 | --- | --- |
-| [Stream<Map<dynamic, dynamic>> initSession()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L35) | Initiates a session with the Branch API through a listener. |
+| [Stream\&lt;Map\&lt;dynamic, dynamic\&gt;\&gt; initSession()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L35) | Initiates a session with the Branch API through a listener. |
 
 #### Example Usage
 
@@ -96,7 +96,7 @@ FlutterBranchSdk.setIdentity('user1234567890');
 
 | Method | Description |
 | --- | --- |
-| [Future<bool> isUserIdentified()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L114) | Indicate whether or not this user has a custom identity specified for them. Note that this is independent of installs.If you call the `setIdentity` method, this device will have that identity associated with this user until the `logout` method is called.This includes persisting through uninstalls, as device ID is tracked. |
+| [Future\&lt;bool\&gt; isUserIdentified()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L114) | Indicate whether or not this user has a custom identity specified for them. Note that this is independent of installs.If you call the `setIdentity` method, this device will have that identity associated with this user until the `logout` method is called.This includes persisting through uninstalls, as device ID is tracked. |
 
 #### Example Usage
 
@@ -140,7 +140,7 @@ FlutterBranchSdk.handleDeepLink('myapp://open?link_click_id=12345');
 
 | Method | Description |
 | --- | --- |
-| [Future<Map<dynamic, dynamic>> getLatestReferringParams()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L19) | Return the last parameters associated with the link that referred the user to the current app session. |
+| [Future\&lt;Map\&lt;dynamic, dynamic\&gt;\&gt; getLatestReferringParams()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L19) | Return the last parameters associated with the link that referred the user to the current app session. |
 
 #### Example Usage
 
@@ -154,7 +154,7 @@ Map<dynamic, dynamic> params = await FlutterBranchSdk.getLatestReferringParams()
 
 | Method | Description |
 | --- | --- |
-| [Future<Map<dynamic, dynamic>> getFirstReferringParams()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L24) | Return the first parameters associated with the link that referred the user. Consider this as the parameters used to retrieve the details from the user's first app session. |
+| [Future\&lt;Map\&lt;dynamic, dynamic\&gt;\&gt; getFirstReferringParams()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L24) | Return the first parameters associated with the link that referred the user. Consider this as the parameters used to retrieve the details from the user's first app session. |
 
 #### Example Usage
 
@@ -186,7 +186,7 @@ FlutterBranchSdk.disableTracking(true);
 
 | Method | Description |
 | --- | --- |
-| [Future<BranchResponse> getShortUrl( {required BranchUniversalObject buo, required BranchLinkProperties linkProperties})](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L47) | Generate a [Branch Short Link](creating-a-deep-link.md#short-links) used for deep linking and attribution. |
+| [Future\&lt;BranchResponse\&gt; getShortUrl( {required BranchUniversalObject buo, required BranchLinkProperties linkProperties})](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L47) | Generate a [Branch Short Link](creating-a-deep-link.md#short-links) used for deep linking and attribution. |
 
 | Argument | Type | Description |
 | --- | --- | --- |
@@ -237,7 +237,7 @@ if (response.success) {
 
 | Method | Description |
 | --- | --- |
-| [Future<BranchResponse> showShareSheet( {required BranchUniversalObject buo, required BranchLinkProperties linkProperties, required String messageText, String androidMessageTitle = '', String androidSharingTitle = ''})](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L55) | Display a share sheet to prompt the user to share to an external platform (ex. messaging) |
+| [Future\&lt;BranchResponse\&gt; showShareSheet( {required BranchUniversalObject buo, required BranchLinkProperties linkProperties, required String messageText, String androidMessageTitle = '', String androidSharingTitle = ''})](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L55) | Display a share sheet to prompt the user to share to an external platform (ex. messaging) |
 
 | Argument | Type | Description |
 | --- | --- | --- |
@@ -270,8 +270,8 @@ if (response.success) {
 
 | Method | Description |
 | --- | --- |
-| [Future<BranchResponse> getQRCodeAsData( {required BranchUniversalObject buo, required BranchLinkProperties linkProperties, required BranchQrCode qrCode})](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L175) | Method `getQRCodeAsData` returns the QR code as Uint8List. Can be stored in a file or converted to image. |
-| [Future<BranchResponse> getQRCodeAsImage( {required BranchUniversalObject buo, required BranchLinkProperties linkProperties, required BranchQrCode qrCode})](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L184) | Method `getQRCodeAsImage` returns the QR code as a Image. |
+| [Future\&lt;BranchResponse\&gt; getQRCodeAsData( {required BranchUniversalObject buo, required BranchLinkProperties linkProperties, required BranchQrCode qrCode})](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L175) | Method `getQRCodeAsData` returns the QR code as Uint8List. Can be stored in a file or converted to image. |
+| [Future\&lt;BranchResponse\&gt; getQRCodeAsImage( {required BranchUniversalObject buo, required BranchLinkProperties linkProperties, required BranchQrCode qrCode})](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L184) | Method `getQRCodeAsImage` returns the QR code as a Image. |
 
 | Argument | Type | Description |
 | --- | --- | --- |
@@ -280,7 +280,7 @@ if (response.success) {
 | `margin` | `Integer (Pixels)` | The number of pixels you want for the margin. Min 1px. Max 20px. |
 | `width` | `Integer (Pixels)` | Output size of QR Code image. Min 300px. Max 2000px. (Only applicable to JPEG/PNG) |
 | `imageFormat` | `BranchImageFormat` | JPEG, PNG |
-| `centerLogoUrl` | `String (HTTP URL)` | URL to the image you want as a center logo e.g. <https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/branch%20logo%20qrcode.jpeg> |
+| `centerLogoUrl` | `String (HTTP URL)` | URL to the image you want as a center logo e.g. \&lt;https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/branch%20logo%20qrcode.jpeg\&gt; |
 
 #### Example Usage
 
@@ -367,7 +367,7 @@ FlutterBranchSdk.registerView(buo: buo);
 
 | Method | Description |
 | --- | --- |
-| [Future<bool> listOnSearch( {required BranchUniversalObject buo, BranchLinkProperties? linkProperties})](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L89) | On iOS, list items on Spotlight. |
+| [Future\&lt;bool\&gt; listOnSearch( {required BranchUniversalObject buo, BranchLinkProperties? linkProperties})](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L89) | On iOS, list items on Spotlight. |
 
 | Argument | Type | Description |
 | --- | --- | --- |
@@ -387,7 +387,7 @@ print(success);
 
 | Method | Description |
 | --- | --- |
-| [Future<bool> removeFromSearch( {required BranchUniversalObject buo, BranchLinkProperties? linkProperties})](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L98) | On iOS, remove the BUO from Spotlight if privately indexed. |
+| [Future\&lt;bool\&gt; removeFromSearch( {required BranchUniversalObject buo, BranchLinkProperties? linkProperties})](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L98) | On iOS, remove the BUO from Spotlight if privately indexed. |
 
 | Argument | Type | Description |
 | --- | --- | --- |
@@ -427,7 +427,7 @@ FlutterBranchSdk.setIOSSKAdNetworkMaxTime(24);
 
 | Method | Description |
 | --- | --- |
-| [Future<AppTrackingStatus> requestTrackingAuthorization()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L121) | Request AppTracking Authorization and returns AppTrackingStatus on **iOS only**. |
+| [Future\&lt;AppTrackingStatus\&gt; requestTrackingAuthorization()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L121) | Request AppTracking Authorization and returns AppTrackingStatus on **iOS only**. |
 
 #### Example Usage
 
@@ -442,7 +442,7 @@ print(status);
 
 | Method | Description |
 | --- | --- |
-| [Future<AppTrackingStatus> getTrackingAuthorizationStatus()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L127) | Return AppTrackingStatus on **iOS only**. |
+| [Future\&lt;AppTrackingStatus\&gt; getTrackingAuthorizationStatus()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L127) | Return AppTrackingStatus on **iOS only**. |
 
 #### Example Usage
 
@@ -457,7 +457,7 @@ print(status);
 
 | Method | Description |
 | --- | --- |
-| [Future<String> getAdvertisingIdentifier()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L133) | Return the advertising identifier on **iOS only**. |
+| [Future\&lt;String\&gt; getAdvertisingIdentifier()](https://github.com/BranchMetrics/flutter_branch_sdk/blob/master/lib/src/flutter_branch_sdk.dart#L133) | Return the advertising identifier on **iOS only**. |
 
 #### Example Usage
 

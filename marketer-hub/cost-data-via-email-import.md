@@ -44,7 +44,7 @@ Let's walk through the features of the **Email Importers** [view](https://dashbo
 
 First, click on the **Import** [tab](https://branch.dashboard.branch.io/ads/roi-hub/import) in ROI Hub. Then click on **Email Importers**.
 
-![0aef6f8e8d79da1056664deb32e6f0e71253de2f6512088ac5b025670b989800-Screenshot_2025-02-27_at_2.13.48_PM.png](/img/0aef6f8e8d79da1056664deb32e6f0e71253de2f6512088ac5b025670b989800-Screenshot_2025-02-27_at_2.13.48_PM.png)
+
 
 ### Create Email Importer
 
@@ -74,13 +74,13 @@ To create a new email cost importer:
 3. The next step is optional, but we recommend uploading a sample CSV file that represents the kind of file you expect to be sent to Branch, so that you can validate the formatting.
 
    In the **Test sample file** section, click the **Upload** button to upload the sample file. Then click the **Run quick validation** button.  
-   ![00c608d7c6ec61257fa278cb62e52b53404eceab2597280fa29de4f8d3091e06-Screenshot_2024-11-12_at_5.10.52_PM.png](/img/00c608d7c6ec61257fa278cb62e52b53404eceab2597280fa29de4f8d3091e06-Screenshot_2024-11-12_at_5.10.52_PM(1).png)
+   *[Image: 00c608d7c6ec61257fa278cb62e52b53404eceab2597280fa29de4f8d3091e06-Screenshot_2024-11-12_at_5.10.52_PM.png]*.png)
 4. If your file is properly formatted, you will see a success message upon validation:  
-   ![c861a37b12772e0558868707a3d27b5e37f3cca951bcb03aa38800431b189357-Screenshot_2024-11-12_at_5.13.47_PM.png](/img/c861a37b12772e0558868707a3d27b5e37f3cca951bcb03aa38800431b189357-Screenshot_2024-11-12_at_5.13.47_PM(1).png)
+   *[Image: c861a37b12772e0558868707a3d27b5e37f3cca951bcb03aa38800431b189357-Screenshot_2024-11-12_at_5.13.47_PM.png]*.png)
 5. Once your file has been validated, click the **Generate Email Alias** button. This button sets up the email importer and also creates an email address alias.
 
    Note the email alias that gets generated. You will need to share this email alias with your ad partner so they can send cost data to Branch.  
-   ![805853a9d0f51cf7eacba3eac9810a3aa894703f1a47035e9a1cd919b547da71-2e9f0c18ffe6fc14e26a2a90a7a27d397513ecc1efb8baeec7c20bc46265c0b0-Screenshot_2024-11-12_at_5.20.31_PM.png](/img/805853a9d0f51cf7eacba3eac9810a3aa894703f1a47035e9a1cd919b547da71-2e9f0c18ffe6fc14e26a2a90a7a27d397513ecc1efb8baeec7c20bc46265c0b0-Screenshot_2024-11-12_at_5.20.31_PM.png)
+   
 
 ### Check Email Import Status
 

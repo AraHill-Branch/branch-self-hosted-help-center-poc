@@ -43,18 +43,18 @@ To enable Advanced SAN:
    2. Search for "TikTok For Business SAN" in the **Ad Partners** search bar and select the result.
    3. In the **Ad Account Information** section, find your **TikTok App IDs**. If you don't have these IDs, you will need to [generate them](https://ads.tiktok.com/help/article/how-to-generate-a-tiktok-app-id?lang=en) first.
 
-      ![](/img/e8e9b3f-Screenshot_2024-08-15_at_5.18.45_PM.png)
+      
 2. Configure your Branch Key in the TikTok Events Manager:
 
    1. Visit the Account Settings [page](https://dashboard.branch.io/account-settings/profile) of your Branch Dashboard.
    2. Copy the Branch Key listed there, which starts with `key_live_`.
 
-      ![](/img/2bd45fa-unnamed_1.png)
+      
    3. Follow the instructions [here](https://ads.tiktok.com/help/article/integrate-to-san-for-new-apps?lang=en) to transition your app to a SAN integration within TikTok Ads Manager.
 
       Once inside the TikTok Events Manager, paste your Branch Key into the Partner Token field in the **Edit Tracking** module on the app details page.
 
-      ![](/img/4503182d8442a989df2fd72b9b38c7de3246724847e0325b878e1104045821fe-Screenshot_2024-11-05_at_4.11.42_PM.png)
+      
    4. Click "Confirm" to update the Branch Key.
 
 ## Smart+ campaigns

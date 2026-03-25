@@ -3,7 +3,7 @@ title: "Braze | Sparkpost Configuration"
 slug: braze-sparkpost-configuration
 ---
 
-![1328](/img/0832156-Braze_Sparkpost(2).png "Braze Sparkpost+ branch.png")
+*[Image: 1328]*.png "Braze Sparkpost+ branch.png")
 
 ## Overview
 
@@ -11,7 +11,7 @@ The Braze platform makes messages feel more like conversations between you and y
 
 ## How does it work?
 
-![](../../../assets/media/images/2e51a423-7fee-4166-9e3b-142c2e0b7b9f "Branch Email Flow.PNG")
+
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.
@@ -51,7 +51,7 @@ In order to enable Braze + Sparkpost, you must first:
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Braze Sparkpost** and click **Enable**
 
-![1101](/img/b568ff5-be34336-braze-sparkpost-enable.gif "be34336-braze-sparkpost-enable.gif")
+*[Image: 1101]*
 
 ### Input Click Tracking Domain
 
@@ -69,7 +69,7 @@ For additional help, please see Sparkpost's [documentation](https://www.sparkpos
 - You can enable the integration with multiple CTDs, if needed, but you **cannot** add the same CTD to multiple Branch Dashboards or ESP integrations.
 :::
 
-![](/img/a40292d-92f8477-braze-sparkpost-ctd.png "92f8477-braze-sparkpost-ctd.png")
+
 
 ### SparkPost proxy domain
 
@@ -81,13 +81,13 @@ The Braze + SparkPost integration includes an optional **SparkPost Proxy Domain*
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#3-configure-associated-domains).
 
-![](/img/9f475e3-Associated_Domains(6).png "Associated Domains.png")
+.png "Associated Domains.png")
 
 ### Return `YES` to `continueUserActivity`
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md#return-yes-to-continueuseractivity).
 
-![](/img/13dc276-branch-universal-link-domain(6).png "branch-universal-link-domain.png")
+.png "branch-universal-link-domain.png")
 
 ## Point DNS CNAME to Branch
 

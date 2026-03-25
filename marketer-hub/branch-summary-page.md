@@ -17,11 +17,11 @@ The [Overview](https://dashboard.branch.io/) page provides a global overview of 
 - Ads
 - Email
 
-![](../../../assets/media/images/7cd32637-5cde-4d5c-9c32-9a9f5ae78c67 "All Data.PNG")
+
 
 ## Report Settings
 
-![](../../../assets/media/images/18f389ad-628f-4fdb-84ac-132e8e39f2d2? "Report Settings.PNG")
+
 
 ### Date Range
 
@@ -42,7 +42,7 @@ There are built-in date ranges to choose from or you can have a custom date rang
 
 You can easily share the Overview page in its current state - i.e including whatever changes you have made to default view - by clicking on the link button and copying the auto-generated Branch Link. Users who have access to your Branch Dashboard will then be able to see the view you've shared.
 
-![](../../../assets/media/images/fa24f391-afab-4353-8e39-ed5c753aa731 "Sharing.PNG")
+
 
 ### Saving
 
@@ -50,13 +50,13 @@ You can also save the Overview page in its current state - i.e including whateve
 
 You can also access your previously saved views here as well.
 
-![](../../../assets/media/images/98c199e6-a1e7-45cf-85fd-b2bd0b7d43db "Saving.PNG")
+
 
 ### Resetting
 
 You can reset the Overview page back to its default state at any time, by clicking on the reset button.
 
-![](/img/d507152-Reset.png "Reset.png")
+
 
 ## Summary Tiles
 
@@ -77,7 +77,7 @@ To change which event is shown:
 3. From the **Show** drop-down, select the event you want to populate the graph with.
 4. Click **Save**.
 
-![](/img/6aba0b0-customize-tiles.gif "customize-tiles.gif")
+
 
 Each tile can be customized to show one of the following events:
 
@@ -100,13 +100,13 @@ Each tile can be customized to show one of the following events:
 
 ## Summary Charts
 
-![](/img/e539da5-Summary_Charts.gif "Summary Charts.gif")
+
 
 Summary Charts are an easy-to-use way for you to be able to see campaign performance quickly at a high level. It's a great tool to compare multiple data sources to find valuable insights.
 
 ### Customization
 
-![](../../../assets/media/images/7d8f6ffe-09f8-430d-beb2-a59b91530032 "Customization.PNG")
+
 
 #### Show
 
@@ -155,6 +155,6 @@ By clicking the button in the upper right hand corner of the chart, you have the
 
 ## Events/Performance Table
 
-![](../../../assets/media/images/36fc85a5-1170-4232-84bc-07c19070f459 "Table.PNG")
+
 
 For a full guide on customizing the events/performance table, view our guide on [Dashboard Reports](dashboard-reports.md#eventsperformance-table).

@@ -19,7 +19,7 @@ slug: ios-17-privacy-overview
 
 ## Timelines
 
-![](/img/4c77e60-Screenshot_2023-10-10_at_8.26.40_PM.png)
+
 
 ## Branch Support
 

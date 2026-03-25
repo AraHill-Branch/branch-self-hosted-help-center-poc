@@ -3,7 +3,7 @@ title: "Customer.io Configuration"
 slug: customerio-configuration
 ---
 
-![1328](/img/f354b43-customer_io_branch.png "customer io+ branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -11,7 +11,7 @@ With Customer.io, send targeted emails, push notifications, and SMS to lower chu
 
 ## How does it work?
 
-![](../../../assets/media/images/47132081-5d4d-4515-96c7-6b394bda78ef "Branch Email Flow.PNG")
+
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content if the link was designated to open the app.
@@ -51,7 +51,7 @@ In order to enable Customer.io, you must first:
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Customer.io** and click **Enable**
 
-![1415](/img/4b90229-b3ce347-customerio-enable.gif "b3ce347-customerio-enable.gif")
+*[Image: 1415]*
 
 ### Input Click Tracking Domain
 
@@ -67,7 +67,7 @@ The Customer.io integration requires you provide the following:
 - You can enable the integration with multiple CTDs, if needed, but you **cannot** add the same CTD to multiple Branch Dashboards or ESP integrations.
 :::
 
-![](/img/67084e8-b3387f6-customerio-ctd.png "b3387f6-customerio-ctd.png")
+
 
 ## Configure your App
 
@@ -75,13 +75,13 @@ The Customer.io integration requires you provide the following:
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#3-configure-associated-domains).
 
-![](/img/9f475e3-Associated_Domains(10).png "Associated Domains.png")
+.png "Associated Domains.png")
 
 ### Return `YES` to `continueUserActivity`
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md#return-yes-to-continueuseractivity).
 
-![](/img/13dc276-branch-universal-link-domain(10).png "branch-universal-link-domain.png")
+.png "branch-universal-link-domain.png")
 
 ## Point DNS CNAME to Branch
 

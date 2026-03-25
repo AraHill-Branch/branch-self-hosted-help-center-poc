@@ -3,7 +3,7 @@ title: "Cheetah Digital Marketing Suite Configuration"
 slug: cheetah-digital-marketing-suite-configuration
 ---
 
-![1328](/img/70c8ea7-Cheetah_Digital_Marketing_Suite_branch.png "Cheetah Digital Marketing Suite+ branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -11,7 +11,7 @@ Cheetah Digital provides the technology and expertise marketers need to manage c
 
 ## How does it work?
 
-![](../../../assets/media/images/314960cf-4d66-43b0-9429-108bc9174fc4 "Branch Email Flow.PNG")
+
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.
@@ -51,7 +51,7 @@ In order to enable Cheetah Digital Marketing Suite, you must first:
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Cheetah Digital Marketing Suite** and click **Enable**
 
-![1101](/img/b920a28-cbf097e-cheetah-digital-marketing-suite-enable.gif "cbf097e-cheetah-digital-marketing-suite-enable.gif")
+*[Image: 1101]*
 
 ### Input Click Tracking Domain
 
@@ -67,7 +67,7 @@ The Cheetah Digital Marketing Suite integration requires you provide the followi
 - You can enable the integration with multiple CTDs, if needed, but you **cannot** add the same CTD to multiple Branch Dashboards or ESP integrations.
 :::
 
-![](/img/a5bd899-4ca8eff-cheetah-digital-marketing-suite-ctd.png "4ca8eff-cheetah-digital-marketing-suite-ctd.png")
+
 
 ## Configure your App
 
@@ -75,13 +75,13 @@ The Cheetah Digital Marketing Suite integration requires you provide the followi
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#3-configure-associated-domains).
 
-![](/img/9f475e3-Associated_Domains(9).png "Associated Domains.png")
+.png "Associated Domains.png")
 
 ### Return `YES` to `continueUserActivity`
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md#return-yes-to-continueuseractivity).
 
-![](/img/13dc276-branch-universal-link-domain(9).png "branch-universal-link-domain.png")
+.png "branch-universal-link-domain.png")
 
 ## Point DNS CNAME to Branch
 

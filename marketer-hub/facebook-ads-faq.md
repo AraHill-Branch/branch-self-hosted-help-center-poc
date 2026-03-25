@@ -458,6 +458,6 @@ If you would like to set up a campaign that is **not** for app installs, traffic
 3. Click **Create Campaign**.
 4. Continue through setup. On the **Adverts** tab, make sure the **App events** checkbox is selected and your app is properly linked.
 
-   ![](/img/577f1784a921be112be8de76eeb1dbdcce40e8ad808df881e62740bfde3d4326-image.png)
+   
 
 </details>

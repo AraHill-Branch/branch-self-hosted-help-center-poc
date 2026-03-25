@@ -46,7 +46,7 @@ Note: Unlike the prebuilt template, custom Deepview templates are shared between
 Using special characters like `+` for the name/key of the Deepview will break the URL. Avoid using special characters.
 :::
 
-![](/img/7a8f727-basic-editor-deepviews.png "basic-editor-deepviews.png")
+
 
 There are several properties that you can edit the Deepview using the different tabs:
 
@@ -68,7 +68,7 @@ You can configure your Branch Links to use Deepviews when the user clicks on the
 
 When creating a Branch [Short Link](create-quick-links.md), you can set a specific Deepview to show when users click on links without the app installed. Simply select **Deepview** for the platform, and the enabled Deepview of your choice in the dropdown.
 
-![](../../../assets/media/images/3138f4ee-fbfd-4fb5-b049-7cd6c6b8fc5e "Short Link Deepview.PNG")
+
 
 #### Branch Link data
 

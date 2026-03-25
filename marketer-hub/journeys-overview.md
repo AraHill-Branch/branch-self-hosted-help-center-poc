@@ -3,7 +3,7 @@ title: "Journeys Overview"
 slug: journeys-overview
 ---
 
-![](/img/e7f2b38-journeys-examples.png "journeys-examples.png")
+
 
 Converting your mobile web visitors into native app users is one of the most effective and efficient acquisition channels available, and Branch's Journeys App Banners platform makes this easy with the following features:
 
@@ -16,7 +16,7 @@ Converting your mobile web visitors into native app users is one of the most eff
 
 ### How does it work?
 
-![](/img/c87013e-Journeys_Flow.png "Journeys Flow.png")
+
 
 1. User lands on your mobile website and sees a banner or full-page interstitial promoting the mobile app.
 2. User clicks the call to action to install or open the mobile app.

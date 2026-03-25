@@ -35,13 +35,13 @@ However, we will still collect and use IDFAs when available if you do choose to 
   - **New Branch**: In the left-hand navigation, go to **Configuration** and click on **Link Controls**. Navigate to the **Link Routing Rules** tab, then find the **Mobile Routing** section and select **iOS**.
   - **Legacy Branch**: Navigate to the [Link Settings page](https://dashboard.branch.io/settings/link).
 
-![](/img/a81a05a-ios-bundle-id.png "ios-bundle-id.png")
+
 
 ### Confirm App Prefix
 
 - From your [Apple Developer Account](https://developer.apple.com/account/ios/identifier/bundle)
 
-![](/img/cfa3912-ios-team-id.png "ios-team-id.png")
+
 
 ### Configure Branch & Enable Universal Links
 
@@ -50,9 +50,9 @@ However, we will still collect and use IDFAs when available if you do choose to 
   - **New Branch**: In the left-hand navigation, go to **Configuration** and click on **Link Controls**. Navigate to the **Link Routing Rules** tab, then find the **Mobile Routing** section and select **iOS**.
   - **Legacy Branch**: Navigate to the [Link Settings page](https://dashboard.branch.io/settings/link).
 
-![](/img/c4295d7-ios.png "ios.png")
 
-![](/img/9672c31-link-domain.png "link-domain.png")
+
+
 
 ### Configure Associated Domains
 
@@ -64,13 +64,13 @@ However, we will still collect and use IDFAs when available if you do choose to 
 - `test-` is needed if you need use a test key
 - If you use a [custom link domain](https://help.branch.io/#change-link-domain), you will need to include your old link domain, your `-alternate` link domain, and your new link domain
 
-![](/img/5b75d7d-ios-entitlements.png "ios-entitlements.png")
+
 
 ### Configure Entitlements
 
 - Confirm entitlements are within target
 
-![](/img/2766527-ios-package.png "ios-package.png")
+
 
 ### Configure `info.pList`
 
@@ -82,7 +82,7 @@ However, we will still collect and use IDFAs when available if you do choose to 
   - Add your URI scheme as `URL Types` -> `Item 0` -> `URL Schemes`
   - Do NOT add your API keys to the file (mParticle handles this via the dashboard)
 
-![](/img/4753c93-ios-plist.png "ios-plist.png")
+
 
 ## mParticle Setup
 
@@ -183,7 +183,7 @@ Please note that deferred deep linking is part of our Engagement package. Learn 
 5. Long press on the deep link (not 3D Touch).
 6. Click **Open in "APP\_NAME"**to open your app.
 
-![](/img/83b95b6-ios-notes.png "ios-notes.png")
+
 
 ## Implementing Features
 

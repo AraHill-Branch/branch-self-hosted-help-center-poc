@@ -3,7 +3,7 @@ title: "Xiaomi Pre-Install"
 slug: xiaomi-pre-install
 ---
 
-![636](/img/a9d480e-Xiomi.png "Xiomi.png")
+*[Image: 636]*
 
 ### Overview
 
@@ -64,10 +64,10 @@ Don't forget to release the app to the play store.
 
 In the Branch Dashboard under **Ads > Partner Management**, find/search for Xiaomi Airpreload. If you're already logged into the Branch Dashboard, you can also click [here](https://dashboard.branch.io/ads/partner-management/a_xiaomipai?tab=settings) to go there directly.
 
-![1483](/img/4805e97-Xiomi_Branch_Settings.png "Xiomi Branch Settings.png")
+*[Image: 1483]*
 
 ### 5. View Data in Branch
 
 As campaigns run, you will be able to measure the performance of the pre-install analytics directly on the Branch Dashboard.
 
-![1507](/img/9598fca-Xiomi_Branch_Analytics.png "Xiomi Branch Analytics.png")
+*[Image: 1507]*

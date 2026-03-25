@@ -5,7 +5,7 @@ slug: glispa
 
 ## Overview
 
-![](/img/9bf361d-glispa-logo.png "glispa-logo.png")
+
 
 [Glispa](https://www.glispa.com/)  is a mobile ad tech company. We are dedicated to empowering our partners with sophisticated solutions that make it simple for agencies and brands to connect with target audiences and for publishers to monetize their apps. Our product suite is tailored to design a more valuable experience for the user by creating real connections. This approach, combined with our deep understanding of the industry, provides our partners with the best set of tools to make mobile ad tech simple.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Glispa.
 4. Select **Glispa** and click **Save & Enable**.
 
-   ![](/img/b537b82-enable-Glispa.png "enable-Glispa.png")
+   
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/fd78906-glispa_postback.png "glispa_postback.png")
+
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -81,7 +81,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/44fc39e-glispa_link_param.png "glispa_link_param.png")
+
 
 </details>
 
@@ -92,7 +92,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Glispa. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/9f321dc-glispa_attribution.png "glispa_attribution.png")
+
 
 </details>
 
@@ -103,7 +103,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/9135b5d-glispa_postback_test.png "glispa_postback_test.png")
+
 
 </details>
 

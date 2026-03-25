@@ -24,7 +24,7 @@ In order to view fraud analytics, you need to have completed the following:
 
 ## Core Metrics
 
-![](/img/7ef22a0-Core_Metrics.png "Core Metrics.png")
+
 
 Core Metrics allow you to quickly analyze fraud detection performance.
 
@@ -41,7 +41,7 @@ Core Metrics allow you to quickly analyze fraud detection performance.
 Because Fraud Detection is very complex, visit our guide on understanding fraud and recommendations [here](in-depth-fraud-recommendations.md).
 :::
 
-![](../../../assets/media/images/8fbfd4a7-8fa0-4eda-9e7c-addfa420ef79 "Fraud Analytics.PNG")
+
 
 The Fraud Report will measure the performance of your blocked events for specific fraud indicators. Branch recommends creating fraud rules to block erroneous attribution credit in real time.
 
@@ -72,7 +72,7 @@ The Fraud Report will measure the performance of your blocked events for specifi
 
 ## Click to Install (CTI) Time Chart
 
-![](../../../assets/media/images/8584ec2e-4661-416f-afc9-6f2bb3fa1f34 "CTI Chart.PNG")
+
 
 The Click to Install (CTI) Time is a great tool for comparing CTI time for specific ad networks broken out by OS. Here you'll be able to compare CTI time in:
 

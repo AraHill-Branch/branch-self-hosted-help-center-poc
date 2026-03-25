@@ -3,7 +3,7 @@ title: "Introducing Branch Activation"
 slug: introducing-branch-activation
 ---
 
-![Mobile and desktop interface showcasing social media engagement and advertising features.](/img/image(94).png)
+*[Image: Mobile and desktop interface showcasing social media engagement and advertising features.]*.png)
 
 ## Overview
 

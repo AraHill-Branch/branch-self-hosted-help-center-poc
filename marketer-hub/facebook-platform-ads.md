@@ -50,30 +50,30 @@ If you haven't enabled Facebook as an Ad Partner on the Branch Dashboard follow 
 
 1. Navigate to the [Partner Management tab](https://dashboard.branch.io/ads/partner-management).
 
-![](/img/050c142-ads-partner-management.png "ads-partner-management.png")
+
 
 2. Search for **Facebook**.
 3. Click **Connect With Facebook**
 
-![](/img/f585405-1-connect.png "1-connect.png")
+
 
 4. Log in to Facebook if you are not logged in
 
-![](/img/0436f2c-2-login.png "2-login.png")
+
 
 5. Confirm that Branch can receive your public profile
 
-![](/img/5f5ffab-3-profile.png "3-profile.png")
+
 
 6. Confirm that Branch can have permissions `ads_read`
 
-![](/img/0ae064a-4-scopes.png "4-scopes.png")
+
 
 `ads_read` is used to surface impressions and clicks on the Branch Dashboard.
 
 7. Select the ad accounts for which you want to run app install ads or app engagement ads
 
-![](/img/78fb9a8-5-adaccounts.png "5-adaccounts.png")
+
 
 ::: info Ad Account FAQ
 If you are having trouble finding or selecting the ad account(s) for which you want to run ads, please visit our [FAQ](https://help.branch.io/faq/docs/i-cant-see-the-ad-account-i-want-to-use-at-all).
@@ -81,44 +81,44 @@ If you are having trouble finding or selecting the ad account(s) for which you w
 
 8. Click to select a Facebook app id for which you want to run Facebook ads
 
-![](/img/0856202-6-app-1.png "6-app-1.png")
+
 
 9. Copy the app id
 
-![](/img/2b0b6f2-7-app-2.png "7-app-2.png")
+
 
 10. Paste the app id and press `Save`
 
-![](/img/5664cee-8-app-3.png "8-app-3.png")
+
 
 11. Facebook is now enabled as an ad partner!
 
     Note that if you have different attribution windows between Facebook and Branch, those will be highlighted. The warning has a link to the docs on how to align these attribution windows.
 
-![](/img/fe06204-9-complete.png "9-complete.png")
+
 
 12. Finally, to create a Facebook Ads link click the **Create Facebook Link** button in the top right hand corner.
 
-![](/img/2176b8b-create-facebook-link.png "create-facebook-link.png")
+
 
 ##### Create an Ad Link
 
 1. Create a Branch Ad link from the [Partner Management page](https://dashboard.branch.io/ads/partner-management)'s **Create Facebook Link** button under the Facebook Partner and select **Create Display Link** or **Create Display Link** depending on your campaign type.
 
-![](/img/9b1eb2b-create-link-display.png "create-link-display.png")
+
 
 2. Pick a Link Name for later reference.
 3. Configure the link the Ad Partner set to **Facebook** and the Ad Format set to **Cross-Platform Display** or **Cross-platform Display**.
 
-![](/img/cdd6dcf-link-setup.png "link-setup.png")
+
 
 4. Under the Configure Options tab, navigate to the Redirects sub section and ensure that the iOS/Android and Desktop redirects are set to the desired destinations being promoted by the ad campaign.
 
-![](/img/9648c20-example-link-redirect.png "example-link-redirect.png")
+
 
 5. Under the Analytics Tags sub-section additional tags can be set. It is recommended to fill in these fields as they can be used as filters in Branch's Ads Analytics view. To best connect your ad link with your Facebook Campaign, set the channel field to Facebook Ads and set the campaign field to the same ad campaign name used in Facebook Ads.
 
-![](/img/aaf8fe8-facebook-analytics-tags_1.png "facebook-analytics-tags (1).png")
+.png")
 
 ::: warning Disabling Deepviews
 In order for your campaign to run effectively, be sure to disable Deepviews. You can either [disable Deepviews]((/using-branch/docs/deepviews) for your entire account or [disable Deepviews for one link](deepviews.md).
@@ -139,7 +139,7 @@ To set up Facebook Brand Awareness Campaigns, you will need to insert your Branc
 1. Navigate to <https://www.facebook.com/ads/create> while logged in to the account that owns your Facebook app.
 2. Select **Brand Awareness** as the campaign marketing objective.
 
-![](/img/1ca90b1-campaign-selection_brand.png "campaign-selection brand.png")
+
 
 3. Continue with campaign creation selecting the app to advertise, audience, placement, and budget. Then press continue to enter the Advert creation step.
 4. Now select an advertisement format and customize your ad
@@ -147,7 +147,7 @@ To set up Facebook Brand Awareness Campaigns, you will need to insert your Branc
 
    - Select the **Add a Website URL** checkbox and copy your Branch Ad Link into the **Website URL** field.
 
-![](/img/5a0276b-ad-deep-link.png "ad-deep-link.png")
+
 
 ```
 - If you selected to add a full screen Canvas advertisement, add your Branch Ad link as the <span class="notranslate">**Destination URL**</span> for your canvas advertisement components
@@ -178,7 +178,7 @@ To set up Facebook Reach Campaigns, you will need to insert your Branch Ad Link 
 1. Navigate to <https://www.facebook.com/ads/create> while logged in to the account that owns your Facebook app.
 2. Select **Reach** as the campaign marketing objective.
 
-![](/img/2be1219-campaign-selection_reach.png "campaign-selection reach.png")
+
 
 3. Continue with campaign creation selecting the app to advertise, audience, placement, and budget. Then press continue to enter the Advert creation step.
 4. Now select an advertisement format and customize your ad
@@ -186,7 +186,7 @@ To set up Facebook Reach Campaigns, you will need to insert your Branch Ad Link 
 
    - Select the **Add a Website URL** checkbox and copy your Branch Ad Link into the **Website URL** field.
 
-![](/img/d7ffcda-ad-deep-link.png "ad-deep-link.png")
+
 
 ```
 - If you selected to add a full screen Canvas advertisement, add your Branch Ad link as the <span class="notranslate">**Destination URL**</span> for your canvas advertisement components
@@ -207,7 +207,7 @@ To set up Facebook Video Views Campaigns, you will need to insert your Branch Di
 1. Navigate to <https://www.facebook.com/ads/create> while logged in to the account that owns your Facebook app.
 2. Select **Video Views** as the campaign marketing objective.
 
-![](/img/20988f9-campaign-selection.png "campaign-selection.png")
+
 
 3. Continue with campaign creation selecting the app to advertise, audience, placement, and budget. Then press continue to enter the Advert creation step.
 4. Now select an advertisement format and customize your ad
@@ -215,7 +215,7 @@ To set up Facebook Video Views Campaigns, you will need to insert your Branch Di
 
    - Select the **Add a Website URL** checkbox and copy your Branch Ad Link into the **Website URL** field.
 
-![](/img/729a168-ad-deep-link_1.png "ad-deep-link (1).png")
+.png")
 
 ```
 - If you selected to add a full screen Canvas advertisement, add your Branch Ad link as the <span class="notranslate">**Destination URL**</span> for your canvas advertisement components
@@ -236,14 +236,14 @@ To set up Facebook Lead Generation Campaigns, you will need to insert your Branc
 1. Navigate to <https://www.facebook.com/ads/create> while logged in to the account that owns your Facebook app.
 2. Select **Lead Generation** as the campaign marketing objective.
 
-![](/img/058df5e-campaign-selection_lead.png "campaign-selection lead.png")
+
 
 3. Continue with campaign creation selecting the app to advertise, audience, placement, and budget. Then press continue to enter the Advert creation step.
 4. Now select an advertisement format and customize your ad
 5. Enter the Lead form creation portal and setup your form.
 6. On the final "Thank you" screen, locate and paste your Branch Ad Link into the **Website link** field.
 
-![](/img/10d22ef-ad-deep-link_lead.png "ad-deep-link lead.png")
+
 
 7. Complete the rest of the ad campaign setup.
 
@@ -251,11 +251,11 @@ To set up Facebook Lead Generation Campaigns, you will need to insert your Branc
 
 The [Ads Analytics Page](https://dashboard.branch.io/ads/analytics) on the Branch dashboard provides an interactive time series graph and table to view the performance of your Ad campaigns.
 
-![](/img/151bb75-trends-graph.png "trends-graph.png")
+
 
 The table shows summary data on the performance of each Ad campaign. On the right top side of the table you can find a **download button** to retrieve the chart's content as a CSV file.
 
-![](/img/0ba166e-events-table.png "events-table.png")
+
 
 ::: info Interacting with your data
 Breakdown and compare aspects of your Ad campaigns' performance by using the `Compare by +` button to add a parameter to split the data displayed data by.

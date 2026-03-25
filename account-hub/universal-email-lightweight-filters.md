@@ -16,11 +16,11 @@ Last year, we updated Branch analytics reports for Ads, SEO App Attribution, and
 
 ## Before
 
-![](/img/87a097e-UE_Filter_Before.png)
+
 
 ## After
 
-![](/img/024dda5-UE_Filter_After.png)
+
 
 ::: tip
 Looking to learn more about Branch Email? View our guide here: [Email Overview](branch-universal-email.md)

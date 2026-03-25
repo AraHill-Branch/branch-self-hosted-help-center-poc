@@ -11,7 +11,7 @@ Design and launch contextually relevant digital marketing campaigns to reach eve
 
 ## How does it work?
 
-![](../../../assets/media/images/95821813-0d65-42f7-8e4c-1cf4c3da8f70 "Branch Email Flow.PNG")
+
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.
@@ -54,7 +54,7 @@ In order to enable Responsys, you must first:
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Oracle Responsys** and click **Enable**
 
-![1428](/img/d63292d-3b8ad86-oracle-responsys-enable(1).gif "3b8ad86-oracle-responsys-enable.gif")
+*[Image: 1428]*.gif "3b8ad86-oracle-responsys-enable.gif")
 
 #### Input Click Tracking Domain
 
@@ -64,7 +64,7 @@ Input your Responsys CTD into the domain field and click the **Save** button.
 
 - **Do not** include `https://` when adding your CTD.
 
-![](/img/b0e669a-Responsys_CTD.png)
+
 
 ::: warning Click Tracking Domain
 - Never add the same CTD to both your **Live** and **Test** Branch environments.
@@ -120,7 +120,7 @@ Use Branch's [AASA Validator](https://branch.io/resources/aasa-validator/) to ve
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#8-add-esp-ctd-universal-email).
 
-![](/img/9f475e3-Associated_Domains(15).png "Associated Domains.png")
+.png "Associated Domains.png")
 
 #### Add Handle Web-Only Content App Code
 
@@ -130,7 +130,7 @@ If you have links to content that exist only on the web and not in the app (for 
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md#return-yes-to-continueuseractivity).
 
-![](/img/13dc276-branch-universal-link-domain(15).png "branch-universal-link-domain.png")
+.png "branch-universal-link-domain.png")
 
 ### 3. Create Branch Links for your Emails
 
@@ -174,7 +174,7 @@ The formula will be using query parameters to programmatically convert your emai
 
 The final output should be a Branch Long Link that you use in your Responsys Link Tables. Add that Branch Link to the  **LINK\_URL, IOS\_LINK\_URL, and ANDROID\_LINK\_URL** fields of the Responsys Link Table
 
-![image](/img/branch_responsys_deeplink.png)
+
 
 #### Script Upload
 
@@ -189,13 +189,13 @@ In this step, we'll upload a script that makes it very easy to create deep links
 2. Log in to your Responsys account.
 3. In the Responsys Dashboard, open your Content Library. You can also access it via the Shortcuts screen on the main page:
 
-   ![image](/img/responsys-shortcuts.png)
+   
 4. Once you are in the Content Manager, you’ll see a list of folders where content is stored. Under **All Content**, create a new folder named `Branch_SDK`:
 
-   ![image](/img/responsys-new-folder.png)
+   
 5. Select the **Branch\_SDK** folder and then click **Create Document**:
 
-   ![image](/img/responsys-create-document.png)
+   
 6. In the Create Document window:
 
    - Enter `branch-sdk` in the “Document Name” field.
@@ -203,11 +203,11 @@ In this step, we'll upload a script that makes it very easy to create deep links
    - Paste the snippet you copied in **1**.
    - Click Save.
 
-     ![image](/img/responsys-snippet.png)
+     
 
 You have now successfully created the deep linking script. Your file structure should look as follows:
 
-![image](/img/deep-linked-email-manage-content.png)
+
 
 **Configure your Responsys email templates**
 
@@ -228,7 +228,7 @@ Copy the following snippet, and using the “Source” view, paste the snippet d
 
 For the Branch SDK to generate Branch Links in the email or the 3P links while redirections, the Link Tracking table for the email template should contain the following two LINK NAME with the `${deeplink}` as the **LINK URL**.
 
-![image](/img/configure-responsys-5.png)
+
 
 *For creating tracked links, ensure that* ***‘Track Link’*** *is set to* ***ON****. Tracked links will be generated under the Responsys Click Tracking Domain and will then redirect to a Branch 3p link (the link added as the base URL in the Branch\_SDK.htm file.*
 
@@ -252,19 +252,19 @@ With link tracking enabled, you can still use Branch Links in emails.
 *After:*  
 `<@tracked_deeplink "https://branch.io/product/1234" /> <a href="${clickthrough('TEST_TRACKED_DEEPLINK' , 'deeplink=' + deeplink)}">Example link</a>`
 
-![image](/img/deep-linked-email-template.png)
+
 
 ### 4. Handle Web-Only Content
 
 In some cases you may have content on web that isn’t in the app - for example, a temporary Mother’s Day promotion or an unsubscribe button. You can designate links to only open on web if you use the Responsys Link Table feature. There are three URL fields in the link table when creating a new link: `LINK_URL`, `IOS_LINK_URL`, and `ANDROID_LINK_URL`. If you only enter the link in the `LINK_URL` field, the path of the final click-wrapped url will begin with `/pub/cc`. However, if you also input the same link in `IOS_LINK_URL`, then the path of the final click-wrapped url will begin with `pub/acc`. You should set up your AASA file to allow only the path `/pub/acc*` in order to not launch the app from web-only links.
 
-![image](/img/branch_responsys_webonly.png)
+
 
 ### 5. View Analytics
 
 Once completed and email campaigns are launched, you're ready to view data in the [Branch Dashboard](https://branch.dashboard.branch.io/email/activity).
 
-![](/img/c2efb69-Email_Analytics.png)
+
 
 ## Troubleshooting and Extra Features
 

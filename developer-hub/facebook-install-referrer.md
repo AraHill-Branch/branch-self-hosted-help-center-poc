@@ -3,7 +3,7 @@ title: "Meta Install Referrer"
 slug: facebook-install-referrer
 ---
 
-![](/img/73f8f80-Facebook_Referrer_Install.png "Facebook Referrer Install.png")
+
 
 ## Meta Referrer
 
@@ -127,7 +127,7 @@ public class MyApplication extends Application {
 
 In the Facebook App Dashboard under **Basic > Settings** for your app, scroll down to the Android section. Copy the **Install Referrer Decryption Key**.
 
-![](/img/db31247-Meta_Decryption_Key.png)
+
 
 ### 3. Input your key in Branch
 
@@ -221,6 +221,6 @@ Broad targeting is required to receive view-through install data from the Meta i
 - Location: Regions, country groups (e.g. Asia) or specific countries are applied as the location.
 - Detailed Targeting: If detailed targeting such as demographics, interests or behaviors are applied, opting into Advantage detailed targeting is required.
 - Custom Audiences: If Custom Audiences are applied, opting into Advantage custom audience is required.   
-   ![Broad Targeting](/img/Broad Targeting.png)
+   
 
 </details>

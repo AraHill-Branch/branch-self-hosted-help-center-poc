@@ -5,7 +5,7 @@ slug: kakao
 
 ## Overview
 
-![](/img/d6999c7-kakao_logo.png "kakao_logo.png")
+
 
 [Kakao](http://www.kakaocorp.com/) is a mobile lifestyle platform offering services ranging from messaging, news, advertising, gaming, e-commerce, and music.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Kakao.
 4. Select **Kakao**, and click **Save & Enable**.
 
-   ![](/img/287ae12-kakao-enable.jpg "kakao-enable.jpg")
+   
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/c2868c9-kakao-pb.jpg "kakao-pb.jpg")
+
 
 ::: warning Addition Information Required
 Kakao requires the Goal ID that corresponds to each postback. Please make sure you provide these and click **Save**.
@@ -87,7 +87,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/886b0ff-kakao-link.jpg "kakao-link.jpg")
+
 
 </details>
 
@@ -98,7 +98,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Kakao. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/70ac45f-Screen_Shot_2020-12-15_at_2.39.54_PM.png "Screen Shot 2020-12-15 at 2.39.54 PM.png")
+
 
 </details>
 
@@ -109,7 +109,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/e4c5ebb-kakao-pb-testing.jpg "kakao-pb-testing.jpg")
+
 
 </details>
 

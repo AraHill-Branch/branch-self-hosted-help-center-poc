@@ -11,7 +11,7 @@ As such, SAN attribution is completed independently from a third party attributi
 
 ## How It Works
 
-![](/img/e8e7276-Non-tech_SAN_Workflow_1.png "Non-tech SAN Workflow (1).png")
+.png")
 
 **1.** User interacts with a SAN mobile ad -> is taken into your app -> completes an in-app event.; e.g. a purchase.  
 **2.** The SAN records and ingests the click/impression information associated with the in-app event.  

@@ -5,7 +5,7 @@ slug: improved-summary-page
 
 Branch has improved the default configurations for the domain-specific tabs and auto-save in the Summary page of the Branch Dashboard View 📈
 
-![](../../../assets/media/images/9c2d6418-3ada-47f1-8b3c-3063c589c724)
+
 
 ## Domain-Specific Defaults
 

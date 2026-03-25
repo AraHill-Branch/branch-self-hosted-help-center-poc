@@ -22,13 +22,13 @@ Note that these stats are **limited to the date range** at the top of the page. 
 
 For some dimensions, you will see special callouts before adding them to your reports. Based on which dimensions are added, Branch will select the appropriate data source. If there is a clash between dimensions, we'll select a ["default" data source](paid-ads-analytics.md). Branch will also provide warning icons to describe the collision:
 
-![](/img/c8db1ee-ASA_Reporting.png)
+
 
 ### Keyword ID
 
 With the new framework, `keywordId` is also passed to Branch , and you may use that in your Compare Bys to measure your campaign performance.
 
-![](/img/image-1744825358437.png "Keyword ID.png")
+
 
 This is also available in Branch's [Query API](https://help.branch.io/apidocs/query-api) in the `last_attributed_touch_data_tilde_keyword_id` field in all EO topics.
 

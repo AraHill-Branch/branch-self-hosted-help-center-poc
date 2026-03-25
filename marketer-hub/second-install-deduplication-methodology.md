@@ -17,7 +17,7 @@ iOS 14.5 brought big changes to the mobile attribution ecosystem. One big change
 
 4. An unattributed (*first*) install is reported in Branch's attribution system.
 
-![](/img/image(82).png)
+.png)
 
 5. After some time or after an event, the advertiser app prompts the user for tracking through Apple's AppTrackingTransparency framework.
 
@@ -25,7 +25,7 @@ iOS 14.5 brought big changes to the mobile attribution ecosystem. One big change
 
 7. Once the deduplication is enabled, Branch will automatically "remove" the first unattributed install. The second install will take the timestamp of the first install.
 
-![](/img/image(83).png)
+.png)
 
 ## Deduplicate installs
 

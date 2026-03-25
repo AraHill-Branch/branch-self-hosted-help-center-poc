@@ -22,19 +22,19 @@ The following metrics are specific to QR Codes. You can use them to view, compar
 
 To start analyzing the performance of your Branch QR Codes, start by navigating to the **Analytics** [tab](https://dashboard.branch.io/qr-codes/analytics) of the QR Codes [section](https://dashboard.branch.io/qr-codes) of the Branch Dashboard.
 
-![](/img/db67dc7f4336d8f9fa454640a82ce0932d3550838c65a8aed114a86bab823e14-Screenshot_2024-11-18_at_7.43.47_PM.png)
+
 
 ### Performance
 
 Within the **Analytics** tab you'll find the **Performance** table, which allows you to view your Branch QR Code campaign performance through customizable tables with download capabilities.
 
-![](/img/a911123-QR_Codes_Performance.png)
+
 
 ### Trends
 
 Below the **Performance** table is the **Trends** graph, which allows you to view your Branch QR Code campaign performance through robust charts.
 
-![](/img/868b6f4-QR_Codes_Trends.png)
+
 
 ::: tip More Reporting
 QR Code reports are similar to other Branch Dashboard reports. To learn more, view our Dashboard Reports [guide](dashboard-reports.md).

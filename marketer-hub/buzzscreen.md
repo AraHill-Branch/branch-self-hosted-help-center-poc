@@ -5,7 +5,7 @@ slug: buzzscreen
 
 ## Overview
 
-![](/img/0919204-buzzscreen-logo(1).png "buzzscreen-logo.png")
+.png "buzzscreen-logo.png")
 
 [BuzzScreen](https://www.buzzvil.com/en)  is an AD-network in South Korea, operating the service in Japan and Taiwan as well. BuzzScreen offers all kinds of mobile AD, including CPC, CPM, CPE, CPA and so on, managing more than 10 domestic publishers. It has been widening service range abroad, and providing performance mobile marketing.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for BuzzScreen.
 4. Select **BuzzScreen**, and click **Save & Enable**.
 
-   ![](/img/4675f8b-buzzscreen-enable(1).png "buzzscreen-enable.png")
+   .png "buzzscreen-enable.png")
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/695387b-buzzscreen-pb(1).png "buzzscreen-pb.png")
+.png "buzzscreen-pb.png")
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -81,7 +81,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/7b11ea3-buzzscreen-link(1).png "buzzscreen-link.png")
+.png "buzzscreen-link.png")
 
 </details>
 
@@ -92,7 +92,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by BuzzScreen. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/7294c6a-buzzscreen-attr(1).png "buzzscreen-attr.png")
+.png "buzzscreen-attr.png")
 
 </details>
 
@@ -103,7 +103,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/4a2a56b-buzzscreen-pb-testing(1).png "buzzscreen-pb-testing.png")
+.png "buzzscreen-pb-testing.png")
 
 </details>
 

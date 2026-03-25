@@ -5,7 +5,7 @@ slug: rakuten-marketing
 
 ## Overview
 
-![](/img/5b2b03a-rakuten-marketing-logo-100747_big-14-1529622960657.png "rakuten-marketing-logo-100747_big-14-1529622960657.png")
+
 
 [Rakuten Marketing](https://rakutenmarketing.com/) empowers marketers with integrated marketing solutions to achieve the full potential of digital marketing.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Rakuten Marketing.
 4. Select **Rakuten Marketing** and click **Save & Enable**.
 
-   ![](/img/0c758f8-RM_settings.png "RM_settings.png")
+   
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/717957a-RM_postback_config.png "RM_postback_config.png")
+
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -81,7 +81,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/8f20807-RM_link_param.png "RM_link_param.png")
+
 
 </details>
 
@@ -92,7 +92,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Rakuten Marketing. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/82d49f9-Screen_Shot_2020-12-15_at_3.13.09_PM.png "Screen Shot 2020-12-15 at 3.13.09 PM.png")
+
 
 </details>
 
@@ -103,7 +103,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/278a8b4-RM_postback_testing.png "RM_postback_testing.png")
+
 
 </details>
 

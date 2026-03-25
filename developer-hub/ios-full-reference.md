@@ -201,7 +201,7 @@ continueUserActivity:(NSUserActivity *)userActivity
 
 | Method | Description |
 | --- | --- |
-| [(BOOL)application:(nullable UIApplication )application openURL:(nullable NSURL )url options:(nullable NSDictionary<UIApplicationOpenURLOptionsKey,id> \*)options;](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/blob/master/Sources/BranchSDK/Public/Branch.h) | Allow Branch to open the URL that gets passed to it. This is the preferred Branch method to call inside your `application:openURL:options:` method. |
+| [(BOOL)application:(nullable UIApplication )application openURL:(nullable NSURL )url options:(nullable NSDictionary\&lt;UIApplicationOpenURLOptionsKey,id\&gt; \*)options;](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/blob/master/Sources/BranchSDK/Public/Branch.h) | Allow Branch to open the URL that gets passed to it. This is the preferred Branch method to call inside your `application:openURL:options:` method. |
 
 | Argument | Type | Description |
 | --- | --- | --- |
@@ -1928,7 +1928,7 @@ Branch.setODMInfo(aggregateConversionInfo, andFirstOpenTimestamp: firstLaunchTim
 
 | **Variable** | **Type** | **Restrictions** | **Description** |
 | --- | --- | --- | --- |
-| `waitTime` | `NSTimeInterval` | 0 < `waitTime` ≤ 10 | Number of seconds SDK will wait for third party APIs to finish. Default is 0.5 seconds (500ms). |
+| `waitTime` | `NSTimeInterval` | 0 \&lt; `waitTime` ≤ 10 | Number of seconds SDK will wait for third party APIs to finish. Default is 0.5 seconds (500ms). |
 
 #### Example Usage
 
@@ -2081,7 +2081,7 @@ BranchLinkProperties *lp = [[BranchLinkProperties alloc] init];
 
 | Method | Description |
 | --- | --- |
-| [(void)indexOnSpotlightUsingSearchableItems:(NSArray<BranchUniversalObject\*>\*)universalObjects completion:(void (^) (NSArray<BranchUniversalObject\*>\* universalObjects, NSError\* error))completion;](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/blob/master/Sources/BranchSDK/Public/Branch.h) | Index multiple Branch Universal Object instances using `SearchableItem` from Apple's CoreSpotlight. Content indexed is private irrespective of the `ContentIndexMode` value of the BUOs. |
+| [(void)indexOnSpotlightUsingSearchableItems:(NSArray\&lt;BranchUniversalObject\*\&gt;\*)universalObjects completion:(void (^) (NSArray\&lt;BranchUniversalObject\*\&gt;\* universalObjects, NSError\* error))completion;](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/blob/master/Sources/BranchSDK/Public/Branch.h) | Index multiple Branch Universal Object instances using `SearchableItem` from Apple's CoreSpotlight. Content indexed is private irrespective of the `ContentIndexMode` value of the BUOs. |
 
 | Argument | Type | Description |
 | --- | --- | --- |
@@ -2161,7 +2161,7 @@ BranchUniversalObject *buo =  [[BranchUniversalObject alloc] initWithCanonicalId
 
 | Method | Description |
 | --- | --- |
-| [(void)removeSearchableItemsWithBranchUniversalObjects:(NSArray<BranchUniversalObject\*> )universalObjects callback:(void (^\_Nullable)(NSError \_Nullable error))completion;](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/blob/master/Sources/BranchSDK/Public/Branch.h) | Remove indexing of an array of Branch Universal Object instances, which are indexed using `SearchableItem` from Apple's CoreSpotlight. |
+| [(void)removeSearchableItemsWithBranchUniversalObjects:(NSArray\&lt;BranchUniversalObject\*\&gt; )universalObjects callback:(void (^\_Nullable)(NSError \_Nullable error))completion;](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/blob/master/Sources/BranchSDK/Public/Branch.h) | Remove indexing of an array of Branch Universal Object instances, which are indexed using `SearchableItem` from Apple's CoreSpotlight. |
 
 | Argument | Type | Description |
 | --- | --- | --- |
@@ -2239,7 +2239,7 @@ Branch.getInstance().removeAllPrivateContentFromSpotLight { (error) in
 
 | Method | Description |
 | --- | --- |
-| [(void)passPasteItemProviders:(NSArray<NSItemProvider > )itemProviders API\_AVAILABLE(ios(16));](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/blob/master/Sources/BranchSDK/Public/Branch.h) | Pass pasteboard items to the Branch SDK when the user implements `UIPasteControl` on their end. Branch SDK retrieves the URL from these item providers, if any, to support Branch NativeLink functionality. |
+| [(void)passPasteItemProviders:(NSArray\&lt;NSItemProvider \&gt; )itemProviders API\_AVAILABLE(ios(16));](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/blob/master/Sources/BranchSDK/Public/Branch.h) | Pass pasteboard items to the Branch SDK when the user implements `UIPasteControl` on their end. Branch SDK retrieves the URL from these item providers, if any, to support Branch NativeLink functionality. |
 
 | Argument | Type | Description |
 | --- | --- | --- |
@@ -2549,7 +2549,7 @@ BranchLinkProperties *lp = [BranchLinkProperties getBranchLinkPropertiesFromDict
 
 | Method | Description |
 | --- | --- |
-| [@interface BranchPasteControl : UIView <UIPasteConfigurationSupporting> - (instancetype)initWithFrame:(CGRect)frame AndConfiguration:( UIPasteControlConfiguration \* Nullable) config NSDESIGNATED\_INITIALIZER; @end](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/tree/master/Sources/BranchSDK/Public/BranchPasteControl.h) | Use the wrapper class `BranchPasteControl` to automatically conform to Apple's `UIPasteConfigurationSupporting` protocol. |
+| [@interface BranchPasteControl : UIView \&lt;UIPasteConfigurationSupporting\&gt; - (instancetype)initWithFrame:(CGRect)frame AndConfiguration:( UIPasteControlConfiguration \* Nullable) config NSDESIGNATED\_INITIALIZER; @end](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/tree/master/Sources/BranchSDK/Public/BranchPasteControl.h) | Use the wrapper class `BranchPasteControl` to automatically conform to Apple's `UIPasteConfigurationSupporting` protocol. |
 
 | Argument | Type | Description |
 | --- | --- | --- |
@@ -2825,7 +2825,7 @@ This method is part of the `BranchScene : NSObject` interface. [Learn more](ios-
 | Method |
 | --- |
 | [(void)scene:(UIScene \*)scene continueUserActivity:(NSUserActivity \*)userActivity;](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/tree/master/Sources/BranchSDK/Public/BranchScene.h) |
-| [(void)scene:(UIScene )scene openURLContexts:(NSSet<UIOpenURLContext > \*)URLContexts;](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/tree/master/Sources/BranchSDK/Public/BranchScene.h) |
+| [(void)scene:(UIScene )scene openURLContexts:(NSSet\&lt;UIOpenURLContext \&gt; \*)URLContexts;](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/tree/master/Sources/BranchSDK/Public/BranchScene.h) |
 
 #### Example Usage
 
@@ -2922,7 +2922,7 @@ This method is part of the `BranchShareLink : NSObject <UIActivityItemSource>` i
 
 | Method | Description |
 | --- | --- |
-| [(NSArray<UIActivityItemProvider\*>\*\_Nonnull) activityItems;](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/tree/master/Sources/BranchSDK/Public/BranchShareLink.h) | Use a `BranchShareLink` instance to retrieve an array of activity item providers: one for the Branch Universal Object instance, one for the share text (if provided), and one for the shareObject (if provided). |
+| [(NSArray\&lt;UIActivityItemProvider\*\&gt;\*\_Nonnull) activityItems;](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution/tree/master/Sources/BranchSDK/Public/BranchShareLink.h) | Use a `BranchShareLink` instance to retrieve an array of activity item providers: one for the Branch Universal Object instance, one for the share text (if provided), and one for the shareObject (if provided). |
 
 #### Example Usage
 

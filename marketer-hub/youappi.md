@@ -3,7 +3,7 @@ title: "YouAppi"
 slug: youappi
 ---
 
-![1328](/img/7403a42-YouAppi__branch(3).png "YouAppi + branch.png")
+*[Image: 1328]*.png "YouAppi + branch.png")
 
 ## Overview
 
@@ -48,7 +48,7 @@ You'll need to input your **YouAppi Advertiser ID**. Please reach out to your Yo
 
 Click the **Save & Enable** button.
 
-![](/img/eb7da4e-youappi_enable(3).png "youappi enable.png")
+.png "youappi enable.png")
 
 ### 2. Configure Postbacks
 
@@ -56,7 +56,7 @@ Enabling YouAppi will automatically enable the following postbacks:
 
 - INSTALL
 
-![](/img/4d3232d-youappi_postbacks(3).png "youappi postbacks.png")
+.png "youappi postbacks.png")
 
 You can configure these postbacks or add more under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_youappi?tab=postback) tab.
 
@@ -68,7 +68,7 @@ Optionally, you can check the checkbox for a given postback for sending all even
 
 Click the **Add New Postback** button at the bottom of the screen. A modal will appear that will allow you to select an event that you are tracking with the Branch SDKs (including Custom Events).
 
-![](/img/c1b289e-Add_New_Postbacks(111).gif "Add New Postbacks.gif")
+.gif "Add New Postbacks.gif")
 
 For more in-depth postback configurations, view our guides:
 
@@ -101,15 +101,15 @@ To set up cost ingestion for YouAppi, you will need to authenticate using your A
 
 Enter your API Key, and click **Save Authentication**
 
-![](/img/a4bec4f-Cost_YouAppi(3).png)
+.png)
 
 ### 5. Create Branch Ad Link
 
 Next, you'll need to create a Branch Ad Link for your YouAppi campaigns in order for Branch to properly attribute conversions.
 
-[![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/a516deb-small-95b5d97-small-Vectorlogo_1(98).png)
+[.png)
 
-![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/feddb04-Branch_badge_light_default-32x32.ico) help.branch.io
+ help.branch.io
 
 Create Ad Links](/docs/ad-links)
 

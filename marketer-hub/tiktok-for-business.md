@@ -3,7 +3,7 @@ title: "TikTok For Business Overview"
 slug: tiktok-for-business
 ---
 
-![1211](/img/6ba357b-TikTok_Logo.png "TikTok Logo.png")
+*[Image: 1211]*
 
 ::: tip Branch Certified Partner
 - [**Overview**](tiktok-for-business.md#overview) (this page)

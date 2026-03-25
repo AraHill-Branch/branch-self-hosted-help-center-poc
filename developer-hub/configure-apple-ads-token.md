@@ -27,7 +27,7 @@ For either methods, be sure to import the `AdServices` Framework to leverage the
 
 Implement the latest version of the [Branch iOS SDK](ios-basic-integration.md).
 
-[![iOS Basic Integration](/img/3997afe-Screenshot_2023-06-02_at_12.21.51_PM.png)](ios-basic-integration.md)
+[](ios-basic-integration.md)
 
 The Branch SDK will automatically retrieve a token on your behalf. Branch servers will use that token to call the Apple Ads Attribution API.
 

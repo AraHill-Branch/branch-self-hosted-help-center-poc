@@ -5,7 +5,7 @@ slug: hopbug
 
 ## Overview
 
-![](/img/0690c59-hopbug-logo.png "hopbug-logo.png")
+
 
 [HopBug](http://hopbug.com/)  Media is a programmatic digital agency which empowers the role of how to connect the right brand with the right user at the right time with eye-catching content digitally.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Hopbug.
 4. Select **Hopbug**, and click **Save & Enable**.
 
-   ![](/img/9f92955-hopbug-enable.jpg "hopbug-enable.jpg")
+   
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/ba722d4-hopbug-postback.jpg "hopbug-postback.jpg")
+
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -81,7 +81,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/e2a5b10-hopbug-link.jpg "hopbug-link.jpg")
+
 
 </details>
 
@@ -92,7 +92,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Hopbug. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/c76ddc9-Screen_Shot_2020-12-14_at_3.51.32_PM.png "Screen Shot 2020-12-14 at 3.51.32 PM.png")
+
 
 </details>
 
@@ -103,7 +103,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/fec70b3-hopbug-pb-testing.jpg "hopbug-pb-testing.jpg")
+
 
 </details>
 

@@ -7,11 +7,11 @@ slug: packaging-archived
 
 The **Branch Growth Platform** is the foundational layer on which all the powerful capabilities associated with your Branch account are built.
 
-![](/img/ccb7643f0f6059b00a1242fa0b3ecfdae9324cbb5cf338b1e4ea349ebbee1cfe-pricing-2.png)
+
 
 The Branch Growth Platform is home to our three main product offerings: **Engagement**, **Performance**, and **Activation**.
 
-![](/img/ec0493ac21133aaa5048ae449a6ca128ef39f7af4037a6ed3b7eebd3283334c0-pricing-3.png)
+
 
 We have several **add-ons** you can choose from. Each add-on includes a set of features that offer advanced solutions to complex problems.
 
@@ -40,7 +40,7 @@ Customers who are not on a contracted plan will still need to enter a valid cred
 
 ## Engagement product
 
-![](/img/d475dad5db3c9cdf5def3f0b8ea47b5e47e0dbdbecc431248f31f9af34bbd23c-Engagement_UseCase_All2x.png)
+
 
 The Engagement product is for marketers focused on linking and attribution for both owned and organic marketing channels.
 
@@ -85,7 +85,7 @@ Maximize conversions from every owned and organic channel with more creative con
 
 ## Performance product
 
-![](/img/b002b611a5f7b7cce25dd1c546e14e754af942f00e1854788c37a0af83b5abf4-pricing-performance.png)
+
 
 Use the Performance product to improve your ads ROI with accurate attribution and insights.
 
@@ -200,7 +200,7 @@ Volume credits correspond to the number of end-user actions tracked, attributed,
 
 You will need to add a certain number of volume credits to your Branch account when purchasing either Engagement or Performance. You can also add additional monthly volume credits for a fee. Overages get billed at a "per volume credit" rate.
 
-![](/img/bb16b2b685f3c50d3c7531f73d51bd11f34e515a639fbfddfbdd380b532ecb9c-pricing-1.png)
+
 
 ## Resources
 

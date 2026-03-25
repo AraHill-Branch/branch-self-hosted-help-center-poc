@@ -37,7 +37,7 @@ Block installs if the click-to-install threshold is not met. In the Fraud Manage
 
   - **We recommend a minimum of 10,000 clicks and a threshold ratio of .0009 (which is .09%), however, you can make the rule more or less strict based on your app's needs.**
 
-![](../../../assets/media/images/1d68b8ab-987c-4c76-a52d-abe74fc4530d "Click Spamming Rule.PNG")
+
 
 More details on enabling these rules can be found [here](fraud-rules.md).
 
@@ -55,7 +55,7 @@ The main indicator for click injection is a negative click to store install lag 
 
   - We recommend setting the range for blocking to -126 to -6 seconds
 
-![](../../../assets/media/images/3debfe0b-3165-4a77-93e2-9718d0947140 "Click Injection Rule.PNG")
+
 
 ::: tip Click Injection Defaults
 Note: The defaults for the Click Injection time rule are based on Branch's internal studies. Every app is different, however, and the optimal values for your app may be different from these. When in doubt the defaults are a good starting point - but discuss with your team or your Branch Account Manager to be extra sure.
@@ -74,7 +74,7 @@ Once Ever Rules are not exactly *fraud rules*. Moreover, they are a way to ensur
 
 Note: The rule will only affect events moving forward from when you have implemented the rule and historical data will not be affected.
 
-![](../../../assets/media/images/7c3a427c-e99d-4238-a711-da38b8bf1d4b "Once Ever Rule.PNG")
+
 
 More details on enabling these rules can be found [here](fraud-rules.md).
 
@@ -104,7 +104,7 @@ You can enable the Suspicious Conversion Time rule under the Standard Rule Card 
 - Block all or specific events
 - We recommend blocking CTI times below 10 seconds, but you can configure the rule to block up to 60 seconds.
 
-![](../../../assets/media/images/e6350246-c6a9-4527-adfb-727f2d8c7932 "Suspicious Convesion Time Rule.PNG")
+
 
 #### Suspicious Device Reset (Android)
 
@@ -115,7 +115,7 @@ This rule is for Android only and looks for patterns that have abnormally high r
 - Select all or specific events
 - We recommend to input 1000 events and .9 ratio
 
-![](../../../assets/media/images/4ba97311-bde2-4a98-9e3f-482fb58082c6 "Young Persona.PNG")
+
 
 The Suspicious Device Rule, in addition to the Low Conversion Rate - Android, Low Conversion Rate - IOS, Suspicious Conversion Time, and Suspicious Device Reset - Android rules mentioned above, will offer your app the best protection from fraudsters who are attempting to inundate your app with fake traffic.
 
@@ -131,7 +131,7 @@ Setting up this rule for installs and events is recommended but there are some n
 - Select all or specific events. You can choose from user\_lifecycle\_event (i.e. registration and similar events), custom\_event (any custom events you have set up), content\_event (i.e. view\_item, search), and commerce\_event (i.e. purchase, first purchase).
 - Either `country` and/or `geo country code` for specifying the conflict
 
-![](../../../assets/media/images/3c9579fd-4700-457b-83c7-452dc1f72697 "Geo Conflict Rule.PNG")
+
 
 Once saved, you will see two Geo Conflict rules under the Standard Rules card in the Fraud Manager. One will be for installs and the other will be for the specified event type.
 
@@ -148,7 +148,7 @@ As a standard rule, Device Conflict is added automatically to your Branch Fraud 
 - Select Device Conflict
 - Select `os`, `model`, or `brand` for the rule.
 
-![](../../../assets/media/images/fdf41897-5ccf-4495-a08b-ce1c3d2e4c3e "Device Conflict.PNG")
+
 
 ## Best Practices
 

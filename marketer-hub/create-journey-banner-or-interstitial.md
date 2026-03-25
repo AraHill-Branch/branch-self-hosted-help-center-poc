@@ -59,7 +59,7 @@ You can also view example audience suggestions [here](example-journeys.md).
 
 6. Click **Save and Continue** when you're ready to move to the next phase.
 
-![](/img/32c12ac-create_new_journey.png "create new journey.png")
+
 
 ## 2. Configure creatives
 
@@ -67,7 +67,7 @@ In this phase, design the creative your audience will see, or add multiple view 
 
 1. **Add Variation**: Run an A/B test by designing multiple templates and assigning a percentage of your audience to each one (totaling 100%). Click **Add Variation +** to add a new Journey banner or interstitial, and use the percentage fields to control the ratio of your audience that sees each variation.
 
-![](/img/8cd2f50-Configure_Creatives.png)
+
 
 2. Click **Select Creative** to start designing your banner or interstitial. On the Templates page, click **Use** on the template you want to work with.
 
@@ -75,7 +75,7 @@ In this phase, design the creative your audience will see, or add multiple view 
 
 First, name your creative in the **View Name** field. Use a naming convention for easy reference. Branch uses a What You See Is What You Get (WYSIWYG) editor to simplify customization. In the preview window, click the element you want to customize, such as Icon, Title, Description, Star Rating, or [Background Image](https://help.branch.io/using-branch/docs/journeys-image-recommendations).
 
-![](/img/JourneysWebinar.gif)
+
 
 ### Advanced UI editor
 
@@ -85,7 +85,7 @@ For more detailed tweaks, use the **CSS Editor**, **HTML Editor**, and **Page Pl
 Branch has a detailed guide on advanced UI configuration [here](advanced-journeys-ui-html-css.md).
 :::
 
-![](/img/e59f186-Advanced_Editor.png)
+
 
 ### Dismissal settings
 
@@ -121,6 +121,6 @@ When you're ready to run your Journey, click **Schedule**. In the **Schedule** b
 - Repeat Settings (Daily/Weekly)
 - Time Zone
 
-![](/img/7accbea-Screen_Shot_2021-07-12_at_10.49.21_AM.png "Screen Shot 2021-07-12 at 10.49.21 AM.png")
+
 
 Click **Start Journey** to run your Journey immediately. Otherwise, click **Save & Close** to start it later.

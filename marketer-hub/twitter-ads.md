@@ -3,7 +3,7 @@ title: "Twitter Ads"
 slug: twitter-ads
 ---
 
-![599](/img/749ddca-twitter-ads-logo.png "twitter-ads-logo.png")
+*[Image: 599]*
 
 ## Overview
 
@@ -54,17 +54,17 @@ Completing this section -- **Enable Twitter Ads for Measurement** -- will result
 1. Navigate to the [Partner Management tab](https://dashboard.branch.io/ads/partner-management) and search for **Twitter**.
 2. Click **Log in with Twitter**
 
-   ![1188](/img/d966285-twitter-ads-enable.png "twitter-ads-enable.png")
+   *[Image: 1188]*
 3. Provide your Twitter credentials to begin the authorization process.
 4. Agree to the Advertising Terms & Conditions by checking the `I agree to the Twitter Ads Terms & Conditions`.
 
-   ![564](/img/aaee4ff-twitter-ads-tocs.png "twitter-ads-tocs.png")
+   *[Image: 564]*
 5. Authorize Branch Twitter Ads Manager to use your account by clicking `Authorize app`.
 
-   ![713](/img/259fb67-twitter-ads-authorize.png "twitter-ads-authorize.png")
+   *[Image: 713]*
 6. Select the ad accounts for which you want to run app install ads and click `Save`.
 
-   ![982](/img/c9eaa21-twitter-ads-accounts.png "twitter-ads-accounts.png")
+   *[Image: 982]*
 7. Finally, to create a Twitter Ads link click the `Create Twitter Link` button in the top right hand corner.
 
 ::: warning Twitter Ads Authentication Error

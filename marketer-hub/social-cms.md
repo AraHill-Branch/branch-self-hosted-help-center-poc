@@ -26,7 +26,7 @@ In order to enable this feature, you must have done the following:
   - True Anthem: `s_true_anthem`
 - You will need the mutual customer's `branch_key`. It is up to you to request this from the mutual customer, and it can be obtained from their [Branch Dashboard](https://dashboard.branch.io/account-settings/profile).
 
-![991e207-Branch_Key.PNG](/img/991e207-Branch_Key.PNG)
+
 
 ## Link Creation Options
 

@@ -34,11 +34,11 @@ Not doing so will result in the callback in `init()` never getting hit.
    - **New Branch**: In the left-hand navigation, go to **Configuration** and click on **Link Controls**. Navigate to the **Link Routing Rules** tab to configure your app settings.
    - **Legacy Branch**: Navigate to the [Link Settings page](https://dashboard.branch.io/settings/link).
 
-![](/img/b036351-unity-configure.png "unity-configure.png")
+
 
 2. Customize your app.link domain:
 
-![](/img/dfa4707-unity-link-domain.png "unity-link-domain.png")
+
 
 ## Configure the Branch SDK
 
@@ -52,7 +52,7 @@ You can configure your Unity app to work with Branch by either using a Branch pr
 ::: danger Warning
 Please ensure that the **Activity** checkbox is checked in **Project Settings** → **Player,** because the Unity SDK currently uses `UnityPlayerActivity`.
 
-![Highlighted checkbox for Activity under Application Entry Point in a settings menu.](/img/Screenshot 2025-04-18 at 3.48.49 PM.png)
+
 
 Not doing so **will** **cause a build error** on Android.
 :::
@@ -61,7 +61,7 @@ Not doing so **will** **cause a build error** on Android.
 
 Add the Branch prefab asset to the **first scene** of your Unity project.
 
-![](/img/7db4a47-branchprefab.png "branchprefab.png")
+
 
 ::: info Note
 - Do not forget to click on the **Apply Changes** once you are done.

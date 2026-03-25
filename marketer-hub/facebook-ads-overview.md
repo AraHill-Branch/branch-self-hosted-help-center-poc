@@ -3,7 +3,7 @@ title: "Facebook Ads Overview"
 slug: facebook-ads-overview
 ---
 
-![](/img/03c2a4b-Facebook-Logo-PNG-Clipart-1528503483289.png "Facebook-Logo-PNG-Clipart-1528503483289.png")
+
 
 ## Overview
 

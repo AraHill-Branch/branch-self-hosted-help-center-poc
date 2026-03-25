@@ -153,7 +153,7 @@ To use iOS real-time conversion reporting with Branch, **you must first enable P
 
 Once PAM is enabled, you can verify eligibility in TikTok Ads Manager when creating an iOS 14 dedicated campaign. If the app has sufficient data signals, the message “Your app is eligible for iOS real-time reporting” will appear.
 
-![](/img/image(109).png)
+.png)
 
 #### Data considerations
 

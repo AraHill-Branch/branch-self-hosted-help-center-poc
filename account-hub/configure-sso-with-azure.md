@@ -41,7 +41,7 @@ Now, log in to the Azure portal to create the Branch enterprise application.
 4. Enter an application name (e.g., “Branch SSO”) and select the option to **Integrate any other application you don’t find in the gallery (Non-gallery)**.
 5. Select **Create**.
 
-   ![Creating an enterprise application for Branch SSO configuration using Microsoft Entra ID in the Azure portal.](/img/image-1765393731150.png)
+   
 
 ### Step 3: Configure SSO settings in Azure
 
@@ -50,13 +50,13 @@ Within your new enterprise application in Azure, configure the SAML settings.
 1. Navigate to **Single sign-on** in the left menu.
 2. On the **Select a single sign-on method** page, select the **SAML** tile.
 3. In the **Basic SAML Configuration** section, select **Edit**.  
-   ![Configure SAML settings for a Branch enterprise application using Microsoft Entra ID.](/img/image-1765414184327.png)
+   
 4. Fill in the fields using the values from the Branch tab you kept open from [step 1](configure-sso-with-azure.md#step-1-get-configuration-details-from-branch):
 
    1. Identifier (Entity ID): Paste the `Service Provider Entity ID` from Branch.
    2. Reply URL (Assertion Consumer Service URL): Paste the `Single Sign-On URL` from Branch.
 5. Select **Save**.  
-   ![Basic SAML configuration settings for an enterprise application for Branch SSO using Microsoft Entra ID.](/img/image-1765410584115.png)
+   
 
 ### Step 4: Map attributes in Azure
 
@@ -82,7 +82,7 @@ To set up a successful mapping, you must use the attribute names `firstName`, `l
    3. Select **Attribute** as the **Source**.
    4. Select the corresponding **Source attribute** from the table above.
 
-   ![Attributes and claims settings for user identification and additional claims in SAML for Branch SSO configuration using Microsoft Entra ID.](/img/Screenshot 2025-12-11 at 9.29.55 AM.png)
+   
 
 ### Step 5: Get federation metadata from Azure
 
@@ -90,7 +90,7 @@ Branch needs your Microsoft Entra ID federation metadata to complete the connect
 
 1. In the **SAML Certificates** section of your Azure SAML configuration, locate the **App Federation Metadata Url**.
 2. Copy this URL so you have it ready for the next step.  
-   ![SAML certificate details including App Federation Metadata URL for Branch SSO configuration using Microsoft Entra ID.](/img/Screenshot 2025-12-11 at 9.36.25 AM.png)
+   
 
 ::: info Note
 Below the **SAML Certificates** section in Azure, you will see a section called **Set up Branch SSO**. This is for manual setup using individual values.  

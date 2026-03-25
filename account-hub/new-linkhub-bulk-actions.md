@@ -16,7 +16,7 @@ We are excited to announce some new LinkHub functionality: bulk actions!
 - Archive
 - Delete
 
-![](/img/1f89cb3-LinkHub_Bulk.png)
+
 
 ::: tip
 Ready to learn more about LinkHub? Visit our guide here: [Linkhub](linkhub.md)

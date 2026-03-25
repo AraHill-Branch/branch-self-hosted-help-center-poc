@@ -15,11 +15,11 @@ Engagement Builder is a powerful tool in Branch that allow you to build audience
 
 Now you can target by **App Version**.
 
-![](/img/fa4e036-Engagement_Builder_App_Version.png)
+
 
 App Versions is also available in ads analytics Event-Level and Cohorts (not available in Unified Analytics) via Trends chart and Events table.
 
-![](/img/bedd3e6-App_Version_Analytics.png)
+
 
   
 

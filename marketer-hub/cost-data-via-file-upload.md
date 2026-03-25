@@ -52,17 +52,17 @@ To upload a file containing cost data:
       2. This is important if you are uploading data for the same ad partner multiple times, as it might override existing data uploaded.
    3. Default currency (required)
 
-      ![aa0cb33422bc2d91d37a8ad77caa3265ca35270081669c0cda3926a36fdb3212-c93dd7ac0a7b599bd4a212e8a4ad39ac0adfde21be288ab178c308536a08ca7e-Screenshot_2024-10-30_at_2.21.58_PM.png](/img/aa0cb33422bc2d91d37a8ad77caa3265ca35270081669c0cda3926a36fdb3212-c93dd7ac0a7b599bd4a212e8a4ad39ac0adfde21be288ab178c308536a08ca7e-Screenshot_2024-10-30_at_2.21.58_PM(1).png)
+      *[Image: aa0cb33422bc2d91d37a8ad77caa3265ca35270081669c0cda3926a36fdb3212-c93dd7ac0a7b599bd4a212e8a4ad39ac0adfde21be288ab178c308536a08ca7e-Screenshot_2024-10-30_at_2.21.58_PM.png]*.png)
 3. In the **Select cost data file** section, click the **Upload** button and upload your CSV file.
 4. At this point, we recommend using the file validation feature to make sure your file is properly formatted before attempting to process it, since that can take several hours. To validate your file's formatting, click the **Run quick validation** button.  
-   ![61d50667984827ecf90f38538c9282111958a86bacc9594894ea1536cb6fac09-Screenshot_2024-11-12_at_1.39.03_PM.png](/img/61d50667984827ecf90f38538c9282111958a86bacc9594894ea1536cb6fac09-Screenshot_2024-11-12_at_1.39.03_PM(1).png)
+   *[Image: 61d50667984827ecf90f38538c9282111958a86bacc9594894ea1536cb6fac09-Screenshot_2024-11-12_at_1.39.03_PM.png]*.png)
 5. If your file is properly formatted, you will see a success message upon validation:  
-   ![b7f7ed43ad0e885c2203d72b8c542d0f10a5997c4399b348a905692a0d27d114-Screenshot_2024-11-12_at_2.16.58_PM.png](/img/b7f7ed43ad0e885c2203d72b8c542d0f10a5997c4399b348a905692a0d27d114-Screenshot_2024-11-12_at_2.16.58_PM(1).png)
+   *[Image: b7f7ed43ad0e885c2203d72b8c542d0f10a5997c4399b348a905692a0d27d114-Screenshot_2024-11-12_at_2.16.58_PM.png]*.png)
 6. Now that you have validated the file, click **Upload file** to begin uploading your cost data.
 
-   ![3cdcb12d3c305d71eabd5f8e3b9782dfb24f0e03a76cca06fe3668b825c9e3a4-Screenshot_2024-11-12_at_1.39.49_PM.png](/img/3cdcb12d3c305d71eabd5f8e3b9782dfb24f0e03a76cca06fe3668b825c9e3a4-Screenshot_2024-11-12_at_1.39.49_PM(1).png)
+   *[Image: 3cdcb12d3c305d71eabd5f8e3b9782dfb24f0e03a76cca06fe3668b825c9e3a4-Screenshot_2024-11-12_at_1.39.49_PM.png]*.png)
 7. You'll be prompted to either **Upload another file** if you want to add more data, or get taken back to the main File Ingestion tab view using the **Go to History** button.  
-   ![cac5da15048f12f2ed55231fd416eb1b7e1e8b2fd34ca4a13f7ed5cd93f5aea2-Screenshot_2024-10-30_at_2.26.12_PM.png](/img/cac5da15048f12f2ed55231fd416eb1b7e1e8b2fd34ca4a13f7ed5cd93f5aea2-Screenshot_2024-10-30_at_2.26.12_PM(1).png)
+   *[Image: cac5da15048f12f2ed55231fd416eb1b7e1e8b2fd34ca4a13f7ed5cd93f5aea2-Screenshot_2024-10-30_at_2.26.12_PM.png]*.png)
 8. If you click **Go to History** and return to the File Ingestion tab, you'll notice your file is now in the table and is in the **pending** state. Please note that it may stay in this state for several hours while the data is being processed.
 9. Once your data is processed, it will get included on the [ROI Hub Overview page](https://dashboard.branch.io/ads/roi-hub/analytics).
 
@@ -74,9 +74,9 @@ To learn more about the file:
 
 1. Click the **View** button in the **Action** column for the file you are interested in.
 2. When you click this button, you will see file details appear in a module.  
-   ![a822a8257aa856400905e031cb2f48b38611fd18391669da018456d85482f6e9-Screenshot_2024-10-30_at_5.32.00_PM.png](/img/a822a8257aa856400905e031cb2f48b38611fd18391669da018456d85482f6e9-Screenshot_2024-10-30_at_5.32.00_PM(1).png)
+   *[Image: a822a8257aa856400905e031cb2f48b38611fd18391669da018456d85482f6e9-Screenshot_2024-10-30_at_5.32.00_PM.png]*.png)
 3. If you click **View** on a file that failed during the upload process, you will see what the error was that caused the failure.  
-   ![ac899af068c14b83175e31dc169fa45b357054448ba36075a50a4dcfe6208307-Screenshot_2024-10-30_at_5.36.57_PM.png](/img/ac899af068c14b83175e31dc169fa45b357054448ba36075a50a4dcfe6208307-Screenshot_2024-10-30_at_5.36.57_PM(1).png)
+   *[Image: ac899af068c14b83175e31dc169fa45b357054448ba36075a50a4dcfe6208307-Screenshot_2024-10-30_at_5.36.57_PM.png]*.png)
 4. You can also click **Download file with errors** to download a CSV file that contains all the data from your file alongside the errors that occurred when Branch tried to process it.
 
 ### Filter Uploaded Files

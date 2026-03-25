@@ -26,7 +26,7 @@ Find more details about each [here](consumer-protection-preferences.md#consumer-
 
 ## Usage
 
-![](/img/e47ba2b8aebbb3e0a2c401c63dae847b19945171757aca9f31d56462866b4b0d-unnamed_1(1).png)
+.png)
 
 Using the `setConsumerProtectionAttributionLevel` method, you can relay to Branch the level of attribution and analytics data the user has consented to sharing with you and third parties.
 

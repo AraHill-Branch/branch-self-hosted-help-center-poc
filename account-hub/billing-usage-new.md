@@ -29,4 +29,3 @@ On the [Billing tab](https://branchdocs.app.link/billing-new-to-billing-settings
 
 From this same module, you can click **Manage Plan** to adjust your Branch package.
 
-![](/img/Screenshot 2025-06-24 at 12.44.26 PM.png)

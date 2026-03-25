@@ -3,7 +3,7 @@ title: "Ads Attribution"
 slug: ads-attribution
 ---
 
-![](/img/163787f-adnetwork-01(1).png "adnetwork-01.png")
+.png "adnetwork-01.png")
 
 ## Overview
 

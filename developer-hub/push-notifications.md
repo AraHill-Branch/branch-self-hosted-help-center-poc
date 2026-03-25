@@ -21,7 +21,7 @@ Branch can be used to help power your push notification campaigns through the us
 3. User is deep-linked into specific app content
 4. Events (ex. purchases, sign-ups, etc.) are attributed back to push notification campaign
 
-![](../../../assets/media/images/32c8de3c-1cb5-4547-a854-1afd61ef0ed4 "Push Notification.PNG")
+
 
 ## Access
 

@@ -3,7 +3,7 @@ title: "Google Analytics 4 Configuration"
 slug: google-analytics-4-configuration
 ---
 
-![1328](/img/f77bbef-Google_Analytics__branch(1).png "Google Analytics + branch.png")
+*[Image: 1328]*.png "Google Analytics + branch.png")
 
 # Overview
 
@@ -25,7 +25,7 @@ Branch will send referred **installs** and **opens**, **commerce**, **content**,
 
 Branch events will appear alongside your other tracked events in Google Analytics. Here is an example of the Events screen with sample data.
 
-![](/img/c3dc37393acba1818e500d65abe14715315d2c420a778507fa62ce5096198459-Screenshot_2024-12-20_at_11.31.17_AM.png "GA4 Events.png")
+
 
 # Prerequisites
 
@@ -51,7 +51,7 @@ In order to enable Google Analytics, you need to have completed the following:
 Typically, you will have separate Firebase App IDs for the different platforms. Be sure to retrieve **both** of your iOS and Android Firebase App IDs.
 :::
 
-![](/img/4616ba7-small-GA4_Firebase_App_ID.png)
+
 
 ### Retrieve API Secret
 
@@ -60,14 +60,14 @@ If you do not have an API Secret already created, navigate in the Google Analyti
 - In [Admin](https://support.google.com/analytics/answer/6132368), make sure that you have the desired account and property selected.
 - In the *Property* column, click **Data Streams**, then click your stream. Select **Measurement Protocol API secrets**. From here a new page will prompt you to create a new API secret. Click the **Create** button.
 
-  ![](/img/a3c759e-Measurement_Protocol_API_Secrets.png "Measurement Protocol API Secrets.png")
+  
 - After you create an API secret, make sure to copy the **Secret Value**.
 
 ::: tip API Secret
 Note - You will need an API Secret for iOS and **another** API Secret for Android.
 :::
 
-![](/img/62195e1-API_secret.png "API secret.png")
+
 
 ## 2. Connect Google Analytics in Branch
 
@@ -75,7 +75,7 @@ In the Branch Dashboard in Data Feeds → [**Data Integrations** tab](https://da
 
 Enter the IDs from the previous step. Enter them into the corresponding fields and click **Save**.
 
-![](/img/9ce441b-GA4_Enable.png "GA4 Enable.png")
+
 
 ## 3. Pass Metadata to the Branch SDK
 
@@ -153,7 +153,7 @@ Once the above steps are complete, you are now ready to start launching campaign
 | --- | --- | --- |
 | webhook partner key | equals | `di_google_analytics_v4_firebase` |
 
-![](/img/1c4e790-GA4_Liveview.png)
+
 
 ::: info Wait Period
 Please be patient as data may take some time to flow through Branch's attribution systems and onto Google Analytics. If data has not appeared in Google Analytics after 30 minutes of completing a test conversion, review the above steps to see if you may have missed something.

@@ -41,7 +41,7 @@ Additionally, you can view your full guide on all SKAdNetwork-related reporting 
    - See Apple documentation [here](https://developer.apple.com/documentation/adattributionkit/testing-ad-attributions-with-a-downloaded-profile) for instructions.
 3. Check the [SKAdNetwork Analytics page](https://dashboard.branch.io/ads/skadnetwork/activity) to verify SKAdNetwork data.
 
-![](/img/a5c731a-SKAN_Analytics.png "SKAN Data Verification.png")
+
 
 Additionally, you can verify with your Ad Network the data that they are receiving are proper postbacks for the SKAN campaigns.
 

@@ -25,4 +25,3 @@ Support for other ad networks is on the way!
 
 For Non-SANs, cost data is enabled through the respective Non-SAN Partner Management screen in the Branch Dashboard via the Cost Data tab.
 
-![](/img/44eb941-Cost_Moloco.png)

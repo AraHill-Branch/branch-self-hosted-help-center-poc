@@ -5,7 +5,7 @@ slug: salesforce-open-web-default
 
 ## Overview
 
-![image](/img/862df35-f5633ba-salesforce-open-web.png)
+
 
 Meet Email Studio. Reach your customers with the world’s #1 email marketing platform. Build smarter email — from basic marketing campaigns to sophisticated 1-to-1 messages.
 
@@ -49,7 +49,7 @@ If your click tracking domain is not secure (i.e., secure domains will start wit
 
 Your Salesforce account must be configured to correctly handle Universal Links. Configure the settings in Deep Linking under the Send Management section in Email Studio. Ensure you're in the account corresponding to the correct click tracking domain.
 
-![image](/img/1559434914239-og_image.png)
+
 
 1. Enter the AppID value
 2. Check the "Exclude Profile" and "Unsub Center" checkboxes to force links to these items to open in the browser and not the app, if desired.
@@ -64,7 +64,7 @@ To enable the integration:
 2. On the Email overview page, click the **Manager** tab at the top.
 3. Find your ESP and click **Enable**.
 
-   ![1428](/img/d00db86-salesforce-open-web-enable.gif "salesforce-open-web-enable.gif")
+   *[Image: 1428]*
 
 ::: info
 Branch automatically detects any global link settings you have already provided during the initial setup of your Branch account as outlined above.
@@ -86,7 +86,7 @@ The Salesforce v1 Open Web Default integration requires you provide the followin
 Remove `http://` or `https://` when adding your click tracking domain in the Branch dashboard
 :::
 
-![2394](/img/fa15312-Screen_Shot_2020-11-13_at_1.02.21_PM.png "Screen Shot 2020-11-13 at 1.02.21 PM.png")
+*[Image: 2394]*
 
 **KEEP IN MIND**
 
@@ -114,7 +114,7 @@ Branch automatically validates the following:
 - App Events being tracked (optional)
 - Android App Links (optional)
 
-![679](/img/fe7d7f2-setup-verification(1).png "setup-verification.png")
+*[Image: 679]*.png "setup-verification.png")
 
 ::: warning Common Validation Issues
 **CNAME Does Not Point to Branch**
@@ -145,7 +145,7 @@ To generate a test link:
 5. SMS
 6. Email
 
-   ![698](/img/55bd2ed-test-link(1).gif "test-link.gif")
+   *[Image: 698]*.gif "test-link.gif")
 
 Once you’ve generated your test link, click the link on your mobile device; don’t forget to make sure your mobile device already has the app installed!
 
@@ -166,26 +166,26 @@ Using Salesforce's AMPscript, we'll add a new Content Area in Salesforce that co
    ```
 2. After logging into Salesforce Marketing Cloud, click on **Email Studio** and then a sub-menu will appear. Click on **Email** in the dropdown menu:
 
-   ![1338](/img/35b669e-Screen_Shot_2020-12-11_at_9.34.42_AM.png "Screen Shot 2020-12-11 at 9.34.42 AM.png")
+   *[Image: 1338]*
 3. This will take you to the landing page for the Email section. Click on **Content** in the menu bar to navigate to the Content section:
 
-   ![1343](/img/31c4790-content.png "content.png")
+   *[Image: 1343]*
 4. In the Content section, you will see a list of folders on the left side. Right click on the **My Contents** folder and choose **Create Folder** in the content builder menu:
 
-   ![1360](/img/2c61e0b-Screen_Shot_2020-12-11_at_9.35.50_AM.png "Screen Shot 2020-12-11 at 9.35.50 AM.png")
+   *[Image: 1360]*
 5. Name the folder `Branch`:
 
-   ![1830](/img/4fda49a-Screen_Shot_2020-12-11_at_9.36.09_AM.png "Screen Shot 2020-12-11 at 9.36.09 AM.png")
+   *[Image: 1830]*
 6. Once the folder is created, in the upper right side, click on **Create** button, then click **Content Blocks** and finally click **Free Form**:
 
-   ![2094](/img/fddd66a-Screen_Shot_2020-12-11_at_9.36.55_AM.png "Screen Shot 2020-12-11 at 9.36.55 AM.png")
+   *[Image: 2094]*
 7. On the **Free Form** screen, paste in the snippet you previouisly generated:
 
-   ![2094](/img/e15d9a0-Screen_Shot_2020-12-11_at_9.38.50_AM.png "Screen Shot 2020-12-11 at 9.38.50 AM.png")
+   *[Image: 2094]*
 8. Click **Save**.
 9. In the **Create Free Form** window that appears, enter `deeplink` in the text field named Content Name. Click on **Save** after you enter the text:
 
-   ![2094](/img/60c7f68-Screen_Shot_2020-12-11_at_9.39.04_AM.png "Screen Shot 2020-12-11 at 9.39.04 AM.png")
+   *[Image: 2094]*
 10. You will now be back at your list of folders in the Content section with the file **deeplink** listed:
 
 You have now successfully created the deep linking AMPscript.
@@ -294,7 +294,7 @@ This integration will not let you track web links with Branch out-of-the-box as 
 2. Add campaign tag for tracking.
 3. In the Deep Linking tab, add **has\_app = false** and **$web\_only = true** to the link data.
 
-   ![1942](/img/c1e59b9-sfdc-web-default(1).png "sfdc-web-default.png")
+   *[Image: 1942]*.png "sfdc-web-default.png")
 4. In the Redirects tab, set the web redirects for fallbacks. Select web URL for Android, iOS, and Desktop, and add the URL you want to redirect to.
 5. After the link is created, add `_webonly` to the app.link domain.  
     \* Ex: If the link created is `https://branchster.app.link/weblinktest`, convert it to `https://branchster_webonly.app.link/weblinktest`.

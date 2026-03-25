@@ -62,6 +62,6 @@ If you are unable to find your app using the App Search field on the [Configurat
 1. Select the option **I have an Android/iOS App**.
 2. Select **Custom URL** and enter in the link to your app, and provide the Android Playstore Package Name and/or Apple App Store ID.
 
-![1784](/img/8823ce0-Screen_Shot_2020-11-30_at_10.41.44_AM.png "Screen Shot 2020-11-30 at 10.41.44 AM.png")![1782](/img/efe0865-Screen_Shot_2020-11-30_at_10.43.54_AM.png "Screen Shot 2020-11-30 at 10.43.54 AM.png")
+*[Image: 1784]**[Image: 1782]*
 
 </details>

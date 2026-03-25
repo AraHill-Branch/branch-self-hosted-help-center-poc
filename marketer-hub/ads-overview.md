@@ -11,4 +11,3 @@ With Ads from Branch, you can optimize campaign performance and track your full 
 
 **Built on Branch Links** - Power seamless customer experiences with links that just work. Thousands of top brands trust Branch to handle every edge case.
 
-![](/img/c2b3e24-persona.png "persona.png")

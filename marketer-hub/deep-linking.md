@@ -3,7 +3,7 @@ title: "Deep Linking Overview"
 slug: deep-linking
 ---
 
-![](/img/0b1e745-Contextual_Deep_Link(1).png "Contextual_Deep_Link.png")
+.png "Contextual_Deep_Link.png")
 
 ## Overview
 
@@ -67,4 +67,4 @@ When creating your Branch Link, you can add [Open Graph](https://ogp.me/) tags t
 
 Open Graph tags are automatically set when configuring Social Media Tags in the Branch Link creation interface, or scraped from your website when using certain URL parameters. See our [developer documentation](deep-linking-for-developers.md#open-graph-tags-in-branch-links) for technical configuration details.
 
-![](/img/e174b97-Screen_Shot_2021-09-28_at_2.22.55_PM(1).png "Screen Shot 2021-09-28 at 2.22.55 PM.png")
+.png "Screen Shot 2021-09-28 at 2.22.55 PM.png")

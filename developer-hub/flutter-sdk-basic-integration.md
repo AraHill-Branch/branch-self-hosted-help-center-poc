@@ -27,7 +27,7 @@ Universal for all platforms, you first need to configure your app in Branch. Onc
 
 Set a URL here to designate where the user will be redirected to when opening a Branch Link on web.
 
-![](/img/e936581-Default_URL.png "Default URL.png")
+
 
 #### Android
 
@@ -42,7 +42,7 @@ To configure Android settings in Branch:
 - **New Branch**: In the left-hand navigation, go to **Configuration** and click on **Link Controls**. Navigate to the **Link Routing Rules** tab, then find the **Mobile Routing** section and select **Android**.
 - **Legacy Branch**: Navigate to the [Configuration page](https://dashboard.branch.io/configuration/general) and find the Android section.
 
-![](/img/75c68d8-Android_Redirect.png "Android Redirect.png")
+
 
 #### iOS
 
@@ -57,7 +57,7 @@ To configure iOS settings in Branch:
 - **New Branch**: In the left-hand navigation, go to **Configuration** and click on **Link Controls**. Navigate to the **Link Routing Rules** tab, then find the **Mobile Routing** section and select **iOS**.
 - **Legacy Branch**: Navigate to the [Configuration page](https://dashboard.branch.io/configuration/general) and find the iOS section.
 
-![](/img/59a6d59-iOS_Redirect.png "iOS Redirect.png")
+
 
 ### 2. Configure Native Platforms
 

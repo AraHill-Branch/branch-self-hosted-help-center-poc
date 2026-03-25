@@ -3,7 +3,7 @@ title: "CleverTap Configuration"
 slug: clevertap-configuration
 ---
 
-![1328](/img/8403b0e-Clevertap_branch.png "Clevertap+ branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -18,7 +18,7 @@ Use the corresponding guides below to set up CleverTap with your ESP.
 
 ## How does it work?
 
-![](../../../assets/media/images/11751b56-cd32-4d92-b3ac-97ce537a526d "Branch Email Flow.PNG")
+
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.

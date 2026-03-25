@@ -5,7 +5,7 @@ slug: consumer-protection-preferences
 
 ## Overview
 
-![](/img/e47ba2b8aebbb3e0a2c401c63dae847b19945171757aca9f31d56462866b4b0d-unnamed_1.png)
+
 
 Branch's Consumer Protection Preferences (CPP) model is an advancement in the user consent and attribution space. Instead of turning tracking either entirely on or entirely off for a user, you can take a more nuanced approach based on the level of consent you've received from them.
 

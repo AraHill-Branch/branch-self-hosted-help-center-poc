@@ -33,7 +33,7 @@ In order to enable Unified Analytics, you need to have completed the following:
 
 ## Overview Table
 
-![](/img/e1fe872b433e3b07bee82c0438b58c31792b376cd98b1de6f8dbb9fe02e81fa4-Screenshot_2024-11-19_at_10.57.47_AM.png)
+
 
 The **Overview** [table](https://dashboard.branch.io/ads/analytics/unified) will be the main area for analyzing your campaign performance. Here you will be able to apply certain filters and add dimensions so you and your teams have a full understanding of your marketing efforts across mobile.
 
@@ -59,7 +59,7 @@ With Unified Analytics, you have the following dimensions to break your report o
 
 ### Toggles
 
-![](/img/7bc5a6ab97f78e96c03b98b77ff6838129a9c04327ca1cbbb19848bdb3542400-Screenshot_2024-11-19_at_11.02.25_AM.png)
+
 
 In the Overview table, you can toggle certain checkboxes to enable the following:
 

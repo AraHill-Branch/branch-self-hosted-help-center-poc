@@ -27,7 +27,7 @@ This is a required setting.
 
 In the left-side navigation of the Branch Dashboard, find the [**App Settings**](https://branch.dashboard.branch.io/configuration/general) page under **Configure**. Find the **General** tab, and in the the **Required Redirects** section, enter in your fallback URL for mobile devices that do not have a specified redirect.
 
-![](/img/6182ba4-Screen_Shot_2020-05-01_at_8.26.00_AM.png "Screen Shot 2020-05-01 at 8.26.00 AM.png")
+
 
 ## 2. Android default link behavior
 
@@ -60,7 +60,7 @@ If you choose to **Enable App Links** you will need to generate a SHA256 Cert Fi
 3. Enter `--signingReport` and press Enter/Return.
 4. Select the cat icon to open logcat. Copy the SHA256 Cert Fingerprint from logcat at the bottom of Android Studio.
 
-![](/img/e633017-Screen_Shot_2020-05-01_at_8.55.29_AM.png "Screen Shot 2020-05-01 at 8.55.29 AM.png")
+
 
 ::: info Note
 To host an `assetlinks.json` file that includes **multiple package names** for your development environment, please [submit a ticket](https://help.branch.io/v1/docs/submit-a-ticket) with the complete `digital assetlink.json` file.
@@ -92,7 +92,7 @@ For any user running on an iOS version below 12.3, a popup first appears prompti
 Branch currently does **not** support using the same iOS App Store ID across multiple Branch apps.This limitation exists because Branch’s SKAN implementation requires a 1:1 mapping between each iOS App Store ID and Branch App ID. **Exception**: Test apps may use the same iOS App Store ID as production apps.
 :::
 
-![](../../../assets/media/images/35e84f60-2639-4441-b9c4-20b79ead04a5 "iOS Config.PNG")
+
 
 ## 4. Social media preview
 
@@ -106,7 +106,7 @@ You can change the social media preview for individual Short Links when you crea
     b. Description  
     c. Thumbnail Image
 
-![](/img/e41c1d1-Screen_Shot_2020-05-01_at_9.07.49_AM.png "Screen Shot 2020-05-01 at 9.07.49 AM.png")
+
 
 ## 5. Link domain
 
@@ -114,7 +114,7 @@ To see your app’s default link domain and alternate link domain, navigate to t
 
 When you first create your account, you will be assigned a unique domain for all of your Branch Links.
 
-![](/img/0f142b5-Link_Domain.png "Link Domain.png")
+
 
 ### Change link domain
 

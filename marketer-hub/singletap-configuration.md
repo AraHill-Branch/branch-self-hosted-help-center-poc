@@ -3,7 +3,7 @@ title: "SingleTap by Digital Turbine"
 slug: singletap-configuration
 ---
 
-![1328](/img/a852500-Digital_Turbine__branch(7).png "Digital Turbine + branch.png")
+*[Image: 1328]*.png "Digital Turbine + branch.png")
 
 ## Overview
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for SingleTap by Digital Turbine.
 4. Select **SingleTap by Digital Turbine** and click **Save & Enable**.
 
-![](/img/a252c03-Screen_Shot_2020-12-03_at_11.25.33_AM(3).png "Screen Shot 2020-12-03 at 11.25.33 AM.png")
+.png "Screen Shot 2020-12-03 at 11.25.33 AM.png")
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/09fd4aa-2418cf9-Screenshot_2020-12-01_221152(3).png "2418cf9-Screenshot_2020-12-01_221152.png")
+.png "2418cf9-Screenshot_2020-12-01_221152.png")
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -81,7 +81,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/0e6e601-Screen_Shot_2020-12-03_at_11.32.45_AM(3).png "Screen Shot 2020-12-03 at 11.32.45 AM.png")
+.png "Screen Shot 2020-12-03 at 11.32.45 AM.png")
 
 </details>
 
@@ -92,7 +92,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by SingleTap by Digital Turbine. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/6351e74-Screen_Shot_2020-12-03_at_11.32.58_AM(3).png "Screen Shot 2020-12-03 at 11.32.58 AM.png")
+.png "Screen Shot 2020-12-03 at 11.32.58 AM.png")
 
 </details>
 
@@ -103,7 +103,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/1b58c81-Screen_Shot_2020-12-03_at_11.33.23_AM(3).png "Screen Shot 2020-12-03 at 11.33.23 AM.png")
+.png "Screen Shot 2020-12-03 at 11.33.23 AM.png")
 
 </details>
 

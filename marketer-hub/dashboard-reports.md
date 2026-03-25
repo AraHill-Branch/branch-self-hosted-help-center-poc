@@ -7,7 +7,7 @@ slug: dashboard-reports
 
 The [Branch Dashboard](https://dashboard.branch.io/) is the best place to view your campaign performance across all of your Branch-integrated channels. Use the data collected through Branch's cross-platform Link Graph to make data-driven decisions to improve metrics and user experience.
 
-![](../../../assets/media/images/ddd33632-9739-4a2f-8592-546a92df0c12 "All Data.PNG")
+
 
 ### Available Reports:
 
@@ -36,7 +36,7 @@ The Filter Bar allows you to add multiple controls across your charts and tables
 - Sharing Views
 - Reset View
 
-![](/img/9c9eeba-Filter.gif "Filter.gif")
+
 
 ### Saving Views
 
@@ -44,19 +44,19 @@ You can also save the current state of your report - i.e. including whatever cha
 
 You can also access your previously saved reports here as well.
 
-![](/img/307d65b-Save_View.png "Save View.png")
+
 
 ### Sharing Views
 
 You can easily share the current state of your report - i.e. including whatever changes you have made to the default view - by clicking on the **link button** and copying the auto-generated Branch Link. You can then send this link to users who have access to your Branch Dashboard for them to view that report.
 
-![](/img/2f76316-Sharing.gif "Sharing.gif")
+
 
 ## Trends Graph
 
 The Trends Graph is a type of view in the Branch Dashboard that allows you to view your campaign performance through robust charts.
 
-![](/img/0282c1e-customize-graph.gif "customize-graph.gif")
+
 
 The Trends Graph can be customized to show **two** events compared by a specific attribute.
 
@@ -86,7 +86,7 @@ To change which events and/or metrics are shown as columns:
 2. Select the events and/or metrics of interest to you.
 3. To re-arrange the column order, click on the dotted tab to the right of the column name and drag to re-order.
 
-![](../../../assets/media/images/f9ea4c0c-5f26-407c-b36b-7952ef2796e8 "Events Table.PNG")
+
 
 Additionally, you have the ability to customize your columns even further through the Column Selector. With it you'll be able to have new sections:
 
@@ -94,7 +94,7 @@ Additionally, you have the ability to customize your columns even further throug
 - **Metrics**: All Branch pre-calculated metrics.
 - **Ordering**: The ordering space for all selected columns including compare-by as well as selected events and metrics with easy drag-and-drop functionality.
 
-![](/img/93c51c2-Column_Selector.gif "Column Selector.gif")
+
 
 Events within each bucket are ordered by the volume received in the past 15 days. The most relevant events for each app will always appear at top of the list. You can also pin your favorite events and metrics to always appear on top.
 
@@ -104,7 +104,7 @@ Note: Any event with zero volume will appear at the bottom irrespective of the e
 
 In the column selector, you can also make your own custom metrics for more insights from your aggregated data. Formulaic calculations between event counts and aggregations are supported. Additionally, you will have access to templated calculations like Average Order Value and Customer Acquisition Cost.
 
-![](/img/c9532c9-Custom_Metric.gif "Custom Metric.gif")
+
 
 #### Compare By
 
@@ -123,7 +123,7 @@ To modify which dimension the columns are split by:
 1. Click on the **Compare by** drop-down and select the dimension on which you want the event split.
 2. To remove a dimension, click the**X** next to the event in the **Compare by** field.
 
-![](/img/4e896a3-customize-table.gif "customize-table.gif")
+
 
 #### Filter
 
@@ -145,7 +145,7 @@ You can add `tags` to nearly everything you do with Branch. This includes Branch
 
 ### Report Previews
 
-![](/img/b992311-Report_Previews.png "Report Previews.png")
+
 
 If certain conditions are met, you may see a prompt on Events/Performance Tables to **Run Full Report**. To ensure stable performance and usability, Branch only shows you partial data for your report until you confirm to run the full report. This is also a good opportunity to confirm you have the correct columns/dimensions set.
 
@@ -161,4 +161,3 @@ Report Previews only initiate when the following conditions are met:
 
 In addition to seeing the report in the Events/Performance Tables, you also have the ability to export the table as a CSV by clicking the **download** button next to the granularity setting. The CSV you export will abide by the time range you set from the **Export CSV** modal.
 
-![](../../../assets/media/images/4a4db13b-a42f-4b71-8d53-3367e1ea1615 "Export CSV.PNG")

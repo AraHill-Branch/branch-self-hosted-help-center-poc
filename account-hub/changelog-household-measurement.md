@@ -7,7 +7,7 @@ With this powerful new attribution feature, you can finally track downstream con
 
 ## Overview
 
-![](/img/3a0c68f4fe2ac46d4f1d4840bff2349af5853a860770ca505522849fa6f3ee9b-household-1(1).png)
+.png)
 
 Household Measurement offers comprehensive attribution support for household devices, including CTVs, gaming consoles, mobile phones, laptops, and [others](household-measurement.md#what-is-household-measurement).
 

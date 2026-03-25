@@ -3,7 +3,7 @@ title: "Segment (Export) Configuration"
 slug: segment-export-configuration
 ---
 
-![1328](/img/875b024-Segment__branch.png "Segment + branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -38,11 +38,11 @@ We do not support Segment export for Branch WebSDK events
 
 Branch events will appear as an event prepended with **branch\_** in your Segment debugger.
 
-![](/img/f792cbb-a45cfb8-segment-debugger_1.png "a45cfb8-segment-debugger_1.png")
+
 
 Additionally, individual events, such as those seen in Live View or visible when looking at People, will have Branch Link data included. Here's an example:
 
-![](/img/27c7aa2-9efc1a1-segment-debugger_2.png "9efc1a1-segment-debugger_2.png")
+
 
 ## Prerequisites
 
@@ -64,10 +64,10 @@ Find your Segment Token and enter it into the Branch Dashboard.
 2. In the dashboard, navigate to your desired Workspace.
 3. In that Workspace, navigate to **Sources** and select the Source that has your app listed. Branch is not yet an independent Source, so Branch events appear within your app's Source.
 
-   ![](/img/d9878f0-f5a4ee2-segment-sources.png "f5a4ee2-segment-sources.png")
+   
 4. Click through to *Settings > API Keys*
 
-   ![](/img/1d506d0-6e14222-segment-keys.png "6e14222-segment-keys.png")
+   
 5. Copy your key and secret - you'll enter it into the Branch dashboard in a minute.
 
 ## 2. Enable Segment (Export) in Branch
@@ -76,7 +76,7 @@ Find your Segment Token and enter it into the Branch Dashboard.
 2. Search for Segment and click on the tile.
 3. Enter your Segment Token under the "Export" section and hit **Enable**.
 
-   ![](/img/0c74cf2-segment_enable.png "segment enable.png")
+   
 
 ## 3. Configure App
 

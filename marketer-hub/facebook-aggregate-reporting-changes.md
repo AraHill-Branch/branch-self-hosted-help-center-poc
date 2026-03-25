@@ -27,7 +27,7 @@ When the conversion is attributed to **Facebook** via [Facebook Install Referrer
 
 The first place you will notice a change is within the Branch Dashboard when looking at Facebook-related [Ads Analytics](paid-ads-analytics.md). More specifically when you are comparing Facebook data in the Events table.
 
-![b56204b-small-FB_Undisclosed.png](/img/b56204b-small-FB_Undisclosed.png)
+
 
 In the example screenshot above, you will notice that when data reported for Facebook does not exceed the right threshold, "undisclosed" will replace the real value while abstracting the data from the `TOTAL` values.
 

@@ -7,7 +7,7 @@ This page outlines the steps required to integrate the Branch Web SDK. At the en
 
 | GitHub | SDK Size | Speed |
 | --- | --- | --- |
-| <https://github.com/BranchMetrics/web-branch-deep-linking-attribution/releases> | 50kb | Median 80ms to 250ms |
+| \&lt;https://github.com/BranchMetrics/web-branch-deep-linking-attribution/releases\&gt; | 50kb | Median 80ms to 250ms |
 
 **Note**: On iOS 14 in Safari, you will likely see `branch.io` listed as "blocked" with the new visibility. This is expected, and simply means that cookies from `branch.io` are blocked. No web functionality or tracking will be impacted. Branch uses a different domain for managing cookies.
 
@@ -47,7 +47,7 @@ Start by configuring the Branch Dashboard for your application.
 
 1. On the [App Settings](https://dashboard.branch.io/configuration/general) page of the Branch Dashboard, navigate to the **General** tab.
 2. Enter your fallback URL for mobile devices that do not have a specified redirect:  
-   ![](/img/f20e327-image.png)
+   
 
 ## 2. Install Branch
 

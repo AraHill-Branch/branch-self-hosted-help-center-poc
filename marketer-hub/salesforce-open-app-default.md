@@ -5,7 +5,7 @@ slug: salesforce-open-app-default
 
 ## Overview
 
-![image](/img/f3ecf45-sfdc-marketing-cloud.png)
+
 
 Meet Email Studio. Reach your customers with the world’s #1 email marketing platform. Build smarter email — from basic marketing campaigns to sophisticated 1-to-1 messages.
 
@@ -39,7 +39,7 @@ If your click tracking domain is not secure (i.e., secure domains will start wit
 
 Your Salesforce account must be configured to correctly handle Universal Links. Configure the settings in Deep Linking under the Send Management section in Email Studio. Ensure you're in the account corresponding to the correct click tracking domain.
 
-![image](/img/1559434914239-og_image(1).png)
+*[Image: image]*.png)
 
 1. Enter the AppID value
 2. Check the "Exclude Profile" and "Unsub Center" checkboxes to force links to these items to open in the browser and not the app, if desired.
@@ -54,7 +54,7 @@ To enable the integration:
 2. On the Email overview page, click the **Manager** tab at the top.
 3. Find your ESP and click **Enable**.
 
-   ![](/img/d00db86-salesforce-open-web-enable(1).gif "salesforce-open-web-enable.gif")
+   .gif "salesforce-open-web-enable.gif")
 
 ::: info
 Branch automatically detects any global link settings you have already provided during the initial setup of your Branch account as outlined above.
@@ -76,7 +76,7 @@ The Salesforce v1 Open App Default integration requires you provide the followin
 Remove `http://` or `https://` when adding your click tracking domain in the Branch dashboard
 :::
 
-![2394](/img/fa15312-Screen_Shot_2020-11-13_at_1.02.21_PM(1).png "Screen Shot 2020-11-13 at 1.02.21 PM.png")
+*[Image: 2394]*.png "Screen Shot 2020-11-13 at 1.02.21 PM.png")
 
 **KEEP IN MIND**
 
@@ -104,7 +104,7 @@ Branch automatically validates the following:
 - App Events being tracked (optional)
 - Android App Links (optional)
 
-![](/img/fe7d7f2-setup-verification(2).png "setup-verification.png")
+.png "setup-verification.png")
 
 ::: warning Common Validation Issues
 **CNAME Does Not Point to Branch**
@@ -135,7 +135,7 @@ To generate a test link:
 5. SMS
 6. Email
 
-![](/img/55bd2ed-test-link(2).gif "test-link.gif")
+.gif "test-link.gif")
 
 Once you’ve generated your test link, click the link on your mobile device; don’t forget to make sure your mobile device already has the app installed!
 
@@ -152,26 +152,26 @@ Using Salesforce's AMPscript, we'll add a new Content Area in Salesforce that co
    ```
 2. After logging into Salesforce Marketing Cloud, click on **Email Studio** and then a sub-menu will appear. Click on **Email** in the dropdown menu:
 
-   ![](/img/35b669e-Screen_Shot_2020-12-11_at_9.34.42_AM(1).png "Screen Shot 2020-12-11 at 9.34.42 AM.png")
+   .png "Screen Shot 2020-12-11 at 9.34.42 AM.png")
 3. This will take you to the landing page for the Email section. Click on **Content** in the menu bar to navigate to the Content section:
 
-   ![](/img/31c4790-content(1).png "content.png")
+   .png "content.png")
 4. In the Content section, you will see a list of folders on the left side. Right click on the **My Contents** folder and choose **Create Folder** in the content builder menu:
 
-   ![](/img/2c61e0b-Screen_Shot_2020-12-11_at_9.35.50_AM(1).png "Screen Shot 2020-12-11 at 9.35.50 AM.png")
+   .png "Screen Shot 2020-12-11 at 9.35.50 AM.png")
 5. Name the folder `Branch`:
 
-   ![](/img/4fda49a-Screen_Shot_2020-12-11_at_9.36.09_AM(1).png "Screen Shot 2020-12-11 at 9.36.09 AM.png")
+   .png "Screen Shot 2020-12-11 at 9.36.09 AM.png")
 6. Once the folder is created, in the upper right side, click on **Create** button, then click **Content Blocks** and finally click **Free Form**:
 
-   ![](/img/fddd66a-Screen_Shot_2020-12-11_at_9.36.55_AM(1).png "Screen Shot 2020-12-11 at 9.36.55 AM.png")
+   .png "Screen Shot 2020-12-11 at 9.36.55 AM.png")
 7. On the **Free Form** screen, paste in the snippet you previouisly generated:
 
-   ![](/img/e15d9a0-Screen_Shot_2020-12-11_at_9.38.50_AM(1).png "Screen Shot 2020-12-11 at 9.38.50 AM.png")
+   .png "Screen Shot 2020-12-11 at 9.38.50 AM.png")
 8. Click **Save**.
 9. In the **Create Free Form** window that appears, enter `deeplink` in the text field named Content Name. Click on **Save** after you enter the text:
 
-   ![](/img/60c7f68-Screen_Shot_2020-12-11_at_9.39.04_AM(1).png "Screen Shot 2020-12-11 at 9.39.04 AM.png")
+   .png "Screen Shot 2020-12-11 at 9.39.04 AM.png")
 10. You will now be back at your list of folders in the Content section with the file **deeplink** listed:
 
 You have now successfully created the deep linking AMPscript.
@@ -206,13 +206,13 @@ The process to convert links into Branch Links using AMPscript is as follows (th
 1. Log in to Salesforce Marketing Cloud
 2. Click on **Email Studio** and then a sub-menu will appear. Click on **Email** in the dropdown menu:
 
-   ![image](/img/8ca3e20-Email_Studio_2(1).png)
+   *[Image: image]*.png)
 3. This will take you to the landing page for the Email section. Click on **Content** in the menu bar to navigate to the Content section:
 
-   ![image](/img/b38fedf-Content_2(1).png)
+   *[Image: image]*.png)
 4. Navigate to your folder containing your emails and open an existing email. Make sure the email is in HTML layout as shown below:
 
-   ![image](/img/5cd7cd9-Campaign_Assocation(1).png)
+   *[Image: image]*.png)
 5. Choose a link that you want to convert to a Branch deep link. Copy the text right after the `href=` in your email template, and paste it into a separate document. In the example, it is:
 
    `"https://branch.io/product/1234/"`
@@ -264,7 +264,7 @@ Be sure to add `"$3p":"e_et"` to the deep link data of any links you use in emai
 To create email links via API, please use the instructions on how to [create links via API](deep-linking-api.md), but include the following key value pairs in your call:
 
 1. `"$3p":"e_et"` This is required for Universal Link and click tracking functionality.
-2. `"$original_url":"{{your web url URI encoded}}"` For each piece of content, include a URI encoded version of your content's web URL. You can also add deep link data as query parameters on that web URL. This ensures accurate Content Analytics reporting.  
+2. `"$original_url":"&#123;&#123;your web url URI encoded&#125;&#125;"` For each piece of content, include a URI encoded version of your content's web URL. You can also add deep link data as query parameters on that web URL. This ensures accurate Content Analytics reporting.  
    **Example:** `"$original_url":"https%3A%2F%2Fshop.com%2Fshoes%2Fbrown-shoes%3Fmy_key%3Dmy_value%26campaign%3Dshoe_discounts"`
 
 Here is how links look before and after (the latter being a Branch deep link).

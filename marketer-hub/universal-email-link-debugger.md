@@ -21,7 +21,7 @@ This tool is used to debug issues generating from your ESP; i.e. Branch is recei
 3. Hit **Enter/Return** to load the link in the browser.
 4. View the results on the resulting **Branch ESP Debugger** page.
 
-![](/img/01f1dc8-Screen_Shot_2020-10-27_at_8.45.13_AM.png "Screen Shot 2020-10-27 at 8.45.13 AM.png")
+
 
 ## Interpret the Results
 

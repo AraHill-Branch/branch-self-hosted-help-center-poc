@@ -10,7 +10,7 @@ The public justification is to improve user privacy. Apple has indicated that th
 
 Since the IDFA was a resettable ID that all apps could read and recognize, it could be used as a central key to compile user profiles associated with other, potentially more personally identifying data. Apple might believe that since they created and supported the IDFA, they were partially responsible for enabling unscrupulous companies to do this.
 
-![9f54d6e-Screen_Shot_2021-02-21_at_13.35.41.png](/img/9f54d6e-Screen_Shot_2021-02-21_at_13.35.41.png)
+
 
 By blocking access to this ID, and enforcing policy guidelines to prevent any technically-equivalent alternatives, Apple can wipe its hands clean and move on, while also getting great press coverage for protecting user privacy — use of the device-level matching for responsible marketing (including the mobile attribution industry) is simply collateral damage.
 
@@ -83,7 +83,7 @@ If you used IDFA for data stitching, identity resolution, or other analytics, yo
 
 ‘Aggregate data’ is the functional equivalent of taking a spreadsheet of device-level data and running it through a pivot table. In most cases, this is actually what you *want to do* in order to make sense of the data. However, aggregation is an irreversible process: once you aggregate, you can't get the device-level data back again. And it can be very difficult to re-process the data into any other configuration.
 
-![8d0edb3-Screen_Shot_2021-02-20_at_18.13.58.png](../../../assets/media/images/8d0edb3-Screen_Shot_2021-02-20_at_18.13.58.png?sv=2022-11-02&spr=https&st=2025-11-19T22:27:14Z&se=2025-11-19T22:38:14Z&sr=c&sp=r&sig=6/i/xWwhaFD2+X0tPeVUHD2+f5rASIu2qPvTQXP4lYU=)
+*[Image: 8d0edb3-Screen_Shot_2021-02-20_at_18.13.58.png]*
 
 With the justification of promoting user privacy, Apple's new SKAdNetwork system performs this aggregation inside Apple's black box, and then makes only the final results available for use.
 

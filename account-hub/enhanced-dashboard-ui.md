@@ -24,4 +24,3 @@ Ready to play around? Visit the Branch Dashboard here: <https://dashboard.branch
 
 ## Sample Screenshots
 
-![](/img/ea6a69b-Enhanced_Dashboard_Report.png)![](/img/d72b91e-Enhanced_Dashboard_UI_Quick_Link.png)

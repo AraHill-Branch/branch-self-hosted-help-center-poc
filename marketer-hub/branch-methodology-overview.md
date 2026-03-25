@@ -25,7 +25,7 @@ For example, we'd call `myapp://open?link_click_id=123456` to open the app immed
 
 ### Deferred deep linking using iOS NativeLink™
 
-With the introduction of iOS 15 & iCloud+ Private Relay, Branch released deferred deep linking through the iOS pasteboard. By enabling NativeLink™, you will be able to guarantee that deferred deep linking will work with 100% accuracy (`+match_guaranteed=true`). Users will be presented with a Deepview that enables users to continue their user experience in an app by clicking on the main call-to-action (CTA).![1530](/img/e85d059-nativelink_iphone12prographite_portrait(1).png "nativelink_iphone12prographite_portrait.png")
+With the introduction of iOS 15 & iCloud+ Private Relay, Branch released deferred deep linking through the iOS pasteboard. By enabling NativeLink™, you will be able to guarantee that deferred deep linking will work with 100% accuracy (`+match_guaranteed=true`). Users will be presented with a Deepview that enables users to continue their user experience in an app by clicking on the main call-to-action (CTA).*[Image: 1530]*.png "nativelink_iphone12prographite_portrait.png")
 
 See our [developer documentation](ios-advanced-features.md#nativelink™-deferred-deep-linking) for implementation details.
 
@@ -35,7 +35,7 @@ An Install Referrer is a mechanism to support deterministic matching/attribution
 
 #### How install referrers work
 
-![](/img/182b154-Install_Referrer(1).png "Install Referrer.png")
+.png "Install Referrer.png")
 
 1. Advertiser integrates with App Stores (Google Play, Huawei, Samsung, & Xiaomi) and releases the app.
 2. Advertiser delivers an app download ad with an install referrer on the specific App Store.
@@ -108,11 +108,11 @@ If you are concerned that different users may be conflated by having the same an
 
 On the Dashboard's [Link Settings](https://dashboard.branch.io/link-settings) page, under advanced options, you should set **Match Type** to `Unique`.
 
-![image](/img/match-type-unique(1).png)
+*[Image: image]*.png)
 
 You can also modify the attribution windows for any integration by following [these instructions](self-attributing-networks-sans.md) in the dashboard. Attribution windows essentially define your acceptable timeframes for how long any downstream conversions can be attributed back to a corresponding link click or ad impression.
 
-![](/img/7f7bf23-Screen_Shot_2020-08-16_at_9.34.37_AM(1).png "Screen Shot 2020-08-16 at 9.34.37 AM.png")
+.png "Screen Shot 2020-08-16 at 9.34.37 AM.png")
 
 ## Web SDK
 

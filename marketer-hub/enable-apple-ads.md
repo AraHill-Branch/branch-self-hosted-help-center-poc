@@ -29,13 +29,13 @@ In the Branch Dashboard under **Ads > Partner Management**, find/search for Appl
 
 Click the **Sign in With Apple** button to complete authentication. You'll also be able to select your organization here.
 
-![](/img/6606c1e-Enable_ASA.png)
+
 
 Click the **Save & Enable** button after authentication.
 
 Afterward, you should see a successful integration status:
 
-![](/img/c1fd5f7-ASA_Success.png)
+
 
 ### 3. Configure attribution windows
 
@@ -63,7 +63,7 @@ You can go to the [**Ads Analytics page**](https://dashboard.branch.io/ads/analy
 
 All performance registered from Apple Ads will automatically be tagged with the `Channel: Apple App Store` and the `Ad Partner: Apple Ads`. The campaign will be set to the `Campaign Name` you've configured in the Apple Ads dashboard.
 
-![](/img/3eedc16-ASA_Analytics.png)
+
 
 ::: info Info
 For more details on Apple Ads reporting and analytics, view our guide [here](apple-search-ads-data-reporting.md).
@@ -162,6 +162,6 @@ If you are using the new Apple Ads framework and are debugging or testing your a
 <summary>Re-Authentication</summary>
 
 If you ever need to restart your integration with Apple Ads, you must do so by clicking the Reset Settings cog button in the Apple Ads settings in the [Branch Dashboard](https://dashboard.branch.io/ads/partner-management/a_apple?tab=settings). Clicking the Disable button at the bottom will not reset your integration.   
-![Apple Search Ads Re-Authenticate](/img/Apple Ads Reauth.png)
+
 
 </details>

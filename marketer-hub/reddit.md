@@ -3,7 +3,7 @@ title: "Reddit"
 slug: reddit
 ---
 
-![1328](/img/193f19d-Reddit__branch(3).png "Reddit + branch.png")
+*[Image: 1328]*.png "Reddit + branch.png")
 
 ## Overview
 
@@ -67,7 +67,7 @@ In the Branch Dashboard under **Ads** > [**Partner Management**](https://dashboa
 
 Click the **Save & Enable** button.
 
-![](/img/c022d1e-reddit_enable(3).png "reddit enable.png")
+.png "reddit enable.png")
 
 ### 2. Configure Postbacks
 
@@ -80,7 +80,7 @@ Enabling Reddit will automatically enable the following postbacks:
 - ACHIEVE\_LEVEL
 - REINSTALL
 
-![](/img/b953abb-reddit_postbacks(3).png "reddit postbacks.png")
+.png "reddit postbacks.png")
 
 You can configure these postbacks or add more under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_reddit?tab=postback) tab.
 
@@ -96,7 +96,7 @@ To add a postback:
 2. A modal will appear that will allow you to select an event that you are tracking with the Branch SDKs (including Custom Events).
 3. Select the event type for the postback, add the postback URL, and click **Save**.
 
-![](/img/c737c09-Screenshot_2023-12-06_at_3.57.22_PM(3).png "Add New Postbacks.gif")
+.png "Add New Postbacks.gif")
 
 For more in-depth postback configurations, view our guides:
 
@@ -151,13 +151,13 @@ Implementation:
 1. Copy the main URL that was created when you made your Branch Ad Link. Make sure to append the `$deeplink_no_attribution` parameter.
 2. In Reddit Ads Manager, paste this URL into the **Destination URL** field.
 
-![](/img/image-1762376337129.png)
+
 
 **Tracking URLs (Attribution Only)**
 
 The actual measurement of your ad's performance must be handled separately, using dedicated tracking fields in the Reddit Ads Manager.
 
-- Click trackers: This is a server-to-server (S2S) URL that records the click and passes essential macros like `{{ad_id}}` and `{{campaign_id}}` back to Branch. This ensures click-through attribution is recorded.
+- Click trackers: This is a server-to-server (S2S) URL that records the click and passes essential macros like &#123;&#123;ad_id&#125;&#125; and &#123;&#123;campaign_id&#125;&#125; back to Branch. This ensures click-through attribution is recorded.
 - Impression trackers:This URL is fired when someone views your ad and is used to record view-through attribution data.
 
 Implementation:
@@ -165,7 +165,7 @@ Implementation:
 1. Copy the generated **Click** and **Impression** tracking URLs from Branch. These are generated automatically when you create a Branch Ad Link.
 2. Paste them into the corresponding **Tracking** fields in the Reddit Ads Manager setup.
 
-![](/img/image-1762378242965.png)
+
 
 For more information, visit [Reddit’s help documentation](https://business.reddithelp.com/s/article/Set-up-third-party-measurement).
 

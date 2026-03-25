@@ -77,7 +77,7 @@ For details on which dimensions are in sets A and B, and which dimensions are co
 
 At the top of the page, you'll see a menu of options that applies to both the graph and table views. With the filter bar, you can add attributes that will apply to both the graph and table views on this page.
 
-![Branch Dashboard Ads Analytics page displaying data options and filters for analysis and reporting.](/img/Screenshot 2025-05-01 at 12.37.55 PM.png "Filter Bar.png")
+*[Image: Branch Dashboard Ads Analytics page displaying data options and filters for analysis and reporting.]*
 
 You can apply the following attributes:
 
@@ -97,7 +97,7 @@ You can apply the following attributes:
 
 Here you can see a visual breakdown of where your various in-app and web events are originating from. See the appendix for a breakdown of each event and filter type. These events can be further filtered by the various analytics tags from their originating ad campaigns.
 
-![](/img/59bb9439e12ed6465efc5706b4ccd87d2af2a7c97a5fe0538aec070c9570acc7-Screenshot_2024-11-19_at_10.46.12_AM.png "Trends Graph.png")
+
 
 ::: warning
 **Warning**  
@@ -111,13 +111,13 @@ For additional information on changes **post iOS 14.5**, visit our [FAQ Pages](h
 
 The Events table lets you see a more granular view of your event data. Here you can filter and compare fields while seeing a side-by-side view of your events.
 
-![](/img/50a8c9a46f3ab6e7f6a272ef38fd71d63a8f698186b80ae487b66d1bccf45f15-Screenshot_2024-11-19_at_10.48.21_AM.png "Events Table.png")
+
 
 ### Columns
 
 You can use the three-column button on the top right of the table to customize the columns viewable in the table. You can customize your columns even further through the Column Selector.
 
-![](/img/a761f5f59894f463d0eb6daa68c6213fec14faf560f87d4adad546643ba17bb4-Screenshot_2024-11-19_at_10.51.12_AM.png)
+
 
 Events within each bucket are ordered by the volume received in the past 15 days. The most relevant events for each app will always appear at top of the list. You can also pin your favorite events and metrics to always appear on top.
 
@@ -134,7 +134,7 @@ Below are the definitions for several percentage-related metrics:
 
 In the column selector, you can also make your own custom metrics for more insights from your aggregated data. Formulaic calculations between event counts and aggregations are supported. Additionally, you will have access to templated calculations like **Average Order Value** and **Customer Acquisition Cost**.
 
-![1500](/img/cb2ec9a-Custom_Metrics.gif "Custom Metrics.gif")
+*[Image: 1500]*
 
 ## Drill-down analytics
 
@@ -142,19 +142,19 @@ When you use the **Compare by** feature with multiple values, you will notice a 
 
 In the example below, you can see ad partner, day, and platform are the chosen fields, and this is reflected in the **Dimensions** column of the table. The rows have been expanded, so you can see how each dimension is broken down.
 
-![Branch Ads Analytics table showing example performance metrics for installs and purchases.](/img/Screenshot 2025-05-01 at 2.06.02 PM.png)
+
 
 ## Save views
 
 The Branch Dashboard allows you to save the state of your report after you've applied changes to your satisfaction. You can name and save your report for future use. This is helpful if you have several report types you use to analyze ads-related performance.
 
-![1632](/img/decad7ff3054713f961940ac168e61c84d3cf0461d20a8325877edf57ed239ca-Screenshot_2024-11-19_at_10.40.04_AM.png "Save Report.png")
+*[Image: 1632]*
 
 ## Share views
 
 Clicking the three-dot share button next to the name of your report will generate a shareable link to your report. Anyone with read access to your Branch Dashboard will be able to click the link and be directed to the report you created.
 
-![](/img/84dff83a28333635e89a7cf14061c7cf35a74084f0940cfbd09d11e9eb3dd016-Screenshot_2024-11-19_at_10.41.56_AM.png)
+
 
 ## Revenue and cost
 
@@ -191,7 +191,7 @@ By default, the Branch Dashboard **will generate reports in USD**. In order to v
 
 Local currency support in the Branch Dashboard will allow you to analyze marketing spend and revenue in your local currency. Additionally, it will allow for direct cost data comparison with ad partners who report their spending in a currency other than the USD.
 
-![](/img/ad24a7f0408721d264d6be673cad31aea89dc31ba7c2d270643964940d258c9c-Screenshot_2024-11-19_at_10.53.12_AM.png "Local Currency Analytics.PNG")
+
 
 With Local Currency enabled, you will gain new analytics tags as dimensions:
 
@@ -208,6 +208,6 @@ With Local Currency enabled, you will gain new analytics tags as dimensions:
 
 - You can export your current table view as a CSV file using the download button on the top right of the table.
 
-![](/img/ddcfca44521bffd28f3f35b8e55d6e87bafc8ddbe11d2b7775191ef773a0bea7-Screenshot_2024-11-19_at_10.53.55_AM.png "paid-ads7.png")
+
 
 - The **Unique** **checkbox** on both the graph and table views allows you to restrict reports to one event of each type per user. For example, take a user who clicked an ad link, then opened the app 7 times within the attribution window for that link. With the Unique box checked, we'd report one of those opens, with it unchecked, we'd report all 7.

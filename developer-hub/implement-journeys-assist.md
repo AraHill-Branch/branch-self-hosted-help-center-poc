@@ -11,7 +11,7 @@ Journeys Assist allows you to combine your powerful banners and interstitials fr
 
 **Same Session** (Enabled by default)
 
-![](/img/1aaeed4-single_session4x.png "single_session@4x.png")
+
 
 1. User lands on your mobile website and sees a banner or full-page interstitial promoting the mobile app coming from an ad, email interaction or other Branch powered channel.
 
@@ -22,7 +22,7 @@ Journeys Assist allows you to combine your powerful banners and interstitials fr
 
 **Multi Session**
 
-![](/img/a7bad9a-multi-session4x.png "multi-session@4x.png")
+
 
 1. User lands on your mobile website and sees a banner or full-page interstitial promoting the mobile app coming from an ad, email interaction or other Branch powered channel.
 
@@ -82,7 +82,7 @@ If you wish to disable the default Same Session Journeys Assist support and have
 
 #### 1. Add `make_new_link:true` to your Journey View Deep Link Data
 
-![](/img/feaa73c-Screen_Shot_2023-03-02_at_9.11.19_AM.png "Screen Shot 2023-03-02 at 9.11.19 AM.png")
+
 
 #### 2. Add `make_new_link:true` to the web SDK initialization options
 

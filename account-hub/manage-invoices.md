@@ -19,7 +19,7 @@ In the [new version of Branch](new-branch-overview.md), attribution windows are 
 
 For **self-serve** customers, you can glance at your invoices through the **Billing** [tab](https://dashboard.branch.io/account-settings/billing) of the Branch Dashboard in the **Invoice Details** section. From here, you can quickly view the invoice amount and download a copy of the invoice.
 
-![](/img/802030e-Invoice_Details.png)
+
 
 After each invoice is generated, it will automatically be paid using your credit card on file.
 
@@ -38,6 +38,6 @@ Here you will be able to organize your invoices by:
 
 You can also download a copy of your invoice (PDF).
 
-![](/img/6a92455-Enterprise_Invoices.png)
+
 
 If you have any questions regarding your invoice, reach out to your account manager or to [billing@branch.io](mailto:billing@branch.io).

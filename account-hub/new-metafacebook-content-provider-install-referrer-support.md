@@ -125,7 +125,7 @@ public class MyApplication extends Application {
 
 In the Facebook App Dashboard under **Basic > Settings** for your app, scroll down to the **Android** section. Copy the **Install Referrer Decryption Key**
 
-![](/img/550c75e-Facebook_Install_Referrer_Decryption_Key.png "Facebook Install Referrer Decryption Key.png")
+
 
 #### 3. Input your key in Branch
 
@@ -166,4 +166,3 @@ Broad targeting is required to receive view-through install data. You can find t
 - Detailed Targeting: If detailed targeting such as demographics, interests or behaviors are applied, opting into Advantage detailed targeting is required.
 - Custom Audiences: If Custom Audiences are applied, opting into Advantage custom audience is required.
 
-![](/img/b2b5981-l8N_Image_1.png)![](/img/6e903f0-4nf_Image_2.png)

@@ -64,7 +64,7 @@ To configure a SAN’s event mappings:
    3. **Ad Partner Event Name** - The ad partner’s name for the app events they support; see default event mappings above.
 6. Click **Save**.
 
-![](/img/e8da76d-event-mappings.gif "event-mappings.gif")
+
 
 ::: warning Disabling events
 If you disable an event, you will not receive any attribution data for that event. If this is not your intention, rather rename the event to a custom name.
@@ -76,15 +76,15 @@ If you are using the self-attributing network's SDK to track in-app events but n
 
 1. Click on the pencil icon in the drop down next to value custom
 
-![](/img/2ab6f64-Screenshot_2020-05-05_at_3.31.36_PM.png "Screenshot 2020-05-05 at 3.31.36 PM.png")
+
 
 2. Rename the custom event to your new event name
 
-![](/img/ee46b49-Screenshot_2020-05-05_at_3.32.18_PM.png "Screenshot 2020-05-05 at 3.32.18 PM.png")
+
 
 3. Save the name and don't forget to save your configuration when all of your events have been renamed
 
-![](/img/0d970f2-Screenshot_2020-05-05_at_3.28.59_PM.png "Screenshot 2020-05-05 at 3.28.59 PM.png")
+
 
 If you would like to revert to the default name, you can just re-select the network's name from the dropdown.
 

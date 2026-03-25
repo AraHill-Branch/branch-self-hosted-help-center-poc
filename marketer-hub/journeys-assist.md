@@ -11,7 +11,7 @@ Journeys Assist allows you to combine your powerful banners and interstitials fr
 
 **Same Session** (Enabled by default)
 
-![](/img/1aaeed4-single_session4x.png "single_session@4x.png")
+
 
 1. User lands on your mobile website and sees a banner or full-page interstitial promoting the mobile app coming from an ad, email interaction or other Branch powered channel.
 
@@ -22,7 +22,7 @@ Journeys Assist allows you to combine your powerful banners and interstitials fr
 
 **Multi Session**
 
-![](/img/a7bad9a-multi-session4x.png "multi-session@4x.png")
+
 
 1. User lands on your mobile website and sees a banner or full-page interstitial promoting the mobile app coming from an ad, email interaction or other Branch powered channel.
 

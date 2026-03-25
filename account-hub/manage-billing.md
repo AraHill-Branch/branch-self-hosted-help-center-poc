@@ -30,7 +30,7 @@ Navigate to the **Billing** tab in the Branch Dashboard to start using billing f
 
 In the **Your Plan** section, you can view your current plan, MAU limit, and monthly cost. Here you will also be able to update your plan by clicking the **Change Plan** button.
 
-![](/img/d1ce439-Your_Plan.png)
+
 
 ### Account summary
 
@@ -43,19 +43,19 @@ In the **Account Summary** section, you get quick information on your current pl
 - Billing Contact Name
 - Billing Contact Email
 
-![](/img/77edeff-Account_Summary.png)
+
 
 ### Subscribed products
 
 In the **Subscribed Products** section, you can view which Branch products are/aren't activated in your Branch account. Here you will be able to navigate to that product to activate it or start a trial.
 
-![](/img/9e698b5-Screenshot_2024-06-20_at_11.18.02_AM.png)
+
 
 ### Invoice details
 
 In the **Invoice Details** section, you can view and download your recent invoices.
 
-![](/img/e97b812-Invoice_Details.png)
+
 
 For more details on invoices, view our dedicated guide [here](manage-invoices.md).
 
@@ -63,4 +63,3 @@ For more details on invoices, view our dedicated guide [here](manage-invoices.md
 
 In the **Payment Information** section, you can get a quick view of the current payment methods for your Branch account.
 
-![](/img/55cc45a-Payment_Information.png)

@@ -5,7 +5,7 @@ slug: advanced-link-configuration
 
 In the [General tab](https://dashboard.branch.io/configuration/general) of App Settings page of the Branch Dashboard, you can change your advanced link settings.
 
-![Settings options for URI scheme deep link mode and analytics features configuration.](/img/Screenshot 2025-05-09 at 8.54.42 AM.png)
+
 
 ### URI scheme Deep Link mode
 
@@ -21,7 +21,7 @@ This selector allows you to control how and when Branch uses URI schemes to open
 
 With Branch, you have the ability to set a specific allowlist of domains that you can allow your Branch Links to redirect to (set to disabled by default). With the Redirect Allowlist, you can limit Branch Link redirection to specific web domains or URI schemes across your Branch platform. List each of the domains you want to limit redirection to. We also support a “\*” for wildcard subdomains.
 
-![](../../../assets/media/images/31c6a125-a4f2-4b11-859a-4db25717335a "Redirect Allowlist.PNG")
+
 
 For example, if your allowlist includes `branch.io`, `*.branch.io`, and `myapp://`, your deep links can only redirect to domains like `branch.io`, `dashboard.branch.io`, or `myapp://`.
 
@@ -41,7 +41,7 @@ However in the **new** version of Branch, currency settings live under Configura
 
 Set the local currency of your Branch Dashboard if it is not USD. By setting your local currency, you can analyze marketing spend (cost) and revenue in your local currency. This also allows direct cost data comparison with ad partners who report their spending in a currency other than USD.
 
-![](../../../assets/media/images/b8fb9108-ceca-4070-8270-acaa6a25d870 "Local Currency.PNG")
+
 
 A field called **Local Currency** will be available on the Dashboard showing the currency configured in your [Ads Analytics](paid-ads-analytics.md) and [Unified Analytics](unified-analytics.md).
 

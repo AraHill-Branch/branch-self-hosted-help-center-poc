@@ -3,7 +3,7 @@ title: "Movable Ink Configuration"
 slug: movable-ink-configuration
 ---
 
-![](/img/895130d-Movable_Ink_Branch_Logo.png)
+
 
 # Overview
 
@@ -27,7 +27,7 @@ Additional attributes can be included in the events sent to Movable Ink. Please 
 
 Branch events will appear in your Movable Ink analytics dashboard. Here is an example of what it will look like once the integration is enabled:
 
-![](/img/c08d667-Movable_Ink_Report(1).png)
+.png)
 
 # Prerequisites
 
@@ -64,7 +64,7 @@ In the Branch Dashboard in Data Feeds → [**Data Integrations** tab](https://da
 
 Enter the credentials from the previous step. Enter them into the respective fields in the Branch Dashboard, and click **Enable**.
 
-![](/img/7f9cd52-Movable_Ink_Branch_Dashboard.png)
+
 
 ## 3. Pass Metadata to the Branch SDK
 

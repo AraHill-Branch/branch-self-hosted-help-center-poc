@@ -3,7 +3,7 @@ title: "SMS"
 slug: sms
 ---
 
-![](../../../assets/media/images/cb3006c3-6339-4880-99f7-84a8eea21583 "TMTA.PNG")
+
 
 ## Overview
 
@@ -26,7 +26,7 @@ Branch can be used to help power your SMS campaigns through the use of Branch Li
 3. User is deep-linked into specific app content
 4. Events (ex. purchases, sign-ups, etc.) are attributed back to SMS campaign
 
-![](../../../assets/media/images/7418ca24-3466-4bdb-9478-de6b41bd5d2b "Desktop SMS.PNG")
+
 
 ## Access
 

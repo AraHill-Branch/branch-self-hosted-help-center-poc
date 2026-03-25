@@ -7,7 +7,7 @@ slug: ios-universal-links
 
 Branch makes using Universal Links simple while simultaneously improving on them by offering full attribution and supporting edge cases where Universal Links fail. This allows you to deep link, even when the user doesn't have your app installed.
 
-![1264](/img/18d593a-universal-links-diagram.png "universal-links-diagram.png")
+*[Image: 1264]*
 
 ## Set Up Universal Links
 

@@ -32,7 +32,7 @@ If you are running Google Play Services versions below 17, no update is necessar
   - **New Branch**: Go to **Configuration** and select **Link Controls**. Navigate to the **Link Routing Rules** tab, then find the **Mobile Routing** > **Android**.
   - **Legacy Branch**: Navigate to the [Link Settings page](https://dashboard.branch.io/settings/link).
 
-![1552](/img/7c1c55f-android.png "android.png")![958](/img/452716d-link-domain.png "link-domain.png")
+*[Image: 1552]**[Image: 958]*
 
 - Add the following intent filter for the Branch URI scheme to the `LauncherActivity` in your Android Manifest
 

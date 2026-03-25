@@ -24,7 +24,7 @@ Easily access Short Link creation by entering [**deeplink.new**](https://deeplin
 
 ### 1. Name your link
 
-Start by naming your link and creating an alias. Make the link title easy to remember for you and your team, as it will be displayed in the Short Links table.![](../../../assets/media/images/20711204-1ea9-4830-a519-15ede0a70408 "Short Link.PNG")
+Start by naming your link and creating an alias. Make the link title easy to remember for you and your team, as it will be displayed in the Short Links table.
 
 If if you want to expedite your Short Link creation process, you can apply a [Link Template](link-templates.md) to auto-apply reusable attributes to the link. Doing so will fill in specific fields set by the selected Link Template.
 
@@ -68,7 +68,7 @@ To add analytics tags using the drop-downs:
 2. Create a new tag by typing in a new tag and click **Create**.
 3. Click **Save & Continue**.
 
-![](/img/c8c808a-Screen_Shot_2020-07-24_at_10.20.05_AM(1).png "Screen Shot 2020-07-24 at 10.20.05 AM.png")
+.png "Screen Shot 2020-07-24 at 10.20.05 AM.png")
 
 ### 3. Add redirects (optional)
 
@@ -94,7 +94,7 @@ To override your default redirects:
 1. Using the drop-downs for the respective platforms, select the location you want users redirected to.
 2. Click **Save & Continue**.
 
-![](/img/45816f5-Screen_Shot_2020-07-24_at_10.41.01_AM(1).png "Screen Shot 2020-07-24 at 10.41.01 AM.png")
+.png "Screen Shot 2020-07-24 at 10.41.01 AM.png")
 
 ::: warning Caution
 Use the **Web-Only Link** option if you are choosing a page that should always be opened in the browser. Examples include T&C pages and policy pages. We recommend keeping this unchecked if you have an in-app deep link.
@@ -117,7 +117,7 @@ To add link data:
 3. Using the **Value** drop-down menu, select the value for the key you selected.
 4. Click **Save & Continue**.
 
-![](/img/9b08237-Screen_Shot_2020-08-04_at_8.29.20_AM(1).png "Screen Shot 2020-08-04 at 8.29.20 AM.png")
+.png "Screen Shot 2020-08-04 at 8.29.20 AM.png")
 
 ### 5. Add social media tags (optional)
 
@@ -133,7 +133,7 @@ To add social media tags provide the following information:
    2. To upload a different image, click the **Upload Image** tab and select the appropriate file.
 4. Click **Save Link**.
 
-![](/img/751751f-Screen_Shot_2020-08-04_at_8.41.27_AM(1).png "Screen Shot 2020-08-04 at 8.41.27 AM.png")
+.png "Screen Shot 2020-08-04 at 8.41.27 AM.png")
 
 ### 6. Validate and share
 
@@ -145,7 +145,7 @@ To add social media tags provide the following information:
    3. Text the link to any number you provide.
 3. Click **Close**.
 
-![](/img/03df1eb-Screen_Shot_2020-08-04_at_8.53.57_AM(1).png "Screen Shot 2020-08-04 at 8.53.57 AM.png")
+.png "Screen Shot 2020-08-04 at 8.53.57 AM.png")
 
 ## Create Short Links via Branch web extension or Slack
 

@@ -3,7 +3,7 @@ title: "Partnerize"
 slug: partnerize
 ---
 
-![1328](/img/fd6b328-Partnerize__branch(3).png "Partnerize + branch.png")
+*[Image: 1328]*.png "Partnerize + branch.png")
 
 ## Overview
 
@@ -44,7 +44,7 @@ In the Branch Dashboard under **Ads** > [**Partner Management**](https://dashboa
 
 Click the **Save & Enable** button.
 
-![](/img/44c200a-Partnerize_enable(3).png "Partnerize enable.png")
+.png "Partnerize enable.png")
 
 ### 2. Configure Postbacks
 
@@ -55,7 +55,7 @@ Enabling Partnerize will automatically enable the following postbacks:
 - OPEN
 - PURCHASE
 
-![](/img/bd28825-partnerize_postbakcs(3).png "partnerize postbakcs.png")
+.png "partnerize postbakcs.png")
 
 You can configure these postbacks or add more under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_partnerize?tab=postback) tab.
 
@@ -67,7 +67,7 @@ Optionally, you can check the checkbox for a given postback for sending all even
 
 Click the **Add New Postback** button at the bottom of the screen. A modal will appear that will allow you to select an event that you are tracking with the Branch SDKs (including Custom Events).
 
-![](/img/c1b289e-Add_New_Postbacks(102).gif "Add New Postbacks.gif")
+.gif "Add New Postbacks.gif")
 
 For more in-depth postback configurations, view our guides:
 
@@ -94,9 +94,9 @@ After configuring your events, navigate to the [**Attribution Windows**](https:/
 
 Next, you'll need to create a Branch Ad Link for your Partnerize campaigns in order for Branch to properly attribute conversions.
 
-[![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/a516deb-small-95b5d97-small-Vectorlogo_1(98).png)
+[.png)
 
-![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/feddb04-Branch_badge_light_default-32x32.ico) help.branch.io
+ help.branch.io
 
 Create Ad Links](/docs/ad-links)
 

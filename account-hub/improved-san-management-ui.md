@@ -14,7 +14,7 @@ The UI for Branch's SAN Partner Management has been improved to include new func
 - **Connection Management**: Added ‘Reauthenticate’ and ‘Disconnect’ (hidden in the 3 dots) buttons under the authenticated ad account Connection, with separate pop-up impact reminders after customers click on them.
 - **Ad Account Management**: Provided a ‘Manage Account’ button to allow customers to select or remove authenticated ad accounts conveniently.
 
-![](/img/1da76e5-SAN_Partner_Management.png)
+
 
   
 

@@ -120,7 +120,7 @@ If a user journey has fewer than three touchpoints, you will see that reflected 
 By setting your date range and filters to be appropriately selective, you can make sure that you’re viewing a manageable number of flows at once.
 :::
 
-![Branch Funnel paths illustrating user interactions leading to conversion events and assists.](/img/Screenshot 2026-02-20 at 4.21.09 PM.png)
+
 
 To read the visual diagram:
 

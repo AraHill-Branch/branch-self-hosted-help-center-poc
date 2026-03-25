@@ -15,7 +15,7 @@ slug: creatives-optimization
 
 Before analyzing A/B test performance, you must first have an active Journeys campaign with multiple creatives active. If you do not have one created yet, [create a new Journey](https://dashboard.branch.io/journeys/audiencerule/new) in the Branch Dashboard.
 
-![](../../../assets/media/images/095e1517-84fc-4e28-95cb-65597e127841 "Multiple Creatives.PNG")
+
 
 Additional details on creating Journeys banners/interstitials can be viewed in the guide [**here**](create-journey-banner-or-interstitial.md).
 
@@ -37,6 +37,5 @@ Once your Journeys campaign is launched and users are downloading your app from 
 
 When looking at the performance, you can see which creative is likely to be the better performing one over time through the **PROBABILITY TO BE BEST** column. From here, you can adjust the percentages for your A/B test directly below it.
 
-![](../../../assets/media/images/b1290a1c-79ec-4935-b1bb-8003d30f5f57 "Creatives Optimization.PNG")
 
-![](../../../assets/media/images/b7493aaa-43b8-4cac-a059-3aa7931b72b0 "Journeys Optimization.PNG")
+

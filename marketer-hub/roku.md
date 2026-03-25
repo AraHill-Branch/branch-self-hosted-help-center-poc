@@ -3,7 +3,7 @@ title: "Roku"
 slug: roku
 ---
 
-![](/img/46684bf-Roku_Logo.png "Roku Logo.png")
+
 
 ## Overview
 
@@ -43,7 +43,7 @@ To enable Roku with Roku Ads Manager, complete the steps below:
 2. Navigate to the [Events page](https://ads.roku.com/pixels).
 3. Identify an existing Event Group or create a new Event Group.
 4. Copy the Event Group ID.  
-   ![Roku Ads Manager interface showing event group ID and event source status.](/img/unnamed(2).png)
+   *[Image: Roku Ads Manager interface showing event group ID and event source status.]*.png)
 5. Send Roku ([adsmanagersupport@roku.com](mailto:adsmanagersupport@roku.com)) the following information:
 
    1. Your MMP name (Branch)
@@ -59,12 +59,12 @@ To connect Roku in Branch, complete the steps below:
 
 1. In the Branch Dashboard, navigate to the [Ads Partner page](https://dashboard.branch.io/ads/partner-management), search for “RokuSAN” and select it. Do **not** use the “Roku” option.
 2. Enter your Roku Ads Manager Event Group ID and click **Save**.  
-   ![](/img/Screenshot 2025-06-12 at 7.47.56 PM.png)
+   
 3. Switch to the [Events Config tab](https://dashboard.branch.io/ads/partner-management/a_ott_roku_san?tab=events) and map your Branch app events to Roku Ads Manager events.
 
    1. Events will appear in Roku Ads Manager attribution reporting based on this mapping configuration.
    2. Click **Save.**  
-      ![](/img/Screenshot 2025-06-12 at 7.52.17 PM.png)
+      
 4. (Optional) After configuring your events, navigate to the [Attribution Windows tab](https://dashboard.branch.io/ads/partner-management/a_roku?tab=attribution_windows) to set windows by attribution type. Here are Roku’s recommended attribution window settings:
 
    | Attribution Type | Window |

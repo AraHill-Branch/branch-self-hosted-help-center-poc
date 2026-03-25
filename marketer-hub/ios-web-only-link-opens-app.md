@@ -11,6 +11,6 @@ A web link should always open the browser directly instead of the app. A web onl
 
 1. Add `$web_only : true` in the link data.
 
-   ![628](/img/08f9d6e-img_1.png "img_1.png")
+   *[Image: 628]*
 2. Save the link and you should see /e in the link.
 3. Click the link directly and it should open the web instead of the app.

@@ -33,7 +33,7 @@ tvOS uses the same Universal Links as iOS. It does not support redirect to URI s
   - **New Branch**: In the left-hand navigation, go to **Configuration** and click on **Link Controls**. Navigate to the **Link Routing Rules** tab and find the **Mobile Routing** section.
   - **Legacy Branch**: Navigate to the [Configuration page](https://branch.dashboard.branch.io/configuration/general) and find the iOS section.
 
-![1590](/img/8fa2ea2-ios.png "ios.png")
+*[Image: 1590]*
 
 ## Configure Bundle Identifier
 
@@ -42,7 +42,7 @@ tvOS uses the same Universal Links as iOS. It does not support redirect to URI s
   - **New Branch**: In the left-hand navigation, go to **Configuration** and select **Link Controls**. Navigate to the **Link Routing Rules** tab, then find the **Mobile Routing** section and select **iOS**.
   - **Legacy Branch**: Navigate to the [Link Settings page](https://dashboard.branch.io/settings/link).
 
-![1912](/img/277a139-ios-bundle-id.png "ios-bundle-id.png")
+*[Image: 1912]*
 
 Branch assumes you use the same bundle id for all Apple platforms. If you use different bundle ids, you can set the bundle id to a consistent value when initializing the Branch SDK.
 
@@ -57,7 +57,7 @@ Branch assumes you use the same bundle id for all Apple platforms. If you use di
 - `test-` is needed if you need use a test key
 - If you use a [custom link domain](https://help.branch.io), you will need to include your old link domain, your `-alternate` link domain, and your new link domain
 
-![1918](/img/1f5e908-ios-entitlements.png "ios-entitlements.png")
+*[Image: 1918]*
 
 ## Configure Info.plist
 
@@ -74,13 +74,13 @@ Branch assumes you use the same bundle id for all Apple platforms. If you use di
     - Add `branch_key` with your current Branch key
     - Add your URI scheme as `URL Types` -> `Item 0` -> `URL Schemes`
 
-![1716](/img/fd9fb05-info.plist.png "info.plist.png")
+*[Image: 1716]*
 
 ## Confirm App Prefix
 
 - From your [Apple Developer Account](https://developer.apple.com/account/ios/identifier/bundle)
 
-![1984](/img/ffeaed9-ios-team-id.png "ios-team-id.png")
+*[Image: 1984]*
 
 ## Install Branch
 
@@ -129,7 +129,7 @@ From the 0.37.0 release, the Branch iOS SDK [github releases page](https://githu
 - Drag and drop `Branch.xcframework` into \*Embedded Binaries **(select** Copy items if needed\*\*)
 - Import `AdSupport` and `CoreServices`, into **Linked Frameworks**
 
-![2092](/img/3408899-frameworks.png "frameworks.png")
+*[Image: 2092]*
 
 ## Initialize Branch
 
@@ -183,7 +183,7 @@ App to App linking is implemented in the ad partner app.
 - Add the `AdSupport` framework. This is used to obtain the device IDFA.
 - Enable the ad partner app to query for your tvOS app by adding your URI scheme to the Info.plist. See [canOpenURL](https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl)
 
-![2782](/img/755156d-Screen_Shot_2021-02-04_at_11.08.52_AM.png "Screen Shot 2021-02-04 at 11.08.52 AM.png")
+*[Image: 2782]*
 
 The following code demonstrates how to link from the ad partner app to the target app.
 

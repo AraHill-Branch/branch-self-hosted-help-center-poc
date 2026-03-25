@@ -11,7 +11,7 @@ Previously, when multiple `tags`were added to a Branch Link comparing them in th
 
 Now, true row counts are now respected, with multiple-tagged rows handled in an array-concatenated format.
 
-![](/img/b27c307-Tags.png)
+
 
 ::: tip
 Looking to learn more about Branch Dashboard Analytics? View our guide here: [Dashboard Reports](dashboard-reports.md)

@@ -56,4 +56,4 @@ To filter the data that is sent to a SAN:
 3. Click on the **Events Config** tab and scroll down to the **Restrict ad network data sharing** toggle.
 4. Click the toggle to turn it on and click **Save**.
 
-![1794](/img/5e8bb03-data-filter.png "data-filter.png")
+*[Image: 1794]*

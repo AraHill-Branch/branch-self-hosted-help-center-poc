@@ -15,7 +15,7 @@ You can now enable SSO for your Branch app without needing to reach out to Branc
 2. Your company's IT department ready to configure SAML that knows your company's email domains
 3. Admin Access Level to your Branch account
 
-![](/img/83c1094-SSO_Configuration(1).png)
+.png)
 
 ::: tip
 Looking to learn more about setting up SSO? Visit our guide here: [Enable Single Sign On](enable-single-sign-on.md)

@@ -3,7 +3,7 @@ title: "Aura from Unity"
 slug: aura
 ---
 
-![](/img/f282c1b-Aura_Branch_Logo(3).png)
+.png)
 
 ## Overview
 
@@ -51,7 +51,7 @@ Even though Unity and ironSource have merged, Aura attribution configuration sti
 
 Click the **Save & Enable** button.
 
-![](/img/7eddbd8-Enable_Aura(3).png)
+.png)
 
 ### 2. Configure Postbacks
 
@@ -66,7 +66,7 @@ Enabling Aura from Unity will automatically enable the following postbacks:
 - ADD\_TO\_CART
 - SHARE
 
-![](/img/33b62ed-Aura_Postbacks(3).png)
+.png)
 
 You can configure these postbacks or add more under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_aura?tab=postback) tab.
 
@@ -105,15 +105,15 @@ To set up cost ingestion for Aura from Unity, you will need to authenticate usin
 
 Enter your Authentication Token, and click **Save Authentication**
 
-![](/img/41507c6-Cost_Aura(3).png)
+.png)
 
 ### 5. Create Branch Ad Link
 
 Next, you'll need to create a Branch Ad Link for your Aura from Unity campaigns in order for Branch to properly attribute conversions.
 
-[![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/a516deb-small-95b5d97-small-Vectorlogo_1(98).png)
+[.png)
 
-![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/feddb04-Branch_badge_light_default-32x32.ico) help.branch.io
+ help.branch.io
 
 Create Ad Links](/docs/ad-links)
 

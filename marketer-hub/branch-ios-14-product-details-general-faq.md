@@ -8,7 +8,7 @@ slug: branch-ios-14-product-details-general-faq
 
 Branch has three main attribution methods available to us today: SKAN, Predictive Modeling, and IDFA-based attribution. The table below breaks down when we will use SKAdNetwork vs Device-Level attribution.
 
-![](/img/image(105).png)
+.png)
 
 In cases where we are able to provide device-level attribution techniques (either via user opt-in, or an owned/earned channel where ATT doesn't apply), we will first try to use IDFA-based techniques to attribute a user. These techniques could be our existing ad network integrations, or our Link Graph.
 
@@ -223,7 +223,7 @@ If you have configured a network to receive postbacks for *unattributed* events,
 
 In compliance with Apple's policies, Branch only uses device-level matching for deep linking, and attribution on owned and organic channels (web banners, user-to-user invites links, email, QR codes, etc.). The table below details the attribution method by channel, as well as whether or not deep linking is enabled.
 
-![787c8cf-Screen_Shot_2021-04-13_at_17.02.32.png](/img/787c8cf-Screen_Shot_2021-04-13_at_17.02.32.png)
+
 
 For more information please read:
 
@@ -246,7 +246,7 @@ Links created via Branch's Ads feature will automatically implement ATT-complian
 
 Because links created via other methods (including Short Links) are not designed for ads measurement, these links do not automatically implement ATT-compliant behavior on iOS. However, you can enable this behavior on a case-by-case basis by manually including a `$3p` value, like so:
 
-![](/img/image(106).png)
+.png)
 
 </details>
 
@@ -268,9 +268,9 @@ By default, most reports on the Branch dashboard show only attributed data. This
 
 In the past, when the Organic checkbox was checked, the report would show a *separate* segment for unattributed (or ‘organic’) conversions:
 
-![7e590c6-unchecked-organic.png](/img/7e590c6-unchecked-organic.png)
 
-This won’t work as expected after iOS 14.5, because that unattributed segment will also include paid ad conversions that have not yet been completed by the user opting in to ATT:![d2bc745-after-ios-14.5.png](/img/d2bc745-after-ios-14.5.png)
+
+This won’t work as expected after iOS 14.5, because that unattributed segment will also include paid ad conversions that have not yet been completed by the user opting in to ATT:
 
 This means the Organic checkbox simply won’t be useful in as many reports, so we are removing it from some dashboard pages to avoid confusion.
 
@@ -296,6 +296,6 @@ Most customers used the Organic checkbox as a way to compare their campaign perf
 
 As an alternative, we’ll be adding a new checkbox to dashboard reports called “Show Total App Traffic”. This will display an additional segment in the report for *all* traffic (both attributed and unattributed), which will provide a similar baseline for performance comparisons.
 
-![5e766bd-unchecked-show-total-app-traffic.png](/img/5e766bd-unchecked-show-total-app-traffic.png)
+
 
 </details>

@@ -210,7 +210,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 ### 2. Configure Branch Link Domain
 
-![a1da13c1577e292113f375c29e45f8e09026f2bd4524fd3a0bdcc2f313719775-unnamed_2.png](/img/a1da13c1577e292113f375c29e45f8e09026f2bd4524fd3a0bdcc2f313719775-unnamed_2.png)
+
 
 At this time, only `app.link` subdomains and custom root domains are supported.
 

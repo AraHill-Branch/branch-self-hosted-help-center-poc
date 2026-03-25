@@ -7,7 +7,7 @@ slug: predictive-aggregate-measurement
 
 Measuring attribution is becoming increasingly challenging and complex. As the privacy landscape evolves, shifting guidelines and regulations become more and more difficult to keep up with. As these rules grow and change, attribution solutions are becoming more intricate and harder to maintain.
 
-![](/img/c62f76bd264597b1fd1fa6ac42e002c257115ef0732f48c29072b93de711e8d4-img2.png)
+
 
 On top of all this, there is a growing number of opted-out users in marketing programs, lowering the accuracy of campaign performance measurements. This leaves you guessing as to how to optimize user engagement, especially among iOS users.
 
@@ -72,10 +72,10 @@ To enable PAM at the org-level:
 2. Use the left-side navigation bar to click on **App Settings**, which is in the **Configure** section.
 3. Next, navigate to the **Attribution** tab. There, you will see a switch that enables PAM. Be careful! This enables PAM for the entire org.
 
-   ![](/img/49319d6d6c0d8c6762e3b378eeb79eb774a261c715d72c7f6113486b4fd478b8-Screenshot_2024-09-20_at_1.33.31_PM.png)
+   
 4. Flip the switch to enable PAM for the org, then make sure to click **Save** at the bottom of the page.
 
-   ![](/img/8852a3606c6e4369c29a4c855f52cf09957bd5dc4a36d026f5b58927b41cb85e-Screenshot_2024-09-20_at_1.37.46_PM.png)
+   
 
 ### Enable PAM at the app-level
 
@@ -88,13 +88,13 @@ To enable PAM at the app-level:
 
    Decide if you still want to make PAM changes at the app-level.
 
-   ![](/img/5fd27f474d4a6b9ea6dca4ea36d9a5184afec1104d3f870f0d5284dc3603a77a-Screenshot_2024-09-20_at_4.24.58_PM.png)
+   
 5. Also note that the **Attribution Windows** section will be greyed out if your app is inheriting from org-level attribution settings.
 
-   ![](/img/aa05942c82da8c0241a532312a7f369a985a7403afd04fd21578be7f58b856a7-Screenshot_2024-09-20_at_4.36.36_PM.png)
+   
 6. If you've taken note of the org-level settings and you still want to enable PAM at the app-level, flip the PAM switch and then click **Save** at the bottom of the page.
 
-   ![](/img/f7671c88aedacef817bdd4c1283d13436e9a995a5857a88cb3aeb16c35d367ef-Screenshot_2024-09-20_at_4.46.04_PM.png)
+   
 
 ### Enable PAM for Publishers
 
@@ -130,7 +130,7 @@ The possible values for this dimension are:
 - `true` - when PAM was used to attribute the event.
 - `false` or `unpopulated` - when the attribution happened via other mechanisms, the data is unattributed via PAM, or PAM was not enabled for the selected time frame.
 
-![](/img/b01f204f0265d74fd6d528c6847bacee29893a12a886d225fc8e3839ea45bcf5-Screenshot_2025-01-17_at_3.17.27_PM.png)
+
 
 #### Aggregate measurement
 
@@ -141,7 +141,7 @@ The possible values for this dimension are:
 - `true` - when Meta AEM or gBraid was used to attribute the events.
 - `false` or `unpopulated` - when the attribution happened via other mechanisms, the data is unattributed via aggregate methods, or aggregate measurement was not enabled for that ad partner at that time.
 
-![](/img/d12b055994101fc4eb9f4b8e1646bbc18fd87e67879c7921b4957eaf8970a751-unnamed.png)
+
 
 ### Pre-built views
 

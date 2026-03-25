@@ -65,7 +65,7 @@ To add a postback:
 
    1. NOTE: If Branch does not already have a postback template for a partner, please provide a valid URL for your partner.
 
-   ![](/img/1f15326-postback-add.gif "postback-add.gif")
+   
 
 ### Sending All Events
 
@@ -75,7 +75,7 @@ If you want to send **All Events** - whether attributed to this partner or not -
 As this setting will send **All Events** - with the name and customer event alias listed in this row, whether attributed to this partner or not - we recommend using caution when/if enabling, especially if you have enabled agencies to access your account.
 :::
 
-![](/img/d34d771-all-events.png "all-events.png")
+
 
 ### Editing Templates
 
@@ -168,7 +168,7 @@ Once you've defined the appropriate levels of access for your Agency, you must *
 
 Branch Tracking links allow tracking many parameters about the performance of your ad campaigns and individual ads. You can see each partner's specific link Parameters under the **Link Parameters** tab:
 
-![](/img/2f8c5ab-link-parameters.png "link-parameters.png")
+
 
 Additional parameters for advanced analysis may be added to the link after the '?' or '&' character, to trace extra information.
 
@@ -233,7 +233,7 @@ For customer experience and data accuracy, please do not set your deep linking w
 
 You can edit your attribution windows under Link Settings > Attribution Windows.
 
-![](/img/1fda3c9-attribution-windows.png "attribution-windows.png")
+
 
 Learn more about account level attribution windows in [People-Based Attribution](branch-attribution-logic-settings.md).
 
@@ -241,7 +241,7 @@ Learn more about account level attribution windows in [People-Based Attribution]
 
 You can edit your attribution windows at the ad network level if your ad network requires it. This is recommended when you enable networks like Facebook and Google, which may have different windows for installs. With this, you can preserve your Account Level Attribution Windows, as well.
 
-![](/img/90d323e-anaw_clear.png "anaw_clear.png")
+
 
 ### Link Level Attribution Windows
 
@@ -249,12 +249,12 @@ To set attribution windows on a link level, you can append the following paramet
 
 | Key | Example Link |
 | --- | --- |
-| `$click_install_window_days` | <https://branchster.app.link/hpNVE52gxE?$click_install_window_days=3> |
-| `$click_session_start_window_days` | <https://branchster.app.link/hpNVE52gxE?$click_session_start_window_days=7> |
-| `$click_conversion_window_days` | <https://branchster.app.link/hpNVE52gxE?$click_conversion_window_days=30> |
-| `$impression_install_window_days` | <https://branchster.app.link/hpNVE52gxE?$impression_install_window_days=3> |
-| `$impression_session_start_window_days` | <https://branchster.app.link/hpNVE52gxE?$impression_session_start_window_days=1> |
-| `$impression_conversion_window_days` | <https://branchster.app.link/hpNVE52gxE?$impression_session_start_window_days=7> |
+| `$click_install_window_days` | \&lt;https://branchster.app.link/hpNVE52gxE?$click_install_window_days=3\&gt; |
+| `$click_session_start_window_days` | \&lt;https://branchster.app.link/hpNVE52gxE?$click_session_start_window_days=7\&gt; |
+| `$click_conversion_window_days` | \&lt;https://branchster.app.link/hpNVE52gxE?$click_conversion_window_days=30\&gt; |
+| `$impression_install_window_days` | \&lt;https://branchster.app.link/hpNVE52gxE?$impression_install_window_days=3\&gt; |
+| `$impression_session_start_window_days` | \&lt;https://branchster.app.link/hpNVE52gxE?$impression_session_start_window_days=1\&gt; |
+| `$impression_conversion_window_days` | \&lt;https://branchster.app.link/hpNVE52gxE?$impression_session_start_window_days=7\&gt; |
 
 ::: warning Link Level Attribution Support for Standard Branch Links
 As of July 2017, link level attribution window setting is only available on standard Branch Links. Special Branch Links such as the ones used for Google's Universal App Campaign or Play Store links with Branch link id parameters are currently not supported.
@@ -270,6 +270,6 @@ For example, if a customer clicks a Branch email link, and then clicks an ad, in
 
 If the customer then goes on to purchase an item on web within the attribution window, Branch will also attribute the web purchase to the same ad link, connecting the web and app actions taken by a single user for a more accurate view of your marketing channels and customer behavior.
 
-![](/img/0921870-install-by-secondary-pub.png "install-by-secondary-pub.png")
+
 
 You can read more about [Branch's Attribution logic here](branch-attribution-logic-settings.md).

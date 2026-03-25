@@ -5,7 +5,7 @@ slug: deepview-analytics
 
 ## Deepview Analytics
 
-![](../../../assets/media/images/e0b3e613-3f2c-421d-982d-b6292f6e8a81 "Deepview Activity.PNG")
+
 
 Branch lets you track the flow of users through Deepviews. You can find this information on the [Deepview Activity page](https://dashboard.branch.io/configuration/deepview-activity) of the Branch Dashboard.
 

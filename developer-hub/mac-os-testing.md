@@ -23,7 +23,7 @@ slug: mac-os-testing
 
 You can locate your debug app in Xcode under `Products` and `Show in Finder`
 
-![452](/img/6de5e58-showApp.png "showApp.png")
+*[Image: 452]*
 
 ### Enable Logging
 

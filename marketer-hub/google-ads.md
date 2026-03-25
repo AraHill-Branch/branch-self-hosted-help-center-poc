@@ -3,7 +3,7 @@ title: "Google Ads Overview"
 slug: google-ads
 ---
 
-![](/img/291745e-google-branch-logo.png "google-branch-logo.png")
+
 
 ## Overview
 

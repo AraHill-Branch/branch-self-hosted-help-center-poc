@@ -49,7 +49,7 @@ The steps below outline how to create a Branch QR Code. They walk you through th
 
 In the Branch Dashboard, navigate to the **Manger** [tab](https://dashboard.branch.io/qr-codes/manager) of the **QR Codes** [section](https://dashboard.branch.io/qr-codes/), then click the **+ Create QR Code** button.
 
-![](/img/509e96a-Create_QR_Codes.png)
+
 
 ### 2. Define QR Code
 
@@ -59,7 +59,7 @@ Enter the values for these fields in their respective boxes.
 
 It is recommended that you use a title that is descriptive of your campaign.
 
-![](/img/a139f01-Define_QR_Code.png)
+
 
 Click **Create QR Code Now** to generate your Branch QR Code or **Save & Continue** to configure your Branch QR Code further.
 
@@ -69,7 +69,7 @@ Similar to [Branch Short Links](create-quick-links.md), you can add your **Analy
 
 It is recommended that you add proper analytics tags to your Branch QR Codes to better analyze your campaign performance.
 
-![](/img/f7bee0e-QR_Codes_Analytics_Tags.png)
+
 
 Click **Create QR Code Now** to generate your Branch QR Code or click **Save & Continue** to configure your Branch QR Code further.
 
@@ -79,7 +79,7 @@ In the **Redirects** section, you can determine what happens if the user scans t
 
 You can configure the behavior to route the user to the app store, a webpage, or a [Branch Deepview](deepviews.md).
 
-![](/img/e767577-QR_Code_Redirects.png)
+
 
 Click **Create QR Code Now** to generate your Branch QR Code or click **Save & Continue** to configure your Branch QR Code further.
 
@@ -89,7 +89,7 @@ The **Link Data** section is for adding additional information about your Branch
 
 These **Key** and **Value** pairs will be passed to the user's app session and can be used for additional analytics or deep linking.
 
-![](/img/696852b-QR_Code_Link_Data.png)
+
 
 Click **Create QR Code Now** to generate your Branch QR Code or click **Save & Continue** to configure your Branch QR Code further.
 
@@ -97,7 +97,7 @@ Click **Create QR Code Now** to generate your Branch QR Code or click **Save & C
 
 Finally, you can customize your QR code. In the **Customize** section, you can edit the **Finder Style**, **Code Pattern**, **Colors**, and **Center Logo**.
 
-![](/img/d1983c9-QR_Code_Customize.png)
+
 
 Click **Create QR Code Now** to generate your Branch QR Code.
 
@@ -105,7 +105,7 @@ Click **Create QR Code Now** to generate your Branch QR Code.
 
 Once complete, you can download your Branch QR Code as a PNG, JPEG, or SVG.
 
-![](/img/a7f3499ef6cbe1006076073f1ddfd3a78cd1946cc20f703d24a960b804d386b0-Screenshot_2024-11-18_at_7.27.22_PM.png)
+
 
 #### File Format Best Practices
 

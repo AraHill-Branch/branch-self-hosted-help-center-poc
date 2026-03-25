@@ -42,13 +42,13 @@ At the top of the page, you'll see a menu of options that apply to both the Tren
 
 You can share your current dashboard view using the share button, which will preserve the filters and time windows; this is useful for circulating a specific set of filters among your team or with your Branch Technical Account Manager.
 
-![](/img/535ce1d-Screen_Shot_2020-04-28_at_1.09.09_PM.png "Screen Shot 2020-04-28 at 1.09.09 PM.png")
+
 
 ## Trends
 
 The Trends view is a visual breakdown of where your various in-app and web events are originating from the Journey banner. These events can be further filtered by the various analytics tags from their originating ad campaigns.
 
-![](/img/55d657b-journeys1.png "journeys1.png")
+
 
 ### Common Analytics Labels
 
@@ -63,19 +63,19 @@ The Trends view is a visual breakdown of where your various in-app and web event
 
 **To get the performance of the banner, you can scroll down to the table below the graph:**
 
-![](/img/83217e4-journeys2.png "journeys2.png")
+
 
 ## Performance
 
 The Performance view is a table view that lets you see a more granular view of your event data. Here you can filter and compare fields with the same parameters as in the graph view, and see a side-by-side view of your events. Use the three vertical column button to select which events you'd like to see in this table.
 
-![](/img/17be294-journeys3.png "journeys3.png")
+
 
 ## Tips and Tricks
 
 - You can export your current table view as a *CSV* file using the download button on the top right of the table.
 
-![](/img/8c21cea-Screen_Shot_2020-06-09_at_12.29.19_PM.png "Screen Shot 2020-06-09 at 12.29.19 PM.png")
+
 
 - The Unique checkbox on both the graph and table views allows you to restrict reports to one event of each type per user. For example, take a user who clicked an ad link, then opened the app seven times within the attribution window for that link. With the Unique box checked, we'd report one of those opens, with it unchecked, we'd report all seven.
 

@@ -5,7 +5,7 @@ slug: appier
 
 ## Overview
 
-![](/img/eaf408b-appier-logo(1).png "appier-logo.png")
+.png "appier-logo.png")
 
 [Appier](https://www.appier.com/en/)  is a technology company that makes it easy for businesses to use artificial intelligence to grow and succeed in a cross-screen era. The fact is, we are living in a post-mobile world, where cross-screen is no longer optional.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Appier.
 4. Select **Appier**, and click **Save & Enable**.
 
-   ![](/img/3534bec-appier-enable(1).png "appier-enable.png")
+   .png "appier-enable.png")
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/ac4fa60-appier-pb(1).png "appier-pb.png")
+.png "appier-pb.png")
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -81,7 +81,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/f6d890e-appier-link-config(1).png "appier-link-config.png")
+.png "appier-link-config.png")
 
 </details>
 
@@ -92,7 +92,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Appier. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/d3b5fe3-Screen_Shot_2020-12-14_at_3.25.52_PM(1).png "Screen Shot 2020-12-14 at 3.25.52 PM.png")
+.png "Screen Shot 2020-12-14 at 3.25.52 PM.png")
 
 </details>
 
@@ -103,7 +103,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/f93d6bc-appier-pb-testing(1).png "appier-pb-testing.png")
+.png "appier-pb-testing.png")
 
 </details>
 

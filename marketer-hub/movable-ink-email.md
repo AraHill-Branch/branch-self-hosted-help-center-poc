@@ -27,11 +27,11 @@ Once you have completed the ESP configuration, you can start adding Movable Ink 
 
 1. Please check this checkbox to tell Movable Ink that you are using Branch. Then Movable Ink can automatically append all required parameters.
 
-![](/img/bfc0818-NSC-EnableBranchDeepLinking-290620-2045.pdf_2020-07-10_19-01-10.png "NSC-EnableBranchDeepLinking-290620-2045.pdf 2020-07-10 19-01-10.png")
+
 
 2. Once enabled, you will see the option to **Copy Branch URL**. This will copy creative tags for email and mobile channels.
 
-![](/img/845203b-small-Movable_Ink_Copy_Branch.png)
+
 
 3. At the end of the Branch Link, make sure to append the `?deep_link=true` query parameter to the end of the URL.
 4. Take the URL from step 3 (with the appended query parameter) and add it in the Moveable Ink UI to generate a new Moveable Ink link.
@@ -44,6 +44,6 @@ To test tracking, take the finalized Branch URL that is placed within your email
 
 After the URL is clicked, you’ll check to make sure the clicks are recorded within the Movable Ink campaign dashboard.
 
-![](/img/eb357a3-movable-ink-email2.png "movable-ink-email2.png")
+
 
 If clicks are recording, then the setup is successful!

@@ -15,7 +15,7 @@ Similar to the function of the attribution windows referenced above, the re-enga
 
 Denoting an event is re-engagement occurs in addition to the attribution of the event itself; i.e. the event is first attributed using the attribution windows above and then marked as re-engagement when applicable using the re-engagement inactivity window.
 
-![](/img/d99590f-reengagement-inactivity(1).png "reengagement-inactivity.png")
+.png "reengagement-inactivity.png")
 
 ## Re-Engagement Inactivity Window Settings
 
@@ -27,7 +27,7 @@ To modify your app-level re-engagement inactivity window:
 2. On the **Configuration** page, click on the **Attribution Windows** tab.
 3. Scroll down to the **Re-engagement Inactivity** setting and edit the value to any value between 0.001 and 90 days.
 
-![](/img/c2f098e-re-engagement-attribution(1).png "re-engagement-attribution.png")
+.png "re-engagement-attribution.png")
 
 ## Partner Settings for Acquisition Only Campaigns
 
@@ -47,7 +47,7 @@ Currently this setting is not available in your Branch dashboard. If you are int
 4. At the bottom of the attribution window settings table, tick the box next to **Only attribute based on touch**.
 5. Click **Save**.
 
-![](/img/714b813-install-touch-setting(1).png "install-touch-setting.png")
+.png "install-touch-setting.png")
 
 ## Viewing Re-Engagement in Reporting
 
@@ -59,4 +59,4 @@ To view a re-engagement cohort:
 2. Click **Create New Cohort** and select **Re-engagement** as the **Cohort Type**.
 3. Finish your report selections and click **Save**.
 
-![](/img/9c1ea1a-reengagement-cohort(1).png "reengagement-cohort.png")
+.png "reengagement-cohort.png")

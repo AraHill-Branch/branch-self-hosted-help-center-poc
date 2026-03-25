@@ -111,7 +111,7 @@ When reenabling tracking, a new session must be created using `Branch::openSessi
 
 To default to tracking disabled on first launch, add a `REG_DWORD` registry value `trackingDisabled` with value 1 to the key `HKEY_CURRENT_USER\SOFTWARE\BranchIO\`. This prevents deferred deep linking or install attribution. After SDK initialization, call `disableTracking()` to reenable.
 
-![](/img/c5a9f77-reg4.png "reg4.png")
+
 
 ## Generating Branch Links
 

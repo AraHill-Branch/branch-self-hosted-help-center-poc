@@ -50,48 +50,48 @@ If you haven't enabled Facebook as an Ad Partner on the Branch dashboard follow 
 
 1. Navigate to the [Partner Management tab](https://dashboard.branch.io/ads/partner-management).
 
-![](/img/888e3fd-ads-partner-management.png "ads-partner-management.png")
+
 
 2. Search for **Facebook**.
 3. Click **Connect With Facebook**
 
-![](/img/image-1769820402942.png "1-connect.png")
+
 
 4. Log in to Facebook if you are not logged in
 
-![](/img/603b2f9-2-login.png "2-login.png")
+
 
 5. Confirm that Branch can receive your public profile
 
-![](/img/d97c0d2-3-profile.png "3-profile.png")
+
 
 6. Confirm that Branch can have permissions `ads_read`, which is used to surface impressions and clicks on the Branch Dashboard.
 
-![](/img/4881344-4-scopes.png "4-scopes.png")
+
 
 7. Select the ad accounts for which you want to run app install ads or app engagement ads
 
-![](/img/image-1769820444904.png "5-adaccounts.png")
+
 
 8. Click to select a Facebook app id for which you want to run Facebook ads. *(Note - To Enable OS specific FB app IDs, please reach out to Branch support* [*support@branch.io*](mailto:support@branch.io)*)*
 
-![1136](/img/image-1769820456930.png "6-app-1.png")
+*[Image: 1136]*
 
 9. Copy the app id
 
-![](/img/6eece78-7-app-2.png "7-app-2.png")
+
 
 10. Paste the app id and press `Save`
 
-![](/img/image-1769820472148.png "8-app-3.png")
+
 
 Add your Facebook App Secret to enable deferred deep linking.
 
-![](/img/31d3cdf-Screenshot_2022-05-12_at_14.47.26.png "Screenshot 2022-05-12 at 14.47.26.png")
+
 
 11. Facebook is now enabled as an ad partner! Note that if you have different attribution windows between Facebook and Branch, those will be highlighted. The warning has a link to the docs on how to align these attribution windows.
 
-![](/img/590e22e-9-complete.png "9-complete.png")
+
 
 12. **(Optional) Add System User Token**: By default, Branch uses the authenticated user’s token to retrieve data from Facebook. However, you can optionally configure a System User Token instead.  
       
@@ -110,11 +110,11 @@ Add your Facebook App Secret to enable deferred deep linking.
     1. On the **Account Settings** tab for Facebook’s ad partner settings in Branch, locate the **System User Token** field.  
     2. Paste your token and select **Save**.  
       
-    ![Input field for entering a System User Token in Branch for Facebook Ads.](/img/Screenshot 2026-01-30 at 4.51.17 PM.png)
+    
 
 13. **(Optional) Create a Facebook Ads link for deep linking**: Select the **Create Facebook Link** button in the top right hand corner. Scroll down to the section on **Deep link your app install campaign** for more details.
 
-![](/img/8d28041-create-facebook-link.png "create-facebook-link.png")
+
 
 ::: info Connecting Multiple Accounts
 All SANs - including Facebook - accept multiple accounts. However, only a single Branch user can authenticate the integration. This means that the single user must have access to all of the accounts you wish to connect.
@@ -156,11 +156,11 @@ Branch maps the following data fields from Facebook App Install Ads to Branch.
 
 The [Ads Analytics Page](https://dashboard.branch.io/ads/analytics) on the Branch dashboard provides an interactive time series graph and table to view the performance of your Ad campaigns.
 
-![](/img/image-1769819029417.png "trends-graph.png")
+
 
 The table shows summary data on the performance of each Ad campaign. On the right top side of the table you can find a **download button** to retrieve the chart's content as a CSV file.
 
-![](/img/image-1769819058120.png "events-table.png")
+
 
 ::: info Interacting with your data
 Breakdown and compare aspects of your Ad campaigns' performance by using the `Compare by +` button to add a parameter to split the data displayed data by.
@@ -210,9 +210,9 @@ We recently discovered an issue where an app was calling Facebook's SDK to fetch
 
 If Facebook is having trouble reading the App Links from the Branch Link, you might see messages like these while trying to test out the flow. This means that there is something corrupted in the OG tags causing Facebook to not parse your link.
 
-![](/img/3d8c698-invalid-app-links-error.png "invalid-app-links-error.png")
 
-![](/img/image-1769819114027.png "missing_applinks.png")
+
+
 
 **Rescrape the OG Tags**
 
@@ -262,4 +262,3 @@ We recently discovered a bug within the Facebook system that prevents App Links 
 
 It has to look like this **exactly**:
 
-![](/img/45e04e0-app_restrictions.png "app_restrictions.png")

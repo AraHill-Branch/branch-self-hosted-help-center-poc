@@ -3,7 +3,7 @@ title: "CleverTap (Export) Configuration"
 slug: clevertap-data-configuration
 ---
 
-![1328](/img/272abd6-Clevertap_branch.png "Clevertap+ branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -31,9 +31,9 @@ Non-referred events, clicks, web session starts, and pageviews will be excluded.
 
 In order to view Branch data in CleverTap, you can find people by Behavior or view events where your provider contains "Branch". For more information on Clevertap's reporting, please refer to their [Behavioral Analytics](https://docs.clevertap.com/docs/simple-reports) documentation.
 
-![](/img/a742a9c-69a4ba0-clevertap-people.png "69a4ba0-clevertap-people.png")
 
-![](/img/70c8459-fcef568-clevertap-events.png "fcef568-clevertap-events.png")
+
+
 
 ## Prerequisites
 
@@ -65,17 +65,17 @@ To find your CleverTap Account Credentials:
 
 1. Log in to your [CleverTap account](https://dashboard.clevertap.com/) and navigate to Settings by clicking the cog at the top of the screen, then `Settings Dashboard`.
 
-   ![](/img/c2f4f8f-27a6372-clevertap-settings.png "27a6372-clevertap-settings.png")
+   
 2. Ensure you're looking at the correct app for your integration, then click the eye icon to show your account credentials.
 
-   ![](/img/74f762f-1c210a0-clevertap-account-credentials.png "1c210a0-clevertap-account-credentials.png")
+   
 3. Copy these account credentials into the Branch dashboard as instructed below.
 
 ## 2. Connect CleverTap in Branch
 
 In the Branch Dashboard in Data Feeds → [**Data Integrations** tab](https://dashboard.branch.io/data-feeds/integrations), find and search for CleverTap. Then enter your CleverTap information
 
-![](/img/76b4fb7-5e4feae-clevertap-enable.gif "5e4feae-clevertap-enable.gif")
+
 
 ## 3. Pass CleverTap IDs to Branch
 

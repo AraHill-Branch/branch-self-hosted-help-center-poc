@@ -128,4 +128,3 @@ You can also use the Dashboard to configure the data to be sent to an ad network
 
 To differentiate between subscription data and IAP data, filter your analytics by the `CustomerEventAlias` field, the values for which can be found in the "Additional Object Mapping" [table](relay-subscriptions-and-in-app-purchases.md#additional-object-mapping).
 
-![](/img/7b45f9f-Screenshot_2023-05-25_at_11.25.48_AM.png)

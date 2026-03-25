@@ -9,7 +9,7 @@ A Deepview is a mobile web splash page, hosted by Branch, that gives a preview o
 
 Deepviews are discoverable in all search portals (Google, Apple Spotlight, Bing, etc), opening up new mechanisms for people to find your app, and driving much higher conversions to install than sending visitors to the App/Play Store directly. Here's an example flow:
 
-![243](/img/63bbbed-deepviews_allthecooks.gif "deepviews_allthecooks.gif")
+*[Image: 243]*
 
 ### Access
 

@@ -3,7 +3,7 @@ title: "Braze Configuration"
 slug: braze-configuration
 ---
 
-![1328](/img/affcd68-Braze__Branch(1).png "Braze + branch.png")
+*[Image: 1328]*.png "Braze + branch.png")
 
 ## Overview
 
@@ -71,7 +71,7 @@ In the Branch Dashboard in Data Feeds → [**Data Integrations** tab](https://da
 
 Enter the API Key and Rest Endpoint from the previous step and hit **Save**.
 
-![](/img/e68b922-2e45a98-braze-enable.gif "2e45a98-braze-enable.gif")
+
 
 ## 3. Pass Metadata to the Branch SDK
 

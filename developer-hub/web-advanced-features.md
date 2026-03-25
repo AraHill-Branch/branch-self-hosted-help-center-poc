@@ -293,7 +293,7 @@ $('#qrCode').click(function() {
 		}
 	};
 	branch.qrCode(qrCodeParams, qrCodeSettings, function(err, qrCode) {
-		response.html('<img src="data:image/png;charset=utf-8;base64,' + qrCode.base64() + '" width="500" height="500">');
+		response.html('');
 	});
 });
 ```
@@ -344,9 +344,9 @@ The examples below include the link data Branch should pick up, and the correspo
 
 | Example URL | Example URL Data | Corresponding HTML Meta Tags |
 | --- | --- | --- |
-| <https://shop.com/shoes/brown-loafers> | `productId=1234`, `productView=true` | `<meta name="branch:deeplink:productId" content="1234" />`  `<meta name="branch:deeplink:productView" content="true" />` |
-| <https://shop.com/shoes> | `categoryId=5678` | `<meta name="branch:deeplink:categoryId" content="5678" />` |
-| <https://shop.com/a-great-movie> | No corresponding app content ([open web](creating-a-deep-link.md#section-open-web-instead-of-app)). | `<meta name="branch:deeplink:$web_only" content="true" />` |
+| \&lt;https://shop.com/shoes/brown-loafers\&gt; | `productId=1234`, `productView=true` | `<meta name="branch:deeplink:productId" content="1234" />`  `<meta name="branch:deeplink:productView" content="true" />` |
+| \&lt;https://shop.com/shoes\&gt; | `categoryId=5678` | `<meta name="branch:deeplink:categoryId" content="5678" />` |
+| \&lt;https://shop.com/a-great-movie\&gt; | No corresponding app content ([open web](creating-a-deep-link.md#section-open-web-instead-of-app)). | `<meta name="branch:deeplink:$web_only" content="true" />` |
 
 #### Validate
 

@@ -39,7 +39,7 @@ In a different tab, log in to your Google Admin console to create the Branch app
 2. Select **Add app** → **Add custom SAML app**.
 3. On the App details page, enter an app name (e.g., "Branch") and optionally add a description or upload an app icon. Select **Continue**.
 
-![Set up a SAML app in Google Admin for Branch SSO configuration.](/img/Screenshot_2025-11-14_at_8.01.46aAM.png)
+
 
 ### Step 3: Download Google IdP details
 
@@ -47,7 +47,7 @@ On the **Google Identity Provider details** page in Google Admin, there is confi
 
 Keep this page open - you'll need to copy the **SSO URL** and download the **Certificate** in the next step.
 
-![Configure SAML app in Google with SSO URL, entity ID, and certificate details for Branch SSO.](/img/image-1764122560099.png)
+
 
 ### Step 4: Configure connection in Branch
 

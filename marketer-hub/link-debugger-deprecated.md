@@ -19,7 +19,7 @@ There are a couple of different ways to access the Link Debugger on a given Bran
 
 Link Debugger can be accessed on Short Links through the [Branch Dashboard's Short Links Manager](https://dashboard.branch.io/quick-links/manager). Here you will find your Short Links, and with each Short Link you can access the Link Debugger using the **Debug** option
 
-![](../../../assets/media/images/e0b4d1b5-bebf-4c36-819d-ff08b8caeb74 "Short Links Options.PNG")
+
 
 ### URL Parameter
 
@@ -34,7 +34,7 @@ A useful troubleshooting feature is the **Link Routing Debugger** section. The t
 
 In this section, you can get the step-by-step behavior of your Branch Link by selecting an OS and click location. From there, the Link Routing Debugger will outline the *click redirect outcome* depending on if the app is installed at the time of click or not.
 
-![](../../../assets/media/images/63ddb0b6-96d7-4643-a32d-aee99b743f7b "Link Routing Debugger.PNG")
+
 
 ## Link Details
 
@@ -44,4 +44,3 @@ With the Link Details section, you have the ability to view all of the respectiv
 
 In the *link data* key, you'll also see useful tooltips next to each key that defines it. This can be useful for developers and marketing teams to determine what other data may be tied to the Branch Link.
 
-![](../../../assets/media/images/2ce7c361-ff34-49d7-8fe7-5c021f8b1747 "Link Details.PNG")

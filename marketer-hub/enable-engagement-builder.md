@@ -28,7 +28,7 @@ In order to enable Engagement Builder, you need to have completed the following:
 
 In the Branch Dashboard, navigate to the [Engagement Builder screen](https://dashboard.branch.io/engagement), and click the blue **New Group** button.
 
-![888](../../../assets/media/images/ecd29833-ecc4-4717-b5fc-e67fae79bad0 "Create Group.PNG")
+*[Image: 888]*
 
 ### 2. Define Rules
 
@@ -36,15 +36,15 @@ Rules allow you to select users based on past behaviors and established attribut
 
 #### Select Target Platforms
 
-![1692](/img/cd217d4-Screen_Shot_2020-07-22_at_9.16.03_AM.png "Screen Shot 2020-07-22 at 9.16.03 AM.png")
+*[Image: 1692]*
 
 #### Select App Version
 
-![](/img/18583b3-App_Version_Engagement_Builder.png)
+
 
 #### Select Target Countries
 
-![1692](/img/a646cef-Screen_Shot_2020-07-22_at_9.18.43_AM.png "Screen Shot 2020-07-22 at 9.18.43 AM.png")
+*[Image: 1692]*
 
 You can select multiple from the drop-down. By default, **No country restrictions** is selected.
 
@@ -74,7 +74,7 @@ Engagement Builder stores up to 6 months of historical data
 | Exactly X times | 1 to 100 Integer |
 | Between X and Y times | 1 to 100 Integer |
 
-![1692](/img/dc5da2d-Screen_Shot_2020-07-22_at_9.23.54_AM.png "Screen Shot 2020-07-22 at 9.23.54 AM.png")
+*[Image: 1692]*
 
 Once rules are defined, click **Save & Go To Next Step**.
 
@@ -84,7 +84,7 @@ You can share access to this engagement group with agencies and ad partners work
 
 To share access with third parties connected to your account, click the **Select partner** dropdown, and **Add** the agency and/or ad partner.
 
-![2158](/img/7962c4e-Screen_Shot_2020-07-22_at_9.31.44_AM.png "Screen Shot 2020-07-22 at 9.31.44 AM.png")
+*[Image: 2158]*
 
 To be able to view, edit or download the engagement group, they will need [relevant permissions](add-manage-users-roles-permissions-access.md#access-levels) enabled on their account.
 
@@ -92,7 +92,7 @@ To be able to view, edit or download the engagement group, they will need [relev
 
 Using the **Select Ad Partner** dropdown, select Facebook or Google Adwords, and use the **Select Ad Account** to find your ad account.
 
-![996](/img/f1b5925-Select_Ad.png "Select Ad.png")
+*[Image: 996]*
 
 You can continue to use the **AND** logic to add both Facebook and Google Adwords.
 
@@ -109,7 +109,7 @@ For Facebook, you must do the following **if you already had Facebook integrated
 
    - **Note:** This will cause a slight discrepancy in the Branch Dashboard as it reestablishes its connection to Facebook.
 
-![1046](../../../assets/media/images/dc751fb3-6443-4ff4-8fcb-edcaacd1b129 "Facebook Reauth.PNG")
+*[Image: 1046]*
 
 #### Google Adwords
 
@@ -131,7 +131,7 @@ To choose how often your engagement group is updated:
 
 2. Once done defining the rule, click **Save & Go To Next Step**.
 
-![2166](/img/536f1c0-Screen_Shot_2020-07-22_at_9.53.18_AM.png "Screen Shot 2020-07-22 at 9.53.18 AM.png")
+*[Image: 2166]*
 
 You can have up to 10 engagement groups set to actively generate engagement group data.
 
@@ -139,10 +139,10 @@ You can have up to 10 engagement groups set to actively generate engagement grou
 
 Name your Engagement group and provide a description to help remind you and any members of your team why you created it.
 
-![2166](/img/c88058d-Screen_Shot_2020-07-22_at_10.25.01_AM.png "Screen Shot 2020-07-22 at 10.25.01 AM.png")
+*[Image: 2166]*
 
 ### 7. Confirm Your Engagement Group
 
 Click **Save & Build Engagement Group** once you've reviewed your settings. If you find something doesn't look quite right, you can use the left hand navigation to go back and make changes to any step.
 
-![2166](/img/8422754-Screen_Shot_2020-07-22_at_10.34.27_AM.png "Screen Shot 2020-07-22 at 10.34.27 AM.png")
+*[Image: 2166]*

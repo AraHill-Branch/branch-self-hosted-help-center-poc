@@ -5,7 +5,7 @@ slug: inmobi-dsp
 
 ## Overview
 
-![](/img/ea2aa96-inmobi-dsp.png "inmobi-dsp.png")
+
 
 [InMobi](https://www.inmobi.com/) is the world's leading Marketing Cloud. Our mobile data and technology platforms help global brands understand and engage connected consumers.
 
@@ -53,7 +53,7 @@ Before you can enable the partner integration in your Branch dashboard, you will
 3. Search for InMobi DSP.
 4. Select **InMobi DSP**, provide your **iOS Property ID | Android Property ID** and click **Save & Enable**.
 
-   ![](/img/783c473-dsp-enable.png "dsp-enable.png")
+   
 
 ## 4. Enable Postbacks
 
@@ -65,7 +65,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#section-adding-enabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#section-adding-enabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/5b382b9-dsp-en-postbacks.png "dsp-en-postbacks.png")
+
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -88,7 +88,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/29c898a-dsp-link-params.png "dsp-link-params.png")
+
 
 </details>
 
@@ -99,7 +99,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by InMobi DSP. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/588b986-dsp-attribution-windos.png "dsp-attribution-windos.png")
+
 
 </details>
 
@@ -110,7 +110,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/9b92510-dsp-test-postbacks.png "dsp-test-postbacks.png")
+
 
 </details>
 

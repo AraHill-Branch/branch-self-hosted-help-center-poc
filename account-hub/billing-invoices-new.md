@@ -22,4 +22,3 @@ The **Invoice History** module gives you a high-level overview of your past invo
 
 This module also lets you download individual invoices using the **Invoice** column.
 
-![Invoice history for a Branch account showing multiple entries with consistent balance and invoice details.](/img/Screenshot 2025-06-24 at 2.12.52 PM.png)

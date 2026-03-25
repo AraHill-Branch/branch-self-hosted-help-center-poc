@@ -3,7 +3,7 @@ title: "Vivo Pre-Install"
 slug: vivo-pre-install
 ---
 
-![1280](/img/6701359-vivo-logo-1.png "vivo-logo-1.png")
+*[Image: 1280]*
 
 ### Overview
 
@@ -29,7 +29,7 @@ To initialize the campaign for Vivo, you will need to gather the following:
 
 ### 2. The application id can be obtained from the build.gradle file of the app module in the Android Project.
 
-![2870](/img/7cfa68a-Application_ID.png "Application ID.png")
+*[Image: 2870]*
 
 ### 3. Create the JSON file
 
@@ -46,16 +46,16 @@ To initialize the campaign for Vivo, you will need to gather the following:
 
 ### 4. Check the JSON file in the Android System Property
 
-![921](/img/b8b7302-WechatIMG28.png "WechatIMG28.png")
+*[Image: 921]*
 
 ### 5. Enable Vivo in Branch
 
 In the Branch Dashboard under **Ads > Partner Management**, find/search for Vivo Preload. If you're already logged into the Branch Dashboard, you can also click [here](https://dashboard.branch.io/ads/partner-management/a_vivo_preload?tab=settings) to go there directly.
 
-![1062](/img/1ee3dc9-Vivo_Preload.jpeg "Vivo Preload.jpeg")
+*[Image: 1062]*
 
 ### 6. View Data in Branch
 
 As campaigns run, you will be able to measure the performance of the pre-install analytics directly on the Branch Dashboard.
 
-![1052](/img/50799b6-View_Data_in_Branch.jpeg "View Data in Branch.jpeg")
+*[Image: 1052]*

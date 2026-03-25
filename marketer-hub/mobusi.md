@@ -3,7 +3,7 @@ title: "Mobusi"
 slug: mobusi
 ---
 
-![1328](/img/7e05d8d-Mobusi__branch(3).png "Mobusi + branch.png")
+*[Image: 1328]*.png "Mobusi + branch.png")
 
 ## Overview
 
@@ -46,7 +46,7 @@ You'll need to input your **Mobusi Service ID**. Please reach out to your Mobusi
 
 Click the **Save & Enable** button.
 
-![](/img/6d8a55b-Mobusi_enable(3).png "Mobusi enable.png")
+.png "Mobusi enable.png")
 
 ### 2. Configure Postbacks
 
@@ -55,7 +55,7 @@ Enabling Mobusi will automatically enable the following postbacks:
 - INSTALL
 - OPEN
 
-![](/img/3984a4c-Mobusi_Postback(3).png "Mobusi Postback.png")
+.png "Mobusi Postback.png")
 
 You can configure these postbacks or add more under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_mobusi?tab=postback) tab.
 
@@ -67,7 +67,7 @@ Optionally, you can check the checkbox for a given postback for sending all even
 
 Click the **Add New Postback** button at the bottom of the screen. A modal will appear that will allow you to select an event that you are tracking with the Branch SDKs (including Custom Events).
 
-![](/img/c1b289e-Add_New_Postbacks(101).gif "Add New Postbacks.gif")
+.gif "Add New Postbacks.gif")
 
 For more in-depth postback configurations, view our guides:
 
@@ -94,9 +94,9 @@ After configuring your events, navigate to the [**Attribution Windows**](https:/
 
 Next, you'll need to create a Branch Ad Link for your Mobusi campaigns in order for Branch to properly attribute conversions.
 
-[![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/a516deb-small-95b5d97-small-Vectorlogo_1(98).png)
+[.png)
 
-![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/feddb04-Branch_badge_light_default-32x32.ico) help.branch.io
+ help.branch.io
 
 Create Ad Links](/docs/ad-links)
 

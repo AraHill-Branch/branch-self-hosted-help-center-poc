@@ -44,8 +44,8 @@ Please refer to the following screenshots below based on Android and iOS platfor
 
 **Android**
 
-![1658](/img/1f679d7-vta-android.png "vta-android.png")
+*[Image: 1658]*
 
 **iOS**
 
-![1648](/img/8639c00-vta-ios.png "vta-ios.png")
+*[Image: 1648]*

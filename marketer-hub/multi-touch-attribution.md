@@ -32,7 +32,7 @@ While Branch and other MMPs normally run on a Last Touch Attribution model, you 
 
 ### Example Multi-Touch Journey
 
-![](../../../assets/media/images/7d774f91-65a4-4986-833d-0c7ad7ac074f "MTA Flow.PNG")
+
 
 For example, the user touches three different ad partners, Google, Snapchat, and Facebook (in that order) before converting. With MTA, you can see not only the awarded ad partner, but you can also see Google and Snapchat's touches along with the reason why they were not rewarded attribution for the conversion.
 

@@ -3,7 +3,7 @@ title: "Adobe Campaign Standard Configuration"
 slug: adobe-campaign-standard-configuration
 ---
 
-![](/img/image(65).png)
+.png)
 
 ## Overview
 
@@ -11,7 +11,7 @@ Driving your customers from email to app is an amazing way for them to get more 
 
 ## How does it work?
 
-![](/img/image(60).png "Branch Email Flow.PNG")
+.png "Branch Email Flow.PNG")
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.
@@ -52,7 +52,7 @@ Please follow **Adobe Campaign Standard Help** to add an additional [brand confi
 
 After you created an additional brand configuration, please setup a **new** custom click tracking domain and add it to the configuration . You can add a custom click tracking domain at the **Brand Configuration** page in the field called **External URL of the tracking server**.
 
-![](/img/image(66).png)
+.png)
 
 ::: info If your domain is managed by Adobe
 Please reach out to Adobe Tech Ops, for Creating a new Click Tracking Domain.
@@ -74,7 +74,7 @@ Enable Adobe Campaign## Connect Adobe Campaign Standard in Branch
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Adobe Campaign Standard** and click **Enable**
 
-![](/img/connect_adobe_campaign_standard_in_branch.gif)
+
 
 ### Input Click Tracking Domain
 
@@ -91,7 +91,7 @@ Enter your domains in the open fields and click **Save**
 - You can enable the integration with multiple CTDs, if needed, but you **cannot** add the same CTD to multiple Branch Dashboards or ESP integrations.
 :::
 
-![](/img/image(67).png)
+.png)
 
 ## Configure your App
 
@@ -99,13 +99,13 @@ Enter your domains in the open fields and click **Save**
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#3-configure-associated-domains).
 
-![9f475e3-Associated_Domains.png](/img/9f475e3-Associated_Domains(19).png)
+*[Image: 9f475e3-Associated_Domains.png]*.png)
 
 ### Return `YES` to `continueUserActivity`
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md).
 
-![](/img/image(64).png "branch-universal-link-domain.png")
+.png "branch-universal-link-domain.png")
 
 ## Point DNS CNAME to Branch
 

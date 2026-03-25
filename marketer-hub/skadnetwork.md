@@ -198,7 +198,7 @@ Developers have several different options for integrating SKAN. You can either i
 
 The Branch SDK versions below automatically handle SKAdNetwork in-app functionality. If you do not integrate Branch in the platforms below, please [Enable SKAdNetwork Natively](enable-skadnetwork.md).
 
-| Branch SDK Platform | Required Version for < SKAN 4 | Required Version for > SKAN 4 |
+| Branch SDK Platform | Required Version for \&lt; SKAN 4 | Required Version for \&gt; SKAN 4 |
 | --- | --- | --- |
 | [iOS](https://github.com/BranchMetrics/ios-branch-deep-linking-attribution) | `v0.35` | `v1.45.2` |
 | [React Native](https://github.com/BranchMetrics/react-native-branch-deep-linking-attribution) | `v.5.0.0` | `v5.7.0` |
@@ -212,7 +212,7 @@ The Branch SDK versions below automatically handle SKAdNetwork in-app functional
 
 ## How does it work?
 
-![](../../../assets/media/images/daad5b2e-ea6a-4f21-b6b8-a34a8d74ceea "SKAN 4.PNG")
+
 
 1. Ad network serves an ad to the Publisher App
 2. The user clicks on the ad.

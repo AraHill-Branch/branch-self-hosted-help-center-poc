@@ -26,4 +26,3 @@ Both the terms `Postbacks` and `Webhooks` are used to refer to the same process 
 
 Postbacks are configured directly on the Branch Dashboard after enabling a specific ad partner. These postbacks can be configured based on your campaign goals and metric specifications.
 
-![](/img/3290009-Postback_Configuration.png "Postback Configuration.png")

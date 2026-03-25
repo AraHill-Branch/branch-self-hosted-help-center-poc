@@ -5,7 +5,7 @@ slug: yeahmobi
 
 ## Overview
 
-![](/img/3c56bbd-2debff2-Logo-Yeahmobi-1528510894313.png "2debff2-Logo-Yeahmobi-1528510894313.png")
+
 
 [Yeahmobi](http://en.yeahmobi.com/)  founded in 2011. We are one of the top mobile performance marketing companies in the world. We are pioneers in mobile marketing.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Yeahmobi.
 4. Select **Yeahmobi**, and click **Save & Enable**.
 
-   ![](/img/9d636af-yeahmobi-enable.png "yeahmobi-enable.png")
+   
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/8deb410-yeahmobi-pb.png "yeahmobi-pb.png")
+
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -81,7 +81,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/e63dd41-yeahmobi-link.png "yeahmobi-link.png")
+
 
 </details>
 
@@ -92,7 +92,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Yeahmobi. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/6d33a11-Screen_Shot_2020-12-15_at_3.36.34_PM.png "Screen Shot 2020-12-15 at 3.36.34 PM.png")
+
 
 </details>
 
@@ -103,7 +103,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/e419d76-yeahmobi-pb-testing.png "yeahmobi-pb-testing.png")
+
 
 </details>
 

@@ -48,7 +48,7 @@ Here's a brief outline of how to use the `AdobeBranchExtension` in your app:
 3. [Configure](ios-basic-integration.md#4-configure-infoplist) your Info.plist file with an app URI scheme and your Branch Key.
 4. In the Adobe dashboard, activate Branch and add your Branch Key to your app's configuration:
 
-   ![](/img/6402414-adobe-launch-install.png "adobe-launch-install.png")
+   
 5. Add the AdobeBranchExtension to your app's Podfile using the `pod 'AdobeBranchExtension'`command.
 6. Run `pod install` and `pod update` to install the latest version of the extension.
 7. Register `AdobeBranchExtension` with `AEPMobileCore` in the `didFinishLaunchingWithOptions()` Branch SDK method:

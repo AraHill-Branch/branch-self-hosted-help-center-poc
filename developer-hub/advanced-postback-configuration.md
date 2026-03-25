@@ -32,7 +32,7 @@ You can select a postback URL key from a pre-built list. Once you add your key, 
 3. An **Edit Postback** modal will pop up and you can add pre-built macros in the **Add Pre-built Macros** section. Click the **+ Add Pre-built Macro** button.
 4. Click **Save** after you finish making macro edits.
 
-![](/img/9e79463-Add_Pre-built_Macros.png "Add Pre-built Macros.png")
+
 
 ### Free Form Edit
 
@@ -45,7 +45,7 @@ If you want to have full control of your postback macros, you can make direct ed
    - You must include an `&` character before each key-value pair you append.
 4. Click **Save** after you finish adding your desired macros.
 
-![](/img/5f9c22b-Free_Form_Edit.png "Free Form Edit.png")
+
 
 ### Custom Macros
 
@@ -56,7 +56,7 @@ You can also create any custom macro for your postback URL with any key-value pa
 3. An **Edit Postback** modal will pop up and you can add custom macros to the **Add Custom Macros** section. Click the **+ Add Custom Macro** button.
 4. Click **Save** after you finish adding your desired macros.
 
-![](/img/e2d7877-Custom_Macros.png "Custom Macros.png")
+
 
 ## Adding Filters
 
@@ -70,7 +70,7 @@ In order to add a filter, you need to update the postback template:
    - Edit your filter **Comparitor** and **Value(s)**
 5. Click **Save** to apply the filter.
 
-![](/img/dbc55bb-Add_Filters.png "Add Filters.png")
+
 
 ### Custom Filters
 
@@ -84,7 +84,7 @@ Creating a custom filter is similar to adding a standard filter. You must select
 2. Set the filter logic (**equals** or **not equals**)
 3. Set the input values.
 
-![](/img/e6ce6d1-Custom_Filters.png "Custom Filters.png")
+
 
 ## Using HTTP POST Method
 
@@ -102,4 +102,3 @@ To change the HTTP method to POST:
 8. In the **Filters** tab, add any filters you'd like.
 9. Click **Save**.
 
-![](/img/e8d99e8-HTTP_POST_Method.png "HTTP POST Method.png")

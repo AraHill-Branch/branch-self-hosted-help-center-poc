@@ -43,7 +43,7 @@ In order to access Custom Exports, you need to have completed the following:
    - [Track events](track-branch-events.md)
 4. Have [**Sensitive Data and Export access**](add-manage-users-roles-permissions-access.md).
 
-![](/img/0659c9e-Export_Access.png "Export Access.png")
+
 
 ### Agency Access
 
@@ -63,7 +63,7 @@ To provide an agency team member with access to the Custom Export API:
    - Under **Data Filters**, toggle any necessary data filters on/blue. Exported data will be filtered accordingly.
 6. Click **Save**.
 
-![](/img/d20c704-Export_Agency_Access.png "Export Agency Access.png")
+
 
 ## Pre-Configured Exports
 
@@ -71,7 +71,7 @@ Use pre-configured exports to quickly access specific exports configured by Bran
 
 After logging in to Branch Dashboard, in the left-hand navigation, under the **Exports** section, click [**Custom Exports**](https://dashboard.branch.io/custom-exports). Pre-configured exports should be accessible through the dropdown, and selecting one will overwrite anything set in the **Create Custom Exports** section with pre-configured settings (topic, dimensions, filters).
 
-![](/img/86a8481-Pre-configured_Exports.png "Pre-configured Exports.png")
+
 
 ### Default Pre-Configured Exports
 
@@ -90,7 +90,7 @@ Branch supplies a set a pre-configured exports that will make getting started ea
 
 After logging in to Branch Dashboard, in the left-hand navigation, under the **Exports** section, click [**Custom Exports**](https://dashboard.branch.io/custom-exports).
 
-![1145](/img/a562574-Dashboard_Custom_Exports.gif "Dashboard Custom Exports.gif")
+*[Image: 1145]*
 
 ### 1. Set Dates, Times, and Timezone
 
@@ -127,7 +127,7 @@ There are many purposes for initiating a Custom Export depending on the type of 
 
 ### Android & iOS Installs with Device IDs
 
-![](/img/image(57).png)
+.png)
 
 | Configuration | Details |
 | --- | --- |
@@ -137,7 +137,7 @@ There are many purposes for initiating a Custom Export depending on the type of 
 
 ### Purchase Event Data
 
-![](/img/image(58).png)
+.png)
 
 | Configuration | Details |
 | --- | --- |

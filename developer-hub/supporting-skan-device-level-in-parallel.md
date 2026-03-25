@@ -173,7 +173,7 @@ In either case, all of the required and optional fields outlined above stay requ
 
 The server-side click flow is outlined here:
 
-![](/img/48ae120-Screen_Shot_2021-02-17_at_1.14.04_PM.png "Screen Shot 2021-02-17 at 1.14.04 PM.png")
+
 
 You have 3 tasks when a user taps your ad:
 
@@ -187,7 +187,7 @@ You have 3 tasks when a user taps your ad:
 
 The client-side click flow is outlined below. Note that most partners supporting both SKAN and PREM will use the server-to-server method above, so this is mostly included for completeness.
 
-![](/img/4963953-Screen_Shot_2021-02-17_at_1.15.28_PM.png "Screen Shot 2021-02-17 at 1.15.28 PM.png")
+
 
 You have four tasks when a user taps your ad:
 

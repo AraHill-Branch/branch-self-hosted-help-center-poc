@@ -31,13 +31,13 @@ Here, you'll connect your ad partner through their respective authentication flo
 
 Go through the login flow to authenticate your ad partner and click **Save & Enable.**
 
-![267cdeb-Authenticate_SAN.png](/img/267cdeb-Authenticate_SAN(1).png)
+*[Image: 267cdeb-Authenticate_SAN.png]*.png)
 
 ### Non-SANs
 
 For supported non-SANs, cost data can be enabled through their Partner Management screen in the Branch Dashboard via the **Cost Data** tab.
 
-![ba8b97273e74d38de4eb13b68b89c6cb902d874767dd6799ba35b7876829ad27-Screenshot_2024-11-18_at_11.41.33_PM.png](/img/ba8b97273e74d38de4eb13b68b89c6cb902d874767dd6799ba35b7876829ad27-Screenshot_2024-11-18_at_11.41.33_PM(1).png)
+*[Image: ba8b97273e74d38de4eb13b68b89c6cb902d874767dd6799ba35b7876829ad27-Screenshot_2024-11-18_at_11.41.33_PM.png]*.png)
 
 During setup, you will be able to input your ad partner-specific key/token/etc. to the corresponding fields to authenticate the API connection. These values can be retrieved from your ad partner account manager or through their dashboard.
 

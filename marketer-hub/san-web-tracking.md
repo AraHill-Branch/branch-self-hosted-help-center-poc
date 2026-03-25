@@ -42,7 +42,7 @@ In order to line up *impressions*, *clicks* and *cost* with all downstream event
           For more information on available dynamic parameters for Google, please [Google's ValueTrack Parameter documentation](https://support.google.com/google-ads/answer/6305348).
       2. For Facebook, the Campaign ID can be dynamically filled in using the `{campaign.id}` dynamic parameter.  
           An example link for Facebook might look like this, where the campaign is set to the exact campaign name in link data (`"~campaign":"WL Web Traffic Campaign 10-23"`) and the Campaign ID macro will be dynamically populated.  
-         `https://branchster.app.link/M34SLszUZ1?%243p=a_facebook&campaign_id={{campaign.id}}`  
+         `https://branchster.app.link/M34SLszUZ1?%243p=a_facebook&campaign_id=&#123;&#123;campaign.id&#125;&#125;`  
           For more information on available dynamic parameters for Facebook, please [Facebook's URL Parameters documentation](https://www.facebook.com/business/help/1016122818401732).
 
 As with all links, you don't have to use Short Links created through the dashboard, as long as you have long links with the relevant properties (*$3p*, *~feature=paid%20advertising*, *~campaign* etc.) then you can create long links dynamically.

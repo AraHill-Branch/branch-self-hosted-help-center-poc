@@ -70,7 +70,7 @@ To test for Install events on Android:
 
 For a quick approach to checking your Branch Android SDK integration status and progress, you can use the [Integration Status](https://dashboard.branch.io/configuration/integration) tab of the Branch Dashboard.
 
-![](/img/5aae3c5-Screenshot_2024-04-04_at_12.43.06_PM.png)
+
 
 ### Integration Validator method
 
@@ -239,16 +239,16 @@ To use Branch's Link Debugger:
 
    1. For example, the Branch Link `https://branchster.app.link/3vqEJflHrGb` would become `https://branchster.app.link/3vqEJflHrGb?debug=1`
 4. Paste this link, including the `?debug=1` flag, into your browser. This will open the Link Debugger view:  
-   ![](/img/a6a48ef-image.png)
+   
 
 This tool includes the Link Routing Debugger, which allows you to view the expected behavior for each operating system and click location.
 
 To use the Link Routing Debugger:
 
 1. Select an operating system and location using the dropdown menus.  
-   ![](/img/05e0cfe-Screenshot_2024-04-10_at_3.41.12_PM.png)
+   
 2. View the redirect results table for the link.  
-   ![](/img/69b90e7-Screenshot_2024-04-10_at_3.44.16_PM.png)
+   
 
 Based on the operating system and click location you have selected, you’ll see the click redirect outcome for when a user does and does not have the app installed.
 

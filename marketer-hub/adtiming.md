@@ -5,7 +5,7 @@ slug: adtiming
 
 ## Overview
 
-![](/img/23b19c4-adtiming-logo.png "adtiming-logo.png")
+
 
 [AdTiming](http://www.adtiming.com)  is a professional mobile advertising platform based on the data and strong tech support providing excellent results for Advertisers around the global. We have rich traffic resources. We are good at games and tools. The geographies we cover include: US, UK, IN, ID, Northeast Asia JP, KR, of course including CN, TH, TW, HK. The total daily impressions are over 200 million and the overall install from all geos are above 60,000.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Adtiming.
 4. Select **Adtiming**, and click **Save & Enable**.
 
-![](/img/abd40a2-adtiming-enable.png "adtiming-enable.png")
+
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/261ece1-adtiming-pb-confg.png "adtiming-pb-confg.png")
+
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -81,7 +81,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/249dbfe-adtiming-link-param.png "adtiming-link-param.png")
+
 
 </details>
 
@@ -92,7 +92,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Adtiming. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/e61d038-adtiming-attr.png "adtiming-attr.png")
+
 
 </details>
 
@@ -103,7 +103,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/8b868bf-adtiming--pb-testing.png "adtiming--pb-testing.png")
+
 
 </details>
 

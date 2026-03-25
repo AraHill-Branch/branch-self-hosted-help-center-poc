@@ -5,7 +5,7 @@ slug: the-mediafinity
 
 ## Overview
 
-![](/img/d770770-logo-themediafinity(1).png "logo-themediafinity.png")
+.png "logo-themediafinity.png")
 
 We are a Digital Advertising Agency based out of Gurgaon, Haryana India. We are a 360-Degree service provider of Digital Advertising for Brands across the globe and various Industry verticals. We are an integration of Advertising and technology, aiming to innovate advertising bit by bit.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for The Mediafinity.
 4. Select **The Mediafinity**, and click **Save & Enable**.
 
-   ![](/img/4cb3882-Screen_Shot_2020-12-03_at_9.30.46_AM.png "Screen Shot 2020-12-03 at 9.30.46 AM.png")
+   
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/c362212-mediafinity-pb.png "mediafinity-pb.png")
+
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -81,7 +81,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/baf45f3-Screen_Shot_2020-12-03_at_9.32.10_AM.png "Screen Shot 2020-12-03 at 9.32.10 AM.png")
+
 
 </details>
 
@@ -92,7 +92,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by The Mediafinity. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/48151cb-Screen_Shot_2020-12-03_at_9.32.32_AM.png "Screen Shot 2020-12-03 at 9.32.32 AM.png")
+
 
 </details>
 
@@ -103,7 +103,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/28620af-Screen_Shot_2020-12-03_at_9.32.51_AM.png "Screen Shot 2020-12-03 at 9.32.51 AM.png")
+
 
 </details>
 

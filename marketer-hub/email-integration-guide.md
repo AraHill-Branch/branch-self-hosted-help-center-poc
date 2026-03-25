@@ -39,7 +39,7 @@ Alternatively, use the button below to find your ESP's documentation on how to f
 Leave off `http://` and `https://` when adding your click tracking domain in the Branch Dashboard.
 :::
 
-![2412](/img/55d7e48-generic-setup.png "generic-setup.png")
+*[Image: 2412]*
 
 ::: warning Caution
 Before you click **NEXT** and proceed to the **Validate & Test** section, please complete the DNS CNAME configuration step, as it's required for passing integration validation. Your development or IT team will need to [configure DNS settings](https://help.branch.io/developer-hub/docs/email-integration-for-developers).
@@ -145,7 +145,7 @@ To generate a test link:
    2. SMS
    3. Email
 
-      ![](/img/55bd2ed-test-link.gif "test-link.gif")
+      
 
 Once you've generated your test link, click the link on your mobile device.
 

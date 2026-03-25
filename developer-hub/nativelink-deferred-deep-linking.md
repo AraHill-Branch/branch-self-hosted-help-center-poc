@@ -3,7 +3,7 @@ title: "NativeLink™ Deferred Deep Linking"
 slug: nativelink-deferred-deep-linking
 ---
 
-![](../../../assets/media/images/64175b2f-5e6c-4824-9bfe-1b5c84f02b7d "nativelink.PNG")
+
 
 ::: info Note
 If you are currently using the **Branch NativeLink feature on iOS 16**, when the Branch SDK checks the pasteboard on first opens, the native iOS prompt will automatically display itself requesting permission from the user. Alternative integrations are supported. Please refer to our [iOS Developer Docs](https://help.branch.io/developers-hub/docs/ios-advanced-features#nativelink%E2%84%A2-deferred-deep-linking).
@@ -47,7 +47,7 @@ Please follow the instructions in our [developer documentation](ios-advanced-fea
 
 Select your audience rule.
 
-![](../../../assets/media/images/949ac2f4-4a97-4a4b-ae63-386cc4f1ca1b "NativeLink Dashboard.PNG")
+
 
 #### 4. Create and configure your Branch Link
 
@@ -67,7 +67,7 @@ Additional information on configuring your Branch Links can be found [here](crea
 
 Go to the [Deepview Manager](https://dashboard.branch.io/deepview/deepview-manager) tab under **Campaigns** in the left-side navigation. Once there, locate the NativeLink™ default Deepview indicated by the following tooltip:
 
-![896](/img/e24dcc7-NativeLink_Deepview(1).png "NativeLink Deepview.png")  
+*[Image: 896]*.png "NativeLink Deepview.png")  
 You have the following options:
 
 - **Edit**: Opens the edit screen for the Deepview. This option is **only available** on cloned Deepviews.
@@ -93,7 +93,7 @@ When you are [customizing your NativeLink™ Deepview](nativelink-deferred-deep-
 
 You can obtain the key from the [Deepview Manager](https://dashboard.branch.io/configuration/deepview-manager). Each key is located underneath the title of the Deepview.
 
-![](/img/image-1746749922356.png "NativeLink Key.PNG")
+
 
 Note the keys of the different NativeLink™ Deepviews that you are going to use for the A/B test.
 

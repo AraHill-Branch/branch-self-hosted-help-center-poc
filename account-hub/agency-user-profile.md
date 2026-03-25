@@ -11,7 +11,7 @@ On your agency user profile page, you can manage your name, credentials, and acc
    - **Change Password**
 2. Click **Save**.
 
-   ![1972](/img/82ce81b-Screenshot_6_4_20__8_04_PM.png "Screenshot_6_4_20__8_04_PM.png")
+   *[Image: 1972]*
 
 ::: danger Warning
 To change the email address associated with an existing agency team member, please contact [Support](https://support.branch.io/hc/en-us/requests/new).

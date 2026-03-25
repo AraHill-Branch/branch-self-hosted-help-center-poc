@@ -7,7 +7,7 @@ slug: advanced-journeys-ui-html-css
 
 The Journeys CSS Editor is used to customize the look and feel of how HTML elements are to be displayed on screen.
 
-![](/img/48a6577-CSS_Editor.png)
+
 
 ### Use Custom Font
 
@@ -35,7 +35,7 @@ background-image: url('url of your desired image');
 }
 ```
 
-![](/img/43fbd38-Journeys_Background_Images.png)
+
 
 ### Animating Journeys
 
@@ -69,7 +69,7 @@ It is possible to use GIFs, but compared to CSS animations, GIFs are:
 - Inflexible (have to create a new GIF anytime you want to change something)
 :::
 
-![](/img/b5b5bab-VacationColorCycle_1.gif)
+
 
 ### Remove Focus Indicator
 
@@ -81,7 +81,7 @@ To remove unwanted focus indicator borders on your banners, navigate to the **CS
 }
 ```
 
-![](/img/da7afe3-Screenshot_2023-12-07_at_4.20.58_PM.png)
+
 
 ### Specific Screen Sizes (CSS)
 
@@ -149,7 +149,7 @@ There is an ability to customize banners for specific screen sizes or even poten
 
 The Journeys HTML Editor is used to customize which elements are present in your banner/interstitial. You have access to all the `<>` elements that make up your Journeys creative for you to play around with.
 
-![](/img/6b084dc-HTML_Editor.png)
+
 
 ### Allowed Elements & Attributes
 
@@ -179,7 +179,7 @@ Below are guidelines for reducing any negative contribution related to Journeys:
 
 1. Set the Page Placement of the banner/interstitial to the "Customize Container (iFrame)" option
 
-![](/img/2f25336-Screen_Shot_2021-07-07_at_9.40.20_AM.png "Screen Shot 2021-07-07 at 9.40.20 AM.png")
+
 
 2. Change the CSS based on the type of banner/interstitial:
 

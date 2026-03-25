@@ -5,7 +5,7 @@ slug: admobs
 
 ## Overview
 
-![](/img/cf18f2f-admobs-logo.png "admobs-logo.png")
+
 
 Marketing and Advertising
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Admobs.
 4. Select **Admobs**, and click **Save & Enable**.
 
-   ![](/img/e479fc4-admobs-enable.png "admobs-enable.png")
+   
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/f213b2c-admobs-pb-conf.png "admobs-pb-conf.png")
+
 
 ::: warning Additional Information Required
 Admobs requires the GOAL ID that corresponds to each postback. Please make sure you provide these and click **Save**.
@@ -87,7 +87,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/1398fb5-admobs-link-param.png "admobs-link-param.png")
+
 
 </details>
 
@@ -98,7 +98,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Admobs. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/6e6b93d-admobs-attr.png "admobs-attr.png")
+
 
 </details>
 
@@ -109,7 +109,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/cc4b76d-admobs-pb-testing.png "admobs-pb-testing.png")
+
 
 </details>
 

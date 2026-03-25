@@ -21,7 +21,7 @@ slug: additional-link-configuration
 If the app is not installed when the link is clicked, we will fall back to the Desktop or Default URL, in that order.
 :::
 
-![](/img/image-1746744595043.png "Dashboard_-_Branch_Metrics-3.png")
+
 
 ## Advanced mobile redirects
 

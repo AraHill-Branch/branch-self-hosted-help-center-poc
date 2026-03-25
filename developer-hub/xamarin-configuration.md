@@ -44,7 +44,7 @@ To add the Branch NuGet package to a project:
    **URL Schemes**: The app's URI Scheme, for example `testiosapp`  
    **Role**: Editor
 
-   ![](/img/975b01b-ios_uri_scheme.png "ios_uri_scheme.png")
+   
 
 #### Configure the Xamarin Project's Associated Domains Entitlement
 
@@ -53,7 +53,7 @@ To add the Branch NuGet package to a project:
    `applinks:testiosapp.app.link`  
    `applinks:testiosapp-alternate.app.link`
 
-   ![](/img/1049ef4-ios_associated_domains.png "ios_associated_domains.png")
+   
 
 #### Update the Project's Signing Identity and Provisioning Profile
 

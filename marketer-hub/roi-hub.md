@@ -27,13 +27,13 @@ The sections below describe the three tabs within the Branch Dashboard that come
 
 For a quick look at which of your ad partners are getting significant traffic, as well as whether or not you have cost data ingestion set up for them, head to the **Overview** [tab](https://dashboard.branch.io/ads/roi-hub/overview) in ROI Hub.
 
-![](/img/2c70efa462cb90acb08f3025d9e7278c1dc3d88901676063de6973036af164ee-Screenshot_2025-02-27_at_9.03.03_AM.png)
+
 
 The table featured in this tab includes columns for **Ad Partner**, **Cost**, **Clicks**, **Installs**, **Opens**, **Status**, and **Actions**.
 
 If an ad partner has a status in the **Status** column, you can click on it to learn more. If there is an error associated with the connection, an error message with more information will be shared in the **Error Message** column.
 
-![](/img/dafd618b42f6ea9bab9ea1b52888ca8b95669507f26ca13b6a147a8a888dfa78-Screenshot_2025-01-30_at_11.50.08_AM.png)
+
 
 #### Setup Cost Data
 
@@ -51,7 +51,7 @@ The **Connection Overview** [tab](https://branch.dashboard.branch.io/ads/roi-hub
 
 This table view lets you sort your connections, easily identify issues, and routes you to fix problems with any connections.
 
-![](/img/dc30384-ROI_Hub_Connection_Overview(1).png)
+.png)
 
 | Column | Description |
 | --- | --- |
@@ -79,7 +79,7 @@ You must create a cost data template for an ad partner **before** you can import
 
 The **Import History** view displays a record of previous imports that have taken place, either successfully or unsuccessfully. Clicking **View** in the **Actions** tab of this view will give you more information about that particular import, including error messages if the import failed.
 
-![](/img/26d7b522bca8925fccbb1c2f8e20a7071ff53d5dd13a23fff585b6e54f1a589b-Screenshot_2025-02-27_at_1.19.47_PM.png)
+
 
 ## Ad Partner Support
 

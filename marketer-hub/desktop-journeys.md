@@ -7,7 +7,7 @@ slug: desktop-journeys
 
 Journeys: Desktop Banners allow you to easily create beautiful views that direct users of your brand to your mobile app when viewing your website on a desktop. Similar to Branch's web-to-app Journeys, Journeys: Desktop Banners can be configured based on specific targeting criteria, scheduling, and more! Users will be greeted with a customized interstitial on your website with a QR code that they can use to scan with their mobile device to get to your app.
 
-![](/img/54c5254-Desktop_Journeys_Chicago.png)
+
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ You can also view examples audience suggestions [here](example-journeys.md).
 
 6. Click **Save and Continue** when you're ready to move on to the next phase.
 
-![](/img/df69ba5-Desktop_Journeys_Audience.png)
+
 
 ## 2. Configure Creative
 
@@ -58,7 +58,7 @@ In this phase, you will design the creative your audience will see, or add multi
 
 1. **Add Variation**: This feature allows you to run A/B test by designing multiple templates and assigning a percentage (total must equal to 100%) of your audience to each one to compare Journey performance. This will allow for rapid iteration as you track performance data. Click the **Add Variation +** button to add a new Journey banner/interstitial, and use the percentage fields to control the ratio of your audience that will see each variation.
 
-![](/img/8cd2f50-Configure_Creatives(1).png)
+.png)
 
 2. Click **Select Creative** to start designing your banner/interstitial. You will be taken to the Templates page to select a template. Click the **Use** button on the template you want to work with.
 
@@ -66,7 +66,7 @@ In this phase, you will design the creative your audience will see, or add multi
 
 You must first name your creative in the **View Name** field. Try to stick to a naming convention so that you can easily find it later. Branch uses a *What You See Is What You Get* (WYSIWYG) editor to make customization easy. In the preview window, you can click the element you would like to customize (Title, Description, [Background Image](journeys-image-recommendations.md), etc.).
 
-![](/img/e3a018c-Desktop_Journeys_WYSIWYG.png)
+
 
 #### Editing QR Code
 
@@ -77,7 +77,7 @@ Click on the QR code in the WYSIWYG Editor to configure how the QR code looks fo
 - Color (Code, Background, and Finder)
 - Center Logo
 
-![](/img/440978f-Desktop_Journeys_QR_Code.png)
+
 
 ### Advanced UI Editor
 
@@ -87,7 +87,7 @@ For more detailed tweaks, use the **CSS Editor, HTML Editor, and Page Placement*
 We have a detailed guide on advanced UI configuration [here](advanced-journeys-ui-html-css.md).
 :::
 
-![](/img/5aded57-Desktop_Journeys_Advanced.png)
+
 
 ### Configuration
 
@@ -127,6 +127,6 @@ When you’re ready to start running your Journey, click the **Schedule** button
 - Repeat Settings (Daily/Weekly)
 - Time Zone
 
-![](/img/7accbea-Screen_Shot_2021-07-12_at_10.49.21_AM(1).png "Screen Shot 2021-07-12 at 10.49.21 AM.png")
+.png "Screen Shot 2021-07-12 at 10.49.21 AM.png")
 
 If you’re ready to start running your Journey now, click **Start Journey**. Otherwise, click **Save & Close** to come back and start it later.

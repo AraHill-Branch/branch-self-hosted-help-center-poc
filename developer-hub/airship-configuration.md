@@ -3,7 +3,7 @@ title: "Airship Configuration"
 slug: airship-configuration
 ---
 
-![1328](/img/d62617b-Airship_branch.png "Airship+ branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -58,7 +58,7 @@ In the Branch Dashboard in Data Feeds → [**Data Integrations** tab](https://da
 
 Enter the IDs from the previous step. Enter them into the iOS and Android fields in the Branch Dashboard, and hit **Save**.
 
-![](/img/0526f40-6fd0f22-airship-enable.gif "6fd0f22-airship-enable.gif")
+
 
 ## 3. Pass Metadata to the Branch SDK
 

@@ -9,7 +9,7 @@ If you have iOS Universal Links enabled on your main domain, you should see Appl
 
 In order to maximize conversion while maintaining full compatibility of Journeys and Universal Links, we recommend utilizing a **Floating Pill Button** for your Journeys campaign.
 
-![882](/img/0660600-Floating_Pill_Safari.png "Floating Pill Safari.png")
+*[Image: 882]*
 
 ## Journeys Website Redirect Options
 
@@ -36,7 +36,7 @@ When configuring your [Journeys Template](create-journey-banner-or-interstitial.
 - Add key-value pairs in the **DEEP LINK DATA** section.
 - Click **Save&Close**.
 
-![](/img/5e74ae8-Screen_Shot_2020-10-08_at_9.47.49_AM.png "Screen Shot 2020-10-08 at 9.47.49 AM.png")
+
 
 ## Dynamic Journeys Layout Customization
 
@@ -48,7 +48,7 @@ You can customize the appearance of a Journey depending on which link referred t
 | `$journeys_button_get_no_app` | The call to action button when the app is **not** currently installed | "Install App" |
 | `$journeys_title` | The title or main text of your Journey | "Download Appsolutely today" |
 | `$journeys_description` | This is the description or subtitle in the frame | "This app is disrupting apps" |
-| `$journeys_icon_image_url` | The app icon displayed in the layout | "<https://mysite.com/image.png>" |
+| `$journeys_icon_image_url` | The app icon displayed in the layout | "\&lt;https://mysite.com/image.png\&gt;" |
 
 Note: Not all templates support all override keys. For example, the floating button does not support title, description, or icon image URL (Floating Pills will support the custom liquid tags detailed below). If a creative is to be rendered and the key you've specified does not exist, it is ignored.
 
@@ -56,4 +56,3 @@ Note: Not all templates support all override keys. For example, the floating but
 
 Send users into your app with a discount or promotional coupon code by adding deep link data to your Journey template. In the call-to-action editing step, assign your deep link data key value pairs. This could look something like:
 
-![](/img/8e3de4b-Screenshot_2024-05-09_at_3.47.31_PM.png)

@@ -55,7 +55,7 @@ When using any bulk actions like bulk link creation, all of your links associate
 - Archive links
 - Delete links
 
-![](/img/06210e9-LinkHub_Bulk_Edit(1).png)
+.png)
 
 ### Analytics
 
@@ -69,7 +69,7 @@ The Activation product only includes the **Clicks** metric.
 
 :::
 
-![](/img/3a32fe2-LinkHub_Analytics(1).png)
+.png)
 
 #### Individual link stats
 
@@ -79,15 +79,15 @@ Select the three-dot icon in the row of the link you are interested in, then cli
 
 The Activation product only includes the **Clicks** metric.
 
-![](/img/f22304584172279ef04858af1ce4ca06cf0818c70c9ada1f69b530b00af249e2-Screenshot_2024-12-23_at_2.58.43_PM(1).png)
+.png)
 
 This will take you to a page where the `link id` has already been set for you for that particular link.
 
-![](/img/4cdd8e1d6ef3d0041b7c5c443337ac63be6003d4ae0602c3ba6e624da628df5e-Screenshot_2024-12-23_at_3.05.37_PM(1).png)
+.png)
 
 You will also see a click flow count, broken out by operating system.
 
-![](/img/45572dab74f5851a616ec6c129fcd06d448b1375dc6581e6723a3719f013323c-Screenshot_2024-12-23_at_3.05.45_PM(1).png)
+.png)
 
 ## Templates
 

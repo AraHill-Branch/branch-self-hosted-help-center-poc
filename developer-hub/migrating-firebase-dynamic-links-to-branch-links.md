@@ -3,7 +3,7 @@ title: "Migrating Firebase Dynamic Links to Branch Links"
 slug: migrating-firebase-dynamic-links-to-branch-links
 ---
 
-![](/img/27af6f1-Firebase_to_Branch_Hero.png)
+
 
 ## Overview
 
@@ -71,19 +71,19 @@ Go to <https://dashboard.branch.io/> and create an account. Then, navigate to th
 
 In the **Required Redirects** section, set your redirects per platform, and specify the correct app configuration settings.
 
-![](/img/fdbefcf-Firebase_to_Branch_Required_Redirects.png)
+
 
 #### Set your social media preview
 
 In the **Social Media Preview** section, set your title, description, and thumbnail image.
 
-![](/img/9666119-Firebase_to_Branch_Social_Media.png)
+
 
 #### Establish your link domain
 
 In the **Link Domain** section, set your default link domain or [set a custom domain](advanced-link-configuration.md).
 
-![](/img/985c608-Firebase_to_Branch_Link_Domain.png)
+
 
 For additional details on configuring your Branch Dashboard, view our guide [here](configure-default-link-behaviors.md).
 
@@ -145,11 +145,11 @@ For some Firebase parameters, there is **no equivalent Branch parameter**. This 
 
 Firebase Dynamic Links created in the [Firebase console](https://console.firebase.google.com/project/_/durablelinks/links/?_gl=1*xqedse*_ga*MTk5MTY2MDYzNy4xNjgzMDU0OTQ2*_ga_CW55HF8NVT*MTY4NDUxMDUwOS4zLjEuMTY4NDUxNDY1NS4wLjAuMA..) are useful for creating promo links to share on social media through a user interface.
 
-![](/img/a88f8cb-Firebase_to_Branch_Firebase_Console.png)
+
 
 To create the equivalent Branch Link, utilize the [Branch Dashboard](https://dashboard.branch.io/quick-links/manage) to create a [Short Link](create-quick-links.md):
 
-![](../../../assets/media/images/f6abc9a5-655b-474b-85b2-8f24b316e20b)
+
 
 ### 6. Migrate links from Dynamic Link Builder API
 

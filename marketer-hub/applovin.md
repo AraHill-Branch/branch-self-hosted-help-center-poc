@@ -5,7 +5,7 @@ slug: applovin
 
 ## Overview
 
-![](/img/f2f068d-AppLovin-logo(1).png "AppLovin-logo.png")
+.png "AppLovin-logo.png")
 
 [AppLovin's](https://www.applovin.com) marketing platform provides marketing automation and analytics for brands that want to reach new consumers on mobile.
 
@@ -62,7 +62,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/f9e9689-Applovin_enable(1).png "Applovin_enable.png")
+.png "Applovin_enable.png")
 
 ## 5. Verify Integration Setup
 
@@ -73,7 +73,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/94c6fcd-Applovin_link_parameters(1).png "Applovin_link_parameters.png")
+.png "Applovin_link_parameters.png")
 
 </details>
 
@@ -84,7 +84,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by AppLovin. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/c2664f5-Applovin_Attribution_windows(1).png "Applovin_Attribution_windows.png")
+.png "Applovin_Attribution_windows.png")
 
 </details>
 
@@ -95,7 +95,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/84c8bf9-Applovin_postback_testing(1).png "Applovin_postback_testing.png")
+.png "Applovin_postback_testing.png")
 
 </details>
 

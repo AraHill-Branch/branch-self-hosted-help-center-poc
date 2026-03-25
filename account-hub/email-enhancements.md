@@ -11,4 +11,3 @@ We are specifically improving the templates we use to deliver these messages, fo
 
 Examples of the email improvements include:
 
-![](/img/26f5658-Team_Invite.png)![](/img/4417400-Password_Reset.png)

@@ -31,7 +31,7 @@ If you need to reset your Branch Key/Secret, you will need to be an Admin, or ha
 1. Go to the **Account Settings** page and click the [Profile tab](https://dashboard.branch.io/account-settings/profile).
 2. Here you can copy and/or reset your Branch Key and Secret. By resetting your Key/Secret, we automatically generate a new Key/Secret.
 
-![](/img/e2631ab-branch-key.png "branch-key.png")
+
 
 ## App Name and ID & Organization Name and ID
 
@@ -40,7 +40,7 @@ Under the **About Your App**, you can access:
 - **Organization / App Name** - This is provided by you, and can be changed.
 - **Organization / App ID** - This is assigned by Branch and cannot be changed.
 
-![](/img/7fdc0ec-app-name.png "app-name.png")
+
 
 ## Dashboard Analytics Time Zone
 
@@ -59,7 +59,7 @@ Branch allows you to change your time zone. Changing your time zone will take ef
 3. Click **Save Settings**.
 4. Refresh your browser to see the time zone change take effect.
 
-![](/img/7586f1a-Screen_Shot_2020-05-07_at_9.12.32_AM.png "Screen Shot 2020-05-07 at 9.12.32 AM.png")
+
 
 ## Delete App from Branch Dashboard
 

@@ -61,7 +61,7 @@ In order to enable TikTok For Business SKAdNetwork, you need to have completed t
 ::: warning DEVELOPER MAY BE REQUIRED
 Authenticating your app requires access to Apple's developer tool **App Store Connect** as Branch requires several IDs and a key to complete authentication and sync the correct app to your Branch account.
 
-![image](/img/bd7a51c-app-store-connect-keys.png)
+
 
 - Issuer ID
 - Key ID
@@ -76,10 +76,10 @@ To configure SKAdNetwork functionality:
     b. **Key ID**  
     c. **Private Key**
 
-   ![](/img/d2f1e0fcc8bf2cd0921cb489af201ef67c5a780e93f607d06f5e9753b4e88bc3-Screenshot_2024-12-26_at_3.14.37_PM.png)
+   
 3. Once your fields are filled out and your Private Key file is uploaded, click the **Authenticate & Proceed To Configuration** button.
 
-   ![](/img/7422465c6f9acd20284948d69d664636713c2c02f8d0d7f47b65ad00c0e21ef5-Screenshot_2024-12-26_at_3.26.30_PM.png)
+   
 
 #### Resetting Credentials
 
@@ -96,7 +96,7 @@ In the **SKAdNetwork Config** section of the [Branch dashboard](https://dashboar
 - Integrate directly with SKAdNetwork and [call the SKAdNetwork functions natively](enable-skadnetwork.md).
 - Use another 3rd party library to handle your app's interactions with SKAdNetwork.
 
-![](/img/49cbe1f-Screen_Shot_2020-09-25_at_10.28.51_AM.png "Screen Shot 2020-09-25 at 10.28.51 AM.png")
+
 
 ### 3. Assign Conversion Values to Events
 
@@ -108,7 +108,7 @@ Custom Events need to be mapped in the [TikTok For Business Events Config](https
 - You may optionally select a Customer Event Alias and/or a Revenue Range to further distinguish the conversion value.
 - Assign unique values to each event (*Apple accepts any number from 0 to 63*) that represent their level of importance to you, where 63 is the highest priority and 0 is the lowest priority. Apple will always use the event with the highest priority, regardless if an event with a lower priority was tracked afterward.
 
-![](/img/0e81b02-Screen_Shot_2021-07-12_at_4.09.08_PM.png "Screen Shot 2021-07-12 at 4.09.08 PM.png")
+
 
 ::: info Revenue Range Guidance
 - Revenue range is available for all Commerce Events where revenue is available on the event (Purchase, Add to Cart, Add to Wishlist, View Cart, Initiate Purchase, Add Payment Info, Click Ad, View Ad, Reserve, Spend Credits).
@@ -122,7 +122,7 @@ Custom Events need to be mapped in the [TikTok For Business Events Config](https
 
 You may view performance of your SKAdNetwork Campaigns through the [SKAdNetwork Activity Tab](https://dashboard.branch.io/ads/skadnetwork/activity)
 
-![1451](../../../assets/media/images/eaa23e17-aa4c-4193-a95a-4d3e05dc2966 "TikTok SKAN.PNG")
+*[Image: 1451]*
 
 For additional details on the reporting capabilities, dimensions, etc. please see the following guides:
 

@@ -29,26 +29,26 @@ Using Salesforce's AMPscript, add a new Content Area in Salesforce that converts
 
 2. In Salesforce Marketing Cloud, click on **Email Studio** and then **Email**
 
-   ![1338](/img/7f1bc00-Email_Studio.png "Email Studio.png")
+   *[Image: 1338]*
 3. This will take you to the landing page for the email section. Click on **Content** in the menu bar to navigate to the Content section:
 
-   ![1343](/img/34abe93-Content.png "Content.png")
+   *[Image: 1343]*
 4. In the Content section, you will see a list of folders on the left side. Right click on the **My Contents** folder and choose **Create Folder** in the content builder menu:
 
-   ![1360](/img/1232c6b-Create_Folder.png "Create Folder.png")
+   *[Image: 1360]*
 5. Name the folder "Branch":
 
-   ![1830](/img/1badcfe-Folder.png "Folder.png")
+   *[Image: 1830]*
 6. Once the folder is created, in the upper right side, click on **Create** button, then click **Content Blocks** and finally click **Free Form**:
 
-   ![2094](/img/93df5b5-Content_Blocks.png "Content Blocks.png")
+   *[Image: 2094]*
 7. On the **Free Form** screen, paste in the snippet you previously generated:
 
-   ![2094](/img/1484abc-Free_Form.png "Free Form.png")
+   *[Image: 2094]*
 8. Click **Save**.
 9. In the **Create Free Form** window that appears, enter `deeplink` in the text field named Content Name. Click on Save after you enter the text:
 
-   ![2094](/img/a909fd3-Content_Name.png "Content Name.png")
+   *[Image: 2094]*
 10. You will now be back at your list of folders in the Content section with the file **deeplink** listed:  
      You have now successfully created the deep linking AMPscript.
 
@@ -82,13 +82,13 @@ The process to convert links into Branch Links using AMPscript is as follows (th
 1. Log in to Salesforce Marketing Cloud
 2. Click on **Email Studio** and then a sub-menu will appear. Click on **Email** in the dropdown menu:
 
-   ![868](/img/8ca3e20-Email_Studio_2.png "Email Studio 2.png")
+   *[Image: 868]*
 3. This will take you to the landing page for the Email section. Click on Content in the menu bar to navigate to the Content section:
 
-   ![1070](/img/b38fedf-Content_2.png "Content 2.png")
+   *[Image: 1070]*
 4. Navigate to your folder containing your emails and open an existing email. Make sure the email is in HTML layout as shown below:
 
-   ![612](/img/5cd7cd9-Campaign_Assocation.png "Campaign Assocation.png")
+   *[Image: 612]*
 5. Choose a link that you want to convert to a Branch deep link. Copy the text right after the `href=` in your email template, and paste it into a separate document. In the example, it is:
 
    `"https://branch.io/product/1234/"`

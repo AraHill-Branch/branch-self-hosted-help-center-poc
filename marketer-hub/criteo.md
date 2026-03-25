@@ -5,7 +5,7 @@ slug: criteo
 
 ## Overview
 
-![](/img/1ff6bbe-Criteo-Logo-Orange.png "Criteo-Logo-Orange.png")
+
 
 [Criteo](http://www.criteo.com) is the global leader in Performance Display. Criteo is a global technology company that enables brands and retailers to connect more shoppers to the things they need and love.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Criteo.
 4. Select **Criteo**, and click **Save & Enable**.
 
-   ![](/img/f343748-Screen_Shot_2020-12-03_at_12.29.55_PM.png "Screen Shot 2020-12-03 at 12.29.55 PM.png")
+   
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/537b4f2-Screen_Shot_2020-12-03_at_12_30_43_PM.png "Screen_Shot_2020-12-03_at_12_30_43_PM.png")
+
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -81,7 +81,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/e240d17-Screen_Shot_2020-12-03_at_12.31.58_PM.png "Screen Shot 2020-12-03 at 12.31.58 PM.png")
+
 
 </details>
 
@@ -92,7 +92,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Criteo. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/aec77a3-Screen_Shot_2020-12-03_at_12.32.17_PM.png "Screen Shot 2020-12-03 at 12.32.17 PM.png")
+
 
 </details>
 
@@ -103,7 +103,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/7664716-Screen_Shot_2020-12-03_at_12.32.35_PM.png "Screen Shot 2020-12-03 at 12.32.35 PM.png")
+
 
 </details>
 
@@ -167,22 +167,22 @@ Just need a single link? It's easy to use the Branch dashboard to create a one-o
 
 1. Click Create Ad Link in the top right-hand side of the Criteo Partner Manager UI.
 
-   ![](/img/f7ff597-0c307b1-criteo-create-link.png "0c307b1-criteo-create-link.png")
+   
 2. Select an ad format. For App Install or App Engagement campaigns you'll want to select the App Only format.
 
-   ![](/img/bc4a4d9-noproductlink.png "noproductlink.png")
+   
 3. If you select a simple App Engagement link, you'll start with a name for it. Select something that will make it easy to find if you need it later. Your Ad Format and Ad Partner should be selected already, but feel free to choose one if they aren't. It's important that you select the right Ad Partner for analytics later on. Click **Configure Options** to continue.
 
-   ![](/img/98e7e82-99022a0-criteo-engagement-link.png "99022a0-criteo-engagement-link.png")
+   
 4. Add deep link data and analytics tags.
 
    - Deep Link Data is used to provide the app with product information, so the app can take customers to the right content.
    - Analytics tags are important for later segmentation, so click the Analytics sub tab to add a Channel and Campaign value.
 
-   ![](/img/2bfaa8e-8f18095-criteo-analytics-tags.png "8f18095-criteo-analytics-tags.png")
+   
 5. Click **Create Link Now**, and you have your tracking link! Take this link and give it to your Criteo Solutions Engineer as an example.
 
-   ![](/img/76c80dc-75c4e24-finished-ad-link.png "75c4e24-finished-ad-link.png")
+   
 
 ### Server to Server Tracking Links
 

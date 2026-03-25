@@ -3,7 +3,7 @@ title: "Branch Slack App"
 slug: branch-slack-app
 ---
 
-![](../../../assets/media/images/e019e4de-6df2-4a8d-8c29-70ae06a55295 "Cover.PNG")
+
 
 ## Overview
 
@@ -22,13 +22,13 @@ To start using the Branch Slack App, you must:
 
 Add Branch to your Slack workspace by going to [branch.link/slack](https://branch.link/slack).
 
-![](../../../assets/media/images/5da88b92-fe2e-47f9-b053-d38a59f61deb "Slack App.PNG")
+
 
 ### 2. Configure the Slack App with your Branch credentials
 
 Once you’ve added the Branch Slack App to your workspace, you must add the **Branch Key** obtained from the ["Before you begin" step](branch-slack-app.md#prerequisites) of this article.
 
-![](/img/81e0b77-Enter_Branch_Key(1).gif "Enter Branch Key.gif")
+.gif "Enter Branch Key.gif")
 
 ### 3. Create your link
 
@@ -36,7 +36,7 @@ You can now create links using the `/link` command. Here you'll be able to set s
 
 The Branch Slack App will then output your Branch Link for you to send out.
 
-![](/img/9a35c43-Create_Link_Details(1).gif "Create Link Details.gif")
+.gif "Create Link Details.gif")
 
 ::: tip Tip
 To create links faster, you can supply the `/link` command with the following arguments:
@@ -49,4 +49,4 @@ To create links faster, you can supply the `/link` command with the following ar
 
 If you would like to debug your link, you can use Branch's [Link Validator](link-debugger.md). You can quickly access this by adding `?debug=1` at the end of your Branch Link. Here you can also edit your link.
 
-![](/img/0900666-Link_Debugger(1).gif "Link Debugger.gif")
+.gif "Link Debugger.gif")

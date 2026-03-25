@@ -3,7 +3,7 @@ title: "Segment (Import) Configuration"
 slug: segment-import-configuration
 ---
 
-![1328](/img/e65085c-Segment__branch.png "Segment + branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -192,7 +192,7 @@ See Segment's [Track documentation](https://segment.com/docs/spec/track/) for mo
 
 Once you have import turned on in both Segment and Branch, events should come through. You will see a green dot on the import card if Branch has seen events:
 
-![](/img/b6057e4-09a44fd-mparticle-import-status.png "09a44fd-mparticle-import-status.png")
+
 
 Branch imports events from Segment as [commerce, user lifecycle, content, or custom events](segment-import.md#section-supported-events).
 

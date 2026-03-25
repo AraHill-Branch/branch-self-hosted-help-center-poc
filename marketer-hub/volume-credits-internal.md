@@ -3,7 +3,7 @@ title: "Volume Credits (INTERNAL)"
 slug: volume-credits-internal
 ---
 
-![6c51067d8b545ea559ff0fb9335d780d4f9146914046d51fc0f38f6eb1a42aba-volume-credits-3.png](/img/6c51067d8b545ea559ff0fb9335d780d4f9146914046d51fc0f38f6eb1a42aba-volume-credits-3.png)
+
 
 ## Overview
 

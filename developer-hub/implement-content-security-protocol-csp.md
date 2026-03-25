@@ -91,7 +91,7 @@ In the code, we define the CSP hashes through the <meta> tag
 
 The SHA256 hashes are generated based on the inline JavaScript code. The easiest way to generate it is to just open the developer tools console of your browsers and it will output what the expected hash of your script was in the console error message. Below is a screenshot of how browser console generate the CSP hashes for you.
 
-![2418](/img/3981923-Screen_Shot_2021-02-01_at_2.34.24_PM.png "Screen Shot 2021-02-01 at 2.34.24 PM.png")
+*[Image: 2418]*
 
 #### Option 2: Using CSP nonce policy for inline script security
 

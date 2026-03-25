@@ -3,7 +3,7 @@ title: "SFMC Configuration"
 slug: sfmc-overview
 ---
 
-![1328](/img/6a43853-Salesforce_Marketing_Cloud_branch.png "Salesforce Marketing Cloud+ branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -11,7 +11,7 @@ Driving your customers from email to app is an amazing way for them to get more 
 
 ## How does it work?
 
-![](../../../assets/media/images/a379a46e-624b-49af-9914-60a67c5e43f3 "Universal Email Flow.PNG")
+
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.
@@ -54,7 +54,7 @@ In order to enable Salesforce Marketing Cloud Web Default, you must first:
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Salesforce Marketing Cloud Ver. 1** and click **Enable**
 
-![385](../../../assets/media/images/2fe668af-9a67-4578-8464-eccdf0572559 "Enable SFMC.PNG")
+*[Image: 385]*
 
 ### Input Click Tracking Domain
 
@@ -66,7 +66,7 @@ Enter your click tracking domain in the open field and click **Save**
 - You can enable the integration with multiple CTDs, if needed, but you **cannot** add the same CTD to multiple Branch Dashboards or ESP integrations.
 :::
 
-![](/img/3f47d1a-CTD.png "CTD.png")
+
 
 ## 2. Configure Salesforce
 
@@ -88,14 +88,14 @@ If you run **Journey Builder or Triggered Sends**, you must do one of the follow
 
 Your Salesforce account must be configured to correctly handle Universal Links. Configure the settings in Deep Linking under the Send Management section in Email Studio. Ensure you're in the account corresponding to the correct click tracking domain.
 
-![](/img/556bad6-Salesforce_AASA.png "Salesforce AASA.png")
+
 
 1. Enter the AppID value
 2. Check the "Exclude Profile" and "Unsub Center" checkboxes to force links to these items to open in the browser and not the app, if desired.
 3. Click "Save" to save the configuration.
 4. Let Salesforce and Branch know that you've finished this step and your Technical Account Manager will verify that everything looks good.
 
-![](/img/c1a5c75-salesforce-aasa-form.png "salesforce-aasa-form.png")
+
 
 Note: AppID = prefix+bundleID
 
@@ -105,7 +105,7 @@ Note: AppID = prefix+bundleID
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#3-configure-associated-domains).
 
-![](/img/9f475e3-Associated_Domains(16).png "Associated Domains.png")
+.png "Associated Domains.png")
 
 If you do not have your CTD, reach out to your Salesforce Marketing Cloud account manager.
 
@@ -113,7 +113,7 @@ If you do not have your CTD, reach out to your Salesforce Marketing Cloud accoun
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md#return-yes-to-continueuseractivity).
 
-![](/img/13dc276-branch-universal-link-domain(16).png "branch-universal-link-domain.png")
+.png "branch-universal-link-domain.png")
 
 ::: info Custom Link Domain
 If you are using a custom link domain and AMPscript to generate Branch Links (more on this on the next step), include your original app.link domain in both Associated Domains and info.plist **and** use the app.link domain as the base Branch URL in AMPscript
@@ -143,7 +143,7 @@ Use Branch [Short Links](create-quick-links.md) to create your Branch Link to be
 
 Add your original URL (ex. link to your product) to the **Original Web URL** field.
 
-![](../../../assets/media/images/07600d7c-2c46-4cab-8ada-85c9d2c7500a "QL 1.PNG")
+
 
 ##### Analytics Tags
 
@@ -154,7 +154,7 @@ Add your original URL (ex. link to your product) to the **Original Web URL** fie
 | Campaign | Campaign varies from company to company, but it should describe the theme of the link. In the UTM world, this is typically utm\_campaign. | Transactional - Add Item |
 | Tags | Tags are a free-form list of meaningful labels that can be used as filters in the Short Links table. Use them to keep your analytics organized. | September Sale |
 
-![](../../../assets/media/images/d3af653a-48f7-44fc-b1c1-101adea4b7ee "QL 2.PNG")
+
 
 ##### Link Data
 
@@ -163,7 +163,7 @@ Add your original URL (ex. link to your product) to the **Original Web URL** fie
 | `$3p` | This is the indicator for a specific partner of Branch. It is set in order for Branch's systems to properly attribution conversions | `e_et` |
 | `$canonical_url` | The canonical URL, served for SEO purposes. | {Automatically from the **Original Web URL**.} |
 
-![](../../../assets/media/images/bc6317e4-e90b-4e3c-bf8f-b722969d117e "QL 3.PNG")
+
 
 ::: tip Link Templates
 You can utilize Branch's **Link Templates** feature in order to make Short Link creation much faster for your workflow 👌. Learn more [here](link-templates.md).
@@ -188,7 +188,7 @@ By default, this integration will not let you track web link. Enabling web track
 2. Add campaign tag for tracking.
 3. In the Deep Linking tab, add **has\_app = false** and **$web\_only = true** to the link data.
 
-   ![](/img/c1e59b9-sfdc-web-default.png "sfdc-web-default.png")
+   
 4. In the Redirects tab, set the web redirects for fallbacks. Select web URL for Android, iOS, and Desktop, and add the URL you want to redirect to.
 5. After the link is created, add `_webonly` to the app.link domain.  
     \* Ex: If the link created is <https://branchster.app.link/weblinktest>, convert it to [https://branchster\_webonly.app.link/weblinktest](https://branchster_webonly.app.link/weblinktestt).

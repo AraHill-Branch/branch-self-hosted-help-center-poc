@@ -143,7 +143,7 @@ You can type into the text field to add link data options.
 
 #### Step 5: Customize QR code (optional)
 
-![Interface for customizing a QR code with various design options and settings.](/img/image-1744228665427.png)
+
 
 Customize the QR code for this link by selecting the pencil icon above the **QR Preview** section. Learn more in our [Customize QR Codes](qr-codes-builder.md) article.
 

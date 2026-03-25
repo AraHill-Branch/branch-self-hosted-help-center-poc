@@ -21,7 +21,7 @@ In the Branch Dashboard under **Ads > Partner Management**, find/search for **Sn
 
 Under the [**Events Config**](https://dashboard.branch.io/ads/partner-management/a_snap?tab=event_config) tab, toggle on the **Enable Snap Advance Conversions** checkbox. Click the **Save** button.
 
-![](../../../assets/media/images/0b01996b-6bce-4789-8a59-578db015415c "snap advanced conversions.PNG")
+
 
 ## Pass hashed Data
 

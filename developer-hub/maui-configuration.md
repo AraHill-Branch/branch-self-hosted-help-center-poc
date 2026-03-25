@@ -11,7 +11,7 @@ Update your project's target platforms:
 2. Check the **Enable targeting the Android platform** box and make sure the **Target .NET Runtime** is set to **.NET 7.0** - also confirm you have the appropriate **Target Android version** and **Minimum Android version** set.
 3. Check the **Enable targeting the iOS platform** box and make sure the **Target .NET Runtime** is set to **.NET 7.0** - also confirm you have the appropriate **Target iOS version** and **Minimum iOS version** set.
 
-   ![](/img/08bf356-Screenshot_2023-07-21_at_11.40.33_AM.png)
+   
 
 ## 2. Install Branch NuGet Package
 
@@ -122,7 +122,7 @@ Now that you have completed the general project setup requirements in Visual Stu
 3. In the **Custom Entitlements** field, add the path to the `Entitlements.plist` file you [created](maui-configuration.md#add-associated-domains-in-entitlementsplist).
 4. Make sure the appropriate options are selected for **Signing Identity** and **Provisioning Profile**.
 
-   ![](/img/2521c08-Screenshot_2023-07-21_at_1.15.58_PM.png)
+   
 
 #### 5. Update `AppDelegate.cs` File
 

@@ -3,7 +3,7 @@ title: "Oppo Pre-Install"
 slug: oppo-pre-install
 ---
 
-![2560](/img/d198227-OPPO_LOGO.png "OPPO_LOGO.png")
+*[Image: 2560]*
 
 ### Overview
 
@@ -29,11 +29,11 @@ To initialize the campaign for Oppo, you will need to gather the following:
 
 ### 2. `Oppo` needs to configure the `package name` and `utm_Campaign` of the Auto-Install parameters app in the XML file which is described in the official doc.
 
-![1751](/img/894c6bb-Auto-Install_Parameters.png "Auto-Install Parameters.png")
+*[Image: 1751]*
 
 Auto-Install XML file
 
-![1552](/img/94830b5-Auto-Install.png "Auto-Install.png")
+*[Image: 1552]*
 
 Although utmMedium is set in the configuration file, the Google Play Install referrer API gets a fixed value "preload".
 
@@ -55,4 +55,4 @@ In the Branch Dashboard under **Ads > Partner Management**, find/search for Oppo
 
 As campaigns run, you will be able to measure the performance of the pre-install analytics directly on the Branch Dashboard.
 
-![1544](/img/095c054-View_Data_In_Branch.png "View Data In Branch.png")
+*[Image: 1544]*

@@ -17,7 +17,7 @@ SKAdNetwork (SKAN), once enabled, will give you enhanced reporting on all of you
 
 The Branch Dashboard shows you all the information about your SKAN campaigns in the **SKAdNetwork** [tab](https://dashboard.branch.io/ads/analytics/skadnetwork), which is found on the **Analytics** page under **Ads**.
 
-![](/img/a5c731a-SKAN_Analytics(1).png "SKAN Analytics.png")
+.png "SKAN Analytics.png")
 
 You'll be able to determine:
 
@@ -39,7 +39,7 @@ You cannot view SKAN data in other areas of the Branch Dashboard (ex. [Sources](
 
 There is also a view in the Branch Dashboard that combines both your SKAN and non-SKAN attribution data in one unified view called **SKAN Unified View**.
 
-![](/img/f7effd5-38981b2-Unified_Analytics.png "SKAN Unified View.PNG")
+
 
 For more details, please see our full SKAN Unified View guide [here](unified-analytics.md).
 
@@ -51,7 +51,7 @@ With SKAN 4.0+, additional attributed touch granularity will be available such a
 
 Different from how other Branch Dashboard reports are configurable, SKAN reports are configured mainly through setting a specific metric to compare. These metrics can be found at the top of the page underneath the **Date Range** section:
 
-![](../../../assets/media/images/47ce08bd-0f1d-4389-af5a-9b620ccf3eb1 "Compare By Metrics.PNG")
+
 
 Selecting your preferred metric will dynamically update the report generated on this page.
 
@@ -68,7 +68,7 @@ For more details on general Branch Dashboard Reports can be found [here](dashboa
 
 #### Dimensions
 
-![](/img/fae3870-Screenshot_2023-11-28_at_09.28.17.png "SKAN Analytics Table.png")![](/img/e2cf39c-Screenshot_2023-11-28_at_09.28.24.png)
+
 
 | Dimension | Description |
 | --- | --- |
@@ -117,7 +117,7 @@ SKAN 4 introduced new data fields that Branch can use to enhance your reporting 
 | --- | --- | --- |
 | body version | equals | `4.0` |
 
-![](/img/701611f-SKAN_4_Ad_Networks.png)
+
 
 #### Coarse Conversion Value
 
@@ -127,7 +127,7 @@ You can also generate reports to analyze your campaigns with respect to Tier 1+ 
 | --- | --- | --- |
 | - coarse conversion value - low   - coarse conversion value - medium  - coarse conversion value - high | - coarse conversion value | - coarse conversion value - low   - coarse conversion value - medium  - coarse conversion value - high |
 
-![](/img/011ddd2-Coarse_Conversion_Value_Report.png)
+
 
 ## Troubleshooting
 
@@ -139,7 +139,7 @@ Because SKAdNetwork is meant to prevent the ability of any party to tie attribut
 
 **SKAdNetwork does not attribute conversions in real time.** When the app is installed, a 24-hour rolling timer begins, and only when that timer expires, can the install then be attributed after an additional 0-24 hours. Every time an additional conversion is reported with a conversion value greater than the previous value, the 24-hour rolling timer is reset and the install does not get attributed until that 24-hour timer is allowed to expire. **Apple offers a developer profile** [**here**](https://developer.apple.com/download/more/)**, that can reduce the timers for testing from 24 hours to 5 minutes.**
 
-![](/img/22e1157-SKAN_Apple_Developer.png "SKAN Apple Developer.png")
+
 
 ::: info App Clips
 If your app uses [App Clips](https://developer.apple.com/app-clips/), any API calls to SKAdNetwork from an app clip’s code will have no effect, return empty strings, or return values that indicate unavailability. See the disclaimer at the bottom of Apple's docs [here](https://developer.apple.com/documentation/storekit/skadnetwork).

@@ -25,7 +25,7 @@ Agency users are managed by agencies. Agencies themselves add members within the
 
 4. Click **Invite** when you're done.
 
-   ![](/img/050e409-Screen_Shot_2020-06-04_at_8.00.44_PM.png "Screen Shot 2020-06-04 at 8.00.44 PM.png")
+   
 
 ::: info Disabled Functionality
 Any restricted functionality - either due to default Agency restrictions or selected access levels - in the Branch dashboard will be (1) grayed out, (2) not clickable, (3) include a pop up modal informing the user about restricted access. See more about [default agency restrictions](add-agency-to-your-account.md#section-default-agency-access-level-restrictions).

@@ -27,7 +27,7 @@ In order to properly test the postbacks set up for your ad partner, you must fir
    - If you select **Mobile App**, also select your test device from the drop-down.
 4. Click **Save & Continue**.
 
-![](/img/0f66f0b-Postback_Test_Platform.png "Postback Test Platform.png")
+
 
 ## Link Creation & Usage
 
@@ -37,7 +37,7 @@ To use your test link, Copy/Paste the Branch Ad Link to yourself (ex. send it to
 
 Once you have your test link, click **Test**.
 
-![](/img/bd50ee2-Postback_Test_Link.png "Postback Test Link.png")
+
 
 After you click the **Test** button, click the link on the device and perform the event you want to test.
 
@@ -45,7 +45,7 @@ After you click the **Test** button, click the link on the device and perform th
 
 Once you click the Branch test link provided in the steps above, Branch measures and attributes the click and resulting events. As this happens, these events are displayed in a timeline on the screen in real time.
 
-![](/img/1b973fd-postback-testing.gif "postback-testing.gif")
+
 
 For each event Branch measures, the following related data points are viewable. For each postback Branch fires, the following information is available:
 
@@ -68,8 +68,7 @@ By default, once you click **Test**, Branch will listen for the resulting events
 
 You can choose to stop the testing at any time by clicking **End Postback Testing** in the upper right-hand corner.
 
-![](/img/4c2b579-postback-testing-end.png "postback-testing-end.png")
+
 
 You can also restart the testing at any time by clicking **Start Postback Testing** in the upper right-hand corner.
 
-![](/img/dccdbde-postback-testing-start.png "postback-testing-start.png")

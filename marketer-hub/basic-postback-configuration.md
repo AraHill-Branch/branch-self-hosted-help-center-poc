@@ -23,7 +23,7 @@ To add a postback:
 4. A modal will appear with Branch default events, as well as any commerce (reserved events like **PURCHASE**) or custom events you've set up.
 5. Click **Save**.
 
-![885](/img/0603855-Add_New_Postbacks.gif "Add New Postbacks.gif")
+*[Image: 885]*
 
 In some cases, you will also be prompted to enter a **Postback URL**. This means that Branch does not already have a pre-configured postback template for that partner and you need to provide a valid URL for your partner. You can get this URL from the ad partner.
 
@@ -36,7 +36,7 @@ To disable any postback currently enabled for an ad partner:
 3. Uncheck the box in the **Enable** column for the postback you want to disable.
 4. Click **Save**.
 
-![885](/img/0e73ff5-Disable_Postbacks.gif "Disable Postbacks.gif")
+*[Image: 885]*
 
 ::: warning Warning
 Branch runs weekly jobs to disable all non-functioning postbacks.
@@ -53,7 +53,7 @@ To delete any postback currently added for an ad partner:
 3. Click the three dots icon to the right of the postback and click **Delete Postback**.
 4. Click **Save**.
 
-![](/img/24998ab-Delete_Postbacks.gif "Delete Postbacks.gif")
+
 
 ## Sending all events
 
@@ -63,7 +63,7 @@ As this setting will send **All Events** - with the name and customer event alia
 
 If you want to send **All Events** you can enable this setting by checking the box on the **All Events** column on a per postback basis. When checked, all events will be sent regardless of attribution. Otherwise, the postback will only fire for events attributed to the ad partner.
 
-![](/img/c8fd7e7-Send_All_Events.png "Send All Events.png")
+
 
 ## Reset postbacks
 
@@ -82,7 +82,7 @@ To reset a specific partner's postbacks:
 1. Click on the **Account Settings** tab of the partner in question.
 2. Click the **Reset All Settings** button in the right-hand corner.
 
-![](/img/image-1744990776470.png "Reset Postbacks.png")
+
 
 ## Allowlist postback IP addresses
 
@@ -98,7 +98,7 @@ If required by your setup, allowlist the following postback server IP addresses 
 
 Note that this example **does not include** the entire list of IP addresses you need to make rules for. Find those [above](basic-postback-configuration.md#allowlist-postback-ip-addresses).
 
-![AWS security group details showing inbound rules and IP allowlist configurations for postbacks.](/img/Branch_IP_Allowlist_SG_Example.png)
+
 
 ### Optional: Configure GCP firewall policy
 
@@ -106,4 +106,3 @@ Note that this example **does not include** the entire list of IP addresses you 
 
 Note that this example **does not include** the entire list of IP addresses you need to make rules for. Find those [above](basic-postback-configuration.md#allowlist-postback-ip-addresses).
 
-![GCP firewall policy details showing various rules and their configurations for postbacks.](/img/Branch_IP_Allowlist_GCPFWRules_Example.png)

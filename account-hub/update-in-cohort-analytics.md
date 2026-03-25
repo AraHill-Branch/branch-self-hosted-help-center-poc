@@ -21,7 +21,7 @@ The user interface has also been updated! Along with some minor visual artifact 
 
 #### Sample Screenshot
 
-![](/img/669c1f5-Screenshot_2024-02-05_at_9.32.16_AM.png)
+
 
 ::: tip
 Ready to get new cohort reports? Visit our guide on Cohort Analytics here: [Cohort Analytics](cohort-analytics.md)

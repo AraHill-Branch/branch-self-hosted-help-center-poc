@@ -54,7 +54,7 @@ Your campaign information and associated information will NOT be lost in the pro
 <details>
 <summary>Why does clicking on an Ad Link with macros/parameteres redirect to a Branch error page?</summary>
 
-Macros like {{campaign}} are seen on Ad Links. When these ad links are added as click trackers in the actual ad by the ad network they are filled in by the actual value by the Ad Network itself. Clicking on these Ad Links with macros will not work since certain browsers do not accept brackets {{--}}. You can replace the macro with a test value and click on the link.
+Macros like &#123;&#123;campaign&#125;&#125; are seen on Ad Links. When these ad links are added as click trackers in the actual ad by the ad network they are filled in by the actual value by the Ad Network itself. Clicking on these Ad Links with macros will not work since certain browsers do not accept brackets &#123;&#123;--&#125;&#125;. You can replace the macro with a test value and click on the link.
 
 Example:
 

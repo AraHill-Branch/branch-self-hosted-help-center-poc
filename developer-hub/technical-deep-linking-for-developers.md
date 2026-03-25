@@ -3,7 +3,7 @@ title: "Deep Linking for Developers"
 slug: technical-deep-linking-for-developers
 ---
 
-![](/img/0b1e745-Contextual_Deep_Link(1).png "Contextual_Deep_Link.png")
+.png "Contextual_Deep_Link.png")
 
 ## Overview
 
@@ -57,7 +57,7 @@ Branch Link creation options:
 
 When configuring your Branch Link you must make sure you are adding the correct key/value pairs to the data dictionary to ensure they make it into the app when it opens from a Branch Link click.
 
-![](/img/8d644e6-Screen_Shot_2021-09-28_at_1.42.10_PM(1).png "Screen Shot 2021-09-28 at 1.42.10 PM.png")Additional details on configuring your Branch Link can be found [here](creating-a-deep-link.md).
+.png "Screen Shot 2021-09-28 at 1.42.10 PM.png")Additional details on configuring your Branch Link can be found [here](creating-a-deep-link.md).
 
 #### 5. Test your Branch Link
 
@@ -99,7 +99,7 @@ This is automatically set when setting the Social Media Tags if you are creating
 `$original_url` is set in the Link Template, which will automatically add the `$canonical_url` with the same value. However, `$canonical_url` is NOT directly scraped for setting the Social Media Tags.
 :::
 
-![](/img/e174b97-Screen_Shot_2021-09-28_at_2.22.55_PM(1).png "Screen Shot 2021-09-28 at 2.22.55 PM.png")
+.png "Screen Shot 2021-09-28 at 2.22.55 PM.png")
 
 ## Testing and troubleshooting
 

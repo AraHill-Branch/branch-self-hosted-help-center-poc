@@ -3,7 +3,7 @@ title: "Braze | Sendgrid Configuration"
 slug: braze-sendgrid-configuration
 ---
 
-![1328](/img/3b873b5-Braze_Sendgrid(2).png "Braze Sendgrid+ branch.png")
+*[Image: 1328]*.png "Braze Sendgrid+ branch.png")
 
 ## Overview
 
@@ -11,7 +11,7 @@ The Braze platform makes messages feel more like conversations between you and y
 
 ## How does it work?
 
-![](../../../assets/media/images/9d8baeb5-5142-47af-add5-7f8c2cc5c799 "Branch Email Flow.PNG")
+
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.
@@ -51,7 +51,7 @@ In order to enable Braze + Sendgrid, you must first:
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Braze Sendgrid** and click **Enable**
 
-![1101](/img/5e52d37-8a5de09-braze-sendgrid-enable.gif "8a5de09-braze-sendgrid-enable.gif")
+*[Image: 1101]*
 
 ### Input Click Tracking Domain
 
@@ -69,7 +69,7 @@ For additional help, please see Sendgrid's [documentation]<https://sendgrid.com/
 - You can enable the integration with multiple CTDs, if needed, but you **cannot** add the same CTD to multiple Branch Dashboards or ESP integrations.
 :::
 
-![](/img/82b6a07-43491b3-braze-sendgrid-ctd.png "43491b3-braze-sendgrid-ctd.png")
+
 
 ## Configure your App
 
@@ -77,13 +77,13 @@ For additional help, please see Sendgrid's [documentation]<https://sendgrid.com/
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#3-configure-associated-domains).
 
-![](/img/9f475e3-Associated_Domains(7).png "Associated Domains.png")
+.png "Associated Domains.png")
 
 ### Return `YES` to `continueUserActivity`
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md#return-yes-to-continueuseractivity).
 
-![](/img/13dc276-branch-universal-link-domain(7).png "branch-universal-link-domain.png")
+.png "branch-universal-link-domain.png")
 
 ## Point DNS CNAME to Branch
 

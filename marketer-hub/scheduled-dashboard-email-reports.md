@@ -28,7 +28,7 @@ Follow these steps to configure a scheduled email report:
    7. QR Codes → Analytics
 2. Either create a new view, or select one of your previously saved views.
 3. Click the **calendar icon** that appears next to the dropdown menu of saved views.  
-   ![Scheduling an email report with options for frequency and recipients in the Branch Dashboard.](/img/Screenshot 2025-07-03 at 5.23.09 PM.png)
+   
 4. Configure the delivery schedule for your report. You can choose from the following options:
 
    1. Daily
@@ -38,7 +38,7 @@ Follow these steps to configure a scheduled email report:
 5. You can now add your colleagues' email addresses to the report delivery. They will be added as BCC recipients on the email. The scheduled email report will always **automatically be sent to the account user**.
 6. Click **Done** to save your schedule.
 7. Once your schedule is saved and active, the **calendar icon** will turn green and have a checkbox inside of it.  
-   ![Scheduled email reports for the Branch Dashboard.](/img/Screenshot 2025-07-03 at 5.24.38 PM.png)
+   
 
 Once the scheduled email report is active, an email with a **link to download the CSV report** will be sent out on the cadence that you configured.
 

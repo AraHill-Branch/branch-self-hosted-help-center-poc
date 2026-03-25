@@ -130,7 +130,7 @@ To set event mappings in Branch:
    2. Click the **trash icon** to remove unwanted mappings.
 5. Select **Save** to apply your changes.
 
-![](/img/b309dbe-small-Enable_AEM_Branch.png)
+
 
 #### Verify event mappings
 

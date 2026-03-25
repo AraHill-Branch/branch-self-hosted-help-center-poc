@@ -5,7 +5,7 @@ slug: new-cost-data-via-api-partners-duplicate
 
 We're bringing more partners to the Cost Data via API to help you round out your cost-related metrics in the Branch Dashboard. Find out more in this update 🎁
 
-![](/img/f00fead-Pinterest__RTB_House.png)
+
 
 ## Overview
 

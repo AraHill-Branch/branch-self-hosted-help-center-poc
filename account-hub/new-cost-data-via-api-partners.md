@@ -5,7 +5,7 @@ slug: new-cost-data-via-api-partners
 
 We're bringing more partners to the Cost Data via API to help you round out your cost-related metrics in the Branch Dashboard. Find out more in this update 🎁
 
-![](/img/cb2169a-Unity_Criteo.png)
+
 
 ## Overview
 

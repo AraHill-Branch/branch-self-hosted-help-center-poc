@@ -15,7 +15,7 @@ All QR Codes you create in the Branch Dashboard can be sorted and managed. Simil
 
 In the Branch Dashboard, navigate to the QR Codes Manager [page](https://dashboard.branch.io/qr-codes/manager) where you can view all of the QR Codes created by you or the team.
 
-![](/img/2899736-QR_Codes_Manage.png)
+
 
 You can sort your QR Codes by:
 

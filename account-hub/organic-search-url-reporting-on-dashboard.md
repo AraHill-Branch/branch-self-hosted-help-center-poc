@@ -9,7 +9,7 @@ You can now view Organic Search URL on the Branch Dashboard when viewing your **
 
 Since SEO App Attribution released last year, a highly requested feature has been the ability to view the organic search URL that lead to app conversions. Now marketers can know exactly which specific pieces of content drive the most organic search traffic to the app using the **Organic Search URL** column.
 
-![](/img/a523c89-Organic_Search_URL.png)
+
 
 Note: Organic Search URL can be measured on the following:
 

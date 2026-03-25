@@ -3,7 +3,7 @@ title: "Google Marketing Platform Overview"
 slug: google-marketing-platform
 ---
 
-![](/img/e35c814-forwarderlogo_41_DoubleclickDFP.svg "forwarderlogo_41_DoubleclickDFP.svg")
+
 
 ## Overview
 

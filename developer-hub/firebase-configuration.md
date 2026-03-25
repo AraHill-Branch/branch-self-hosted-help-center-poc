@@ -3,7 +3,7 @@ title: "Firebase Configuration"
 slug: firebase-configuration
 ---
 
-![1328](/img/e0df4a4-Firebase__branch.png "Firebase + branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -111,7 +111,7 @@ If you use the mParticle plugins alongside the Branch SDK, you must **ensure Fir
 
 To debug the events and their metadata, you can enable the `DebugView` on Firebase to verify the setup. Please refer to Google's official instructions [here](https://firebase.google.com/docs/analytics/debugview).
 
-![](/img/827daff-3b3d2c7-firebase-debugview.png "3b3d2c7-firebase-debugview.png")
+
 
 ## Common Discrepancies Between Firebase & Branch
 

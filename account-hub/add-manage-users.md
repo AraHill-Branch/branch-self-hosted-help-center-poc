@@ -16,7 +16,7 @@ In the [new](new-branch-overview.md) Branch platform, you can find team informat
 3. Enter the email address of the user you wish to add.
 4. Click **Search User**.
 
-   ![](/img/ec1a77d-search-user.png "search-user.png")
+   
 5. If the user does not already exist, you will be prompted to complete the following fields:  
     a. First Name  
     b. Last Name  
@@ -40,7 +40,7 @@ In the [new](new-branch-overview.md) Branch platform, you can find team informat
    - All apps that inherit from the organization
    - All apps
 
-![](/img/b5eed94-add-user.png "add-user.png")
+
 
 ## Manage Users
 
@@ -56,7 +56,7 @@ To modify an existing team member:
 2. To edit the Organization Team member, select **Edit.**
 3. Click **Save**.
 
-![](/img/9dd91d7-edit-user.png "edit-user.png")
+
 
 ::: danger Warning
 If you are using the [legacy version of Branch](branch-dashboard-overview.md) and need to change the email address associated with your account, please contact [Support](https://support.branch.io/hc/en-us/requests/new).  

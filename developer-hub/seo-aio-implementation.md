@@ -116,9 +116,9 @@ Use filters to:
 
 Navigate to [SEO Analytics](https://dashboard.branch.io/seo/analytics) in Branch. Here you can measure **Trends** and **Performance** through charts and tables.
 
-![SEO Chart](/img/694f6b4-SEOAA_Chart(1).png)
+*[Image: SEO Chart]*.png)
 
-![SEO Table](/img/159e851-SEOAA_Table(1).png)
+*[Image: SEO Table]*.png)
 
 ::: info Note
 SEO + AIO App Attribution has the same reporting capabilities as Branch's Ads product. For a detailed overview of ad analytics and how to customize them, view our [guide](paid-ads-analytics.md).

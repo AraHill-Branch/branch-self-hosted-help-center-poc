@@ -35,4 +35,3 @@ For every enabled ad partner and campaign, you can set up individual agency perm
     e. Repeat process for additional permissions.
 4. Remove or edit permissions as needed.
 
-![](/img/a86d731-SKAN_Agency_Permission.png "SKAN Agency Permission.png")

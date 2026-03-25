@@ -38,7 +38,7 @@ Now, log in to your Okta admin dashboard to create the Branch application.
 1. In Okta, navigation to **Applications** → **Applications** and select **Create App Integration**.
 
    2. Select **SAML 2.0** as the sign-on method and click **Next**.  
-   ![Creating a new app integration in Okta to use with Branch for SSO.](/img/95bf6603-26c8-4a36-a7df-6ecdac39b44a.png)
+   
 
 3. On the **General Settings** page, enter an app name (e.g., “Branch”) and click **Next**.
 4. On the **Configure SAML** page, in the **General** section, fill in the fields using the values from the Branch tab you kept open from step 1.
@@ -49,7 +49,7 @@ Now, log in to your Okta admin dashboard to create the Branch application.
 
    3. Name ID format: Set to `EmailAddress`
    4. Application username: Set to `Email`  
-      ![Configuration settings for SAML integration in Okta for Branch.](/img/0becd7b1-570e-4c6f-8d83-19a13ecd530b(1).png)
+      *[Image: Configuration settings for SAML integration in Okta for Branch.]*.png)
 
 ### Step 3: Map attributes in Okta
 
@@ -66,7 +66,7 @@ To set up a successful mapping, you must use the attribute names `firstName`, `l
 | `email` | `user.email` |
 
 1. Still on Okta’s **Configure SAML** screen, scroll down to the **Attribute Statements (Optional)** section.
-2. Add the following three attributes and corresponding values. Make sure you enter the names *exactly* as spelled and cased here.![Okta Admin Console displaying user attribute statements and group settings options.](/img/image-1762902179912.png)
+2. Add the following three attributes and corresponding values. Make sure you enter the names *exactly* as spelled and cased here.
 
 3. Select **Next** and then **Finish** to save your Okta application.
 

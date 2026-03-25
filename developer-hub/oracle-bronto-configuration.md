@@ -3,7 +3,7 @@ title: "Oracle Bronto Configuration"
 slug: oracle-bronto-configuration
 ---
 
-![1328](/img/e94b07e-Oracle_Bronto_branch.png "Oracle Bronto+ branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -11,7 +11,7 @@ Marketing Tools for High-Growth Retailers. Sophisticated commerce marketing auto
 
 ## How does it work?
 
-![](../../../assets/media/images/60dc90b8-5151-4e6f-a947-0296b2c98107 "Branch Email Flow.PNG")
+
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.
@@ -51,7 +51,7 @@ In order to enable Bronto, you must first:
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Oracle Bronto** and click **Enable**
 
-![1428](/img/ff85c49-8ef771d-oracle-bronto-enable.gif "8ef771d-oracle-bronto-enable.gif")
+*[Image: 1428]*
 
 ### Input Click Tracking Domain
 
@@ -69,7 +69,7 @@ For additional help, please see Oracle Bronto's [documentation](https://helpdocs
 - You can enable the integration with multiple CTDs, if needed, but you **cannot** add the same CTD to multiple Branch Dashboards or ESP integrations.
 :::
 
-![](/img/92f497f-bronto_ctd.png "bronto ctd.png")
+
 
 ## Configure your App
 
@@ -77,13 +77,13 @@ For additional help, please see Oracle Bronto's [documentation](https://helpdocs
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#3-configure-associated-domains).
 
-![](/img/9f475e3-Associated_Domains(13).png "Associated Domains.png")
+.png "Associated Domains.png")
 
 ### Return `YES` to `continueUserActivity`
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md#return-yes-to-continueuseractivity).
 
-![](/img/13dc276-branch-universal-link-domain(13).png "branch-universal-link-domain.png")
+.png "branch-universal-link-domain.png")
 
 ## Point DNS CNAME to Branch
 

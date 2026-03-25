@@ -25,13 +25,13 @@ Next, make sure the Apple Bundle ID for your project matches the one in the Bran
 
 1. Find the bundle identifier for the relevant target associated with your project in Xcode, under the "Signing & Capabilities" tab.
 
-   ![](/img/c5c29c9-Screenshot_2023-06-02_at_12.14.14_PM.png)
+   
 2. Add your Bundle ID to the Branch Dashboard:
 
    - **New Branch**: Navigate to **Configuration** > **Link Controls** > **Link Routing Rules** > **Mobile Routing** > **iOS**, and add your Bundle ID under **Bundle Identifiers**.
    - **Legacy Branch**: Return to the Configuration page and use the "Add New Bundle ID" button to add your Bundle ID.
 
-   ![](/img/032d377-Screenshot_2023-06-02_at_12.17.52_PM.png)
+   
 
 ## 3. Configure associated domains
 
@@ -42,14 +42,14 @@ You will also need to tell your project what link domains it can expect Branch t
    - **New Branch**: Navigate to **Configuration** > **Link Controls** > **Link Appearance**. Your link domains are listed under **Link Domains**.
    - **Legacy Branch**: Navigate to the **Link Domain** section of the **Configuration** page.
 
-   ![](/img/3a46faa-Screenshot_2023-06-02_at_12.26.03_PM.png)
+   
 2. Return to the "Signing & Capabilities" tab in Xcode, and add the domains from your Branch Dashboard to your project's target.
 
    - Use `applinks:subdomain.app.link` for the format.
    - The `-alternate` flag is required to ensure proper functioning of Universal Links and [Deepviews](deepviews.md) for users that do not have your app installed.
    - The `.test` flag is required if you need to use a test key.
 
-![](/img/04bd465-Screenshot_2023-06-02_at_1.07.03_PM.png)
+
 
 **Please note**: if you use a [custom link domain](https://help.branch.io/docs/basic-link-configuration#use-your-own-domain), you will need to include your old link domain, your `-alternate` link domain, and your new link domain in your project.
 
@@ -71,10 +71,10 @@ There are several ways you can update your `info.plist` file:
 
 1. As of Xcode 13, many project templates do not include an `info.plist` automatically. Instead, you can edit the "Custom iOS Target Properties" and "URL Types" sections of the "Info" tab for your target. When you add new, non-default fields to these sections, Xcode will generate an `info.plist` file for your project.
 
-   ![](/img/bff0a50-Screenshot_2023-06-05_at_3.29.58_PM.png)
+   
 2. If you already have an `info.plist` file, you can edit it in the Xcode UI by selecting it from the navigation.
 
-   ![](/img/6926eb8-Screenshot_2023-06-05_at_8.19.51_AM.png)
+   
 3. You also have the option to edit the XML in the `info.plist` file directly:
 
 ```
@@ -125,17 +125,17 @@ To add the Branch iOS SDK to your project as a Swift package dependency:
 
 1. In Xcode, go to File -> Add Packages.
 
-   ![](/img/05162023-AddSDKviaSPM-1-v2.png)
+   
 2. Use the search bar to look for either **ios-branch-sdk-spm** or **https://github.com/BranchMetrics/ios-branch-sdk-spm**.
 
-   ![](/img/05162023-AddSDKviaSPM-2.png)
+   
 3. Select the `ios-branch-sdk-spm` package and click *Add Package* to continue through the installer.
 4. Check that the Branch iOS SDK now appears in your project's *Package Dependencies* tab.
 
-   ![](/img/05162023-AddSDKviaSPM-3.png)
+   
 5. Navigate to your project's *Build Phases* tab and expand the *Link Binary With Libraries* section.
 
-   ![](/img/05162023-AddSDKviaSPM-4.png)
+   
 6. Click on the **+** button to search for and add the following dependencies, noting the correct import status for each:
 
    | Linked Frameworks and Libraries | Import Status | Description |
@@ -151,7 +151,7 @@ To add the Branch iOS SDK to your project as a Swift package dependency:
    | [LinkPresentation](https://developer.apple.com/documentation/linkpresentation) | Optional | Support customization of share sheet. |
 7. Confirm that you have the **required** dependencies added, as well as any optional ones you would like, and that you have marked the "Status" column in Xcode appropriately.
 
-   ![](/img/iOS-SDK-240312-dependencies.png)
+   
 
 </details>
 
@@ -184,7 +184,7 @@ To add the Branch iOS SDK to your project using the CocoaPods dependency manager
                                end
    ```
 3. Run `pod install && pod update` to install the project dependencies.
-4. Confirm in your target's **General** tab that a `Pods_...` dependency is now listed.![](/img/05162023-AddSDKviaSPM-6.png)
+4. Confirm in your target's **General** tab that a `Pods_...` dependency is now listed.
 
 </details>
 
@@ -214,7 +214,7 @@ To add the Branch iOS SDK to your project using the Carthage dependency manager:
    | [LinkPresentation](https://developer.apple.com/documentation/linkpresentation) | Optional | Support customization of share sheet. |
 4. Confirm that you have the **required** dependencies added, as well as any optional ones you would like, and that you have marked the "Status" column in Xcode appropriately.
 
-   ![](/img/iOS-SDK-240312-dependencies.png)
+   
 
 </details>
 
@@ -238,7 +238,7 @@ To add the Branch iOS SDK to your project using the Carthage dependency manager:
    | [LinkPresentation](https://developer.apple.com/documentation/linkpresentation) | Optional | Support customization of share sheet. |
 4. Confirm that you have the **required** dependencies added, as well as any optional ones you would like, and that you have marked the "Status" column in Xcode appropriately.
 
-   ![](/img/iOS-SDK-240312-dependencies.png)
+   
 
 </details>
 
@@ -252,7 +252,7 @@ SwiftUI projects in Xcode no longer come with AppDelegate and SceneDelegate by d
 
 1. Create a new file called `AppDelegate.swift` in your project's main directory.
 
-   ![](/img/9212695-Screenshot_2023-06-05_at_4.46.33_PM.png)
+   
 2. Add the following code to your new `AppDelegate.swift` file:
 
    ```

@@ -19,7 +19,7 @@ Prevent wasted spend with higher quality data based on a privacy-focused attribu
 
 ## How Does It Work?
 
-![](/img/296d55c-Fraud_Flow.png "Fraud Flow.png")
+
 
 Branch’s unique, cross-platform scale provides the data depth and breadth required for a resilient, scalable detection model.
 

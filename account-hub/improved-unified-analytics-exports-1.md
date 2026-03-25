@@ -11,7 +11,7 @@ We have made improvements to our Unified Analytics processing, which is designed
 
 To guarantee a seamless transition without interrupting your ads reporting, we've introduced these enhancements in a new, “**Unified**”, tab. The pre-existing analytics, now labeled “**Unified Legacy**”, will remain accessible for the next three weeks, allowing you ample time to familiarize yourself with the new features at your convenience.
 
-![](/img/f1e8414-Unified_Legacy.png)
+
 
 ::: tip
 Looking to learn more about Unified Analytics? Learn more here: [Unified Analytics](unified-analytics.md)

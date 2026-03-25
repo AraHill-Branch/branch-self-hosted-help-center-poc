@@ -53,7 +53,7 @@ To protect your sensitive data, we recommend providing your agencies access to y
 
 After logging into the Branch Dashboard, in the left-hand navigation, under the **Exports** section, click [**Daily Exports**](https://dashboard.branch.io/daily-exports)
 
-![2332](/img/93ef92c-Daily_Exports.png "Daily Exports.png")
+*[Image: 2332]*
 
 ### Select Date Range and Export Topic
 

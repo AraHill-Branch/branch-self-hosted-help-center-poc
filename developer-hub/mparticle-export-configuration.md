@@ -3,7 +3,7 @@ title: "mParticle (Export) Configuration"
 slug: mparticle-export-configuration
 ---
 
-![1328](/img/8e94317-Mparticle__branch.png "Mparticle + branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -69,7 +69,7 @@ The mParticle Event Name depends on the type of event:
 - Open = re-engagement
 - All Others = Branch Event Name
 
-![](/img/526005e-mparticle_export.png "mparticle export.png")
+
 
 For information on how to test your integration and see more detailed data, please review our [testing instructions below](mparticle.md#section-testing-your-integration).
 
@@ -96,16 +96,16 @@ Find your mParticle key & secret and enter it into the Branch Dashboard.
 3. Click the Branch tile, and click **Add Branch Metrics to Setup**
 4. Select the **Input Feed** Integration Type and click **Go to Setup**
 
-   ![](/img/a247fdb-mparticle_dash.png "mparticle dash.png")
+   
 5. Specify the following configuration parameters:
 
    - Configuration Name
    - Act as Application *(select the right platform here)*
 
-   ![](/img/0953109-mp_config_parameters.png "mp config parameters.png")
+   
 6. Copy your server to server key and secret - you'll enter them into the Branch dashboard in a moment.
 
-   ![](/img/c667d79-mp_branch_key.png "mp branch key.png")
+   
 
 ## 2. Enable mParticle (Export) in Branch
 
@@ -113,7 +113,7 @@ Find your mParticle key & secret and enter it into the Branch Dashboard.
 2. Search for mParticle and click on the tile.
 3. Enter your mParticle key & secret and hit **Enable**.
 
-   ![](/img/e08f05b-mparticle_export_enable.png "mparticle export enable.png")
+   
 
 ## 3. Verify the integration
 
@@ -122,10 +122,10 @@ To see the data being passed to mParticle in more detail, you can set up a webho
 1. Enable the Branch Data Integration above. Install your app from a Branch link to generate some data in mParticle. It can take up to an hour for the custom attributes to show in mParticle.
 2. Create a Branch link from the Short Links section of the dashboard, with a campaign of *branch\_test*.
 
-   ![](/img/9541957-6ee439f-mparticle-test-link.png "6ee439f-mparticle-test-link.png")
+   
 3. In mParticle, navigate to the Directory in mParticle and add **Webhooks** as an option. Add a Requestbin URL generated from [https://requestb.in](https://requestbin.com/?).
 
-   ![](/img/cd6ffa1-a6f9adc-mparticle-add-webhooks.png "a6f9adc-mparticle-add-webhooks.png")
+   
 4. To refine the data being sent to the webhook, navigate to **Connections > Connect**.
 5. Select the Branch Feed as the input, and **Webhooks** as the output.
 6. Finally, view the Requestbin. You can do this by appending **?inspect** to your requestbin URL. You should be able to copy paste the POST body from the request bin into a JSON formatter like <https://jsonlint.com/> to view the event details.

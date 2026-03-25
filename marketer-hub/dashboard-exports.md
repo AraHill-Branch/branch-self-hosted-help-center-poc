@@ -13,7 +13,7 @@ There are a few features available on the Branch Dashboard that allow you to exp
 
 Branch Dashboard users have the ability to export data from any of the analytics reports in the dashboard. The Branch Summary Page and each of the product-specific analytics pages (Ads, Journeys, Email) each have an icon that allows you to download a CSV of the data that you are viewing. The resulting CSV will match the time range, compare bys, filters, and data granularity that you have set for the table, as well as all of the columns you have selected. Data is delivered to you immediately via a CSV download.
 
-![636](/img/0d9a544-Dashboard_Exports.png "Dashboard Exports.png")
+*[Image: 636]*
 
 ### Daily Exports
 
@@ -21,7 +21,7 @@ Branch Daily Exports are the most comprehensive exports offered in the Branch Da
 
 Since all available data for a single day is included in the export, the files are very large. For an optimal experience, export data for one day at a time. Once you have selected the day's data that you would like to export, click "Export All" or click on the download button if you would only like to download a specific topic (or topics). You will receive an email with a link to the data for download when it is available.
 
-![](/img/c0a977b-Daily_Export_Dash.png "Daily Export Dash.png")
+
 
 ### Custom Exports
 
@@ -31,7 +31,7 @@ Using the custom exports interface, select your Start and End dates and times an
 
 Once your export is complete, you will see it available for download on the Custom Exports page within the dashboard.
 
-![](/img/dced070-Custom_Export_Dash.png "Custom Export Dash.png")
+
 
 More information is available in our [Dashboard Custom Exports Guide](dashboard-custom-exports.md). In addition to being able to export this data, we also have the [Custom Export API](custom-exports-api.md).
 

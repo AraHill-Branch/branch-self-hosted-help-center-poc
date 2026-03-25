@@ -23,7 +23,7 @@ Before you implement the SDK, please ensure you have [Configured Link Behaviors 
 - From within the Visual Studio Installer, install the **Universal Windows Platform development** workload.
 - In **Installation Details** -> **Universal Windows Platform development,** check the **C++ (v14x) Universal Windows Platform tools** option(s).
 
-![2620](/img/03bbcd2-InstallCWinRT.png "InstallC++:WinRT.png")
+*[Image: 2620]*
 
 ### Visual Studio 2019
 
@@ -35,7 +35,7 @@ Branch SDK uses C++/WinRT APIs. Visual Studio 2019 doesn’t include these APIs 
 - Type or paste **Microsoft.Windows.CppWinRT** in the search box.
 - Select the item in search results, and then click **Install** to install the package for that project.
 
-![2086](/img/a495d34-VisualStudio2019.png "VisualStudio2019.png")
+*[Image: 2086]*
 
 ## 1. Download & Install the Branch SDK
 
@@ -55,7 +55,7 @@ If you have installed any release of the MSI, you should manually uninstall befo
 
 Double-click the `BranchSDK.msi` file to begin installation.
 
-![988](/img/9b65f8b-windowssetup.png "windowssetup.png")
+*[Image: 988]*
 
 Once the installation finishes, all headers and libraries will be installed under `C:\Program Files (x86)\Branch SDK`.
 
@@ -73,25 +73,25 @@ Open your project's Properties in Visual Studio.
 
 Branch SDK uses features from the C++17 standard, set project property C/C++ > Language > C++ Language Standard > ISO C++17 Standard (/std:c++17) in Visual Studio.
 
-![1574](/img/9a6f4bb-updatec.png "updatec++.png")
+*[Image: 1574]*
 
 #### 2.2 Add include path
 
 Under `C/C++ > General`, add `C:\Program Files (x86)\Branch SDK\include` to `Additional Include Directories` for All Configurations and All Platforms. The corresponding command-line option is `/I"C:\Program Files (x86)\Branch SDK\include"`.
 
-![1792](/img/6d3988e-include-path.png "include-path.png")![1792](/img/bcb70d4-include-path-detail.png "include-path-detail.png")
+*[Image: 1792]**[Image: 1792]*
 
 #### 2.3 Add preprocessor definitions
 
 Under `C/C++ > Preprocessor`, define `DEBUG` in Debug builds. All screenshots are for Debug x64 where configurations differ.
 
-![1332](/img/e0f6e89-preprocessordefinitions.png "preprocessordefinitions.png")
+*[Image: 1332]*
 
 #### 2.4 Verify Runtime Library
 
 We support `MD`, `MDd`, `MT` and `MTd` runtimes. Under `C/C++ > Code Generation`, select the appropriate option.
 
-![1792](/img/4648ee4-mdd.png "mdd.png")
+*[Image: 1792]*
 
 #### 2.5 Add library paths
 
@@ -108,7 +108,7 @@ The command-line option for MDd, e.g., is `/LIBPATH:"C:\Program Files (x86)\Bran
 
 Screenshots show an MT example.
 
-![1022](/img/2fe991e-lib-path.png "lib-path.png")![1036](/img/be7ac7d-lib-path-detail.png "lib-path-detail.png")
+*[Image: 1022]**[Image: 1036]*
 
 #### 2.6 Add libraries
 
@@ -146,7 +146,7 @@ BranchIOmt.lib
 
 :::
 
-![1574](/img/708c3ff-testbedpropertypages.png "testbedpropertypages.png")![1332](/img/87d5c86-additionaldepdencies.png "additionaldepdencies.png")
+*[Image: 1574]**[Image: 1332]*
 
 Your app should now build and run. See the TestBed apps for reference.
 
@@ -199,7 +199,7 @@ The `shell\open\command` key passes the URI to the app as the command-line argum
 
 See the [TestBed-Basic](https://github.com/BranchMetrics/cpp-branch-deep-linking-attribution/tree/master/BranchSDK-Samples/TestBed-Basic) app in the repo for an example using Wix to create the required Registry keys. These Registry entries cause URIs with the `testbedbasic` scheme to open the TestBed-Basic app.
 
-![988](/img/2ffe478-reg1.png "reg1.png")![988](/img/ea65f4f-reg2.png "reg2.png")![988](/img/2261ead-reg3.png "reg3.png")
+*[Image: 988]**[Image: 988]**[Image: 988]*
 
 ## 4. Initialize Branch
 

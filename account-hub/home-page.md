@@ -17,7 +17,7 @@ The Home page is available for self-serve customers with new accounts created af
 
 The Home page offers several features that make it easier to see where you are in the implementation process.
 
-![](/img/Screenshot 2025-06-24 at 3.50.08 PM.png)
+
 
 ### Branch setup checklist
 

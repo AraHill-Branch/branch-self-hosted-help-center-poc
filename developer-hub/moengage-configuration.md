@@ -47,7 +47,7 @@ Branch requires these credentials to not only authenticate but to ensure your Br
 
 Additional details can be found in the [MoEngage documentation](https://developers.moengage.com/hc/en-us/articles/4404674776724-Overview).
 
-![](/img/c5bae44-MoEngage_Keys.png)
+
 
 ### 2. Connect MoEngage in Branch
 
@@ -60,7 +60,7 @@ Additional details can be found in the [MoEngage documentation](https://develope
    2. Add your **Data API ID**, **Data API Key**, and **App ID**.
 5. Select **Enable**.
 
-![](/img/319c9c5-MoEngage_in_Branch.png)
+
 
 ### 3. Pass metadata to Branch SDK
 
@@ -122,4 +122,4 @@ If data has not appeared in MoEngage after 30 minutes of completing a test conve
 
 Additionally, you can verify that the events have reached MoEngage through the **Recent events** screen of the MoEngage Dashboard:
 
-![](/img/b492d2d-MoEngage_Verify(1).png)
+.png)

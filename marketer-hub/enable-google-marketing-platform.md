@@ -34,13 +34,13 @@ You only need one Link ID per app:
 
 In CM360, go to **Advertiser > Floodlight > Floodlight Configuration**, and select the app you are configuring. Select Branch as your partner, and save the generated Link ID for the next step.
 
-![](/img/01554f7-Link_ID.png "Link ID.png")
+
 
 #### Generate Link ID in DV360
 
 In DV360, go to **Advertiser > Resources > Floodlight > Basic Details > Third-Party App Analytics > Edit**. Select **Create New Link**, and choose your platform. Save the generated Link ID for the next step.
 
-![](/img/94cf4f3-Link_ID_DV360.png "Link ID DV360.png")
+
 
 ### 2. Connect GMP in Branch
 
@@ -48,7 +48,7 @@ In the Branch Dashboard under **Ads >** [**Partner Management**](https://dashboa
 
 Enter the Link IDs from [Step 1](enable-google-marketing-platform.md#1-generate-link-ids) in the [Account Settings tab](https://dashboard.branch.io/ads/partner-management/a_google_marketing_platform?tab=settings) and click **Save & Enable**.
 
-![](../../../assets/media/images/cdb9f288-45f3-4ee2-9bbc-00aa3a2e8f83 "Enable GMP.PNG")
+
 
 ### 3. Configure Events
 
@@ -60,7 +60,7 @@ Google Marketing Platform only supports 10 custom events, so we recommend choosi
 
 You should see the events you are tracking with the Branch SDK here when you Add Event Mappings. For more details on Google Ads and Branch event & metadata mapping, see the specifications here.
 
-![](../../../assets/media/images/def8afd7-5c89-4212-9a17-380c1e7a45e4 "Events Config.PNG")
+
 
 ### 4. Configure Attribution Windows
 

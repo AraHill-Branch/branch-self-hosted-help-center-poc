@@ -5,7 +5,7 @@ slug: introducing-predictive-aggregate-measurement-pam
 
 Learn about Branch's new privacy-focused, aggregate-based attribution system: PAM!
 
-![](/img/2c798484091ccce4b8aa03830ac0a17e58c8d9afb8f05524562c24d059a69af4-img2-try-again.jpeg)
+
 
 ## Overview
 
@@ -23,7 +23,7 @@ Use the resources below to gain a more comprehensive understanding of PAM.
 
 Learn more about PAM in our detailed [guide](predictive-aggregate-measurement.md), which also includes [implementation steps](predictive-aggregate-measurement.md#implementation).
 
-![](/img/d1c7310aa7f615d811b2245d801a915d5e1410dfdd4e54aab0df6cbe1f7773f1-Screenshot_2024-09-20_at_2.55.02_PM.png)
+
 
 #### Access
 

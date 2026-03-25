@@ -16,11 +16,11 @@ as the original URL.
 
 Here's what it looks like to do it via Short Links:
 
-![](/img/a143ce5-Audio_On_Links.png)
+
 
 Here's what your Branch Link will look like when the OG tags are scraped:
 
-![](/img/d9d635a-Audio_On_Link_Message.png)
+
 
 ::: tip
 Ready to learn more about how customizable and powerful Branch Links are? View our guide here: [Create Deep Links](creating-a-deep-link.md)

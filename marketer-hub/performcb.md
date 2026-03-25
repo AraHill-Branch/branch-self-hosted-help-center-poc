@@ -3,7 +3,7 @@ title: "Perform[cb]"
 slug: performcb
 ---
 
-![1328](/img/b2dcb44-Perform_CB__branch(3).png "Perform CB + branch.png")
+*[Image: 1328]*.png "Perform CB + branch.png")
 
 ## Overview
 
@@ -44,13 +44,13 @@ In the Branch Dashboard under **Ads** > [**Partner Management**](https://dashboa
 
 Click the **Save & Enable** button.
 
-![](/img/2bc0a13-performcb_enable(3).png "performcb enable.png")
+.png "performcb enable.png")
 
 ### 2. Configure Postbacks
 
 Enabling Perform[cb] does not automatically enable any postback. You can configure these postbacks under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_performcb?tab=postback) tab.
 
-![](/img/166fe6c-performcb_postbacks(3).png "performcb postbacks.png")
+.png "performcb postbacks.png")
 
 #### Send All Events
 
@@ -60,7 +60,7 @@ Optionally, you can check the checkbox for a given postback for sending all even
 
 Click the **Add New Postback** button at the bottom of the screen. A modal will appear that will allow you to select an event that you are tracking with the Branch SDKs (including Custom Events).
 
-![](/img/c1b289e-Add_New_Postbacks(103).gif "Add New Postbacks.gif")
+.gif "Add New Postbacks.gif")
 
 For more in-depth postback configurations, view our guides:
 
@@ -87,9 +87,9 @@ After configuring your events, navigate to the [**Attribution Windows**](https:/
 
 Next, you'll need to create a Branch Ad Link for your Perform[cb] campaigns in order for Branch to properly attribute conversions.
 
-[![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/a516deb-small-95b5d97-small-Vectorlogo_1(98).png)
+[.png)
 
-![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/feddb04-Branch_badge_light_default-32x32.ico) help.branch.io
+ help.branch.io
 
 Create Ad Links](/docs/ad-links)
 

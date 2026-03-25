@@ -19,7 +19,7 @@ Once cost data is flowing through Branch from the ad network(s), you can view co
 
 Navigate to the **Activity** [tab](https://branch.dashboard.branch.io/ads/analytics/activity) on the **Analytics** [page](https://branch.dashboard.branch.io/ads/analytics/), which is in the **Ads** section of the Branch Dashboard.
 
-![0ca5af3-Cost_Analytics.png](/img/0ca5af3-Cost_Analytics(1).png)
+*[Image: 0ca5af3-Cost_Analytics.png]*.png)
 
 ## Unpopulated Values
 
@@ -27,7 +27,7 @@ You may see specific columns/dimensions displayed as **Unpopulated** in your Das
 
 For example, if we are reporting on cost and comparing by country, the following information will be displayed:
 
-![](/img/79f15c7-Unpopulated.png)
+
 
 In this case, when drilling down to the country level, the cost cannot be broken down, so Branch displays country on a different row.
 

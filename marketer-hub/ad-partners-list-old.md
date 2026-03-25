@@ -259,7 +259,7 @@ This list includes self-attributing ad networks (such as Facebook & Google) and 
 | [ClickRising](universal-ads-integration-guide.md) |
 | [Clicks2install](universal-ads-integration-guide.md) |
 | [Clickwork7](universal-ads-integration-guide.md) |
-| [Click Orbits”></td>         </tr>         <tr>           <td><a href=](universal-ads-integration-guide.md)[Clicxy](universal-ads-integration-guide.md) |
+| [Click Orbits”\&gt;\&lt;/td\&gt;         \&lt;/tr\&gt;         \&lt;tr\&gt;           \&lt;td\&gt;\&lt;a href=](universal-ads-integration-guide.md)[Clicxy](universal-ads-integration-guide.md) |
 | [Clinch](universal-ads-integration-guide.md) |
 | [Clouta](universal-ads-integration-guide.md) |
 | [Cloven Media](universal-ads-integration-guide.md) |

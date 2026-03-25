@@ -3,7 +3,7 @@ title: "Leanplum Configuration"
 slug: leanplum-configuration
 ---
 
-![1328](/img/41f94e7-Leanplum__branch.png "Leanplum + branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -55,7 +55,7 @@ In the Branch Dashboard in Data Feeds → [**Data Integrations** tab](https://da
 
 Enter the App ID and Production Key from the previous step, then hit **Enable**.
 
-![](/img/807141d-a5dc3d1-leanplum-enable.gif "a5dc3d1-leanplum-enable.gif")
+
 
 ## 3. Verify Data Sent
 

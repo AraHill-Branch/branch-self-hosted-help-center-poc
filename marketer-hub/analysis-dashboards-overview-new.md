@@ -5,7 +5,7 @@ slug: analysis-dashboards-overview-new
 
 ## Introduction
 
-![Branch Analysis dashboard displaying channel performance metrics including installs, clicks, and organic channels.](/img/image-1771618576547.png)
+
 
 [Analysis Dashboards](https://branchdocs.app.link/e/dashboards-overview-to-all-dashboards) offer a powerful, sophisticated analytics experience.
 
@@ -220,7 +220,7 @@ To create a new widget:
 
 1. Navigate to the dashboard you want to add the widget to and select the blue button at the bottom of the screen that says **Add new widget**.
 2. In the top bar, use the dropdown to open the data sources menu. From the menu, select the data source you want your widget to draw from. If you want to use multiple sources, select **Enable multiple sources**.  
-   ![Branch Analysis widget displaying event data for the last 30 days with highlighted model selection options.](/img/Screenshot 2025-09-18 at 4.01.51 PM.png)
+   
 3. Choose the columns (filters) you want to add to your widget. The categories are:
 
    1. Measures: These have a measurable, numeric value. Primarily related to quantities of user events and amount of revenue.
@@ -295,7 +295,7 @@ You can also explore widget data further without actually making changes to it:
 4. From here, you can add filters, add columns, replace columns, or compare values.
 
    1. For example, you can quickly compare data where the "Ad Partner Name" is `amazon` versus `snap` to see which ad partner had more activity.  
-      ![Branch Analysis comparison of ad partner performance for Snap and Amazon over the last 30 days.](/img/image-1758293697827.png)
+      
 
 ### Edit widget
 
@@ -350,7 +350,7 @@ To use a Custom Event Template:
 
    1. Note: at this point, your widget will display a count of `0` because the template doesn't know which Custom Event to track yet.
 7. Find the **filter bubble** that says `custom_event_total_count_param_0 default` in the filter bar at the top of your widget configuration. Select this **filter bubble**.  
-   ![Branch Custom Event template with highlighted parameter and currency details displayed on the Analysis Dashboards interface.](/img/Screenshot 2025-12-29 at 2.26.56 PM.png)
+   
 8. In the dialogue that opens, enter your Custom Event name exactly as it appears in your Branch data (e.g., `First_registration` or `Level_completed` ).
 9. Select the **Apply** button. The widget will now display the count for your specified Custom Event.
 10. The filter will update to show `custom_event_total_count_param 0` followed by the name of your Custom Event.
@@ -427,11 +427,11 @@ Selecting the **Edit** button on one of Ivy's answers also lets you see in more 
 
 If Ivy gives you an answer that is a link, you can select that link to see more information about the columns it is using. In some cases, it may have created a new formula, set, etc. for you, which you will find in the left-side navigation along with the rest of the available columns. You will also see all the columns used listed at the top in the search bar.
 
-![Branch Analysis data for total count and conversion rates for ad partners over the last 30 days.](/img/Screenshot 2025-09-19 at 7.43.56 AM.png)
+
 
 If a blue line appears under a column name, you can select it to see alternatives suggested by Ivy.
 
-![](/img/Screenshot 2025-09-18 at 7.38.18 PM.png)
+
 
 At the end of every answer, you have the option to tell Ivy whether it interpreted your question correctly by selecting either the **checkmark icon** or **X icon.**
 

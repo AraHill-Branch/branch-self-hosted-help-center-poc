@@ -146,7 +146,7 @@ To enable the integration:
 4. Provide the necessary credentials on the data partner's **Export** page.
 5. Click **Enable**.
 
-   ![](/img/8e8d434-di-enable.gif "di-enable.gif")
+   
 
 ## 5. Additional partner-specific configuration
 

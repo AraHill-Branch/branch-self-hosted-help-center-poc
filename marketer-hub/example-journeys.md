@@ -15,7 +15,7 @@ In this example, you'll configure an audience to target people who have visited 
 4. Enter `2` in the last part to indicate you want to target people who have visited less than 3 times historically.
 5. Click **Save & Continue**.
 
-![](/img/6c13fe9-Screen_Shot_2020-04-27_at_3.08.45_PM.png "Screen Shot 2020-04-27 at 3.08.45 PM.png")
+
 
 ## Loyal Users
 
@@ -27,7 +27,7 @@ In this example, you'll configure an audience to target people who have visited 
 4. Enter `4` in the last part to indicate you want to target people who have visited at least 4 times historically.
 5. Click **Save & Continue**.
 
-![](/img/cf3f561-Screen_Shot_2020-04-27_at_3.00.20_PM.png "Screen Shot 2020-04-27 at 3.00.20 PM.png")
+
 
 ## Viewing a specific page URL
 
@@ -63,7 +63,7 @@ In this example, you'll configure an audience to target people who have complete
 5. Enter `3` in the last field to indicate you want to target people who have completed `some_action` more than 2 times historically.
 6. Click **Save & Continue**.
 
-![](/img/c9c0882-Screen_Shot_2020-04-27_at_3.06.12_PM.png "Screen Shot 2020-04-27 at 3.06.12 PM.png")
+
 
 ::: warning Event-Based Targeting
 Note: There requires some time before Branch can properly trigger Journeys banners on event completion. This filter is intended to target based on repeated actions completed over time.
@@ -80,11 +80,11 @@ Google announced that they will begin punishing sites that show a full-page inte
 3. Choose the **starting with** in the middle section to match a substring.
 4. Type in `google.com` and click enter. This will target users who come from Google search (where the referrer starts with google.com):
 
-![](/img/63915c7-Screen_Shot_2020-04-27_at_2.12.00_PM.png "Screen Shot 2020-04-27 at 2.12.00 PM.png")
+
 
 4. Alternatively, you can target users who did **not** come from Google search (where the referrer doesn't start with google.com):
 
-![](/img/a809f67-Screen_Shot_2020-04-27_at_2.13.15_PM.png "Screen Shot 2020-04-27 at 2.13.15 PM.png")
+
 
 5. Click **Save & Continue**.
 
@@ -96,4 +96,3 @@ In this example, you'll restrict the audience to users in countries where Englis
 2. Under **Select the audience you want to target**, add a filter and select **Is located** `in` and choose the following countries: `United States`, `Canada`, `United Kingdom` and `Australia`.
 3. Click **Save & Continue**.
 
-![](/img/5b3a298-Screen_Shot_2020-04-27_at_2.05.03_PM.png "Screen Shot 2020-04-27 at 2.05.03 PM.png")

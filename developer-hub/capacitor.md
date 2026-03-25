@@ -16,7 +16,7 @@ npm install capacitor-branch-deep-links
   - **New Branch**: In the left-hand navigation, go to **Configuration** and click on **Link Controls**. Navigate to the **Link Routing Rules** tab to configure your app settings.
   - **Legacy Branch**: Navigate to the [Configuration page](https://branch.dashboard.branch.io/configuration/general).
 
-![](/img/6462cc8-Screen_Shot_2020-08-27_at_9.45.07_AM.png "Screen Shot 2020-08-27 at 9.45.07 AM.png")
+
 
 ## Configure App
 

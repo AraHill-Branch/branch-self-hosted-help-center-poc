@@ -35,4 +35,3 @@ For some users, this report will reflect your app’s **monthly active users**, 
 
 You can export this information in PNG, XLS, SVG, or CSV format using the navigation drawer icon on the right.
 
-![Graph showing volume credits usage over several months in the Branch Dashboard.](/img/Screenshot 2025-06-24 at 12.18.45 PM.png)

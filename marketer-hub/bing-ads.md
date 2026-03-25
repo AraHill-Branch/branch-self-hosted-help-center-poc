@@ -5,7 +5,7 @@ slug: bing-ads
 
 ## Overview
 
-![](/img/d4f336b-bing-ads-logo.png "bing-ads-logo.png")
+
 
 [Bing Ads](https://bingads.microsoft.com/) is a service that provides pay per click advertising on both the Bing and Yahoo! search engines.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Bing Ads.
 4. Select **Bing Ads**, and click **Save & Enable**.
 
-   ![](/img/68fc1e0-bing-enable.png "bing-enable.png")
+   
 
 ## 3. Enable Postbacks
 
@@ -54,7 +54,7 @@ When Branch measures a conversion (install or other events), it determines which
 
 Bing Ads only support the INSTALL postback.
 
-![2060](../../../assets/media/images/46e5e079-461a-40c0-8c32-462ef17f9237 "Bing Postbacks.PNG")
+*[Image: 2060]*
 
 Bing Postbacks
 
@@ -79,7 +79,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/d1f5cb2-bing-link.png "bing-link.png")
+
 
 </details>
 
@@ -90,7 +90,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Bing Ads. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/caf27bf-Screen_Shot_2020-12-14_at_3.31.06_PM.png "Screen Shot 2020-12-14 at 3.31.06 PM.png")
+
 
 </details>
 
@@ -101,7 +101,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/ccae9dc-bing-testing-pb.png "bing-testing-pb.png")
+
 
 </details>
 

@@ -5,7 +5,7 @@ slug: manage-journeys
 
 ## Managing Journeys App Banners
 
-![](../../../assets/media/images/eb95d56e-1408-47e4-8fff-2d0106a3c38d "Journeys Manager.PNG")
+
 
 The [Journeys Manager](https://dashboard.branch.io/journeys/manager) is your homepage for all of the personalized experiences you have created.
 
@@ -42,7 +42,7 @@ To quickly preview the contents of a Journeys banner, simply hover on the corres
 
 You can also **Add More Templates** and/or **Add Rules** to the Journey from the Quick Look.
 
-![](/img/bba7d9c-journeys-quick-look.gif "journeys-quick-look.gif")
+
 
 ## Journeys Versioning
 
@@ -54,31 +54,31 @@ To use the versioning system:
 
 1. Click on the three dots in the row associated with the Journey you are interested in. This will open a menu of actions you can take.
 
-   ![](/img/cacccfaee70fa87ab71118c2bd6e9c5cbd9717d581543a974adc820f32ab59fc-Screenshot_2024-11-20_at_1.36.47_PM.png)
+   
 2. Click on the **Edit** option to open details about the Journey that you can make changes to.
 
-   ![](/img/027a51de60c7fb259c62007285911fd59c9b664e37ea7580c12c7573d1e74ffd-Screenshot_2024-11-20_at_1.46.26_PM.png)
+   
 3. Make the edits that you need to make for this Journey, and then click the **Save & Continue** button.
 4. At this point, a popup will appear asking if you would like to increase the version number for the Journey you are working on.
 
-   ![](/img/b1b7c9c42c0b1a503ec7b605e0509b986c302a05e0dc59f19c4e063483435780-Screenshot_2024-11-20_at_1.41.53_PM.png)
+   
 5. To increase the version number of the Journey, click the **Yes, proceed** button.
 
    1. You also have the option to skip a version increase by clicking **Proceed without version update**.
 6. Once you've increased the version number, you can also add a descriptive note to associate with that version.
 
-   ![](/img/329e217f27440107e5ac034882e0cf86a4b566e849e175a1003119aca3331b1e-Screenshot_2024-11-20_at_1.45.16_PM.png)
+   
 7. Click **Save** to save your update note.
 8. Continue through the **Configure Creatives** and **Validate & Test** sections. When you are done, you will be brought back to the **Manager** tab.
 9. Inspect the **Version** column for the Journey you have been editing. You will see a number listed, which represents the latest version number for that Journey.
 
-   ![](/img/ba4d061f75b377de63f9d7032523f355ceb4c0a4103077a7c246e2d46be5d6cc-Screenshot_2024-11-20_at_1.55.16_PM.png)
+   
 10. You can also hover over the clock icon, which will display the description associated with the latest Journey version update.
 
-    ![](/img/760763d89c03756c26197a0cf551c9b97155649d3276be9a35aa3f1554d228da-Screenshot_2024-11-20_at_2.01.09_PM.png)
+    
 11. Click the **Version History** button to be taken to the complete version history for that Journey.
 
-    ![](/img/3d7f8a9613dd3501731077fb052038598f2207b7b3f925f03f4d306ab65657c8-Screenshot_2024-11-20_at_1.53.04_PM.png)
+    
 
 ## Priority View
 

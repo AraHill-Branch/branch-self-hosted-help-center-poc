@@ -7,7 +7,7 @@ slug: fraud-rules
 
 Branch recommends creating fraud rules to block erroneous attribution credit in real-time. While Branch still performs last-click attribution, it will not send the ad network a postback when the attribution is flagged as fraudulent.
 
-![](/img/31b6d63-fraud-manager.png "fraud-manager.png")
+
 
 This has two benefits:
 
@@ -42,7 +42,7 @@ In order to enable Fraud Rules, you need to have completed the following:
 
 Universal rules block events that violate Branch's universal fraud criteria and are enabled for all Branch accounts.
 
-![](/img/2bfd4f7-universal-rules.png "universal-rules.png")
+
 
 ::: info Universal Rules Permanently Enabled
 Since Branch's Universal Rules cover the most basic and necessary protection against fraud, you cannot disable these rules.
@@ -71,7 +71,7 @@ While Standard Rules aren't enabled by default, Branch recommend enabling the fo
 
 Standard rules block events based on the most common fraud patterns. These are available to all Branch customers but are not activated by default. We highly encourage all customers to enable Standard Fraud Rules as soon as possible.
 
-![](/img/187891c-standard-rules.png "standard-rules.png")
+
 
 Standard rules can generally be used to block the following events, though specific rules might be more restrictive:
 
@@ -180,7 +180,7 @@ The device information on the click and the install are different. A real user c
 
 Custom rules block events based on any attribute(s) that Branch stores at the event level.
 
-![](/img/d8732b9-custom-rules.png "custom-rules.png")
+
 
 Custom rules can be used to block the following events:
 
@@ -259,7 +259,7 @@ Once Ever Rules cap events that should only occur once per user.
 
 For example, perhaps it should only be possible for a given user to register once, but fraudsters are sending many fake registration events per user in the hopes of getting paid out for those conversions. A Once Ever Rule on the Registration event will prevent this.
 
-![](/img/c141d8f-once-ever-rules.png "once-ever-rules.png")
+
 
 Once Ever rules can be used to block the following events:
 
@@ -281,7 +281,7 @@ Branch recommends enabling the following thresholds:
 
 Threshold Rules block events for a group when it violates a threshold.
 
-![](/img/110e304-threshold-rules.png "threshold-rules.png")
+
 
 Threshold rules can be used to block the following events:
 
@@ -335,4 +335,3 @@ You can find the Ad Partner's 3p value in the partner settings of the [Partner M
 
 Once a partner is exempted from the rule, they will not be flagged for that rule moving forward from when you made the change. Fraud rules are not retroactive so historical data will not be updated.
 
-![](../../../assets/media/images/5fdc76bf-00da-4d86-b5f3-a0876470be36 "Exempting Partners.PNG")

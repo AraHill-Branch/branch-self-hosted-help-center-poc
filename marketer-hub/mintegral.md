@@ -5,7 +5,7 @@ slug: mintegral
 
 ## Overview
 
-![](/img/227a853-logo_Mintegral.png "logo_Mintegral.png")
+
 
 EFFICIENT & TRANSPARENTSELF-SERVICE ADVERTISING PLATFORM  
  Advertisers can create, target, track, optimize and manage each advertising campaign on their own, so as to achieve large-scale accurate user reach.
@@ -47,7 +47,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Mintegral.
 4. Select **Mintegral**, and click **Save & Enable**.
 
-   ![](/img/7fdb790-mintegral-enable.jpg "mintegral-enable.jpg")
+   
 
 ## 3. Enable Postbacks
 
@@ -59,7 +59,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/ea549c6-mintegral-pb.jpg "mintegral-pb.jpg")
+
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -82,7 +82,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/c5b788b-mintegral-link.png "mintegral-link.png")
+
 
 </details>
 
@@ -93,7 +93,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Mintegral. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/ee97c8a-Screen_Shot_2020-12-15_at_2.44.28_PM.png "Screen Shot 2020-12-15 at 2.44.28 PM.png")
+
 
 </details>
 
@@ -104,7 +104,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/be720ba-mintegral-ob-testing.jpg "mintegral-ob-testing.jpg")
+
 
 </details>
 

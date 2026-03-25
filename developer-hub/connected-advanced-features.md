@@ -164,7 +164,7 @@ branch.qrCode(qrCodeLinkData, qrCodeSettings, function(err, qrCode) {
     // qrCode.base64() is the encoded 
     //
     // Example img tag:
-    // <img src="data:image/png;charset=utf-8;base64,' + qrCode.base64() + '" width="500" height="500">
+    // 
 });
 ```
 

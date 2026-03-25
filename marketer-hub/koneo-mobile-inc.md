@@ -5,7 +5,7 @@ slug: koneo-mobile-inc
 
 ## Overview
 
-![](/img/b247b0a-koneo-logo.png "koneo-logo.png")
+
 
 Spend smarter. Reach the right user. [Koneo Mobile](http://www.koneomobile.com/) is a multi-channel marketing platform. We are able to reach countless media sources by combining unique insights and methods with our proprietary performance distribution platform. We maximize the delivery of positive results through the use of sophisticated targeting capabilities, leveraging massive amounts of data each day to quickly identify and acquire new mobile customers.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Koneo Mobile Inc..
 4. Select **Koneo Mobile Inc.**, and click **Save & Enable**.
 
-   ![](/img/dff47d4-koneo-enable.jpg "koneo-enable.jpg")
+   
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/b2448cc-koneo-pb.jpg "koneo-pb.jpg")
+
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -81,7 +81,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/9e5d28e-koneo-link.jpg "koneo-link.jpg")
+
 
 </details>
 
@@ -92,7 +92,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Koneo Mobile. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/5eb39ab-Screen_Shot_2020-12-15_at_2.40.47_PM.png "Screen Shot 2020-12-15 at 2.40.47 PM.png")
+
 
 </details>
 
@@ -103,7 +103,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/d785604-koneo-pb-testing.jpg "koneo-pb-testing.jpg")
+
 
 </details>
 

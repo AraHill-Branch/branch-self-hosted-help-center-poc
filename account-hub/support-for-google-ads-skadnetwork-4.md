@@ -21,7 +21,7 @@ As of March 19, 2024, Google Ads SKAdNetwork (SKAN) campaigns now support SKAN 4
 
 Here's what it looks like:
 
-![](/img/1e1df70-Google_SKAN.png)
+
 
 ::: tip
 Ready to learn more about Google Ads SKAdNetwork? View our guide here: [Google SKAdNetwork](google-skadnetwork.md)

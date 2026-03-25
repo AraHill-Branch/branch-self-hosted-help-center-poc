@@ -3,7 +3,7 @@ title: "MOLOCO"
 slug: moloco
 ---
 
-![1328](/img/223a5f9-Moloco__branch(3).png "Moloco + branch.png")
+*[Image: 1328]*.png "Moloco + branch.png")
 
 ## Overview
 
@@ -46,7 +46,7 @@ In the Branch Dashboard under **Ads** > [**Partner Management**](https://dashboa
 
 Click the **Save & Enable** button.
 
-![](/img/3d7e54b-Enable_MOLOCO(3).png "moloco enable.png")
+.png "moloco enable.png")
 
 ### 2. Configure Postbacks
 
@@ -58,7 +58,7 @@ Enabling Moloco will automatically enable the following postbacks:
 - OPEN
 - PURCHASE
 
-![](/img/ad71858-MOLOCO_Postbacks(3).png "moloco postbacks.png")
+.png "moloco postbacks.png")
 
 You can configure these postbacks or add more under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_moloco?tab=postback) tab.
 
@@ -101,13 +101,13 @@ Cost Data for Non-Self-Attributing Networks (Non-SANs) is a feature currently in
 
 To set up cost ingestion for Moloco, you will need to authenticate using your **Token** and **Account Id** (labelled as 3 in the screenshot). These can be located in your Ad Account Settings under the **Report Partner Integration tab**. If you haven't, you will need to create a new integration and select **Branch** to get a new Token ID.
 
-![](/img/512c14b-Moloco_Cost_Credentials(3).png)
+.png)
 
 Reach out to your Moloco account manager if you have trouble finding the credentials.
 
 Enter your **Token** and **Account Id**, and click **Save Authentication**
 
-![](/img/514352d-Cost_Moloco(3).png)
+.png)
 
 > 📘
 >
@@ -119,9 +119,9 @@ Enter your **Token** and **Account Id**, and click **Save Authentication**
 
 Next, you'll need to create a Branch Ad Link for your Moloco campaigns in order for Branch to properly attribute conversions.
 
-[![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/a516deb-small-95b5d97-small-Vectorlogo_1(98).png)
+[.png)
 
-![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/feddb04-Branch_badge_light_default-32x32.ico) help.branch.io
+ help.branch.io
 
 Create Ad Links](/docs/ad-links)
 

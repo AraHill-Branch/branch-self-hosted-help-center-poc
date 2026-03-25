@@ -46,7 +46,7 @@ branch.data(function(err, data) {
 
 For a quick approach to checking your Branch Web SDK integration status and progress, you can use the [Integration Status](https://branch.dashboard.branch.io/integration) tab of the Branch Dashboard.
 
-![](/img/2e39fe4-Screenshot_2024-05-24_at_2.44.07_PM.png)
+
 
 ### Link Debugger
 
@@ -59,7 +59,7 @@ To use Branch's Link Debugger:
 3. Copy the Branch Link, and append `?debug=1` to the end of it.
 
    1. For example, the Branch Link `https://branchster.app.link/3vqEJflHrGb` would become `https://branchster.app.link/3vqEJflHrGb?debug=1`
-4. Paste this link, including the `?debug=1` flag, into your browser. This will open the Link Debugger view: ![](/img/a6a48ef-image(1).png)
+4. Paste this link, including the `?debug=1` flag, into your browser. This will open the Link Debugger view: .png)
 
 ## Additional Resources
 
@@ -75,9 +75,9 @@ To use the demo:
 2. In the **API Settings** section, enter in your Branch Live Key, which you can find in the **Account Settings** [page](https://dashboard.branch.io/account-settings/profile) of your Branch Dashboard.
 3. Click the **Update API Settings** button.
 4. To test sending Branch Events, click the **Create Custom Event** button. If you would like to see the headers and payload associated with the event, you can do so using the **Network** tab of browser's developer tools.  
-   ![](/img/f37a190864352d689474981530d7d99638f013419df9d62750e193efc6799751-Screenshot_2025-01-16_at_7.41.18_PM.png)
+   
 5. To confirm that a Branch Event was sent successfully, go to the **Liveview** [page](https://branch.dashboard.branch.io/liveview/events) of the Branch Dashboard and filter by **custom event**. Please note that it may take a few minutes to see your events show up.  
-   ![](/img/13d70fc8f3f1512fb725fc655ccbb34693eff0edabcd314078c73f0c36ac1e7c-Screenshot_2025-01-16_at_7.50.44_PM.png)
+   
 6. Explore the rest of the sample application using the available buttons, and see what is sent in the request and what is returned in the response when you do so.
 7. Review the project on [GitHub](https://github.com/BranchMetrics/web-branch-deep-linking-attribution/blob/master/src/web/example.template.html) to see how the different Branch Web SDK methods are used in the sample application.
 

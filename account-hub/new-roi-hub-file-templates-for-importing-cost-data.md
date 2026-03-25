@@ -17,7 +17,7 @@ When creating a file template, you will need to upload a sample file that contai
 
 At this point, you will need to map your field names to Branch field names. You can ask Branch to try to automatically fill these in for you with the **Auto Map Fields** button, and then make any corrections you need to.
 
-![](/img/image(84).png)
+.png)
 
 Please note that the following fields are **required**:
 

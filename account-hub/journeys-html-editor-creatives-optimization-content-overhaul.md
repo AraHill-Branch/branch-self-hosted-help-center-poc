@@ -9,7 +9,7 @@ Alongside this release, we are also doing a content overhaul of the existing Jou
 
 ## Journeys HTML Editor
 
-![](/img/6b084dc-HTML_Editor(1).png)
+.png)
 
 With the HTML Editor, you can now customize the following elements and attributes:
 
@@ -33,7 +33,7 @@ Ready to customize your Journeys banners/interstitials to match your brand? View
 
 Creatives Optimization has been in beta for some time, and after additional testing and customer adoption, we're ready for its full launch!
 
-![](../../../assets/media/images/663ca807-f304-4d7a-9797-1cf6674fdbf2)
+
 
 Ready to super charge your Journeys campaigns? View our guide on Creatives Optimization [here](advanced-journeys-ui-html-css.md).
 
@@ -45,7 +45,7 @@ We've also overhauled our Journeys-related product documentation. You'll find th
 - A clean and separate page for [Advanced Journeys UI (HTML & CSS)](advanced-journeys-ui-html-css.md) for implementing common UI customizations.
 - A clean and separate page for [Advanced Journeys Configuration](advanced-journeys-configuration.md) for common Journeys use cases.
 
-![](/img/bdb78dd-Journeys_Docs_Update.png)
+
 
 ::: tip
 View all the documentation starting here: [Journeys Overview](journeys-overview.md)

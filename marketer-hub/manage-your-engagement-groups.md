@@ -7,7 +7,7 @@ slug: manage-your-engagement-groups
 
 Once you've created an engagement group, you can view it in the **Engagement Manager** table.
 
-![](/img/506fd7c-Screen_Shot_2020-07-30_at_9.39.30_AM.png "Screen Shot 2020-07-30 at 9.39.30 AM.png")
+
 
 The **Engagement Manager** table includes:
 
@@ -25,7 +25,7 @@ The **Engagement Manager** table includes:
 
 To view your available downloads for each engagement group, click on the Action ellipsis in the far right column.
 
-![](/img/253af1e-Screen_Shot_2020-07-30_at_11.50.50_AM.png "Screen Shot 2020-07-30 at 11.50.50 AM.png")
+
 
 **Download Latest Batch**
 
@@ -35,7 +35,7 @@ Download all available files from the latest batch. For example, if this is a da
 
 If selected, you are taken to a dedicated “Downloads” page where you can view all the files associated with the engagement group (including expired files). On this page, you can also select the files you wish to download.
 
-![](/img/bfb0d24-Screen_Shot_2020-07-30_at_11.10.08_AM.png "Screen Shot 2020-07-30 at 11.10.08 AM.png")
+
 
 The **Downloads** table includes:
 
@@ -61,7 +61,7 @@ The **Downloads** table includes:
 
 To modify an engagement group, click on the Action ellipsis in the far right column.
 
-![](/img/f356766-Screen_Shot_2020-07-30_at_12.08.40_PM.png "Screen Shot 2020-07-30 at 12.08.40 PM.png")
+
 
 The following actions are available to modify an engagement group:
 

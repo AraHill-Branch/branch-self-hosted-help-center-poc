@@ -34,11 +34,11 @@ To try the Link Validator tool:
 
 The first section that appears when you validate the link is a small overview module summarizing details about the link. It contains the link itself, the name of the link, who created it, when they created it, and how it was created. Using the icons, you can also copy the link, edit the link, or view analytics for the link.
 
-![](/img/image(79).png)
+.png)
 
 The next section lets you lets you see where users go when they click your link. In this section, you will need to set the user's iOS, where they were clicking from, and where they have the app installed.
 
-![](/img/image(80).png)
+.png)
 
 Once you select options for these three variables, an image will appear that depicts your user's flow.
 
@@ -48,4 +48,4 @@ Test various scenarios until you are sure you're seeing the behavior you expect.
 
 The final section is the **Analytics Tags** section, which is where the analytics tags associated with the link are laid out plainly, alongside what each tag means.
 
-![](/img/image(81).png)
+.png)

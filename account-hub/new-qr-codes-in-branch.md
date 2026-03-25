@@ -13,7 +13,7 @@ You can now create individual QR Codes in the Branch Dashboard. Additionally, yo
 Branch QR Codes requires Enterprise platform access. Please reach out to your account manager or <https://branch.io/pricing> to activate.
 :::
 
-![](../../../assets/media/images/1eea7fdc-33d7-49c7-a6be-34f11deb1b00)![](/img/5366971-QR_Codes_Manage.png)
+
 
 ::: tip
 Looking to learn more about QR Codes? View our guides:

@@ -5,7 +5,7 @@ slug: fixed-apple-search-ads-cost-display
 
 We updated the logic for how Cost is displayed for Apple Ads. Get the latest here 🍎
 
-![Apple Ads Logo](/img/64e351df019f31054e951290_5a380f0ccf35100001affc09_apple_search_ads_logo_240x90_web(3).png)
+*[Image: Apple Ads Logo]*.png)
 
 ## Overview
 

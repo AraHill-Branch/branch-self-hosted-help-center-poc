@@ -11,7 +11,7 @@ Custom Branch QR Codes are getting a significant upgrade in the quality of the i
 
 They can also now be downloaded in three different file formats: PNG, JPEG, and SVG.
 
-![](/img/a7f3499ef6cbe1006076073f1ddfd3a78cd1946cc20f703d24a960b804d386b0-Screenshot_2024-11-18_at_7.27.22_PM(1).png)
+.png)
 
 ## Image Quality
 

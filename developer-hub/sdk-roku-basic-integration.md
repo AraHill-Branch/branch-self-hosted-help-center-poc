@@ -27,7 +27,7 @@ The first step you should take is to set up your development environment for Rok
 
 For a detailed guide on this, visit Roku's Developer Docs [here](https://developer.roku.com/docs/developer-program/getting-started/developer-setup.md).
 
-![794](/img/a6a48a4-Roku_Dev_Workstation.png "Roku Dev Workstation.png")
+*[Image: 794]*
 
 ## 2. Install Branch
 
@@ -275,8 +275,8 @@ Once the above steps are complete, you are now ready to verify that conversions 
 | --- | --- | --- |
 | os | equals | ROKU |
 
-![922](/img/c4a55be-Roku_Liveview.png "Roku Liveview.png")
+*[Image: 922]*
 
 Additionally, you will see conversions within the Branch Dashboard reports.
 
-![1027](/img/e10e653-Roku_Analytics.png "Roku Analytics.png")
+*[Image: 1027]*

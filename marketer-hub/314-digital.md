@@ -3,7 +3,7 @@ title: "3.14 Digital"
 slug: 314-digital
 ---
 
-![](/img/24eb08e-3point14-logo.png "3point14-logo.png")
+
 
 [3.14 Digital](http://3dot14.co/) is India's Premier Ad-Tech and Performance Marketing Affiliate Ad network working with more than 5,000 active publishers on Desktop and Mobile globally. We work on all models of CPL, CPS, CPA, CPV and deliver quality. Our Network includes a capacity of delivering five billion + impressions every month.
 
@@ -44,7 +44,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for 3.14 Digital.
 4. Select **3.14 Digital** and click **Save & Enable**.
 
-   ![](/img/6ed92ee-314_settings.png "314_settings.png")
+   
 
 ## 3. Enable Postbacks
 
@@ -56,7 +56,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/c78fa19-314_postback_config.png "314_postback_config.png")
+
 
 ::: warning Additional Information Required
 3.14 Digital requires the Goal ID that corresponds to each postback. Please make sure you provide these and click **Save**.
@@ -85,7 +85,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/68bbb0f-314_link_param.png "314_link_param.png")
+
 
 </details>
 
@@ -96,7 +96,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by 3.14 Digital. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/3ead11e-314_link_attribution.png "314_link_attribution.png")
+
 
 </details>
 
@@ -107,7 +107,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/f5f2eba-314_postback_test.png "314_postback_test.png")
+
 
 </details>
 

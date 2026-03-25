@@ -3,7 +3,7 @@ title: "QR Codes Overview"
 slug: qr-codes-overview
 ---
 
-![](/img/e2ebc1b-QR_Codes(1).png "QR Codes.png")
+.png "QR Codes.png")
 
 ## Overview
 
@@ -31,7 +31,7 @@ Branch QR Codes leverage existing channels like physical store locations, store 
 3. User is routed to the App/Play Store to download the app.
 4. App install & downstream app events are attributed to QR code.
 
-![](/img/2efe506-QR_Example(1).png "QR Example.png")
+.png "QR Example.png")
 
 ::: tip QR Codes
 To learn how to create QR Codes in Branch, view our guide [here](create-qr-codes.md).

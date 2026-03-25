@@ -92,7 +92,7 @@ Liveview allows you to validate and debug your setup by including advanced filte
 4. We recommend adding additional filters - Device ID and/or Ad Partner and/or Campaign Name - to help you more quickly identify the ad link you’re testing.
 5. Click **Update Session** to view new selection.
 
-![](/img/79d83d1-events-liveview.png "events-liveview.png")
+
 
 #### Liveview for Webhooks/Postbacks
 
@@ -102,7 +102,7 @@ Liveview allows you to validate and debug your setup by including advanced filte
 4. Click the columns button to add both the **Webhook Response Code** and **Webhook Response Body** as columns.
 5. Click **Update Session** to view the filtered results.
 
-![](/img/66371ea-liveview-webhooks.png "liveview-webhooks.png")
+
 
 #### What to Look For When Validating
 
@@ -121,4 +121,3 @@ To find the partner’s webhook key:
 3. Once the partner is selected and you’re viewing the **AdPartner Settings** page, look to the URL window of your browser where you will find the URL of the current Branch dashboard page.
 4. The partner webhook key is the first parameter after `/partner-management/` and begins with `a_`; e.g. `a_youappi`.
 
-![](/img/75da60f-partner-webhook-key.png "partner-webhook-key.png")

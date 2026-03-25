@@ -3,7 +3,7 @@ title: "Emarsys Configuration"
 slug: emarsys-configuration
 ---
 
-![1328](/img/e45a3dc-Emarsys_branch.png "Emarsys+ branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -11,7 +11,7 @@ An omnichannel customer engagement platform built to accelerate business outcome
 
 ## How does it work?
 
-![](../../../assets/media/images/7b76454b-657a-42d5-b9be-8346344136d5 "Branch Email Flow.PNG")
+
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.
@@ -55,7 +55,7 @@ In your Emarsys admin console, set your redirect method to *HTTP*. Reach out to 
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Emarsys** and click **Enable**
 
-![1415](/img/32228a4-f6965c7-emarsys-enable.gif "f6965c7-emarsys-enable.gif")
+*[Image: 1415]*
 
 ### Input Click Tracking Domain
 
@@ -72,7 +72,7 @@ The Emarsys integration requires you provide the following:
 - You can enable the integration with multiple CTDs, if needed, but you **cannot** add the same CTD to multiple Branch Dashboards or ESP integrations.
 :::
 
-![](/img/37be31a-ee1d502-emarsys-ctd.png "ee1d502-emarsys-ctd.png")
+
 
 ## Configure your App
 
@@ -80,13 +80,13 @@ The Emarsys integration requires you provide the following:
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#3-configure-associated-domains).
 
-![](/img/9f475e3-Associated_Domains(11).png "Associated Domains.png")
+.png "Associated Domains.png")
 
 ### Return `YES` to `continueUserActivity`
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md#return-yes-to-continueuseractivity).
 
-![](/img/13dc276-branch-universal-link-domain(11).png "branch-universal-link-domain.png")
+.png "branch-universal-link-domain.png")
 
 ## Point DNS CNAME to Branch
 

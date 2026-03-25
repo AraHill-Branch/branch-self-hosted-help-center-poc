@@ -125,7 +125,7 @@ The top half of a Funnel report contains the report’s visual component, which 
 By confirming that your date range and filters are appropriately selective, you can make sure that you’re viewing a manageable number of flows at once.
 :::
 
-![Branch Funnel diagram showing connections between various ad partners and their performance metrics.](/img/Screenshot 2025-10-08 at 9.56.04 AM.png)
+
 
 To read the visual diagram:
 
@@ -171,7 +171,7 @@ If you see the **plus symbol**, this is because this particular segment does not
 
 To see these additional touchpoints, select the **plus symbol**. It will turn into a minus symbol, and will drill down into the row to show you how the paths from this touchpoint split off. Again, these paths can lead either to another touchpoint, or to a conversion event. The former will have another **plus symbol** you can select, to drill down further. The latter will not have any symbol, and will instead just show the number of user journeys associated with the parent row.
 
-![Branch Funnel table showing flow with clicks and installs for various campaigns.](/img/Screenshot 2025-10-08 at 9.51.38 AM.png)
+
 
 ::: tip Tip
 The top-level rows in the table show the total number of conversion events associated with the starting touchpoints (which start with `[0]` ).

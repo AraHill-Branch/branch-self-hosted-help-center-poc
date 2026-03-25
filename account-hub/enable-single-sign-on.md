@@ -57,7 +57,7 @@ Once this is complete, your IdP will provide you with details that you'll need t
 
 In the Branch Dashboard navigate to **Account Settings > SSO tab**. If you're already logged into the Branch Dashboard, you can click [here](https://dashboard.branch.io/account-settings/sso) to go there directly. Enable SSO by toggling **Enable SAML/SSO**.
 
-![](/img/c709b5f-Enable_SAML.png)
+
 
 Next, add the following information:
 
@@ -71,7 +71,7 @@ Next, add the following information:
 
 Click **Save**.
 
-![](/img/83c1094-SSO_Configuration.png)
+
 
 ### 3. Add Users to Branch in Your IdP
 

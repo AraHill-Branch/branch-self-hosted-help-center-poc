@@ -14,4 +14,4 @@ This article describes the legacy Branch method for adding additional apps. For 
     b. Select the correct **Timezone**.
 4. Click **Create**.
 
-![1419](/img/c47479d-add-app.gif "add-app.gif")
+*[Image: 1419]*

@@ -67,7 +67,7 @@ To add your ESP's CTD to your associated domains:
 2. Navigate to the `Signing & Capabilities` tab of your project file in Xcode, then scroll to the `Associated Domains` section.
 3. Add your ESP's CTD to the list of domains, appending `applinks:` to the beginning of the CTD. For example, if the CTD is `email.brand.com` then add `applinks:email.brand.com` to the domain list. Also add `applinks:email-alternate.brand.com` to the domain list.
 
-![](/img/96c71e7-Screenshot_2023-06-05_at_1.11.42_PM.png)
+
 
 Email is part of Branch's Engagement product. Learn more [here](packaging.md).
 
@@ -1056,7 +1056,7 @@ Branch will automatically attribute App Clip sessions and touches (like a Branch
 
 To persist App Clip install data to the subsequent full app install:
 
-1. Add an App Groups entitlement and choose a group that will be used to share data between the App Clip and subsequent full app install.![](/img/fbf9e67-Screen_Shot_2020-11-20_at_9.42.39_AM.png "Screen Shot 2020-11-20 at 9.42.39 AM.png")
+1. Add an App Groups entitlement and choose a group that will be used to share data between the App Clip and subsequent full app install.
 2. In both your App Clip and your full app, inform the Branch iOS SDK of the App Group name prior to calling `initSession()`. See [Apple's Developer Documentation](https://developer.apple.com/documentation/app_clips/making_data_available_to_the_app_clip_s_corresponding_app) for more info.
 
 ::: code-group
@@ -1086,7 +1086,7 @@ On the iTunesConnect Dashboard, you would register the following as advanced App
 
 Then, you would create a Branch Deep Link and set the `$app_clip_id`:
 
-![1468](/img/260669e-app_clip_id_short.png "app_clip_id_short.png")
+*[Image: 1468]*
 
 Now Branch will automatically create a Deep Link with the App Clip ID as part of the path: `https://your.app.link/ac/s/QfJ2H7c7jcb`
 

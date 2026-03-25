@@ -3,7 +3,7 @@ title: "Onboarding Guide"
 slug: onboarding-guide
 ---
 
-![Illustration of web and email communication with highlighted elements for user interaction.](/img/unnamed (1).png)
+*[Image: Illustration of web and email communication with highlighted elements for user interaction.]*.png)
 
 ## Overview
 
@@ -47,7 +47,7 @@ Complete the steps in this guide to start launching campaigns powered by Branchâ
 
 Some steps will require help from developers or other members of your team â€” this guide will point out when that is the case.
 
-![Flowchart outlining steps to implement Branch.](/img/branch-intro.png)
+
 
 Branch Integration Roadmap
 

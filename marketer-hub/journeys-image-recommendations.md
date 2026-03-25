@@ -27,7 +27,7 @@ The Full Page Journey is a bit tricky because the template itself is responsive 
 | Dimensions | 512x1024px |
 | Main content area | 414x736px |
 
-![514](/img/28fd931-Screen_Shot_2020-04-27_at_4.11.21_PM.png "Screen Shot 2020-04-27 at 4.11.21 PM.png")
+*[Image: 514]*
 
 ## Partial Page Image
 
@@ -42,7 +42,7 @@ The Partial Page Journey can be a little easier to account for because the templ
 | Example Dimensions | 512x321px |
 | Main Content Area | 350x321px |
 
-![1366](/img/3e85e39-Screen_Shot_2020-04-27_at_4.11.35_PM.png "Screen Shot 2020-04-27 at 4.11.35 PM.png")
+*[Image: 1366]*
 
 ### Variable Height (33% View Height) - Top
 
@@ -53,7 +53,7 @@ The Partial Page Journey can be a little easier to account for because the templ
 | Example Dimensions | 512x321px |
 | Main Content Area | 414x250px |
 
-![1366](/img/51a594e-Screen_Shot_2020-04-27_at_4.11.49_PM.png "Screen Shot 2020-04-27 at 4.11.49 PM.png")
+*[Image: 1366]*
 
 ### Variable Height (33% View Height) - Bottom
 
@@ -64,7 +64,7 @@ The Partial Page Journey can be a little easier to account for because the templ
 | Example Dimensions | 512x321px |
 | Main Content Area | 414x250px |
 
-![](/img/bb41e1a-Screen_Shot_2020-04-27_at_4.12.10_PM.png "Screen Shot 2020-04-27 at 4.12.10 PM.png")
+
 
 ## App Icon Image
 

@@ -60,9 +60,9 @@ To use deferred deep linking in your Facebook Ads campaign:
    1. This parameter disables Branch's deep link attribution and allows Facebook to attribute installs through their own conversion logic, which Branch then analyzes.
 2. Create an ad campaign in Facebook Ads.
 3. In the **Destination** settings for the ad, select the **Instant Experience** option.  
-   ![Integration between Branch and Facebook Ads using Instant Experience destination for deferred deep linking.](/img/download(1).png)
-4. Select **Create New** to create a **Custom Instant Experience**.![](/img/unknown.png)
+   *[Image: Integration between Branch and Facebook Ads using Instant Experience destination for deferred deep linking.]*.png)
+4. Select **Create New** to create a **Custom Instant Experience**.
 5. Add relevant components to your ad on the **Select components to add** screen, such as buttons, creatives, or content.  
-   ![Interface for adding components in Instant Experience Builder, including buttons and text blocks.](/img/Screenshot 2025-11-10 at 5.05.44 PM.png)
+   
 6. Within the **Button** component settings, set the **Destination** as **Website** and place your Branch Ad Link in that field.  
-   ![Instant Experience Builder interface showing button settings and destination options.](/img/Screenshot 2025-11-10 at 5.07.15 PM.png)
+   

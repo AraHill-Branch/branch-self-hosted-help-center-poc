@@ -3,7 +3,7 @@ title: "Adobe Analytics Configuration"
 slug: adobe-analytics-configuration
 ---
 
-![1328](/img/0aa3903-Adobe_Analytics_branch.png "Adobe Analytics+ branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -21,7 +21,7 @@ Branch will send *referred* **installs** and **opens**, as well as any **custom*
 
 The data that appears in Adobe Analytics is based on how you configure your reports/workspaces stemming from the Processing Rules.
 
-![](/img/5ab242f-adobe_analytics_.png "adobe analytics .png")
+
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Log into your Adobe Analytics Dashboard. Make sure that you have admin access.
 1. Before navigating to the Branch Dashboard, in your Adobe Analytics Dashboard, navigate to the Mobile Marking UI and find your app.
 2. Navigate to **Manage App Settings**, scroll down to **SDK Analytics Options**
 
-   ![](/img/261d07a-adobe_analytics_info.png "adobe analytics info.png")
+   
 3. Find the following data:
 
 | Branch Field | Adobe Field Value |
@@ -68,7 +68,7 @@ Enter your Adobe Analytics information
  \* For `Tracking Server/Analytics Server Domain`, do not include `http` or `https`. If your value for this is `https://test.com`, simply put `test.com`.  
  Then click **Enable**
 
-![](/img/265b990-adobe_analytics_enable.png "adobe analytics enable.png")
+
 
 ## 3. Pass Adobe IDs to Branch
 
@@ -223,18 +223,18 @@ Branch.sessionBuilder(this)...init();
 1. Open the Report Suite where the data is being sent.
 2. Navigate to the **Report suites** under the **Admin** tab.
 
-   ![](/img/275c424-d631051-aa_admin.png "d631051-aa_admin.png")
+   
 3. Select a **Report Suite** from the list.
 
-   ![](/img/5bf098b-d0b9fe1-aa_report_suite.png "d0b9fe1-aa_report_suite.png")
+   
 4. Navigate to **Edit Settings > General > Processing Rules**.
 
-   ![](/img/878db6f-126f0af-aa_processing_rules.png "126f0af-aa_processing_rules.png")
+   
 5. Create new Data Processing Rules using the **Processing Rules** Dashboard.  
    If you are already sending Branch events to Adobe Analytics, you should see a list of Context Variables in the list of available parameters. If you don't see them there, we recommend sending some data and waiting for the list to be updated before configuring the data mapping.  
    Configure Branch data mapping to Adobe Analytics variables.
 
-   ![](/img/56326ee-e70aa60-AA_PR_Mapping_Example.png "e70aa60-AA_PR_Mapping_Example.png")
+   
 
    For additional assistance on configuring Processing Rules, please visit the [Processing Rules documentation](https://experienceleague.adobe.com/en/docs/analytics/admin/admin-tools/manage-report-suites/edit-report-suite/report-suite-general/c-processing-rules/processing-rules).
 6. Save the rules.

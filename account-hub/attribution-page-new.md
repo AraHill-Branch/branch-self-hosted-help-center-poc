@@ -61,7 +61,7 @@ The **Attribution Windows** section of the Attribution page displays a table wit
 | `re-engagement inactivity` | Defines the period between two events that a user must be inactive to define the later event as a re-engagement (default: 7 days) |
 | `household measurement window` | Time between a household device's ad engagement and an `install`, `open`, or `web_session_start` (default: 2 days) |
 
-![](/img/image(108).png)
+.png)
 
 #### Adjust attribution windows
 

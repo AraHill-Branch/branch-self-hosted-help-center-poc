@@ -5,7 +5,7 @@ slug: adaction
 
 ## Overview
 
-![image](/img/adaction-og-image(1).png)
+*[Image: image]*.png)
 
 [Adaction](https://www.adaction.com/) is a leading mobile app marketing platform that delivers over 6 million monthly conversions for well-known companies and game developers in the space. We specialize in providing premium demand to publishers worldwide by way of our owned and operated inventory and strategic partnerships.
 
@@ -52,7 +52,7 @@ Before you can enable the partner integration in your Branch dashboard, you will
 3. Search for AdAction Interactive.
 4. Select **AdAction Interactive**, provide your **Client Security Token** and click **Save & Enable**.
 
-   ![](/img/bef1980-adaction_interactive_enable.png "adaction_interactive_enable.png")
+   
 
 ## 4. Enable Postbacks
 
@@ -64,7 +64,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/97f80fc-Adaction_interactive_postback_config.png "Adaction_interactive_postback_config.png")
+
 
 ::: warning Additional Information Required
 AdAction Interactive requires the GOAL ID that corresponds to each postback. Please make sure you provide these and click **Save**.
@@ -93,7 +93,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/cfba2b3-Adaction_Interactive_link_parameters.png "Adaction_Interactive_link_parameters.png")
+
 
 </details>
 
@@ -104,7 +104,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by AdAction Interactive. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/9ca4c14-Adaction_Interactive_Attribution_windows.png "Adaction_Interactive_Attribution_windows.png")
+
 
 </details>
 
@@ -115,7 +115,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/f83738f-Adaction_Interactive_postback_testing.png "Adaction_Interactive_postback_testing.png")
+
 
 </details>
 

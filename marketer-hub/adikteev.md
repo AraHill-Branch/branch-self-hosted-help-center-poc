@@ -3,7 +3,7 @@ title: "Adikteev"
 slug: adikteev
 ---
 
-![1328](/img/32dda4a-Adikteev__branch(3).png "Adikteev + branch.png")
+*[Image: 1328]*.png "Adikteev + branch.png")
 
 ## Overview
 
@@ -44,7 +44,7 @@ In the Branch Dashboard under **Ads** > [**Partner Management**](https://dashboa
 
 Click the **Save & Enable** button.
 
-![](/img/ab22401-enable_adikteev(3).png "enable adikteev.png")
+.png "enable adikteev.png")
 
 ### 2. Configure Postbacks
 
@@ -58,7 +58,7 @@ Enabling Adikteev will automatically enable the following postbacks:
 - LOGIN
 - COMPLETE REGISTRATION
 
-![](/img/71ed738-Adikteev_Postbacks(3).png "Adikteev Postbacks.png")
+.png "Adikteev Postbacks.png")
 
 You can configure these postbacks or add more under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_adikteev?tab=postback) tab.
 
@@ -70,7 +70,7 @@ Optionally, you can check the checkbox for a given postback for sending all even
 
 Click the **Add New Postback** button at the bottom of the screen. A modal will appear that will allow you to select an event that you are tracking with the Branch SDKs (including Custom Events).
 
-![](/img/c1b289e-Add_New_Postbacks(85).gif "Add New Postbacks.gif")
+.gif "Add New Postbacks.gif")
 
 For more in-depth postback configurations, view our guides:
 
@@ -97,9 +97,9 @@ After configuring your events, navigate to the [**Attribution Windows**](https:/
 
 Next, you'll need to create a Branch Ad Link for your Adikteev campaigns in order for Branch to properly attribute conversions.
 
-[![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/a516deb-small-95b5d97-small-Vectorlogo_1(98).png)
+[.png)
 
-![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/feddb04-Branch_badge_light_default-32x32.ico) help.branch.io
+ help.branch.io
 
 Create Ad Links](/docs/ad-links)
 

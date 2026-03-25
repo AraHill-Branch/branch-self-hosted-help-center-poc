@@ -20,21 +20,21 @@ The Help Center needed a complete redesign. These improvements include:
 
 #### Before
 
-![](/img/5f1750e-GLP_Before.png)
+
 
 #### After
 
-![](/img/2130903-Screenshot_2023-11-17_at_7.43.32_AM.png)
+
 
 ### Search
 
 #### Before
 
-![](/img/e5ef2ae-Search_Before.png)
+
 
 #### After
 
-![](/img/982aedd-Screenshot_2023-11-17_at_7.42.01_AM.png)
+
 
 ---
 
@@ -42,8 +42,7 @@ The Help Center needed a complete redesign. These improvements include:
 
 #### Before
 
-![](/img/401f921-Dev_Docs_Before.png)
+
 
 #### After
 
-![](/img/07292e8-Screenshot_2023-11-17_at_7.42.55_AM.png)

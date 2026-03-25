@@ -3,7 +3,7 @@ title: "Clinch"
 slug: clinch
 ---
 
-![1328](/img/3fe1a62-Clinch__branch(3).png "Clinch + branch.png")
+*[Image: 1328]*.png "Clinch + branch.png")
 
 ## Overview
 
@@ -46,7 +46,7 @@ You'll need to input your **Clinch Client ID (CID)** and your **Clinch Data Sour
 
 Click the **Save & Enable** button.
 
-![](../../../assets/media/images/891ee40d-639c-4e14-94c7-8b6267d65faa "Enable Clinch.PNG")
+
 
 ### 2. Configure Postbacks
 
@@ -61,7 +61,7 @@ Enabling Clinch will automatically enable the following postbacks:
 - VIEW\_ITEMS
 - INITIATE\_PURCHASE
 
-![](../../../assets/media/images/643cab10-4356-446e-b1df-b93081441f42 "Clinch Postbacks.PNG")
+
 
 You can configure these postbacks or add more under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_clinch?tab=postback) tab.
 
@@ -73,7 +73,7 @@ Optionally, you can check the checkbox for a given postback for sending all even
 
 Click the **Add New Postback** button at the bottom of the screen. A modal will appear that will allow you to select an event that you are tracking with the Branch SDKs (including Custom Events).
 
-![](/img/c1b289e-Add_New_Postbacks(89).gif "Add New Postbacks.gif")
+.gif "Add New Postbacks.gif")
 
 For more in-depth postback configurations, view our guides:
 
@@ -100,9 +100,9 @@ After configuring your events, navigate to the [**Attribution Windows**](https:/
 
 Next, you'll need to create a Branch Ad Link for your Clinch campaigns in order for Branch to properly attribute conversions.
 
-[![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/a516deb-small-95b5d97-small-Vectorlogo_1(98).png)
+[.png)
 
-![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/feddb04-Branch_badge_light_default-32x32.ico) help.branch.io
+ help.branch.io
 
 Create Ad Links](/docs/ad-links)
 

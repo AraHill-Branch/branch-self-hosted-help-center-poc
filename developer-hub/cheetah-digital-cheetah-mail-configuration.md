@@ -3,7 +3,7 @@ title: "Cheetah Digital Cheetah Mail Configuration"
 slug: cheetah-digital-cheetah-mail-configuration
 ---
 
-![](/img/image(68).png)
+.png)
 
 ## Overview
 
@@ -11,7 +11,7 @@ Cheetah Digital provides the technology and expertise marketers need to manage c
 
 ## How does it work?
 
-![](/img/image(60).png "Branch Email Flow.PNG")
+.png "Branch Email Flow.PNG")
 
 1. User clicks on a link in an email from their mobile mail client (Gmail, Apple Mail, etc.)
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.
@@ -51,7 +51,7 @@ In order to enable Cheetah Mail, you must first:
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Cheetah Digital Cheetah Mail** and click **Enable**
 
-![](/img/connect_digital_cheetah_mail_service_in_branch.gif)
+
 
 ### Input Click Tracking Domain
 
@@ -67,7 +67,7 @@ The Cheetah Mail integration requires you provide the following:
 - You can enable the integration with multiple CTDs, if needed, but you **cannot** add the same CTD to multiple Branch Dashboards or ESP integrations.
 :::
 
-![](/img/image(69).png)
+.png)
 
 ## Configure your App
 
@@ -75,13 +75,13 @@ The Cheetah Mail integration requires you provide the following:
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#3-configure-associated-domains).
 
-![](/img/image(70).png)
+.png)
 
 ### Return `YES` to `continueUserActivity`
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md).
 
-![](/img/image(64).png "branch-universal-link-domain.png")
+.png "branch-universal-link-domain.png")
 
 ## Point DNS CNAME to Branch
 

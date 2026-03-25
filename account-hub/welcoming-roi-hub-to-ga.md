@@ -5,7 +5,7 @@ slug: welcoming-roi-hub-to-ga
 
 The highly anticipated GA release of ROI Hub is finally here! ROI Hub centralizes all your cost and attributed revenue data, eliminating the need for manual consolidation.
 
-![](/img/0f176bd55ddcc70259df060201066e3454ebffdbe47ae60ffe4f2bf5f867d494-unnamed.png)
+
 
 ## Overview
 

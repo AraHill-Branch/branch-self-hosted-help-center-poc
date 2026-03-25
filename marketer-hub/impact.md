@@ -5,7 +5,7 @@ slug: impact
 
 ## Overview
 
-![](/img/f3d45ca-Impact_Radius_Logo.png "Impact Radius Logo.png")
+
 
 [Impact](https://impact.com/) Radius' digital marketing platform enables significant improvement in the return on global advertising spend for brands and agencies.
 
@@ -55,7 +55,7 @@ Before you can enable the partner integration in your Branch dashboard, you will
 3. Search for Impact.
 4. Select **Impact**, provide your **IOS Tracker | Android Tracker | Account SID | Authorization Token** and click **Save & Enable**.
 
-   ![](/img/987fd20-impact_settings.png "impact_settings.png")
+   
 
 ## 4. Enable Postbacks
 
@@ -67,7 +67,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#section-adding-enabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#section-adding-enabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/ee75061-impact_postback.png "impact_postback.png")
+
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -90,7 +90,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/a4e12ef-impact_link_param.png "impact_link_param.png")
+
 
 </details>
 
@@ -101,7 +101,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Impact. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/ac78621-Screen_Shot_2020-12-15_at_2.34.35_PM.png "Screen Shot 2020-12-15 at 2.34.35 PM.png")
+
 
 </details>
 
@@ -112,7 +112,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/94fd4d3-impact_postback_testing.png "impact_postback_testing.png")
+
 
 </details>
 

@@ -125,7 +125,7 @@ Create a new trigger that is associated with a Firebase event.
 
 1. In the **Workspace** tab, click on **Triggers**.
 2. Click **New**, and create a trigger with type **Custom Event**.
-3. Provide an event name and configure when you want the trigger to fire. ![](/img/9163a29-Screenshot_2024-06-26_at_2.31.03_PM.png)
+3. Provide an event name and configure when you want the trigger to fire. 
 4. Click **Save**.
 
 #### 2. Create a Tag
@@ -136,7 +136,7 @@ Create a new tag, which will describe what you want to have occur when the trigg
 2. Click **New**, and create a tag with type "Function Call".
 3. For the **Class Path** field, add the path that leads to your custom class that calls Branch Event code.
 4. In the **Key** and **Value** sections, add your relevant variables.
-5. In the **Triggering** section, add the trigger you just created. ![](/img/938de10-Screenshot_2024-06-28_at_3.53.59_PM.png)
+5. In the **Triggering** section, add the trigger you just created. 
 6. Click **Save**.
 
 #### 3. Deploy GTM Changes

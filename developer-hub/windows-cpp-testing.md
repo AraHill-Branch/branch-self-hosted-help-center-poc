@@ -27,7 +27,7 @@ Enable log output two ways:
 
 1. (Simple) Set two environment variables: `BRANCHIO_LOG_LEVEL` and `BRANCHIO_LOG_FILE`. Restart your app after setting these environment variables.
 
-   ![1758](/img/c28495b-Screen_Shot_2021-02-11_at_11.51.51_AM.png "Screen Shot 2021-02-11 at 11.51.51 AM.png")
+   *[Image: 1758]*
 2. (Custom) Call `BranchIO::Log::setLevel` and `BranchIO::Log::enableFileLogging`. Logging is enabled from the time of the call. Call before `Branch::create` to ensure logging all available messages.
 
 ```
@@ -119,6 +119,6 @@ To build and test:
 The Wix Toolset requires .NET Framework 3.5.1. Enable it under Windows Features to install the Wix Toolset.
 :::
 
-![415](/img/d3671e5-Untitled.png "Untitled.png")
+*[Image: 415]*
 
 ###

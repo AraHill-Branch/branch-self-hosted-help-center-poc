@@ -43,13 +43,13 @@ In the App Store Connect in **Users and Access** → **Keys** tab, find your **I
 If you have not created an API key, click the **+** button to generate a new API Key. Full details for creating API Keys for App Store Connect API can be found [here](https://developer.apple.com/documentation/appstoreconnectapi/creating_api_keys_for_app_store_connect_api).
 :::
 
-![](/img/69de4d5-App_Store_Connect.png "App Store Connect.png")
+
 
 ## 2. Authenticate App Store Connect
 
 In the Branch Dashboard navigate to the **SKAN Conversion Center** page. If you're already logged into the Branch Dashboard, you can also click [here](https://dashboard.branch.io/skan-conversion) to go there directly.
 
-![](/img/a1dea93-Authenticat_App_Store_Connect.png "SKAN Configuration.PNG")
+
 
 Here, you'll submit your **Issuer ID**, **Key ID**, and **Private Key** that you obtained from [Step 1](enable-skadnetwork.md#1-obtain-authentication-parameters).
 
@@ -67,7 +67,7 @@ App Store Connect credentials are used as a one-time check to verify app ownersh
 
 By default, your configuration will be set to SDK Opt-In, meaning the Branch SDK will call the two necessary Apple methods for SKAN to enable Postbacks to ad partners on your behalf. You may update this by clicking the options menu on the top right of the SKAN Conversion Center page and selecting **Opt-out SKAdNetwork**.
 
-![](/img/0ee26ae-SKAN_Opt_Out.png)
+
 
 We suggest opting out if you have a third-party library or SKAN integration. You'll still be able to map your conversion value events that will also appear within the Branch Dashboard. Note: Once opted out, the Branch SDK will stop updating SKAN postback conversion values. If you opt out, your development team will need to implement the necessary Apple methods and define conversion values. See our developer documentation for implementation details.
 
@@ -75,7 +75,7 @@ We suggest opting out if you have a third-party library or SKAN integration. You
 
 From here, you will be prompted to select a set up type: **Magic Set Up** or **Custom Set Up**.
 
-![](/img/7c07dc6-Screenshot_2023-10-06_at_2.02.55_PM.png)
+
 
 | Set Up Type | Description |
 | --- | --- |
@@ -88,13 +88,13 @@ From here, you will be prompted to select a set up type: **Magic Set Up** or **C
 
 After selecting **Magic Set Up**, you will be prompted to select a target conversion event. It is recommended you select a conversion event that is meaningful for your specific app's use case that demonstrates customer value.
 
-![](/img/bb28b77-Screenshot_2023-10-10_at_9.37.57_AM.png)
+
 
 #### Review recommendations
 
 Once a conversion event is selected, click **Run Magic Set Up**, and Branch will generate a recommendation for each SKAN window for you.
 
-![](/img/8e4ecbf-Screenshot_2023-10-10_at_9.46.03_AM.png)
+
 
 Click **Save Configuration** to confirm your SKAN setup.
 
@@ -106,7 +106,7 @@ After selecting **Custom Set Up**, you will be able to set an event to a fine-gr
 
 Optionally, you can select a template to preset SKAN for a specific vertical and Branch will help optimize for that. You may choose a template by clicking the **Try now** or **See Templates** link.
 
-![](/img/b717df1-Select_Template.png)
+
 
 | Template Type | Optimization Focus | Events |
 | --- | --- | --- |
@@ -131,7 +131,7 @@ A coarse value indicates a broader signal of the level of priority that that con
 For additional details on Postbacks and Tier thresholds, please visit Apple's documentation [here](https://developer.apple.com/documentation/storekit/skadnetwork/receiving_postbacks_in_multiple_conversion_windows/).
 :::
 
-![](/img/7133fa0-Custom_Setup_Events.png)
+
 
 ::: info SKAN 4.0+
 If you already had SKAN set up before the release of SKAN 4, you will not have coarse conversion values set for your configuration. By default, a coarse value of "low" is set when not initially defined (< SKAN 3). Making changes to the Event and Conversion Value Mapping will **require** you to select a coarse value and lock option for each event **before** you can save the configuration.
@@ -155,7 +155,7 @@ For SKAN 4.0+, the conversion value mapper supports the ability to anchor to the
 
 Click **Save Configuration** to confirm your settings and view your settings for each window.
 
-![](/img/2e3ceb3-Confirm_Custom_Setup.png)
+
 
 ## 5. Verify integration
 
@@ -171,6 +171,6 @@ Additionally, you can view your full guide on all SKAdNetwork-related reporting 
    - See Apple documentation [here](https://developer.apple.com/documentation/adattributionkit/testing-ad-attributions-with-a-downloaded-profile) for instructions.
 3. Check the [SKAdNetwork Analytics page](https://dashboard.branch.io/ads/skadnetwork/activity) to verify SKAdNetwork data.
 
-![](/img/a5c731a-SKAN_Analytics.png "SKAN Data Verification.png")
+
 
 Additionally, you can verify with your Ad Network the data that they are receiving are proper postbacks for the SKAN campaigns. For advanced testing and troubleshooting, see our developer documentation.

@@ -48,7 +48,7 @@ Here's a brief outline of how to use the AdobeBranchExtension in your app:
 2. For application integration, follow the instructions as described in the Branch Android SDK Basic Integration [guide](android-basic-integration.md) (ignore sections "Load Branch" and "Initialize Branch"). Make sure to update your app's manifest file with the Branch domains, app URI scheme and your Branch Key.
 3. In the Adobe dashboard, activate Branch and add your Branch Key to your app's configuration:
 
-   ![](/img/e067442-adobe-launch-install.png "adobe-launch-install.png")
+   
 4. Add the AdobeBranchExtension to your app's build.gradle.  
    `implementation 'io.branch.sdk.android:adobebranchextension:2.+'`
 5. Register the Branch `AdobeBranchExtension` with `MobileCore` in `configureWithAppID`:

@@ -3,7 +3,7 @@ title: "Vibes Configuration"
 slug: vibes-configuration
 ---
 
-![1328](/img/0a3e0c4-Vibes_branch.png "Vibes+ branch.png")
+*[Image: 1328]*
 
 ## Overview
 
@@ -13,7 +13,7 @@ Branch Email allows you to automatically convert your SMS links into multi-platf
 
 ## How does it work?
 
-![](../../../assets/media/images/4f75a4d0-fe30-4336-baa2-ecee3e116ae5 "Universal Email Flow.PNG")
+
 
 1. User clicks on a link in an SMS
 2. If the user has the app installed and the link has a corresponding screen in the app, the app will open and deep link the user to the right content.
@@ -52,7 +52,7 @@ In order to enable Vibes, you need to have completed the following:
 
 In the Branch Dashboard in Email → [Manager tab](https://dashboard.branch.io/email/manager), find **Vibes** and click **Enable**
 
-![1428](/img/f48f129-86e4676-sendgrid-enable(1).gif "86e4676-sendgrid-enable.gif")
+*[Image: 1428]*.gif "86e4676-sendgrid-enable.gif")
 
 ### Input Click Tracking Domain
 
@@ -70,7 +70,7 @@ For additional help, please email Vibes at **live@vibes.com** for support.
 - You can enable the integration with multiple CTDs, if needed, but you **cannot** add the same CTD to multiple Branch Dashboards or ESP integrations.
 :::
 
-![](/img/a5dcc1e-bd6b71d-5c3d78a-sms-vibes.png "bd6b71d-5c3d78a-sms-vibes.png")
+
 
 ## Configure your App
 
@@ -78,13 +78,13 @@ For additional help, please email Vibes at **live@vibes.com** for support.
 
 For your iOS App, you must add the CTD to the Associated Domains. Additional details can be found [here](ios-basic-integration.md#3-configure-associated-domains).
 
-![](/img/9f475e3-Associated_Domains(18).png "Associated Domains.png")
+.png "Associated Domains.png")
 
 ### Return `YES` to `continueUserActivity`
 
 Additionally, you will need to add the CTD to your iOS app's info.plist file. Additional details can be found [here](ios-advanced-features.md#return-yes-to-continueuseractivity).
 
-![](/img/13dc276-branch-universal-link-domain(18).png "branch-universal-link-domain.png")
+.png "branch-universal-link-domain.png")
 
 ## Point DNS CNAME to Branch
 

@@ -53,7 +53,7 @@ By default, Google Ads includes View-Through Conversion counts in a separate col
 
 When viewing a campaign, it shows the sum of all conversion events that apply to it. To view by conversion, navigate to `Segment` > `Conversions` > `Conversion name`, in order to clearly see the breakdown of your campaign's conversions.
 
-![](/img/0b2cf19-conversion-segment.png "conversion-segment.png")
+
 
 #### Missing Conversions in Google Ads
 

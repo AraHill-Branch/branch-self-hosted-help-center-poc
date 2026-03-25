@@ -88,7 +88,7 @@ To add additional data - i.e. key-value pairs - to your Ad Link:
 
 3. Click **Create Link Now** when you're done. You'll then be brought to the last phase of creating a link - **Validate & Share**.
 
-![](/img/5fa51f4-configure_options(1).png "configure_options.png")
+.png "configure_options.png")
 
 ### 4. Validate & Share
 
@@ -98,7 +98,7 @@ Once you've created your Ad link, we will automatically validate its settings to
 
 If we recognize an issue with your ad link, you will see an error message with what needs to be fixed before sharing your link. Click on the error message to go back and fix the offending setting. Once no issues exist, you should only see green checks next to your links settings.
 
-![](/img/3b4f754-Validation(1).png "Validation.png")
+.png "Validation.png")
 
 #### Share
 

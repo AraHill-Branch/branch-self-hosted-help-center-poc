@@ -5,7 +5,7 @@ slug: nativex
 
 ## Overview
 
-![](/img/6d720d2-nativex-logo.png "nativex-logo.png")
+
 
 [Nativex](https://www.nativex.com/en/) is a world leading provider of mobile marketing automation that empowers brands and marketers to attain, engage and entertain audiences.
 
@@ -46,7 +46,7 @@ The following Ads prerequisites involve app code changes:
 3. Search for Nativex.
 4. Select **Nativex** and click **Save & Enable**.
 
-   ![](/img/8fba01f-nativex_settings.png "nativex_settings.png")
+   
 
 ## 3. Enable Postbacks
 
@@ -58,7 +58,7 @@ Branch’s postback system is highly [customizable](basic-postback-configuration
 
 You can then [add additional postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks), for example, if you wanted to add postbacks for custom events that are specific to your app like Account Created. You can also [edit postbacks](branch-universal-ads-advanced.md#addingenabling-more-postbacks) if there's additional data you really need to pass along to your ad partner.
 
-![](/img/9f33761-nativex_postback_config.png "nativex_postback_config.png")
+
 
 ::: danger Troubleshoot Postbacks
 There may be times when you need to reset a partner's settings; i.e. when a partner updates their postback templates or when perhaps you've made a mistake during partner setup. Resetting a partner's settings allows you to re-enable the partner integration with the correct information to accurately measure and attribute conversion.
@@ -81,7 +81,7 @@ By default, Branch automatically appends partner-specific link parameters during
 
 Below are the link parameters that Branch automatically appends for this ad partner:
 
-![](/img/e620db4-nativex_link_parameters.png "nativex_link_parameters.png")
+
 
 </details>
 
@@ -92,7 +92,7 @@ Branch employs [Attribution Windows](attribution-windows-link-settings.md) at bo
 
 However, you can choose to use the attribution windows provided specifically by Nativex. To do so, toggle the **Use Ad Partner Attribution Windows** to on. Please keep in mind that only conversions attributed to this ad partner will use these specific windows; otherwise, the app-level windows prevail.
 
-![](/img/f92775e-Screen_Shot_2020-12-15_at_3.03.41_PM.png "Screen Shot 2020-12-15 at 3.03.41 PM.png")
+
 
 </details>
 
@@ -103,7 +103,7 @@ Testing your configuration is a very important step that we highly recommend you
 
 Learn how to [Test Postbacks](testing-postbacks.md)
 
-![](/img/a20839b-nativex_postback_testing.png "nativex_postback_testing.png")
+
 
 </details>
 

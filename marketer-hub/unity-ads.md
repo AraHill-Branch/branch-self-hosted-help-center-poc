@@ -3,7 +3,7 @@ title: "Unity Ads"
 slug: unity-ads
 ---
 
-![1328](/img/2fabdb5-Unity_Ads_Branch_Logo(3).png "RTB House + branch.png")
+*[Image: 1328]*.png "RTB House + branch.png")
 
 ## Overview
 
@@ -52,7 +52,7 @@ You'll need to input the following ad account information:
 
 Click the **Save & Enable** button.
 
-![](/img/6657192-Enable_Unity_Ads(3).png "RTB House enable.png")
+.png "RTB House enable.png")
 
 ### 2. Configure Postbacks
 
@@ -62,7 +62,7 @@ Enabling Unity Ads will automatically enable the following postbacks:
 - OPEN
 - PURCHASE
 
-![](/img/001391c-Unity_Ads_Postbacks(3).png "rtb house postbacks.png")
+.png "rtb house postbacks.png")
 
 You can configure these postbacks or add more under the [**Postback Config**](https://dashboard.branch.io/ads/partner-management/a_rtb_house_sa?tab=postback) tab.
 
@@ -74,7 +74,7 @@ Optionally, you can check the checkbox for a given postback for sending all even
 
 Click the **Add New Postback** button at the bottom of the screen. A modal will appear that will allow you to select an event that you are tracking with the Branch SDKs (including Custom Events).
 
-![](/img/c1b289e-Add_New_Postbacks(108).gif "Add New Postbacks.gif")
+.gif "Add New Postbacks.gif")
 
 For more in-depth postback configurations, view our guides:
 
@@ -109,11 +109,11 @@ To set up cost ingestion for Unity Ads, you will need to authenticate using your
 
 Under [Unity Cloud Grow](https://cloud.unity.com/acquire), there is an "API Management" section, which has a link to your service accounts.
 
-![](/img/63115d3-Unity_Service_Accounts(3).png)
+.png)
 
 From here, you can create a new service account, and you can also create a key for the service account to get your **Client ID and Client Secret**.
 
-![](/img/0f1a849-Unity_Secret(3).png)
+.png)
 
 #### Organization ID
 
@@ -122,13 +122,13 @@ Add the "Advertise Stats API MMP Viewer'' role to the service account. The role 
 
 From here, you can get your **Organization ID**.
 
-![](/img/977fad9-Unity_Org_ID(3).png)
+.png)
 
 Please reach out to your Unity Ads account manager if you have trouble finding these values.
 
 Enter your **Client Secret, Client ID, and Organization ID**, and click **Save Authentication**
 
-![](/img/193764c-Unity_Ads_Cost_Authentication(3).png)
+.png)
 
 Note: If you'd like data to be as accurate as possible, be sure to match timezones between your Branch account and Unity Ads.
 
@@ -136,9 +136,9 @@ Note: If you'd like data to be as accurate as possible, be sure to match timezon
 
 Next, you'll need to create a Branch Ad Link for your Unity Ads campaigns in order for Branch to properly attribute conversions.
 
-[![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/a516deb-small-95b5d97-small-Vectorlogo_1(98).png)
+[.png)
 
-![](https://cdn.us.document360.io/082e8be0-ad38-4650-9062-689a75e517a2/Images/Documentation/feddb04-Branch_badge_light_default-32x32.ico) help.branch.io
+ help.branch.io
 
 Create Ad Links](/docs/ad-links)
 

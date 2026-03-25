@@ -27,11 +27,11 @@ In the [new version of Branch](new-branch-overview.md), attribution windows are 
   - This setting also covers the maximum length of time allowed for probabilistic modeling. Hence changing this value will also change the length of time allowed to use probabilistic modeling for attribution.
 - **Click to x** refers to events that occur after someone clicks a Branch Link. If someone clicks and installs from a link, and comes back 10 days later to purchase (assuming Click to Conversion event window > 10 days), we would count that as an attributed conversion, and it would surface in our dashboard. Measured in days.
 - **Impression to x** refers to events that occur after someone views a Branch impression link. Measured in days.
-- **Re-engagement Inactivity** defines the period between two events that a user must be inactive in order to define the later event as a re-engagement. Used in re-engagement cohort analysis but not activity analysis.![image](/img/re-engagement-attribution.png)
+- **Re-engagement Inactivity** defines the period between two events that a user must be inactive in order to define the later event as a re-engagement. Used in re-engagement cohort analysis but not activity analysis.
 
 3. Click **Save** when you're done. Once you change an attribution window setting, please allow up to several minutes for the change to persist through our system. New attribution window settings will apply to future attributions only.
 
-![](/img/b3958f3-Screen_Shot_2020-05-06_at_8.57.47_AM.png "Screen Shot 2020-05-06 at 8.57.47 AM.png")
+
 
 ## Organization View vs. App View vs. Agency View Attribution Window Settings
 
@@ -45,7 +45,7 @@ If your account includes an organization level, you can choose to inherit (or no
 
 To access app-level attribution window settings, navigate to [Link Settings](https://dashboard.branch.io/link-settings), click on the **Attribution Windows** tab and turn the toggle **Inherit attribution windows from your app's parent organization** on.
 
-![image](/img/attribution-settings-inherit.png)
+
 
 ### Disinheriting Attribution Window Settings from the App Level
 
@@ -53,7 +53,7 @@ You can override the app-level attribution window defaults on a per ad partner b
 
 To access ad partner attribution settings, navigate to the [Partner Management](https://dashboard.branch.io/ads/partner-management) page, search for and select the corresponding Ad Partner, and click on the Attribution Windows tab.
 
-![image](/img/ad-partner-attribution-window.png)
+
 
 ### Using Ad Partner Attribution Windows
 
