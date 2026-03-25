@@ -17,8 +17,7 @@ const sidebar = generateSidebar([
     capitalizeEachWords: true,
     collapsed: false,
     collapseDepth: 2,
-    rootGroupText: 'Account Hub',
-    rootGroupLink: '/account-hub/'
+    rootGroupText: 'Account Hub'
   },
   {
     documentRootPath: '/',
@@ -35,8 +34,7 @@ const sidebar = generateSidebar([
     capitalizeEachWords: true,
     collapsed: false,
     collapseDepth: 2,
-    rootGroupText: 'Marketer Hub',
-    rootGroupLink: '/marketer-hub/'
+    rootGroupText: 'Marketer Hub'
   },
   {
     documentRootPath: '/',
@@ -53,8 +51,7 @@ const sidebar = generateSidebar([
     capitalizeEachWords: true,
     collapsed: false,
     collapseDepth: 2,
-    rootGroupText: 'Developer Hub',
-    rootGroupLink: '/developer-hub/'
+    rootGroupText: 'Developer Hub'
   }
 ])
 
