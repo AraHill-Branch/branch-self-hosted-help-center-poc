@@ -12,5 +12,6 @@ yarn-error.log*
 # Build outputs
 dist/
 build/
-# VitePress cache (but keep dist/ for Netlify)
+# VitePress build outputs and cache
 .vitepress/cache/
+.vitepress/dist/
