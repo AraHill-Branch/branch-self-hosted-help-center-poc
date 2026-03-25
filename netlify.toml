@@ -1,0 +1,12 @@
+[build]
+  publish = ".vitepress/dist"
+  command = "npm run docs:build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Handle SPA routing for VitePress
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404

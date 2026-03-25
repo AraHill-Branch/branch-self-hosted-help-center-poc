@@ -9,5 +9,8 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+# Build outputs
 dist/
 build/
+# VitePress cache (but keep dist/ for Netlify)
+.vitepress/cache/
