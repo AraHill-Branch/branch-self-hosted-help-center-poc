@@ -48,17 +48,14 @@
   --vp-font-family-base: "TT Hoves Pro", "Manrope", sans-serif;
   --vp-font-family-mono: "TT Hoves Pro Mono", monospace;
 
-  /* Purple ramp */
   --vp-c-brand-1: #651BC8;
   --vp-c-brand-2: #5D0EC0;
   --vp-c-brand-3: #2F0D68;
   --vp-c-brand-soft: rgba(101, 27, 200, 0.1);
 
-  /* Teal links */
   --vp-c-text-link: #00B8DB;
   --vp-c-text-link-hover: #48BC7D;
 
-  /* Semantic colors */
   --vp-c-tip-1: #48BC7D;
   --vp-c-tip-soft: rgba(72, 188, 125, 0.14);
   --vp-c-warning-1: #FDC700;
@@ -66,13 +63,9 @@
   --vp-c-danger-1: #FF2056;
   --vp-c-danger-soft: rgba(255, 32, 86, 0.14);
 
-  /* Hero */
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(135deg, #FF6C04 0%, #651BC8 100%);
-  --vp-home-hero-image-background-image: linear-gradient(135deg, rgba(101, 27, 200, 0.4), rgba(255, 108, 4, 0.2));
-  --vp-home-hero-image-filter: blur(72px);
 
-  /* Buttons */
   --vp-button-brand-bg: #651BC8;
   --vp-button-brand-hover-bg: #48BC7D;
   --vp-button-brand-active-bg: #2F0D68;
@@ -82,10 +75,6 @@
   --vp-button-brand-active-border: transparent;
   --vp-button-brand-hover-text: #FFFFFF;
   --vp-button-brand-active-text: #FFFFFF;
-
-  /* Alt button */
-  --vp-button-alt-bg: rgba(101, 27, 200, 0.08);
-  --vp-button-alt-hover-bg: rgba(101, 27, 200, 0.14);
 }
 
 /* ======================
@@ -104,29 +93,32 @@
   --vp-button-brand-bg: #651BC8;
   --vp-button-brand-hover-bg: #48BC7D;
   --vp-button-brand-active-bg: #5D0EC0;
-  --vp-button-alt-bg: rgba(146, 65, 255, 0.12);
-  --vp-button-alt-hover-bg: rgba(146, 65, 255, 0.2);
   --vp-c-divider: rgba(101, 27, 200, 0.25);
 }
 
 /* ======================
-   4. GLOBAL TRANSITIONS
+   4. FEATURE CARDS
    ====================== */
-a, .VPFeature, .VPNavBarMenuLink .text,
-.VPSidebarItem, button {
-  transition: all 0.25s ease;
+.VPFeature .icon img {
+  padding: 8px;
+  border-radius: 10px;
+  background: #0F021F;
+}
+
+.dark .VPFeature {
+  border-radius: 0;
+  border-color: rgba(101, 27, 200, 0.4);
+}
+
+.VPFeature:hover .title {
+  color: #48BC7D;
 }
 
 /* ======================
-   5. NAV BAR
+   5. NAV
    ====================== */
-.VPNavBar {
-  backdrop-filter: blur(12px);
-}
-
 .dark .VPNavBar {
   background: rgba(9, 1, 19, 0.85) !important;
-  border-bottom-color: rgba(101, 27, 200, 0.15) !important;
 }
 
 .VPNavBarMenuLink:hover .text,
@@ -135,146 +127,33 @@ a, .VPFeature, .VPNavBarMenuLink .text,
 }
 
 /* ======================
-   6. HERO
-   ====================== */
-.VPHero .name {
-  letter-spacing: -0.5px;
-}
-
-.VPHero .tagline {
-  max-width: 480px;
-}
-
-/* ======================
-   7. FEATURE CARDS
-   ====================== */
-.VPFeature {
-  border: 1px solid var(--vp-c-divider);
-  transition: all 0.3s ease;
-}
-
-.VPFeature:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(101, 27, 200, 0.12);
-}
-
-.dark .VPFeature {
-  border-radius: 0;
-  border-color: rgba(101, 27, 200, 0.4);
-  background: #130326;
-}
-
-.dark .VPFeature:hover {
-  border-color: #651BC8;
-  box-shadow: 0 8px 32px rgba(101, 27, 200, 0.2);
-}
-
-.VPFeature:hover .title {
-  color: #48BC7D;
-}
-
-.VPFeature .icon img {
-  filter: drop-shadow(0 0 8px rgba(72, 188, 125, 0.3));
-}
-
-/* ======================
-   8. SIDEBAR
+   6. SIDEBAR
    ====================== */
 .VPSidebarItem.is-active > .item > .indicator {
   background-color: #651BC8;
 }
 
-.VPSidebarItem .link:hover .text {
-  color: #48BC7D;
-}
-
 /* ======================
-   9. CONTENT STYLING
+   7. CONTENT
    ====================== */
 .vp-doc a {
   color: #00B8DB;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: all 0.2s ease;
 }
 
 .vp-doc a:hover {
   color: #48BC7D;
-  border-bottom-color: #48BC7D;
 }
 
-/* Code blocks */
-.vp-doc div[class*="language-"] {
-  border: 1px solid rgba(101, 27, 200, 0.15);
-}
+.vp-doc .custom-block.info { border-color: #651BC8; }
+.vp-doc .custom-block.tip { border-color: #48BC7D; }
+.vp-doc .custom-block.warning { border-color: #FDC700; }
+.vp-doc .custom-block.danger { border-color: #FF2056; }
 
 .dark .vp-doc div[class*="language-"] {
   background: #0F021F;
   border-color: rgba(101, 27, 200, 0.3);
 }
 
-/* Callout containers */
-.vp-doc .custom-block.info {
-  border-color: #651BC8;
-}
-
-.dark .vp-doc .custom-block.info {
-  background: rgba(101, 27, 200, 0.08);
-}
-
-.vp-doc .custom-block.tip {
-  border-color: #48BC7D;
-}
-
-.dark .vp-doc .custom-block.tip {
-  background: rgba(72, 188, 125, 0.08);
-}
-
-.vp-doc .custom-block.warning {
-  border-color: #FDC700;
-}
-
-.dark .vp-doc .custom-block.warning {
-  background: rgba(253, 199, 0, 0.06);
-}
-
-.vp-doc .custom-block.danger {
-  border-color: #FF2056;
-}
-
-.dark .vp-doc .custom-block.danger {
-  background: rgba(255, 32, 86, 0.06);
-}
-
-/* Tables */
-.dark .vp-doc table {
-  border-color: rgba(101, 27, 200, 0.2);
-}
-
-.dark .vp-doc tr {
-  border-color: rgba(101, 27, 200, 0.15);
-}
-
 .dark .vp-doc th {
   background: #130326;
-}
-
-/* ======================
-   10. FOOTER
-   ====================== */
-.VPFooter {
-  border-top-color: rgba(101, 27, 200, 0.2) !important;
-}
-
-.dark .VPFooter {
-  background: #0F021F !important;
-}
-
-/* ======================
-   11. SEARCH
-   ====================== */
-.dark .DocSearch {
-  --docsearch-modal-background: #130326 !important;
-  --docsearch-hit-background: #0F021F !important;
-  --docsearch-footer-background: #090113 !important;
 }
