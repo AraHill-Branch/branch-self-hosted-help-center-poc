@@ -1,4 +1,62 @@
 import { defineConfig } from 'vitepress'
+import { generateSidebar } from 'vitepress-sidebar'
+
+const sidebar = generateSidebar([
+  {
+    documentRootPath: '/',
+    scanStartPath: 'account-hub',
+    resolvePath: '/account-hub/',
+    useTitleFromFileHeading: true,
+    useTitleFromFrontmatter: true,
+    frontmatterTitleFieldName: 'title',
+    useFolderTitleFromIndexFile: true,
+    useFolderLinkFromIndexFile: true,
+    hyphenToSpace: true,
+    underscoreToSpace: true,
+    capitalizeFirst: true,
+    capitalizeEachWords: true,
+    collapsed: false,
+    collapseDepth: 2,
+    rootGroupText: 'Account Hub',
+    rootGroupLink: '/account-hub/'
+  },
+  {
+    documentRootPath: '/',
+    scanStartPath: 'marketer-hub',
+    resolvePath: '/marketer-hub/',
+    useTitleFromFileHeading: true,
+    useTitleFromFrontmatter: true,
+    frontmatterTitleFieldName: 'title',
+    useFolderTitleFromIndexFile: true,
+    useFolderLinkFromIndexFile: true,
+    hyphenToSpace: true,
+    underscoreToSpace: true,
+    capitalizeFirst: true,
+    capitalizeEachWords: true,
+    collapsed: false,
+    collapseDepth: 2,
+    rootGroupText: 'Marketer Hub',
+    rootGroupLink: '/marketer-hub/'
+  },
+  {
+    documentRootPath: '/',
+    scanStartPath: 'developer-hub',
+    resolvePath: '/developer-hub/',
+    useTitleFromFileHeading: true,
+    useTitleFromFrontmatter: true,
+    frontmatterTitleFieldName: 'title',
+    useFolderTitleFromIndexFile: true,
+    useFolderLinkFromIndexFile: true,
+    hyphenToSpace: true,
+    underscoreToSpace: true,
+    capitalizeFirst: true,
+    capitalizeEachWords: true,
+    collapsed: false,
+    collapseDepth: 2,
+    rootGroupText: 'Developer Hub',
+    rootGroupLink: '/developer-hub/'
+  }
+])
 
 export default defineConfig({
   title: "Branch Self-Hosted Help Center POC",
@@ -21,15 +79,7 @@ export default defineConfig({
       { text: 'Marketer Hub', link: '/marketer-hub/' },
       { text: 'Developer Hub', link: '/developer-hub/' }
     ],
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/AraHill-Branch/branch-self-hosted-help-center-poc' }
     ]
