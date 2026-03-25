@@ -1,0 +1,130 @@
+/* ======================
+   1. FONTS
+   ====================== */
+   @font-face {
+    font-family: "TT Hoves Pro";
+    src: url("/fonts/TT_Hoves_Pro_Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "TT Hoves Pro";
+    src: url("/fonts/TT_Hoves_Pro_Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "TT Hoves Pro";
+    src: url("/fonts/TT_Hoves_Pro_DemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "TT Hoves Pro";
+    src: url("/fonts/TT_Hoves_Pro_Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "TT Hoves Pro Mono";
+    src: url("/fonts/TT_Hoves_Pro_Mono_Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* ======================
+     2. BRAND VARIABLES
+     ====================== */
+  :root {
+    /* Typography */
+    --vp-font-family-base: "TT Hoves Pro", "Manrope", sans-serif;
+    --vp-font-family-mono: "TT Hoves Pro Mono", monospace;
+  
+    /* Brand purple ramp */
+    --vp-c-brand-1: #7F22FE;
+    --vp-c-brand-2: #5D0EC0;
+    --vp-c-brand-3: #2F0D68;
+    --vp-c-brand-soft: rgba(142, 81, 255, 0.14);
+  
+    /* Accent for tips/success */
+    --vp-c-tip-1: #00D5BE;
+    --vp-c-tip-soft: rgba(0, 213, 190, 0.14);
+  
+    /* Warning */
+    --vp-c-warning-1: #FDC700;
+    --vp-c-warning-soft: rgba(253, 199, 0, 0.14);
+  
+    /* Danger */
+    --vp-c-danger-1: #FF2056;
+    --vp-c-danger-soft: rgba(255, 32, 86, 0.14);
+  
+    /* Hero */
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: linear-gradient(135deg, #5D0EC0, #7F22FE, #FF2056);
+    --vp-home-hero-image-background-image: linear-gradient(135deg, rgba(93, 14, 192, 0.4), rgba(255, 32, 86, 0.2));
+    --vp-home-hero-image-filter: blur(68px);
+  
+    /* Buttons */
+    --vp-button-brand-bg: #5D0EC0;
+    --vp-button-brand-hover-bg: #7F22FE;
+    --vp-button-brand-active-bg: #2F0D68;
+    --vp-button-brand-border: transparent;
+    --vp-button-brand-text: #FFFFFF;
+    --vp-button-brand-hover-border: transparent;
+    --vp-button-brand-active-border: transparent;
+    --vp-button-brand-hover-text: #FFFFFF;
+    --vp-button-brand-active-text: #FFFFFF;
+  }
+  
+  /* ======================
+     3. DARK MODE
+     ====================== */
+  .dark {
+    --vp-c-brand-1: #8E51FF;
+    --vp-c-brand-2: #7F22FE;
+    --vp-c-brand-3: #5D0EC0;
+    --vp-c-brand-soft: rgba(142, 81, 255, 0.16);
+    --vp-button-brand-bg: #7F22FE;
+    --vp-button-brand-hover-bg: #8E51FF;
+    --vp-button-brand-active-bg: #5D0EC0;
+  }
+  
+  /* ======================
+     4. MINOR TWEAKS
+     ====================== */
+  
+  /* Sidebar active indicator */
+  .VPSidebarItem.is-active > .item > .indicator {
+    background-color: var(--vp-c-brand-1);
+  }
+  
+  /* Code block accent */
+  .vp-doc div[class*="language-"] {
+    border-color: rgba(93, 14, 192, 0.2);
+  }
+  
+  /* Callout container borders */
+  .vp-doc .custom-block.info {
+    border-color: var(--vp-c-brand-1);
+  }
+  
+  .vp-doc .custom-block.tip {
+    border-color: #00D5BE;
+  }
+  
+  .vp-doc .custom-block.warning {
+    border-color: #FDC700;
+  }
+  
+  .vp-doc .custom-block.danger {
+    border-color: #FF2056;
+  }
