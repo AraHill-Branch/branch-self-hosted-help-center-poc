@@ -1,16 +1,26 @@
 import { defineConfig } from 'vitepress'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Branch Self-Hosted Help Center POC",
   description: "Product Documentation",
+  ignoreDeadLinks: true,
+  vite: {
+    build: {
+      rollupOptions: {
+        onwarn(warning, warn) {
+          if (warning.message?.includes('/img/')) return
+          warn(warning)
+        }
+      }
+    }
+  },
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Account Hub', link: '/account-hub/' },
+      { text: 'Marketer Hub', link: '/marketer-hub/' },
+      { text: 'Developer Hub', link: '/developer-hub/' }
     ],
-
     sidebar: [
       {
         text: 'Examples',
@@ -20,9 +30,8 @@ export default defineConfig({
         ]
       }
     ],
-
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/AraHill-Branch/branch-self-hosted-help-center-poc' }
     ]
   }
 })
