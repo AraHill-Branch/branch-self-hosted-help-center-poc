@@ -157,3 +157,758 @@
 .dark .vp-doc th {
   background: #130326;
 }
+
+
+/* ============================================================================
+   8. MOTION SYSTEM
+   Added: smooth easing tokens, entrance animations, hover transitions.
+   Nothing above this line was changed.
+   ============================================================================ */
+
+:root {
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 120ms;
+  --t-base: 220ms;
+  --t-slow: 380ms;
+  --t-entrance: 650ms;
+}
+
+@keyframes vp-enter {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ============================================================================
+   9. AMBIENT GLOW (homepage only)
+   ============================================================================ */
+
+.VPHome::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  width: 900px;
+  height: 650px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(101, 27, 200, 0.10) 0%,
+    rgba(101, 27, 200, 0.03) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: hp-breathe 9s ease-in-out infinite;
+}
+
+@keyframes hp-breathe {
+  0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 1;    transform: translateX(-50%) scale(1.06); }
+}
+
+
+/* ============================================================================
+   10. VITEPRESS COMPONENT ENTRANCE ANIMATIONS (homepage)
+   Staggered slide-up on the hero and feature cards.
+   ============================================================================ */
+
+.VPHero .name    { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 60ms both; }
+.VPHero .tagline { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 140ms both; }
+.VPHero .actions { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 220ms both; }
+
+.VPFeatures .item:nth-child(1) .VPFeature { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 300ms both; }
+.VPFeatures .item:nth-child(2) .VPFeature { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 370ms both; }
+.VPFeatures .item:nth-child(3) .VPFeature { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 440ms both; }
+
+
+/* ============================================================================
+   11. VITEPRESS COMPONENT HOVER SMOOTHING
+   Adds the smooth lift + shadow to feature cards and nav links.
+   ============================================================================ */
+
+.VPFeature {
+  transition: transform var(--t-slow) var(--ease),
+              border-color var(--t-slow) var(--ease),
+              box-shadow var(--t-slow) var(--ease);
+}
+
+.VPFeature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(101, 27, 200, 0.10);
+}
+
+.VPFeature:active {
+  transform: translateY(0);
+  transition-duration: var(--t-fast);
+}
+
+.VPFeature .icon img {
+  transition: transform var(--t-slow) var(--ease-spring);
+}
+
+.VPFeature:hover .icon img {
+  transform: scale(1.06);
+}
+
+.VPFeature .title {
+  transition: color var(--t-base) var(--ease);
+}
+
+.VPNavBarMenuLink .text {
+  transition: color var(--t-base) var(--ease);
+}
+
+.VPButton {
+  transition: background var(--t-base) var(--ease),
+              border-color var(--t-base) var(--ease),
+              color var(--t-base) var(--ease),
+              transform var(--t-base) var(--ease),
+              box-shadow var(--t-slow) var(--ease);
+}
+
+.VPButton:hover {
+  transform: translateY(-1px);
+}
+
+.VPButton:active {
+  transform: translateY(0);
+  transition-duration: var(--t-fast);
+}
+
+.VPNavBar {
+  transition: background var(--t-slow) var(--ease),
+              border-color var(--t-slow) var(--ease);
+}
+
+
+/* ============================================================================
+   12. SCROLL REVEAL SYSTEM
+   Elements with .reveal fade/slide up when they enter the viewport.
+   .stagger groups cascade their children left-to-right.
+   Driven by IntersectionObserver in Layout.vue.
+   ============================================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--t-entrance) var(--ease-out-expo),
+              transform var(--t-entrance) var(--ease-out-expo);
+}
+
+.reveal.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger .stagger-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 500ms var(--ease-out-expo),
+              transform 500ms var(--ease-out-expo);
+}
+
+.stagger.vis .stagger-item { opacity: 1; transform: translateY(0); }
+.stagger.vis .stagger-item:nth-child(1) { transition-delay: 0ms; }
+.stagger.vis .stagger-item:nth-child(2) { transition-delay: 55ms; }
+.stagger.vis .stagger-item:nth-child(3) { transition-delay: 110ms; }
+.stagger.vis .stagger-item:nth-child(4) { transition-delay: 165ms; }
+
+
+/* ============================================================================
+   13. HOMEPAGE CUSTOM SECTIONS
+   All prefixed with .hp- to avoid collisions.
+   ============================================================================ */
+
+.hp-wrap {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hp-section {
+  padding: 48px 0;
+}
+
+.hp-section-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.hp-section-head h2 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.hp-section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--vp-c-divider), transparent);
+}
+
+.dark .hp-section-line {
+  background: linear-gradient(to right, rgba(101, 27, 200, 0.3), transparent);
+}
+
+
+/* --- Featured Resources --- */
+
+.hp-res-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dark .hp-res-grid {
+  border-radius: 0;
+  border-color: rgba(101, 27, 200, 0.25);
+}
+
+.hp-res-col {
+  padding: 24px;
+  position: relative;
+  transition: background var(--t-slow) var(--ease);
+}
+
+.hp-res-col:hover {
+  background: rgba(101, 27, 200, 0.04);
+}
+
+.dark .hp-res-col:hover {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.hp-res-col + .hp-res-col::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--vp-c-divider) 0%, transparent 100%);
+}
+
+.dark .hp-res-col + .hp-res-col::before {
+  background: linear-gradient(180deg, rgba(101, 27, 200, 0.3) 0%, transparent 100%);
+}
+
+.hp-res-col h3 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--vp-c-text-2);
+  margin: 0 0 14px;
+  border: none;
+  padding: 0;
+}
+
+.hp-res-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hp-res-list li {
+  margin-bottom: 2px;
+}
+
+.hp-res-link {
+  display: block;
+  padding: 5px 8px;
+  margin: 0 -8px;
+  font-size: 14px;
+  color: #00B8DB;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: color var(--t-fast) var(--ease),
+              background var(--t-base) var(--ease),
+              transform var(--t-base) var(--ease);
+}
+
+.hp-res-link:hover {
+  color: #48BC7D;
+  background: rgba(101, 27, 200, 0.06);
+  transform: translateX(2px);
+}
+
+.dark .hp-res-link:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hp-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--vp-c-text-3);
+  text-decoration: none;
+  transition: color var(--t-base) var(--ease);
+}
+
+.hp-view-all:hover {
+  color: #00B8DB;
+}
+
+.hp-view-all .hp-arrow {
+  transition: transform var(--t-base) var(--ease);
+}
+
+.hp-view-all:hover .hp-arrow {
+  transform: translateX(2px);
+}
+
+
+/* --- University Card --- */
+
+.hp-uni {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  position: relative;
+  transition: border-color var(--t-slow) var(--ease),
+              box-shadow var(--t-slow) var(--ease);
+}
+
+.dark .hp-uni {
+  border-radius: 0;
+  border-color: rgba(101, 27, 200, 0.25);
+}
+
+.hp-uni::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #651BC8, #00B8DB);
+}
+
+.dark .hp-uni::before {
+  background: linear-gradient(90deg, #FF6C04, #651BC8, #00B8DB);
+}
+
+.hp-uni:hover {
+  box-shadow: 0 4px 20px rgba(101, 27, 200, 0.08);
+}
+
+.dark .hp-uni:hover {
+  border-color: rgba(101, 27, 200, 0.4);
+}
+
+.hp-uni-img {
+  background: var(--vp-c-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  overflow: hidden;
+}
+
+.hp-uni-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hp-uni-body {
+  padding: 28px 32px;
+}
+
+.hp-uni-body h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  border: none;
+  padding: 0;
+}
+
+.hp-uni-desc {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.hp-uni-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00B8DB;
+  text-decoration: none;
+  transition: color var(--t-base) var(--ease);
+}
+
+.hp-uni-link:hover {
+  color: #48BC7D;
+}
+
+.hp-uni-link .hp-arrow {
+  transition: transform var(--t-base) var(--ease);
+}
+
+.hp-uni-link:hover .hp-arrow {
+  transform: translateX(3px);
+}
+
+
+/* --- FAQ --- */
+
+.hp-faq-layout {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.hp-faq-intro h2 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+  border: none;
+  padding: 0;
+}
+
+.hp-faq-intro-desc {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  margin-bottom: 20px;
+  line-height: 1.65;
+}
+
+.hp-faq-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--vp-font-family-base);
+  color: var(--vp-c-text-1);
+  background: transparent;
+  border: 1px solid #651BC8;
+  border-radius: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--t-base) var(--ease);
+}
+
+.hp-faq-btn:hover {
+  background: #48BC7D;
+  border-color: #48BC7D;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.hp-faq-btn:active {
+  transform: translateY(0);
+  transition-duration: var(--t-fast);
+}
+
+.hp-faq-btn .hp-arrow {
+  transition: transform var(--t-base) var(--ease);
+}
+
+.hp-faq-btn:hover .hp-arrow {
+  transform: translateX(3px);
+}
+
+.hp-faq-list {
+  border-top: 1px solid #e2e0e6;
+}
+
+.dark .hp-faq-list {
+  border-top-color: #651BC8;
+}
+
+.hp-faq-item {
+  border-bottom: 1px solid #e2e0e6;
+}
+
+.dark .hp-faq-item {
+  border-bottom-color: #651BC8;
+}
+
+.hp-faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  list-style: none;
+  transition: color var(--t-base) var(--ease);
+}
+
+.hp-faq-item summary::-webkit-details-marker { display: none; }
+.hp-faq-item summary::marker { display: none; content: ''; }
+
+.hp-faq-item summary:hover {
+  color: var(--vp-c-text-1);
+}
+
+.hp-faq-icon {
+  color: #651BC8;
+  font-size: 18px;
+  font-weight: 300;
+  flex-shrink: 0;
+  margin-left: 12px;
+  transition: transform var(--t-base) var(--ease);
+}
+
+.dark .hp-faq-icon {
+  color: #9241FF;
+}
+
+.hp-faq-item[open] .hp-faq-icon {
+  transform: rotate(45deg);
+}
+
+.hp-faq-item[open] summary {
+  color: var(--vp-c-text-1);
+}
+
+.hp-faq-answer {
+  padding: 0 0 16px;
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  line-height: 1.65;
+  animation: hp-faq-open 300ms var(--ease) forwards;
+}
+
+@keyframes hp-faq-open {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hp-faq-answer a {
+  color: #00B8DB;
+  text-decoration: none;
+  transition: color var(--t-fast) var(--ease);
+}
+
+.hp-faq-answer a:hover {
+  color: #48BC7D;
+}
+
+
+/* --- Branch Links CTA --- */
+
+.hp-links-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hp-links-label {
+  font-family: var(--vp-font-family-mono);
+  font-size: 12px;
+  color: #FF6C04;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.hp-links-layout h2 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+  border: none;
+  padding: 0;
+}
+
+.hp-links-desc {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.hp-links-img {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--vp-c-bg-soft);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .hp-links-img {
+  border-radius: 0;
+  border-color: rgba(101, 27, 200, 0.25);
+}
+
+.hp-links-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* --- Contact Cards --- */
+
+.hp-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.hp-contact-card {
+  padding: 24px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform var(--t-slow) var(--ease),
+              border-color var(--t-slow) var(--ease),
+              box-shadow var(--t-slow) var(--ease);
+}
+
+.dark .hp-contact-card {
+  border-radius: 0;
+  border-color: rgba(101, 27, 200, 0.25);
+}
+
+.hp-contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(101, 27, 200, 0.10);
+}
+
+.dark .hp-contact-card:hover {
+  border-color: rgba(101, 27, 200, 0.4);
+}
+
+.hp-contact-card:active {
+  transform: translateY(0);
+  transition-duration: var(--t-fast);
+}
+
+.hp-contact-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  border: none;
+  padding: 0;
+}
+
+.hp-contact-desc {
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.hp-contact-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: #00B8DB;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color var(--t-base) var(--ease);
+}
+
+.hp-contact-card:hover .hp-contact-link {
+  color: #48BC7D;
+}
+
+.hp-contact-link .hp-arrow {
+  transition: transform var(--t-base) var(--ease);
+}
+
+.hp-contact-card:hover .hp-contact-link .hp-arrow {
+  transform: translateX(3px);
+}
+
+
+/* ============================================================================
+   14. RESPONSIVE (homepage sections)
+   ============================================================================ */
+
+@media (max-width: 900px) {
+  .hp-res-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hp-res-col + .hp-res-col::before { display: none; }
+  .hp-res-col:nth-child(1),
+  .hp-res-col:nth-child(2) {
+    border-bottom: 1px solid var(--vp-c-divider);
+  }
+  .hp-faq-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .hp-links-layout {
+    grid-template-columns: 1fr;
+  }
+  .hp-links-img { display: none; }
+  .hp-contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .hp-uni {
+    grid-template-columns: 1fr;
+  }
+  .hp-uni-img { display: none; }
+}
+
+@media (max-width: 560px) {
+  .hp-res-grid {
+    grid-template-columns: 1fr;
+  }
+  .hp-res-col + .hp-res-col::before { display: none; }
+  .hp-res-col {
+    border-bottom: 1px solid var(--vp-c-divider);
+  }
+  .hp-res-col:last-child {
+    border-bottom: none;
+  }
+}
+
+
+/* ============================================================================
+   15. REDUCED MOTION
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal,
+  .stagger .stagger-item {
+    opacity: 1;
+    transform: none;
+  }
+}
