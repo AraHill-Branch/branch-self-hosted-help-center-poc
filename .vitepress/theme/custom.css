@@ -128,10 +128,31 @@
    5. NAV
    ====================== */
 
-/* --- Default nav (article pages) --- */
+/* --- Force nav to always be in dark mode --- */
+.VPNavBar {
+  background: rgba(9, 1, 19, 0.85) !important;
+  border-bottom-color: rgba(101, 27, 200, 0.25) !important;
+}
+
+.VPNavBar .wrapper,
+.VPNavBar .container,
+.VPNavBar .content,
+.VPNavBar:not(.home.top) .content-body {
+  background-color: rgba(9, 1, 19, 0.85) !important;
+}
+
 .VPNavBar .logo {
   height: 28px;
   width: auto;
+}
+
+/* Force dark mode text colors in nav */
+.VPNavBarTitle .title,
+.VPNavBarMenuLink .text,
+.VPNavBarMenuGroup .text,
+.VPNavBarMenuGroup .VPMenuGroup .text,
+.VPNavBar .VPLink {
+  color: rgba(255, 255, 255, 0.87) !important;
 }
 
 .VPNavBarMenuLink {
@@ -139,24 +160,52 @@
 }
 
 .VPNavBarMenuLink:hover .text,
-.VPNavBarMenuLink.active .text {
-  color: #48BC7D;
+.VPNavBarMenuLink.active .text,
+.VPNavBar .VPLink:hover {
+  color: #48BC7D !important;
 }
 
 .VPNavBarMenuGroup .text {
   font-size: 16px;
 }
 
+/* Force dropdown menu dark mode */
+.VPNavBarMenuGroup .VPMenu {
+  background: rgba(15, 2, 31, 0.95) !important;
+  border-color: rgba(101, 27, 200, 0.3) !important;
+}
+
+.VPNavBarMenuGroup .VPMenuLink {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.VPNavBarMenuGroup .VPMenuLink:hover {
+  background: rgba(101, 27, 200, 0.15) !important;
+  color: #48BC7D !important;
+}
+
+/* Force hamburger menu icon dark mode */
+.VPNavBarHamburger .container .top,
+.VPNavBarHamburger .container .middle,
+.VPNavBarHamburger .container .bottom {
+  background: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* Force social links dark mode */
+.VPNavBar .VPSocialLink {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.VPNavBar .VPSocialLink:hover {
+  color: #48BC7D !important;
+}
+
+
 /* --- Homepage-specific nav styles --- */
 .VPHome ~ .VPNav .VPNavBar,
 body:has(.VPHome) .VPNavBar {
   position: relative !important;
   margin-top: 20px;
-}
-
-.dark .VPHome ~ .VPNav .VPNavBar,
-.dark body:has(.VPHome) .VPNavBar {
-  background: rgba(9, 1, 19, 0.85);
 }
 
 /* Hide appearance toggle only on homepage */
