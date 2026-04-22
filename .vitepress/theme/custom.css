@@ -230,29 +230,33 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 650px;
+  bottom: 0;
+  height: 25%;
   background-image: url('/banner_bg.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.85;
 }
 
-/* Optional: Add gradient overlay on top of the background image */
+/* Gradient overlay on top of the background image */
 .VPHome::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 750px;
-  background: radial-gradient(
-    ellipse at center top,
-    rgba(9, 1, 19, 0.1) 0%,
-    rgba(9, 1, 19, 0.4) 70%,
-    rgba(9, 1, 19, 0.85) 100%
+  bottom: 0;
+  min-height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 1, 19, 0.3) 0%,
+    rgba(9, 1, 19, 0.1) 5%,
+    rgba(9, 1, 19, 0.2) 10%,
+    rgba(9, 1, 19, 0.5) 18%,
+    rgba(9, 1, 19, 0.8) 23%,
+    #090113 27%
   );
   pointer-events: none;
   z-index: 0;

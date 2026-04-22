@@ -65,7 +65,7 @@ const { frontmatter } = useData()
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 60px;
+  margin: 60px 0px 140px 0px;
   animation: vp-enter var(--t-entrance) var(--ease-out-expo) 220ms both;
 }
 
