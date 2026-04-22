@@ -123,12 +123,29 @@
    5. NAV
    ====================== */
 .dark .VPNavBar {
-  background: rgba(9, 1, 19, 0.85) !important;
+  background: rgba(9, 1, 19, 0.85);
+}
+
+.VPNavBar .logo {
+  height: 28px;
+  width: auto;
+}
+
+.VPNavBarMenuLink {
+  font-size: 16px !important;
 }
 
 .VPNavBarMenuLink:hover .text,
 .VPNavBarMenuLink.active .text {
   color: #48BC7D;
+}
+
+.VPNavBarMenuGroup .text {
+  font-size: 16px;
+}
+
+.VPNavBarAppearance.appearance {
+  display: none;
 }
 
 /* ======================
@@ -237,6 +254,10 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+.VPHero {
+  padding-top: 100px !important;
+}
+
 .VPHero .name    { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 60ms both; }
 .VPHero .tagline { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 140ms both; }
 .VPHero .actions { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 220ms both; }
@@ -321,7 +342,12 @@
   box-shadow: none;
 }
 
+.VPNav {
+  position: relative !important;
+}
+
 .VPNavBar {
+  position: relative !important;
   transition: background var(--t-slow) var(--ease),
               border-color var(--t-slow) var(--ease);
   margin-top: 20px;
@@ -1618,7 +1644,9 @@ body,
 
 @media (min-width: 768px) {
   .VPNav .wrapper .container {
-    max-width: calc(var(--vp-layout-max-width) - 292px) !important;
-    margin: auto !important;
+    max-width: calc(var(--vp-layout-max-width) - 292px);
+    margin: auto;
+    box-shadow: 0 4px 27px 3px rgba(234, 45, 127, .12);
+    padding: 0px 15px;
   }
 }
