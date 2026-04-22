@@ -92,15 +92,21 @@ export default defineConfig({
     }
   },
   themeConfig: {
+    logo: '/branch-logo-white.png',
+    siteTitle: false,
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Account Hub', link: '/account-hub/' },
-      { text: 'Marketer Hub', link: '/marketer-hub/' },
-      { text: 'Developer Hub', link: '/developer-hub/' }
+      {
+        text: 'Account Hub',
+        items: [
+          { text: 'Account Hub', link: '/account-hub/' },
+          { text: 'Marketer Hub', link: '/marketer-hub/' },
+          { text: 'Developer Hub', link: '/developer-hub/' }
+        ]
+      },
+      { text: 'API Documentation', link: '/apidocs/' },
+      { text: 'Branch', link: 'https://app.branch.io' }
     ],
-    search: {
-      provider: 'local'
-    },
     sidebar,
     editLink: {
       pattern: 'https://github.com/AraHill-Branch/branch-self-hosted-help-center-poc/edit/main/:path',

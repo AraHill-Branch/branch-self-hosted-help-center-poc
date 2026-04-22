@@ -159,5 +159,12 @@ watch(() => route.path, () => {
 </script>
 
 <template>
-  <Layout />
+  <Layout>
+    <template #home-hero-after>
+      <div class="hp-hero-search">
+        <input type="text" placeholder="Search" class="hp-search-input">
+        <span class="hp-search-kbd">CMD + K</span>
+      </div>
+    </template>
+  </Layout>
 </template>
