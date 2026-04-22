@@ -1,5 +1,7 @@
 ---
-layout: page
+aside: false
+outline: false
+pageClass: api-operation-page
 title: Deep Linking API
 ---
 
