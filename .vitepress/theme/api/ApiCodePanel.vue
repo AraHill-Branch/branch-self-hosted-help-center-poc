@@ -2,6 +2,14 @@
 import { computed, ref, watch } from 'vue'
 import type { OpenApiOperation, OpenApiSchema } from './spec'
 import { buildExample, generateSample, type SampleLang } from './codegen'
+import HighlightedCode from './HighlightedCode.vue'
+
+const sampleLangToShikiLang: Record<SampleLang, string> = {
+  curl: 'bash',
+  javascript: 'javascript',
+  python: 'python',
+  php: 'php',
+}
 
 const props = defineProps<{
   operation: OpenApiOperation
@@ -196,7 +204,11 @@ function statusClass(code: number | null) {
         <div v-if="responseImageUrl" class="api-panel-image-response">
           <img :src="responseImageUrl" alt="Binary response from API" />
         </div>
-        <pre v-else-if="responseBody"><code>{{ responseBody }}</code></pre>
+        <HighlightedCode
+          v-else-if="responseBody"
+          :code="responseBody"
+          :lang="responseIsJson ? 'json' : 'txt'"
+        />
       </div>
     </div>
 
@@ -219,7 +231,10 @@ function statusClass(code: number | null) {
           <span v-if="!copied">Copy</span>
           <span v-else>Copied</span>
         </button>
-        <pre><code>{{ currentSample }}</code></pre>
+        <HighlightedCode
+          :code="currentSample"
+          :lang="sampleLangToShikiLang[activeLang]"
+        />
       </div>
     </div>
   </div>
