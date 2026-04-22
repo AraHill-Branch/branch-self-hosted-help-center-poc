@@ -70,6 +70,8 @@ export default defineConfig({
     }
   },
   themeConfig: {
+    logo: '/branch-logo-white.png',
+    siteTitle: false,
     nav: [
       { text: 'Home', link: '/' },
       {
@@ -83,9 +85,6 @@ export default defineConfig({
       { text: 'API Documentation', link: '/apidocs/' },
       { text: 'Branch', link: 'https://app.branch.io' }
     ],
-    search: {
-      provider: 'local'
-    },
     sidebar,
     editLink: {
       pattern: 'https://github.com/AraHill-Branch/branch-self-hosted-help-center-poc/edit/main/:path',
