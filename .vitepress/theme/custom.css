@@ -123,12 +123,25 @@
    5. NAV
    ====================== */
 .dark .VPNavBar {
-  background: rgba(9, 1, 19, 0.85) !important;
+  background: rgba(9, 1, 19, 0.85);
+}
+
+.VPNavBar .logo {
+  height: 28px;
+  width: auto;
+}
+
+.VPNavBarMenuLink {
+  font-size: 16px !important;
 }
 
 .VPNavBarMenuLink:hover .text,
 .VPNavBarMenuLink.active .text {
   color: #48BC7D;
+}
+
+.VPNavBarMenuGroup .text {
+  font-size: 16px;
 }
 
 /* ======================
@@ -1618,7 +1631,7 @@ body,
 
 @media (min-width: 768px) {
   .VPNav .wrapper .container {
-    max-width: calc(var(--vp-layout-max-width) - 292px) !important;
-    margin: auto !important;
+    max-width: calc(var(--vp-layout-max-width) - 292px);
+    margin: auto;
   }
 }

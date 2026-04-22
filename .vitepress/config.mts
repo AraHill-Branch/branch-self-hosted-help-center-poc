@@ -95,7 +95,6 @@ export default defineConfig({
     logo: '/branch-logo-white.png',
     siteTitle: false,
     nav: [
-      { text: 'Home', link: '/' },
       {
         text: 'Account Hub',
         items: [
