@@ -1,9 +1,13 @@
 import { defineConfig } from 'vitepress'
-import { generateSidebar } from 'vitepress-sidebar'
 import yamlPlugin from '@rollup/plugin-yaml'
 import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import yaml from 'js-yaml'
+import {
+  accountHubSidebar,
+  marketerHubSidebar,
+  developerHubSidebar,
+} from './sidebar-hubs'
 
 // Build the /apidocs/ sidebar from the filesystem at config-load time.
 // Each folder under apidocs/ with an openapi.yaml becomes a collapsible
@@ -52,62 +56,9 @@ function buildApidocsSidebar() {
 }
 
 const sidebar = {
-  ...generateSidebar([
-  {
-    documentRootPath: '/',
-    scanStartPath: 'account-hub',
-    resolvePath: '/account-hub/',
-    useTitleFromFileHeading: true,
-    useTitleFromFrontmatter: true,
-    frontmatterTitleFieldName: 'title',
-    useFolderTitleFromIndexFile: true,
-    useFolderLinkFromIndexFile: true,
-    hyphenToSpace: true,
-    underscoreToSpace: true,
-    capitalizeFirst: true,
-    capitalizeEachWords: true,
-    collapsed: false,
-    collapseDepth: 2,
-    excludeByGlobPattern: ['**/\\[*\\].md'],
-    rootGroupText: 'Account Hub'
-  },
-  {
-    documentRootPath: '/',
-    scanStartPath: 'marketer-hub',
-    resolvePath: '/marketer-hub/',
-    useTitleFromFileHeading: true,
-    useTitleFromFrontmatter: true,
-    frontmatterTitleFieldName: 'title',
-    useFolderTitleFromIndexFile: true,
-    useFolderLinkFromIndexFile: true,
-    hyphenToSpace: true,
-    underscoreToSpace: true,
-    capitalizeFirst: true,
-    capitalizeEachWords: true,
-    collapsed: false,
-    collapseDepth: 2,
-    excludeByGlobPattern: ['**/\\[*\\].md'],
-    rootGroupText: 'Marketer Hub'
-  },
-  {
-    documentRootPath: '/',
-    scanStartPath: 'developer-hub',
-    resolvePath: '/developer-hub/',
-    useTitleFromFileHeading: true,
-    useTitleFromFrontmatter: true,
-    frontmatterTitleFieldName: 'title',
-    useFolderTitleFromIndexFile: true,
-    useFolderLinkFromIndexFile: true,
-    hyphenToSpace: true,
-    underscoreToSpace: true,
-    capitalizeFirst: true,
-    capitalizeEachWords: true,
-    collapsed: false,
-    collapseDepth: 2,
-    excludeByGlobPattern: ['**/\\[*\\].md'],
-    rootGroupText: 'Developer Hub'
-  }
-]),
+  '/account-hub/': accountHubSidebar,
+  '/marketer-hub/': marketerHubSidebar,
+  '/developer-hub/': developerHubSidebar,
   '/apidocs/': buildApidocsSidebar(),
 }
 
