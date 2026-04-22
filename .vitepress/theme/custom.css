@@ -157,3 +157,1396 @@
 .dark .vp-doc th {
   background: #130326;
 }
+
+
+/* ============================================================================
+
+   MOTION SYSTEM & HOMEPAGE DESIGN
+   Everything below this line was added to the original CSS.
+   Sections 1–7 above are unchanged.
+
+   ============================================================================ */
+
+
+/* ============================================================================
+   8. MOTION TOKENS
+   One easing curve for interactions, one for entrances, one for spring.
+   Consistent durations across every component on the site.
+   ============================================================================ */
+
+:root {
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 120ms;
+  --t-base: 220ms;
+  --t-slow: 380ms;
+  --t-entrance: 650ms;
+}
+
+
+/* ============================================================================
+   9. AMBIENT GLOW (homepage only)
+   Positioned inside .VPHome so it scrolls with content and doesn't
+   overlay other pages. Breathes on a 9s cycle.
+   ============================================================================ */
+
+.VPHome {
+  position: relative;
+  overflow: hidden;
+}
+
+.VPHome::before {
+  content: '';
+  position: absolute;
+  top: -180px;
+  left: 50%;
+  width: 900px;
+  height: 600px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(101, 27, 200, 0.09) 0%,
+    rgba(101, 27, 200, 0.03) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: hp-breathe 9s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes hp-breathe {
+  0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 1;   transform: translateX(-50%) scale(1.05); }
+}
+
+
+/* ============================================================================
+   10. ENTRANCE ANIMATIONS (homepage)
+   Staggered slide-up on hero elements and feature cards.
+   ============================================================================ */
+
+@keyframes vp-enter {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.VPHero .name    { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 60ms both; }
+.VPHero .tagline { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 140ms both; }
+.VPHero .actions { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 220ms both; }
+
+.VPFeatures .item:nth-child(1) .VPFeature { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 300ms both; }
+.VPFeatures .item:nth-child(2) .VPFeature { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 370ms both; }
+.VPFeatures .item:nth-child(3) .VPFeature { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 440ms both; }
+
+
+/* ============================================================================
+   11. GLOBAL HOVER REFINEMENT
+   Smooth transitions on VitePress built-in components:
+   feature cards, buttons, nav links.
+   ============================================================================ */
+
+.VPFeature {
+  transition: transform var(--t-slow) var(--ease),
+              border-color var(--t-slow) var(--ease),
+              box-shadow var(--t-slow) var(--ease),
+              background var(--t-slow) var(--ease);
+}
+
+.VPFeature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(101, 27, 200, 0.10);
+}
+
+.dark .VPFeature:hover {
+  border-color: rgba(101, 27, 200, 0.55);
+  background: rgba(19, 3, 38, 0.8);
+}
+
+.VPFeature:active {
+  transform: translateY(0);
+  transition-duration: var(--t-fast);
+}
+
+.VPFeature .icon img {
+  transition: transform var(--t-slow) var(--ease-spring);
+}
+
+.VPFeature:hover .icon img {
+  transform: scale(1.06);
+}
+
+.VPFeature .title {
+  transition: color var(--t-base) var(--ease);
+}
+
+.VPFeature .details {
+  transition: color var(--t-slow) var(--ease);
+}
+
+.VPFeature .link-text {
+  transition: color var(--t-base) var(--ease);
+}
+
+.VPFeature:hover .link-text {
+  color: #48BC7D;
+}
+
+.VPNavBarMenuLink .text {
+  transition: color var(--t-base) var(--ease);
+}
+
+.VPButton {
+  transition: background var(--t-base) var(--ease),
+              border-color var(--t-base) var(--ease),
+              color var(--t-base) var(--ease),
+              transform var(--t-base) var(--ease),
+              box-shadow var(--t-slow) var(--ease);
+}
+
+.VPButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(101, 27, 200, 0.12);
+}
+
+.VPButton:active {
+  transform: translateY(0);
+  transition-duration: var(--t-fast);
+  box-shadow: none;
+}
+
+.VPNavBar {
+  transition: background var(--t-slow) var(--ease),
+              border-color var(--t-slow) var(--ease);
+}
+
+.VPSidebarItem .text {
+  transition: color var(--t-base) var(--ease);
+}
+
+.VPSidebarItem .caret {
+  transition: transform var(--t-base) var(--ease);
+}
+
+
+/* ============================================================================
+   12. SCROLL REVEAL SYSTEM
+   .reveal fades up when it enters the viewport.
+   .stagger cascades children with 55ms delay each.
+   Driven by IntersectionObserver in Layout.vue.
+   ============================================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--t-entrance) var(--ease-out-expo),
+              transform var(--t-entrance) var(--ease-out-expo);
+}
+
+.reveal.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger .stagger-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 500ms var(--ease-out-expo),
+              transform 500ms var(--ease-out-expo);
+}
+
+.stagger.vis .stagger-item { opacity: 1; transform: translateY(0); }
+.stagger.vis .stagger-item:nth-child(1) { transition-delay: 0ms; }
+.stagger.vis .stagger-item:nth-child(2) { transition-delay: 55ms; }
+.stagger.vis .stagger-item:nth-child(3) { transition-delay: 110ms; }
+.stagger.vis .stagger-item:nth-child(4) { transition-delay: 165ms; }
+
+
+/* ============================================================================
+   13. HOMEPAGE CUSTOM SECTIONS
+   Prefixed .hp- to avoid collisions with VitePress.
+   ============================================================================ */
+
+/* --- Layout & resets --- */
+
+.hp-wrap {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.hp-wrap h2,
+.hp-wrap h3 {
+  border-top: none;
+  border-bottom: none;
+  padding-top: 0;
+  margin-top: 0;
+  letter-spacing: -0.02em;
+}
+
+.hp-wrap h2::before,
+.hp-wrap h3::before {
+  display: none;
+}
+
+.hp-wrap a {
+  font-weight: inherit;
+}
+
+.hp-section {
+  padding: 48px 0;
+}
+
+.hp-section-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.hp-section-head h2 {
+  font-size: 28px;
+  font-weight: 700;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+.hp-section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--vp-c-divider), transparent);
+}
+
+.dark .hp-section-line {
+  background: linear-gradient(to right, rgba(101, 27, 200, 0.3), transparent);
+}
+
+
+/* --- Shared: outline button --- */
+
+a.hp-btn,
+a.hp-btn:link,
+a.hp-btn:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--vp-font-family-base);
+  line-height: 1.4;
+  color: var(--vp-c-text-1) !important;
+  background: transparent;
+  border: 1px solid #651BC8;
+  border-radius: 0;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: background var(--t-base) var(--ease),
+              border-color var(--t-base) var(--ease),
+              color var(--t-base) var(--ease),
+              transform var(--t-base) var(--ease),
+              box-shadow var(--t-slow) var(--ease);
+}
+
+a.hp-btn:hover {
+  background: #48BC7D;
+  border-color: #48BC7D;
+  color: #fff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(72, 188, 125, 0.18);
+}
+
+a.hp-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+  transition-duration: var(--t-fast);
+}
+
+a.hp-btn:focus-visible {
+  outline: 2px solid #651BC8;
+  outline-offset: 2px;
+}
+
+a.hp-btn .hp-arrow {
+  display: inline-block;
+  transition: transform var(--t-base) var(--ease);
+}
+
+a.hp-btn:hover .hp-arrow {
+  transform: translateX(3px);
+}
+
+
+/* --- Featured resources grid --- */
+
+.hp-res-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dark .hp-res-grid {
+  border-radius: 0;
+  border-color: rgba(101, 27, 200, 0.25);
+}
+
+.hp-res-col {
+  padding: 24px;
+  position: relative;
+  transition: background var(--t-slow) var(--ease);
+}
+
+.hp-res-col:hover {
+  background: rgba(101, 27, 200, 0.03);
+}
+
+.dark .hp-res-col:hover {
+  background: rgba(146, 65, 255, 0.04);
+}
+
+.hp-res-col + .hp-res-col::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--vp-c-divider) 0%, transparent 100%);
+}
+
+.dark .hp-res-col + .hp-res-col::before {
+  background: linear-gradient(180deg, rgba(101, 27, 200, 0.3) 0%, transparent 100%);
+}
+
+.hp-res-col h3 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--vp-c-text-2);
+  margin: 0 0 14px;
+  padding: 0;
+}
+
+.hp-res-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hp-res-list li {
+  margin-bottom: 2px;
+}
+
+a.hp-res-link,
+a.hp-res-link:link,
+a.hp-res-link:visited {
+  display: block;
+  padding: 5px 8px;
+  margin: 0 -8px;
+  font-size: 14px;
+  color: #00B8DB !important;
+  text-decoration: none !important;
+  border-radius: 4px;
+  transition: color var(--t-fast) var(--ease),
+              background var(--t-base) var(--ease),
+              transform var(--t-base) var(--ease);
+}
+
+a.hp-res-link:hover {
+  color: #48BC7D !important;
+  background: rgba(101, 27, 200, 0.05);
+  transform: translateX(3px);
+}
+
+.dark a.hp-res-link:hover {
+  background: rgba(146, 65, 255, 0.06);
+}
+
+a.hp-res-link:focus-visible {
+  outline: 2px solid #00B8DB;
+  outline-offset: -2px;
+}
+
+a.hp-view-all,
+a.hp-view-all:link,
+a.hp-view-all:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--vp-c-text-3) !important;
+  text-decoration: none !important;
+  transition: color var(--t-base) var(--ease);
+}
+
+a.hp-view-all:hover {
+  color: #00B8DB !important;
+}
+
+a.hp-view-all .hp-arrow {
+  display: inline-block;
+  transition: transform var(--t-base) var(--ease);
+}
+
+a.hp-view-all:hover .hp-arrow {
+  transform: translateX(3px);
+}
+
+
+/* --- University card --- */
+
+.hp-uni {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  position: relative;
+  transition: border-color var(--t-slow) var(--ease),
+              box-shadow var(--t-slow) var(--ease),
+              transform var(--t-slow) var(--ease);
+}
+
+.dark .hp-uni {
+  border-radius: 0;
+  border-color: rgba(101, 27, 200, 0.25);
+}
+
+.hp-uni::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #651BC8, #00B8DB);
+  z-index: 1;
+}
+
+.dark .hp-uni::before {
+  background: linear-gradient(90deg, #FF6C04, #651BC8, #00B8DB);
+}
+
+.hp-uni:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(101, 27, 200, 0.08);
+}
+
+.dark .hp-uni:hover {
+  border-color: rgba(101, 27, 200, 0.4);
+  box-shadow: 0 6px 24px rgba(101, 27, 200, 0.12);
+}
+
+.hp-uni-img {
+  background: var(--vp-c-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  overflow: hidden;
+}
+
+.hp-uni-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-slow) var(--ease);
+}
+
+.hp-uni:hover .hp-uni-img img {
+  transform: scale(1.03);
+}
+
+.hp-uni-body {
+  padding: 28px 32px;
+}
+
+.hp-uni-body h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+.hp-uni-desc {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+a.hp-uni-link,
+a.hp-uni-link:link,
+a.hp-uni-link:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00B8DB !important;
+  text-decoration: none !important;
+  transition: color var(--t-base) var(--ease);
+}
+
+a.hp-uni-link:hover {
+  color: #48BC7D !important;
+}
+
+a.hp-uni-link .hp-arrow {
+  display: inline-block;
+  transition: transform var(--t-base) var(--ease);
+}
+
+a.hp-uni-link:hover .hp-arrow {
+  transform: translateX(3px);
+}
+
+
+/* --- FAQ --- */
+
+.hp-faq-layout {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.hp-faq-intro h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.hp-faq-intro-desc {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  margin-bottom: 20px;
+  line-height: 1.65;
+}
+
+.hp-faq-list {
+  border-top: 1px solid #e2e0e6;
+}
+
+.dark .hp-faq-list {
+  border-top-color: #651BC8;
+}
+
+.hp-faq-item {
+  border-bottom: 1px solid #e2e0e6;
+}
+
+.dark .hp-faq-item {
+  border-bottom-color: #651BC8;
+}
+
+.hp-faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  list-style: none;
+  transition: color var(--t-base) var(--ease);
+  user-select: none;
+}
+
+.hp-faq-item summary::-webkit-details-marker { display: none; }
+.hp-faq-item summary::marker { display: none; content: ''; }
+
+.hp-faq-item summary:hover {
+  color: var(--vp-c-text-1);
+}
+
+.hp-faq-icon {
+  color: #651BC8;
+  font-size: 18px;
+  font-weight: 300;
+  flex-shrink: 0;
+  margin-left: 16px;
+  transition: transform var(--t-base) var(--ease),
+              color var(--t-base) var(--ease);
+}
+
+.dark .hp-faq-icon {
+  color: #9241FF;
+}
+
+.hp-faq-item[open] .hp-faq-icon {
+  transform: rotate(45deg);
+}
+
+.hp-faq-item summary:hover .hp-faq-icon {
+  color: #48BC7D;
+}
+
+.hp-faq-item[open] summary {
+  color: var(--vp-c-text-1);
+}
+
+.hp-faq-answer {
+  display: grid;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+}
+
+.hp-faq-answer-inner {
+  padding: 0 0 16px;
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  line-height: 1.65;
+  animation: hp-faq-open 350ms var(--ease) both;
+}
+
+@keyframes hp-faq-open {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hp-faq-answer a,
+.hp-faq-answer a:link,
+.hp-faq-answer a:visited {
+  color: #00B8DB !important;
+  text-decoration: none !important;
+  transition: color var(--t-fast) var(--ease);
+}
+
+.hp-faq-answer a:hover {
+  color: #48BC7D !important;
+}
+
+
+/* --- Branch Links CTA --- */
+
+.hp-links-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hp-links-label {
+  font-family: var(--vp-font-family-mono);
+  font-size: 12px;
+  color: #FF6C04;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.hp-links-layout h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.hp-links-desc {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.hp-links-img {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--vp-c-bg-soft);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .hp-links-img {
+  border-radius: 0;
+  border-color: rgba(101, 27, 200, 0.25);
+}
+
+.hp-links-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--t-slow) var(--ease);
+}
+
+.hp-links-img:hover img {
+  transform: scale(1.02);
+}
+
+
+/* --- Contact cards --- */
+
+.hp-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+a.hp-contact-card,
+a.hp-contact-card:link,
+a.hp-contact-card:visited {
+  padding: 24px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  text-decoration: none !important;
+  color: var(--vp-c-text-1) !important;
+  display: block;
+  transition: transform var(--t-slow) var(--ease),
+              border-color var(--t-slow) var(--ease),
+              box-shadow var(--t-slow) var(--ease),
+              background var(--t-slow) var(--ease);
+}
+
+.dark a.hp-contact-card,
+.dark a.hp-contact-card:link,
+.dark a.hp-contact-card:visited {
+  border-radius: 0;
+  border-color: rgba(101, 27, 200, 0.25);
+}
+
+a.hp-contact-card:hover {
+  transform: translateY(-2px);
+  color: var(--vp-c-text-1) !important;
+  box-shadow: 0 8px 28px rgba(101, 27, 200, 0.10);
+}
+
+.dark a.hp-contact-card:hover {
+  border-color: rgba(101, 27, 200, 0.45);
+  background: rgba(19, 3, 38, 0.9);
+}
+
+a.hp-contact-card:active {
+  transform: translateY(0);
+  transition-duration: var(--t-fast);
+  box-shadow: none;
+}
+
+a.hp-contact-card:focus-visible {
+  outline: 2px solid #651BC8;
+  outline-offset: 2px;
+}
+
+.hp-contact-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  padding: 0;
+  border: none;
+}
+
+.hp-contact-desc {
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.hp-contact-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: #00B8DB;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color var(--t-base) var(--ease);
+}
+
+a.hp-contact-card:hover .hp-contact-link {
+  color: #48BC7D;
+}
+
+.hp-contact-link .hp-arrow {
+  display: inline-block;
+  transition: transform var(--t-base) var(--ease);
+}
+
+a.hp-contact-card:hover .hp-contact-link .hp-arrow {
+  transform: translateX(4px);
+}
+
+
+/* ============================================================================
+   14. RESPONSIVE (homepage sections)
+   ============================================================================ */
+
+@media (max-width: 900px) {
+  .hp-res-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hp-res-col + .hp-res-col::before { display: none; }
+  .hp-res-col:nth-child(1),
+  .hp-res-col:nth-child(2) {
+    border-bottom: 1px solid var(--vp-c-divider);
+  }
+  .hp-faq-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .hp-links-layout {
+    grid-template-columns: 1fr;
+  }
+  .hp-links-img { display: none; }
+  .hp-contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .hp-uni {
+    grid-template-columns: 1fr;
+  }
+  .hp-uni-img { display: none; }
+}
+
+@media (max-width: 560px) {
+  .hp-res-grid {
+    grid-template-columns: 1fr;
+  }
+  .hp-res-col + .hp-res-col::before { display: none; }
+  .hp-res-col {
+    border-bottom: 1px solid var(--vp-c-divider);
+  }
+  .hp-res-col:last-child {
+    border-bottom: none;
+  }
+}
+
+
+/* ============================================================================
+   15. SITEWIDE MOTION
+   Every state change on the site has a duration. Nothing is instant.
+   ============================================================================ */
+
+
+/* --- View Transitions (directional page navigation) ---
+   Layout.vue sets data-vt-dir="forward" or "back" on <html>.
+   Forward: old page fades + shifts left, new page fades in from right.
+   Back: the reverse. Creates spatial navigation feel. */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Back navigation (browser back/forward buttons only) */
+[data-vt-dir="back"]::view-transition-old(root) {
+  animation-name: vt-slide-out-right;
+}
+
+[data-vt-dir="back"]::view-transition-new(root) {
+  animation-name: vt-slide-in-left;
+}
+
+/* Default: no direction — soft crossfade (article to article) */
+::view-transition-old(root) {
+  animation-name: vt-fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: vt-fade-in;
+}
+
+@keyframes vt-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes vt-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes vt-slide-out-right {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(10px); }
+}
+
+@keyframes vt-slide-in-left {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Dark mode toggle: disable root transition so the
+   circular clip-path reveal from Layout.vue takes over. */
+.dark::view-transition-old(root),
+::view-transition-old(root).dark,
+.VPSwitchAppearance::view-transition-old(root),
+.VPSwitchAppearance::view-transition-new(root) {
+  animation: none;
+}
+
+
+/* --- Doc content entrance ---
+   Layout.vue adds .doc-entered after each navigation.
+   Single subtle fade-up on the whole content area — not per-element. */
+
+.VPDoc .vp-doc {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.VPDoc .vp-doc.doc-entered {
+  animation: doc-enter 400ms var(--ease-out-expo) both;
+}
+
+@keyframes doc-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --- Sidebar --- */
+
+.VPSidebar {
+  transition: transform var(--t-slow) var(--ease),
+              opacity var(--t-slow) var(--ease);
+}
+
+.VPSidebarItem .item {
+  transition: background var(--t-base) var(--ease);
+  border-radius: 4px;
+}
+
+.VPSidebarItem .item:hover {
+  background: var(--vp-c-bg-soft);
+}
+
+/* Active indicator: smooth position + spring overshoot */
+.VPSidebarItem .indicator {
+  transition: background-color var(--t-base) var(--ease),
+              top 300ms var(--ease-spring),
+              height var(--t-base) var(--ease);
+}
+
+.VPSidebarItem.level-0 > .item > .text {
+  transition: color var(--t-base) var(--ease),
+              opacity var(--t-base) var(--ease);
+}
+
+.VPSidebarItem.collapsible > .item .caret {
+  transition: transform var(--t-base) var(--ease);
+}
+
+.VPSidebarItem .link:hover .text {
+  color: var(--vp-c-text-link-hover);
+  transition: color var(--t-base) var(--ease);
+}
+
+/* Sidebar collapse/expand: animate the group height.
+   VitePress toggles a .collapsed class on sidebar groups.
+   The children container slides open/closed with grid-rows. */
+.VPSidebarItem.collapsible .group {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows var(--t-slow) var(--ease);
+  overflow: hidden;
+}
+
+.VPSidebarItem.collapsible.collapsed .group {
+  grid-template-rows: 0fr;
+}
+
+.VPSidebarItem.collapsible .group > .VPSidebarItem.level-1 {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Children stagger: fade in when the group expands */
+.VPSidebarItem.collapsible .group .item {
+  transition: background var(--t-base) var(--ease),
+              opacity 300ms var(--ease-out-expo);
+}
+
+.VPSidebarItem.collapsible.collapsed .group .item {
+  opacity: 0;
+}
+
+
+/* --- Doc content --- */
+
+.vp-doc a {
+  transition: color var(--t-fast) var(--ease),
+              text-decoration-color var(--t-base) var(--ease);
+  text-decoration-color: transparent;
+}
+
+.vp-doc a:hover {
+  text-decoration-color: currentColor;
+}
+
+.vp-doc h1 .header-anchor,
+.vp-doc h2 .header-anchor,
+.vp-doc h3 .header-anchor,
+.vp-doc h4 .header-anchor {
+  transition: opacity var(--t-base) var(--ease),
+              color var(--t-base) var(--ease);
+}
+
+.vp-doc h1:hover .header-anchor,
+.vp-doc h2:hover .header-anchor,
+.vp-doc h3:hover .header-anchor,
+.vp-doc h4:hover .header-anchor {
+  opacity: 1;
+  color: #651BC8;
+}
+
+.dark .vp-doc h1:hover .header-anchor,
+.dark .vp-doc h2:hover .header-anchor,
+.dark .vp-doc h3:hover .header-anchor,
+.dark .vp-doc h4:hover .header-anchor {
+  color: #9241FF;
+}
+
+.vp-doc table tr {
+  transition: background var(--t-base) var(--ease);
+}
+
+.vp-doc table tr:hover {
+  background: var(--vp-c-bg-soft);
+}
+
+.dark .vp-doc table tr:hover {
+  background: rgba(146, 65, 255, 0.04);
+}
+
+
+/* --- Code blocks --- */
+
+.vp-doc div[class*="language-"] {
+  transition: border-color var(--t-slow) var(--ease),
+              box-shadow var(--t-slow) var(--ease);
+}
+
+.vp-doc div[class*="language-"]:hover {
+  border-color: rgba(101, 27, 200, 0.15);
+}
+
+.dark .vp-doc div[class*="language-"]:hover {
+  border-color: rgba(101, 27, 200, 0.45);
+  box-shadow: 0 2px 16px rgba(101, 27, 200, 0.06);
+}
+
+/* Copy button: fade in on block hover */
+.vp-doc div[class*="language-"] button.copy {
+  transition: opacity var(--t-base) var(--ease),
+              border-color var(--t-base) var(--ease),
+              background var(--t-base) var(--ease),
+              transform 280ms var(--ease-spring);
+}
+
+.vp-doc div[class*="language-"]:hover button.copy {
+  opacity: 1;
+}
+
+.vp-doc div[class*="language-"] button.copy:hover {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+}
+
+/* Copy button: spring scale on successful copy.
+   Layout.vue adds .copy-spring when .copied appears. */
+.vp-doc div[class*="language-"] button.copy.copy-spring {
+  transform: scale(1.15);
+}
+
+/* The .copied state icon gets a smooth settle */
+.vp-doc div[class*="language-"] button.copy.copied {
+  transition: opacity var(--t-base) var(--ease),
+              transform 400ms var(--ease-spring);
+  transform: scale(1);
+}
+
+
+/* --- Custom blocks (info, tip, warning, danger) --- */
+
+.vp-doc .custom-block {
+  transition: border-color var(--t-slow) var(--ease),
+              box-shadow var(--t-slow) var(--ease);
+}
+
+.vp-doc .custom-block.tip:hover {
+  box-shadow: -2px 0 8px rgba(72, 188, 125, 0.08);
+}
+
+.vp-doc .custom-block.info:hover {
+  box-shadow: -2px 0 8px rgba(101, 27, 200, 0.08);
+}
+
+.vp-doc .custom-block.warning:hover {
+  box-shadow: -2px 0 8px rgba(253, 199, 0, 0.08);
+}
+
+.vp-doc .custom-block.danger:hover {
+  box-shadow: -2px 0 8px rgba(255, 32, 86, 0.08);
+}
+
+
+/* --- Outline (table of contents) --- */
+
+.VPDocOutlineItem a {
+  transition: color var(--t-base) var(--ease);
+}
+
+.VPDocOutlineItem a:hover {
+  color: var(--vp-c-text-1);
+}
+
+.VPDocOutlineItem a.active {
+  color: var(--vp-c-brand-1);
+  transition: color var(--t-base) var(--ease);
+}
+
+
+/* --- Search modal ---
+   Staged entrance: backdrop fades 150ms,
+   shell scales in 40ms later, results cascade. */
+
+.VPLocalSearchBox {
+  --search-backdrop-duration: 150ms;
+}
+
+.VPLocalSearchBox .backdrop {
+  animation: vp-search-backdrop var(--search-backdrop-duration) var(--ease) both;
+}
+
+@keyframes vp-search-backdrop {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.VPLocalSearchBox .shell {
+  animation: vp-search-shell 220ms var(--ease-out-expo) 40ms both;
+}
+
+@keyframes vp-search-shell {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.VPLocalSearchBox .result {
+  transition: background var(--t-fast) var(--ease),
+              transform var(--t-fast) var(--ease);
+}
+
+.VPLocalSearchBox .result.selected,
+.VPLocalSearchBox .result:hover {
+  background: var(--vp-c-brand-soft);
+}
+
+.VPLocalSearchBox .result:active {
+  transform: scale(0.99);
+  transition-duration: var(--t-fast);
+}
+
+
+/* --- Nav extras --- */
+
+.VPNavBarExtra .item {
+  transition: color var(--t-base) var(--ease),
+              background var(--t-base) var(--ease);
+}
+
+.VPNavBarExtra .item:hover {
+  color: #48BC7D;
+}
+
+.VPNavBarHamburger .top,
+.VPNavBarHamburger .middle,
+.VPNavBarHamburger .bottom {
+  transition: transform var(--t-base) var(--ease),
+              opacity var(--t-fast) var(--ease);
+}
+
+.VPSwitch {
+  transition: background-color var(--t-base) var(--ease);
+}
+
+.VPSwitch .check {
+  transition: transform var(--t-base) var(--ease-spring);
+}
+
+.VPSocialLink {
+  transition: color var(--t-base) var(--ease),
+              transform var(--t-base) var(--ease);
+}
+
+.VPSocialLink:hover {
+  color: #48BC7D;
+  transform: scale(1.05);
+}
+
+.VPSocialLink:active {
+  transform: scale(0.95);
+  transition-duration: var(--t-fast);
+}
+
+
+/* --- Footer (edit link, last updated, prev/next) --- */
+
+.VPDocFooter .edit-link-button {
+  transition: color var(--t-base) var(--ease);
+}
+
+.VPDocFooter .edit-link-button:hover {
+  color: #48BC7D;
+}
+
+.VPDocFooter .pager .pager-link {
+  transition: border-color var(--t-slow) var(--ease),
+              box-shadow var(--t-slow) var(--ease),
+              transform var(--t-slow) var(--ease);
+}
+
+.VPDocFooter .pager .pager-link:hover {
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 4px 16px rgba(101, 27, 200, 0.08);
+  transform: translateY(-1px);
+}
+
+.dark .VPDocFooter .pager .pager-link:hover {
+  border-color: rgba(101, 27, 200, 0.5);
+  box-shadow: 0 4px 16px rgba(101, 27, 200, 0.12);
+}
+
+.VPDocFooter .pager .pager-link:active {
+  transform: translateY(0);
+  transition-duration: var(--t-fast);
+}
+
+.VPDocFooter .pager .pager-link .title {
+  transition: color var(--t-base) var(--ease);
+}
+
+.VPDocFooter .pager .pager-link:hover .title {
+  color: #48BC7D;
+}
+
+
+/* --- Smooth anchor scroll --- */
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+/* --- Dark mode color transitions ---
+   Scoped to the theme-transitioning class to avoid
+   firing on every repaint. View Transitions handle
+   the actual theme switch when available. */
+
+body,
+.VPNav,
+.VPSidebar,
+.VPContent,
+.VPDoc,
+.VPFooter {
+  transition: background-color 0.3s var(--ease),
+              color 0.3s var(--ease),
+              border-color 0.3s var(--ease);
+}
+
+
+/* --- Scrollbar (dark mode) --- */
+
+.dark ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(101, 27, 200, 0.25);
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(101, 27, 200, 0.4);
+}
+
+
+/* --- External link indicator ---
+   Links with target="_blank" get a subtle ↗ on hover. */
+
+.vp-doc a[target="_blank"]::after,
+.hp-wrap a[target="_blank"]:not(.hp-btn):not(.hp-contact-card)::after {
+  content: ' ↗';
+  display: inline-block;
+  font-size: 0.75em;
+  opacity: 0;
+  transform: translateX(-2px);
+  transition: opacity var(--t-base) var(--ease),
+              transform var(--t-base) var(--ease);
+}
+
+.vp-doc a[target="_blank"]:hover::after,
+.hp-wrap a[target="_blank"]:not(.hp-btn):not(.hp-contact-card):hover::after {
+  opacity: 0.7;
+  transform: translateX(1px);
+}
+
+
+/* ============================================================================
+   16. REDUCED MOTION
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal,
+  .stagger .stagger-item {
+    opacity: 1;
+    transform: none;
+  }
+  .VPDoc .vp-doc {
+    opacity: 1;
+    transform: none;
+  }
+  .VPDoc .vp-doc.doc-entered {
+    animation: none;
+  }
+  .VPSidebarItem.collapsible .group {
+    transition: none;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
