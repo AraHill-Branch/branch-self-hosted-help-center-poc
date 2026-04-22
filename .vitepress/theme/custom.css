@@ -274,15 +274,10 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Hide default VitePress hero - using custom component instead */
 .VPHero {
-  padding-top: 100px !important;
-  position: relative;
-  z-index: 1;
+  display: none;
 }
-
-.VPHero .name    { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 60ms both; }
-.VPHero .tagline { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 140ms both; }
-.VPHero .actions { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 220ms both; }
 
 
 .VPFeatures .item:nth-child(1) .VPFeature { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 300ms both; }
@@ -423,14 +418,7 @@
    Prefixed .hp- to avoid collisions with VitePress.
    ============================================================================ */
 
-/* --- Hero search bar --- */
-
-.hp-hero-search {
-  padding: 40px 378px;
-  padding-bottom: 60px;
-  position: relative;
-  z-index: 10;
-}
+/* --- Hero search bar (now in HomeHero.vue component) --- */
 
 .hp-search-input {
   width: 100%;
@@ -463,8 +451,26 @@
 }
 
 .hp-search-kbd {
-  position: initial;
-  margin-left: -80px;
+  padding: 4px 8px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px;
+  color: var(--vp-c-text-3);
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.dark .hp-search-kbd {
+  background: rgba(19, 3, 38, 0.6);
+  border-color: rgba(101, 27, 200, 0.25);
+}
+
+.hp-search-kbd-inside {
+  position: absolute;
+  right: 20px;
+  top: 50%;
   transform: translateY(-50%);
   padding: 4px 8px;
   font-family: var(--vp-font-family-mono);
@@ -476,7 +482,7 @@
   pointer-events: none;
 }
 
-.dark .hp-search-kbd {
+.dark .hp-search-kbd-inside {
   background: rgba(19, 3, 38, 0.6);
   border-color: rgba(101, 27, 200, 0.25);
 }

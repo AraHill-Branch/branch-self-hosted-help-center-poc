@@ -2,6 +2,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { useData, useRoute, useRouter } from 'vitepress'
 import { nextTick, onMounted, provide, watch } from 'vue'
+import HomeHero from './components/HomeHero.vue'
 
 const { Layout } = DefaultTheme
 const { isDark } = useData()
@@ -160,11 +161,8 @@ watch(() => route.path, () => {
 
 <template>
   <Layout>
-    <template #home-hero-after>
-      <div class="hp-hero-search">
-        <input type="text" placeholder="Search" class="hp-search-input">
-        <span class="hp-search-kbd">CMD + K</span>
-      </div>
+    <template #home-hero-before>
+      <HomeHero />
     </template>
   </Layout>
 </template>
