@@ -56,6 +56,24 @@ const sidebar = generateSidebar([
     collapseDepth: 2,
     excludeByGlobPattern: ['**/\\[*\\].md'],
     rootGroupText: 'Developer Hub'
+  },
+  {
+    documentRootPath: '/',
+    scanStartPath: 'apidocs',
+    resolvePath: '/apidocs/',
+    useTitleFromFileHeading: true,
+    useTitleFromFrontmatter: true,
+    frontmatterTitleFieldName: 'title',
+    useFolderTitleFromIndexFile: true,
+    useFolderLinkFromIndexFile: true,
+    hyphenToSpace: true,
+    underscoreToSpace: true,
+    capitalizeFirst: true,
+    capitalizeEachWords: true,
+    collapsed: false,
+    collapseDepth: 2,
+    excludeByGlobPattern: ['**/\\[*\\].md'],
+    rootGroupText: 'API Documentation'
   }
 ])
 

@@ -1,4 +1,4 @@
-import rawQrCodeSpec from '../../../developer-hub/branch-apis/qr-code/openapi.yaml'
+import rawQrCodeSpec from '../../../apidocs/qr-code/openapi.yaml'
 
 export type OpenApiSpec = {
   openapi: string
