@@ -109,6 +109,11 @@
   z-index: 1;
 }
 
+.VPFeatures .container {
+  max-width: 1158px;
+  padding: 0 20px;
+}
+
 .VPFeature .icon img {
   padding: 8px;
   border-radius: 10px;
@@ -127,8 +132,18 @@
 /* ======================
    5. NAV
    ====================== */
-.dark .VPNavBar {
-  background: rgba(9, 1, 19, 0.85);
+
+/* --- Force nav to always be in dark mode --- */
+.VPNavBar {
+  background: rgba(9, 1, 19, 0.85) !important;
+  border-bottom-color: rgba(101, 27, 200, 0.25) !important;
+}
+
+.VPNavBar .wrapper,
+.VPNavBar .container,
+.VPNavBar .content,
+.VPNavBar:not(.home.top) .content-body {
+  background-color: rgba(9, 1, 19, 0.85) !important;
 }
 
 .VPNavBar .logo {
@@ -136,20 +151,71 @@
   width: auto;
 }
 
+/* Force dark mode text colors in nav */
+.VPNavBarTitle .title,
+.VPNavBarMenuLink .text,
+.VPNavBarMenuGroup .text,
+.VPNavBarMenuGroup .VPMenuGroup .text,
+.VPNavBar .VPLink {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
 .VPNavBarMenuLink {
   font-size: 16px !important;
 }
 
 .VPNavBarMenuLink:hover .text,
-.VPNavBarMenuLink.active .text {
-  color: #48BC7D;
+.VPNavBarMenuLink.active .text,
+.VPNavBar .VPLink:hover {
+  color: #48BC7D !important;
 }
 
 .VPNavBarMenuGroup .text {
   font-size: 16px;
 }
 
-.VPNavBarAppearance.appearance {
+/* Force dropdown menu dark mode */
+.VPNavBarMenuGroup .VPMenu {
+  background: rgba(15, 2, 31, 0.95) !important;
+  border-color: rgba(101, 27, 200, 0.3) !important;
+}
+
+.VPNavBarMenuGroup .VPMenuLink {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.VPNavBarMenuGroup .VPMenuLink:hover {
+  background: rgba(101, 27, 200, 0.15) !important;
+  color: #48BC7D !important;
+}
+
+/* Force hamburger menu icon dark mode */
+.VPNavBarHamburger .container .top,
+.VPNavBarHamburger .container .middle,
+.VPNavBarHamburger .container .bottom {
+  background: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* Force social links dark mode */
+.VPNavBar .VPSocialLink {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.VPNavBar .VPSocialLink:hover {
+  color: #48BC7D !important;
+}
+
+
+/* --- Homepage-specific nav styles --- */
+.VPHome ~ .VPNav .VPNavBar,
+body:has(.VPHome) .VPNavBar {
+  position: relative !important;
+  margin-top: 20px;
+}
+
+/* Hide appearance toggle only on homepage */
+.VPHome ~ .VPNav .VPNavBarAppearance.appearance,
+body:has(.VPHome) .VPNavBarAppearance.appearance {
   display: none;
 }
 
@@ -221,6 +287,8 @@
 .VPHome {
   position: relative;
   overflow: hidden;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 /* Background image container for hero + feature cards */
@@ -230,29 +298,33 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 650px;
+  bottom: 0;
+  height: 25%;
   background-image: url('/banner_bg.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.85;
 }
 
-/* Optional: Add gradient overlay on top of the background image */
+/* Gradient overlay on top of the background image */
 .VPHome::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 750px;
-  background: radial-gradient(
-    ellipse at center top,
-    rgba(9, 1, 19, 0.1) 0%,
-    rgba(9, 1, 19, 0.4) 70%,
-    rgba(9, 1, 19, 0.85) 100%
+  bottom: 0;
+  min-height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 1, 19, 0.3) 0%,
+    rgba(9, 1, 19, 0.1) 5%,
+    rgba(9, 1, 19, 0.2) 10%,
+    rgba(9, 1, 19, 0.5) 18%,
+    rgba(9, 1, 19, 0.8) 23%,
+    #090113 27%
   );
   pointer-events: none;
   z-index: 0;
@@ -274,15 +346,10 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Hide default VitePress hero - using custom component instead */
 .VPHero {
-  padding-top: 100px !important;
-  position: relative;
-  z-index: 1;
+  display: none;
 }
-
-.VPHero .name    { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 60ms both; }
-.VPHero .tagline { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 140ms both; }
-.VPHero .actions { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 220ms both; }
 
 
 .VPFeatures .item:nth-child(1) .VPFeature { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 300ms both; }
@@ -365,15 +432,15 @@
   box-shadow: none;
 }
 
-.VPNav {
+/* Homepage-only nav positioning */
+.VPHome ~ .VPNav,
+body:has(.VPHome) .VPNav {
   position: relative !important;
 }
 
 .VPNavBar {
-  position: relative !important;
   transition: background var(--t-slow) var(--ease),
               border-color var(--t-slow) var(--ease);
-  margin-top: 20px;
 }
 
 .VPSidebarItem .text {
@@ -423,14 +490,7 @@
    Prefixed .hp- to avoid collisions with VitePress.
    ============================================================================ */
 
-/* --- Hero search bar --- */
-
-.hp-hero-search {
-  padding: 40px 378px;
-  padding-bottom: 60px;
-  position: relative;
-  z-index: 10;
-}
+/* --- Hero search bar (now in HomeHero.vue component) --- */
 
 .hp-search-input {
   width: 100%;
@@ -463,8 +523,26 @@
 }
 
 .hp-search-kbd {
-  position: initial;
-  margin-left: -80px;
+  padding: 4px 8px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px;
+  color: var(--vp-c-text-3);
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.dark .hp-search-kbd {
+  background: rgba(19, 3, 38, 0.6);
+  border-color: rgba(101, 27, 200, 0.25);
+}
+
+.hp-search-kbd-inside {
+  position: absolute;
+  right: 20px;
+  top: 50%;
   transform: translateY(-50%);
   padding: 4px 8px;
   font-family: var(--vp-font-family-mono);
@@ -476,7 +554,7 @@
   pointer-events: none;
 }
 
-.dark .hp-search-kbd {
+.dark .hp-search-kbd-inside {
   background: rgba(19, 3, 38, 0.6);
   border-color: rgba(101, 27, 200, 0.25);
 }
@@ -484,9 +562,9 @@
 /* --- Layout & resets --- */
 
 .hp-wrap {
-  max-width: 1152px;
+  max-width: 1312px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
   position: relative;
   z-index: 1;
 }
@@ -1665,7 +1743,9 @@ body,
 }
 
 @media (min-width: 768px) {
-  .VPNav .wrapper .container {
+  /* Homepage-only nav container styling */
+  .VPHome ~ .VPNav .wrapper .container,
+  body:has(.VPHome) .VPNav .wrapper .container {
     max-width: calc(var(--vp-layout-max-width) - 292px);
     margin: auto;
     box-shadow: 0 4px 27px 3px rgba(234, 45, 127, .12);
