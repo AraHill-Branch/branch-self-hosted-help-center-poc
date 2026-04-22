@@ -109,6 +109,11 @@
   z-index: 1;
 }
 
+.VPFeatures .container {
+  max-width: 1158px;
+  padding: 0 20px;
+}
+
 .VPFeature .icon img {
   padding: 8px;
   border-radius: 10px;
@@ -559,7 +564,7 @@ body:has(.VPHome) .VPNav {
 .hp-wrap {
   max-width: 1312px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 20px;
   position: relative;
   z-index: 1;
 }

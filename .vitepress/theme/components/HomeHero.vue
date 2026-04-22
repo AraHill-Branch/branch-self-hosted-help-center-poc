@@ -6,35 +6,61 @@ const { frontmatter } = useData()
 
 <template>
   <div class="hp-hero-container">
-    <div class="hp-hero-content">
-      <h1 class="name">
-        <span class="clip">{{ frontmatter.hero?.name }}</span>
-      </h1>
-      <p v-if="frontmatter.hero?.tagline" class="tagline">
-        {{ frontmatter.hero.tagline }}
-      </p>
-    </div>
-    <div class="hp-hero-search">
-      <div class="search-wrapper">
-        <input type="text" placeholder="Search" class="hp-search-input">
-        <span class="hp-search-kbd">CMD + K</span>
+    <div class="hp-hero-left">
+      <div class="hp-hero-content">
+        <h1 class="name">
+          <span class="clip">{{ frontmatter.hero?.name }}</span>
+        </h1>
+        <p v-if="frontmatter.hero?.tagline" class="tagline">
+          {{ frontmatter.hero.tagline }}
+        </p>
       </div>
+      <div class="hp-hero-search">
+        <div class="search-wrapper">
+          <input type="text" placeholder="Search" class="hp-search-input">
+          <span class="hp-search-kbd">CMD + K</span>
+        </div>
+      </div>
+    </div>
+    <div class="hp-hero-right">
+      <img src="/banner_img_v2.png" alt="Branch Help Center" class="hero-banner" />
     </div>
   </div>
 </template>
 
 <style scoped>
 .hp-hero-container {
-  max-width: 1152px;
-  margin: 80px auto;
-  padding: 0;
+  max-width: 1158px;
+  margin: 10px auto;
+  padding: 0 20px;
   position: relative;
   z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hp-hero-left {
+  display: flex;
+  flex-direction: column;
 }
 
 .hp-hero-content {
   text-align: left;
   margin-bottom: 0;
+}
+
+.hp-hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-banner {
+  width: 100%;
+  height: auto;
+  animation: vp-enter var(--t-entrance) var(--ease-out-expo) 300ms both;
 }
 
 .name {
@@ -98,6 +124,16 @@ const { frontmatter } = useData()
 @media (max-width: 768px) {
   .hp-hero-container {
     padding: 60px 24px 40px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hp-hero-right {
+    order: -1;
+  }
+
+  .hero-banner {
+    max-width: 300px;
   }
 
   .name {
