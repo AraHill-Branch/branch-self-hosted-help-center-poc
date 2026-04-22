@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import ApiSchemaTable from './ApiSchemaTable.vue'
+import HighlightedCode from './HighlightedCode.vue'
 
 const props = defineProps<{
   responses: Record<string, { description?: string; content?: Record<string, { schema?: any; examples?: any }> }>
@@ -76,6 +77,13 @@ const activeExampleString = computed(() => {
   }
 })
 
+const activeExampleLang = computed(() => {
+  const c = activeResponse.value?.content
+  if (!c) return 'txt'
+  if ('application/json' in c) return 'json'
+  return 'txt'
+})
+
 const activeIsBinary = computed(() => {
   const c = activeResponse.value?.content
   if (!c) return false
@@ -117,7 +125,7 @@ const activeIsBinary = computed(() => {
 
       <div v-if="activeExampleString" class="api-responses-example">
         <div class="api-responses-label">Example</div>
-        <pre><code>{{ activeExampleString }}</code></pre>
+        <HighlightedCode :code="activeExampleString" :lang="activeExampleLang" />
       </div>
     </div>
   </div>

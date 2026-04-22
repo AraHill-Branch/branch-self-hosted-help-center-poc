@@ -1,8 +1,58 @@
 import { defineConfig } from 'vitepress'
 import { generateSidebar } from 'vitepress-sidebar'
 import yamlPlugin from '@rollup/plugin-yaml'
+import { readdirSync, readFileSync, statSync } from 'node:fs'
+import { join } from 'node:path'
+import yaml from 'js-yaml'
 
-const sidebar = generateSidebar([
+// Build the /apidocs/ sidebar from the filesystem at config-load time.
+// Each folder under apidocs/ with an openapi.yaml becomes a collapsible
+// section with one entry per operation.
+function buildApidocsSidebar() {
+  const root = 'apidocs'
+  const sections: any[] = []
+
+  let entries: string[]
+  try { entries = readdirSync(root).sort() }
+  catch { return sections }
+
+  for (const entry of entries) {
+    const dir = join(root, entry)
+    try { if (!statSync(dir).isDirectory()) continue }
+    catch { continue }
+
+    const yamlPath = join(dir, 'openapi.yaml')
+    let spec: any
+    try { spec = yaml.load(readFileSync(yamlPath, 'utf8')) }
+    catch { continue }
+
+    const apiTitle = spec?.info?.title ?? entry
+    const items: any[] = [
+      { text: 'Overview', link: `/apidocs/${entry}/` }
+    ]
+
+    for (const verbs of Object.values<any>(spec?.paths ?? {})) {
+      for (const op of Object.values<any>(verbs ?? {})) {
+        if (!op?.operationId) continue
+        items.push({
+          text: op.summary ?? op.operationId,
+          link: `/apidocs/${entry}/operations/${op.operationId}`,
+        })
+      }
+    }
+
+    sections.push({
+      text: apiTitle,
+      collapsed: false,
+      items,
+    })
+  }
+
+  return sections
+}
+
+const sidebar = {
+  ...generateSidebar([
   {
     documentRootPath: '/',
     scanStartPath: 'account-hub',
@@ -57,7 +107,9 @@ const sidebar = generateSidebar([
     excludeByGlobPattern: ['**/\\[*\\].md'],
     rootGroupText: 'Developer Hub'
   }
-])
+]),
+  '/apidocs/': buildApidocsSidebar(),
+}
 
 export default defineConfig({
   title: "Branch Help Center",

@@ -1672,3 +1672,27 @@ body,
     padding: 0px 15px;
   }
 }
+
+
+/* ============================================================================
+   17. API OPERATION PAGE LAYOUT
+   Endpoint pages use layout: doc (default) so the left sidebar with the list
+   of endpoints stays visible, but the content container needs to break out
+   of VitePress's default narrow prose width so our 2-column ApiOperation
+   layout (content + sticky try-it/code panel) can breathe.
+   ============================================================================ */
+
+.api-operation-page .VPDoc .container,
+.api-operation-page .VPDoc .content,
+.api-operation-page .VPDoc .content-container,
+.api-operation-page .VPDoc .vp-doc {
+  max-width: none;
+}
+
+.api-operation-page .VPDoc .content {
+  padding: 0;
+}
+
+.api-operation-page .VPDoc .vp-doc {
+  padding: 0;
+}

@@ -1,4 +1,11 @@
-import rawQrCodeSpec from '../../../developer-hub/branch-apis/qr-code/openapi.yaml'
+// Auto-load every openapi.yaml under apidocs/*/. Vite resolves this glob at
+// build time via @rollup/plugin-yaml, so each spec arrives as a parsed object.
+// Drop a new folder in under apidocs/ with an openapi.yaml and it shows up
+// here with no code changes.
+const rawSpecs = import.meta.glob('../../../apidocs/*/openapi.yaml', {
+  eager: true,
+  import: 'default',
+}) as Record<string, OpenApiSpec>
 
 export type OpenApiSpec = {
   openapi: string
@@ -77,9 +84,14 @@ function enrichOperations(spec: OpenApiSpec): OpenApiSpec {
   return spec
 }
 
-const specs: Record<string, OpenApiSpec> = {
-  'qr-code': enrichOperations(deref(rawQrCodeSpec, rawQrCodeSpec)),
-}
+// Folder name (e.g. "qr-code") becomes the spec key.
+const specs: Record<string, OpenApiSpec> = Object.fromEntries(
+  Object.entries(rawSpecs).map(([path, raw]) => {
+    const folderMatch = path.match(/\/apidocs\/([^/]+)\/openapi\.yaml$/)
+    const key = folderMatch?.[1] ?? path
+    return [key, enrichOperations(deref(raw, raw))]
+  })
+)
 
 export function getOperation(operationId: string): { spec: OpenApiSpec; operation: OpenApiOperation } | null {
   for (const spec of Object.values(specs)) {
