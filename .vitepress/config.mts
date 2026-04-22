@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { generateSidebar } from 'vitepress-sidebar'
+import yamlPlugin from '@rollup/plugin-yaml'
 
 const sidebar = generateSidebar([
   {
@@ -17,6 +18,7 @@ const sidebar = generateSidebar([
     capitalizeEachWords: true,
     collapsed: false,
     collapseDepth: 2,
+    excludeByGlobPattern: ['**/\\[*\\].md'],
     rootGroupText: 'Account Hub'
   },
   {
@@ -34,6 +36,7 @@ const sidebar = generateSidebar([
     capitalizeEachWords: true,
     collapsed: false,
     collapseDepth: 2,
+    excludeByGlobPattern: ['**/\\[*\\].md'],
     rootGroupText: 'Marketer Hub'
   },
   {
@@ -51,6 +54,7 @@ const sidebar = generateSidebar([
     capitalizeEachWords: true,
     collapsed: false,
     collapseDepth: 2,
+    excludeByGlobPattern: ['**/\\[*\\].md'],
     rootGroupText: 'Developer Hub'
   }
 ])
@@ -82,6 +86,7 @@ export default defineConfig({
     }
   },
   vite: {
+    plugins: [yamlPlugin()],
     build: {
       rollupOptions: {
         onwarn(warning, warn) {

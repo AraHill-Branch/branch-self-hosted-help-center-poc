@@ -1,0 +1,462 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 03lklovud0qn9
+info:
+  title: QR Code API
+  description: The QR Code API is an HTTP API that can be use for configuring your Branch App's default QR code.
+  termsOfService: 'https://branch.io/policies/'
+  contact:
+    name: Branch Support
+    url: 'https://help.branch.io/using-branch/page/submit-a-ticket'
+    email: support@branch.io
+  version: 1.0.1
+servers:
+  - url: 'https://api2.branch.io/v2'
+tags:
+  - name: QR Code API
+    description: The QR Code API is an HTTP API that can be use for creating custom QR Codes programmatically.
+paths:
+  /qr-code:
+    post:
+      tags:
+        - QR Code API
+      summary: Create QR Code
+      description: This endpoint provides a consumer to create creating custom QR Codes programmatically. Every QR Code will contain a unique Branch link which you can deep link and track analytics with.
+      operationId: createQRCode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/qrCode_body'
+      responses:
+        '200':
+          description: Ok
+          content:
+            image/*:
+              schema: {}
+        '400':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+components:
+  schemas:
+    qrCode_body:
+      type: object
+      properties:
+        branch_key:
+          type: string
+          example: key_live_xxxx
+          description: 'The Branch key of the originating app; from your Branch Settings Dashboard i.e. accessible over https://dashboard.branch.io/account-settings/app. Please note that the key provided in example is dummy.'
+        qr_code_settings:
+          type: object
+          description: Pre-defined set of QR code related properties that works over the overall display of the QR Code
+          properties:
+            image_format:
+              type: string
+              example: png
+              description: The output image format that could be either JPEG or PNG
+              enum:
+                - png
+                - jpeg
+                - jpg
+            center_logo_url:
+              type: string
+              example: 'https://cdn.branch.io/branch-assets/00000000-og_image.png'
+              description: 'URL to the image you want as a center logo e.g. “https://cdn.branch.io/branch-assets/00000000-og_image.png”'
+            width:
+              type: integer
+              example: 300
+              description: Output size of QR Code image. Min 300px. Max 2000px. (Only applicable to JPEG/PNG)
+              minimum: 300
+              maximum: 2000
+            margin:
+              type: integer
+              example: 1
+              description: The number of pixels you want for the margin. Min 1px. Max 20px.
+              minimum: 1
+              maximum: 20
+            code_color:
+              type: string
+              description: 'Hex color value of the QR Code itself as per the https://htmlcolorcodes.com/'
+              example: '#000000'
+            background_color:
+              type: string
+              example: '#FFFFFF'
+              description: 'Hex color value of the background of the QR code itself as per the https://htmlcolorcodes.com/'
+            code_pattern:
+              type: integer
+              description: 'Instead of the generic/standard QR-Code pattern we’re used to seeing, customers can now use (1) standard, (2) squares, (3) circles, (4) triangles, (5) diamonds, (6) hexagons, and (7) octagons.'
+              enum:
+                - 1
+                - 2
+                - 3
+                - 4
+                - 5
+                - 6
+                - 7
+              default: 1
+            finder_pattern:
+              type: string
+              description: 'The finder pattern refers to the shape seen in the top left, top right, and bottom left of a QR-Code. Users can now choose between a square, a rounded square, or a circle. 1 = square, 2 = rounded rectangle, 3 = circle '
+              enum:
+                - 1
+                - 2
+                - 3
+              default: 1
+            finder_pattern_color:
+              type: string
+              description: 'Hex color value of the Finder Pattern as per the https://htmlcolorcodes.com/'
+              example: '#00A3D8'
+            background_image_url:
+              type: string
+              description: We can lay the QR-Code on top of a background image.
+            code_pattern_url:
+              type: string
+              description: Direct link to an image to be used as the code-pattern itself on the QR Code.
+            finder_eye_color:
+              type: string
+              description: 'Hex color value of the finder eye as per the https://htmlcolorcodes.com/'
+              example: '#00A3D8'
+        data:
+          type: object
+          description: 'The dictionary to embed link data behind the QR Code. Accessed as session or install parameters from the SDK. Use the data dictionary for all link control parameters that you''ll find here https://help.branch.io/using-branch/docs/creating-a-deep-link#section-redirections.'
+          properties:
+            $click_install_window_days:
+              type: string
+              description: 'Time between a click or a web to app auto redirect and an install or reinstall (i.e., https://branchster.app.link/{UNIQUE_ID_HERE}?$click_install_window_days=3'
+              example: null
+            $click_session_start_window_days:
+              type: string
+              description: 'Time between a click or a web to app auto redirect and an open or web session start. (i.e., https://branchster.app.link/{UNIQUE_ID_HERE}?$click_session_start_window_days=7)'
+              example: null
+            $click_conversion_window_days:
+              type: string
+              example: null
+              description: 'Time between a click or a web to app auto redirect and a conversion event. Conversion events include commerce events (e.g. purchase, add to cart), all custom events, and all view events like pageviews & content views. (i.e., https://branchster.app.link/{UNIQUE_ID_HERE}?$click_session_start_window_days=30)'
+            $impression_install_window_days:
+              type: string
+              example: null
+              description: 'Time between an ad impression and an install or reinstall. (i.e., https://branchster.app.link/{UNIQUE_ID_HERE}?$impression_install_window_days=3)'
+            $impression_conversion_window_days:
+              type: string
+              example: null
+              description: 'Time between an ad impression and a conversion event. Conversion events include commerce events (e.g. purchase, add to cart), all custom events, and all view events like pageviews & content views. (i.e., https://branchster.app.link/{UNIQUE_ID_HERE}?$impression_session_start_window_days=7)'
+            $fallback_url:
+              type: string
+              example: null
+              description: 'Change the redirect endpoint for all platforms - so you don''t have to enable it by platform. Note that Branch will forward all robots to this URL, which overrides any OG tags entered in the link. System-wide Default URL (set in Link Settings)'
+            $fallback_url_xx:
+              type: string
+              example: null
+              description: |
+                Change the redirect endpoint for all platforms based on lower-case Alpha-2 country code. For example, $fallback_url_de="..." would redirect Germany deep link clicks. You should also set $fallback_url to act as the global redirect in addition to the countr -specific ones. WARNING: platform specific redirects (like $ios_url or $desktop_url) are set, they will override the country-specific redirect. Thus, the recommendation is to only use $fallback_url_xx for the country specific redirects and $fallback_url to catch all other users.
+            $desktop_url:
+              type: string
+              example: null
+              description: Redirect URL for desktop devices - mobile users will default to the app store.
+            $ios_url:
+              type: string
+              example: null
+              description: Change the redirect endpoint for iOS App Store page for your app (set in Link Settings)
+            $ios_url_xx:
+              type: string
+              example: null
+              description: 'Change the redirect endpoint for iOS based on a lower-case Alpha-2 country code (https://www.iso.org/obp/ui/#search). For example, $ios_url_de="..." would redirect Germany deep link clicks. You should also set $ios_url to act as the global redirect in addition to the country-specific ones.'
+            $ipad_url:
+              type: string
+              example: null
+              description: Change the redirect endpoint for iPads $ios_url value
+            $android_url:
+              type: string
+              example: null
+              description: Change the redirect endpoint for Android Play Store page for your app (set in Link Settings)
+            $android_url_xx:
+              type: string
+              example: null
+              description: 'Change the redirect endpoint for Android based on a lower-case Alpha-2 country code (https://www.iso.org/obp/ui/#search). For example, $android_url_de="..." would redirect Germany deep link clicks. You should also set $android_url to act as the global redirect in addition to the country-specific ones.'
+            $samsung_url:
+              type: string
+              example: null
+              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME_HERE}'
+            $huawei_url:
+              type: string
+              example: null
+              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID_HERE}'
+            $windows_phone_url:
+              type: string
+              example: null
+              description: Change the redirect endpoint for Windows OS Windows Phone default URL (set in Link Settings)
+            $blackberry_url:
+              type: string
+              example: null
+              description: Change the redirect endpoint for Blackberry OS BlackBerry default URL (set in Link Settings)
+            $fire_url:
+              type: string
+              example: null
+              description: Change the redirect endpoint for Amazon Fire OS Fire default URL (set in Link Settings)
+            $ios_wechat_url:
+              type: string
+              example: null
+              description: Change the redirect endpoint for WeChat on iOS devices $ios_url value
+            $android_wechat_url:
+              type: string
+              example: null
+              description: Change the redirect endpoint for WeChat on Android devices $android_url value
+            $web_only:
+              type: boolean
+              example: null
+              description: Force to open the $fallback_url instead of the app
+            $desktop_web_only:
+              type: boolean
+              example: null
+              description: 'Force to open the $windows_desktop_url, $mac_desktop_url, $desktop_url, or $fallback_url in this order of precedence instead of the app'
+            $mobile_web_only:
+              type: boolean
+              example: null
+              description: 'Force to open the$ios_url, $android_url, or $fallback_url in this order of precedence instead of the app'
+            $after_click_url:
+              type: string
+              example: null
+              description: 'When a user returns to the browser after going to the app, take them to this URL. iOS only; Android coming soon'
+            $afterclick_desktop_url:
+              type: string
+              example: null
+              description: 'When a user on desktop returns to the desktop browser after going to the desktop app, take them to this URL.'
+            $uri_redirect_mode:
+              type: integer
+              example: 0
+              enum:
+                - 0
+                - 1
+                - 2
+              description: "- 0: This is the default value that yields the standard behavior where we don't try to open the app if the user can see an error.\n- 1:\tSmart redirect mode. Same behavior as 0 until we know the user has the app installed through Branch persona data. In that case, force URI schemes to open the app.\n- 2:\tForceful redirect mode. Always try to force open the app, even if it risks showing an error message when the app is not installed.\n"
+            $deeplink_path:
+              type: string
+              example: null
+              description: 'Set the deep link path for all platforms - so you don''t have to enable it by platform. When the Branch SDK receives a link with this parameter set, it will automatically load the custom URI path contained within'
+            $android_deeplink_path:
+              type: string
+              example: null
+              description: 'Set the deep link path for Android apps. When the Branch SDK receives a link with this parameter set, it will automatically load the custom Android URI path contained within'
+            $ios_deeplink_path:
+              type: string
+              example: null
+              description: 'Set the deep link path for iOS apps. When the Branch SDK receives a link with this parameter set, it will automatically load the custom iOS URI path contained within'
+            $ios_nativelink:
+              type: boolean
+              example: null
+              description: Set to true to make the link route to a NativeLink™ used for enabling deferred deep linking on iOS 15+ & Private Relay. Can also be set to a deepview/template key to manually trigger the launch of a specific NativeLink™ deepview.
+            $desktop_deeplink_path:
+              type: string
+              example: null
+              description: Set the deep link path for Desktop apps. You will have to fetch this parameter and route the user accordingly
+            $match_duration:
+              type: integer
+              example: null
+              description: Lets you control the snapshotting match timeout (the time that a click will wait for an app open to match) also known as attribution window. Specified in seconds
+            $always_deeplink:
+              type: boolean
+              example: null
+              description: Set to false to make links always fall back to your mobile site. Does not apply to Universal Links or Android App Links.
+            $ios_redirect_timeout:
+              type: integer
+              example: null
+              description: Control the timeout that the client-side JS waits after trying to open up the app before redirecting to the App Store. Specified in milliseconds
+            $android_redirect_timeout:
+              type: integer
+              example: null
+              description: Control the timeout that the client side JS waits after trying to open up the app before redirecting to the Play Store. Specified in milliseconds
+            $custom_sms_text:
+              type: string
+              example: null
+              description: 'Text for SMS link sent for desktop clicks to this link. Must contain {{ link }} Value of Text me the app page in Settings'
+            $marketing_title:
+              type: string
+              example: null
+              description: Set the marketing title for the deep link.
+            $deeplink_no_attribution:
+              type: boolean
+              example: null
+              description: Set to true for the links to only support deep linking without any attribution for that link.
+            $publicly_indexable:
+              type: integer
+              example: null
+              description: Cannot modify here. Needs to be set by the Branch Universal Object
+            $canonical_identifier:
+              type: string
+              example: content/123
+              description: |
+                This is the unique identifier for content that will help Branch dedupe across many instances of the same thing. Suitable options: a website with pathing, or a database with identifiers for entities
+            $canonical_url:
+              type: string
+              example: 'http://www.example.com/content/123'
+              description: |
+                This is the url set against the identifier
+            $content_type:
+              type: string
+              example: null
+              description: This is a label for the type of content present. Apple recommends that you use uniform type identifier as described here
+            $do_not_process:
+              type: boolean
+              example: null
+              description: Lets you control the snapshotting match timeout (the time that a click will wait for an app open to match) also known as attribution window. Specified in seconds
+            $ios_deepview:
+              type: string
+              example: null
+              description: The name of the deepview template to use for iOS
+            $android_deepview:
+              type: string
+              example: null
+              description: The name of the deepview template to use for Android
+            $desktop_deepview:
+              type: string
+              example: null
+              description: The name of the deepview template to use for the Desktop
+            $ios_passive_deepview:
+              type: string
+              example: null
+              description: The name of the template to use for iOS.
+            $android_passive_deepview:
+              type: string
+              example: null
+              description: The name of the template to use for Android.
+            $desktop_passive_deepview:
+              type: string
+              example: null
+              description: The name of the template to use for Desktop.
+            $og_title:
+              type: string
+              example: Title from Deep Link
+              description: Set the title of the link as it will be seen in social media displays
+            $og_description:
+              type: string
+              example: Description for QR code
+              description: Set the description of the link as it will be seen in social media displays
+            $og_image_url:
+              type: string
+              example: 'http://www.lorempixel.com/400/400/'
+              description: Set the image of the link as it will be seen in social media displays
+            $og_image_width:
+              type: integer
+              example: null
+              description: Set the image's width in pixels for social media displays
+            $og_image_height:
+              type: integer
+              example: null
+              description: Set the image's height in pixels for social media displays
+            $og_video:
+              type: string
+              example: null
+              description: Set a video as it will be seen in social media displays
+            $og_url:
+              type: string
+              example: null
+              description: Set the base URL of the link as it will be seen in social media displays
+            $og_type:
+              type: string
+              example: null
+              description: Set the type of custom card format link as it will be seen in social media displays. Don't set this property when sharing deep links on Facebook
+            $og_redirect:
+              type: string
+              example: null
+              description: '(Advanced, not recommended) Set a custom URL that we redirect the social media robots to in order to retrieve all the appropriate tags'
+            $og_app_id:
+              type: string
+              example: null
+              description: (Rarely used) Sets the app id tag
+            $twitter_card:
+              type: string
+              example: null
+              description: Set the Twitter card type of the link (e.g. player) (you must whitelist your deep link with the Twitter Card Validator
+            $twitter_title:
+              type: string
+              example: null
+              description: Set the title of the Twitter card
+            $twitter_description:
+              type: string
+              example: null
+              description: Set the description of the Twitter card
+            $twitter_image_url:
+              type: string
+              example: null
+              description: Set the image URL for the Twitter card
+            $twitter_site:
+              type: string
+              example: null
+              description: Set the site for Twitter
+            $twitter_app_country:
+              type: string
+              example: null
+              description: Set the app country for the app card
+            $twitter_player:
+              type: string
+              example: null
+              description: Set the video player's URL. Defaults to the value of $og_video.
+            $twitter_player_width:
+              type: integer
+              example: null
+              description: Set the player's width in pixels
+            $twitter_player_height:
+              type: integer
+              example: null
+              description: Set the player's height in pixels
+            $custom_meta_tags:
+              type: string
+              example: null
+              description: Valid stringified JSON dictionary of the tags’ keys and values
+            random:
+              type: string
+              example: null
+              description: Any key-value pair
+            custom_data:
+              type: string
+              example: null
+              description: Any key-value pair
+            custom_string:
+              type: string
+              example: Any data
+              description: Any key-value pair
+            any_value:
+              type: string
+              example: null
+              description: Any key-value pair
+            look_at:
+              type: string
+              example: null
+              description: Any key-value pair
+            nav_here:
+              type: string
+              example: null
+              description: Any key-value pair
+      required:
+        - branch_key
+        - qr_code_settings
+    inline_response_400:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/inline_response_400_error'
+    inline_response_400_error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Authentication failed !
+        code:
+          type: integer
+          example: 400
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true
