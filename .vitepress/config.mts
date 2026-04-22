@@ -72,9 +72,16 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Account Hub', link: '/account-hub/' },
-      { text: 'Marketer Hub', link: '/marketer-hub/' },
-      { text: 'Developer Hub', link: '/developer-hub/' }
+      {
+        text: 'Account Hub',
+        items: [
+          { text: 'Account Hub', link: '/account-hub/' },
+          { text: 'Marketer Hub', link: '/marketer-hub/' },
+          { text: 'Developer Hub', link: '/developer-hub/' }
+        ]
+      },
+      { text: 'API Documentation', link: '/apidocs/' },
+      { text: 'Branch', link: 'https://app.branch.io' }
     ],
     search: {
       provider: 'local'
