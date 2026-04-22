@@ -14,4 +14,4 @@ dist/
 build/
 # VitePress build outputs and cache
 .vitepress/cache/
-.vitepress/dist/
+.vitepress/dist/.claude/
