@@ -144,6 +144,10 @@
   font-size: 16px;
 }
 
+.VPNavBarAppearance.appearance {
+  display: none;
+}
+
 /* ======================
    6. SIDEBAR
    ====================== */
@@ -1633,5 +1637,7 @@ body,
   .VPNav .wrapper .container {
     max-width: calc(var(--vp-layout-max-width) - 292px);
     margin: auto;
+    box-shadow: 0 4px 27px 3px rgba(234, 45, 127, .12);
+    padding: 0px 15px;
   }
 }
