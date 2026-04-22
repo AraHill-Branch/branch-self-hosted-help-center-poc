@@ -104,6 +104,11 @@
 /* ======================
    4. FEATURE CARDS
    ====================== */
+.VPFeatures {
+  position: relative;
+  z-index: 1;
+}
+
 .VPFeature .icon img {
   padding: 8px;
   border-radius: 10px;
@@ -218,24 +223,39 @@
   overflow: hidden;
 }
 
+/* Background image container for hero + feature cards */
 .VPHome::before {
   content: '';
   position: absolute;
-  top: -180px;
-  left: 50%;
-  width: 900px;
-  height: 600px;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 650px;
+  background-image: url('/banner_bg.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+/* Optional: Add gradient overlay on top of the background image */
+.VPHome::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 750px;
   background: radial-gradient(
-    ellipse at center,
-    rgba(101, 27, 200, 0.09) 0%,
-    rgba(101, 27, 200, 0.03) 40%,
-    transparent 70%
+    ellipse at center top,
+    rgba(9, 1, 19, 0.1) 0%,
+    rgba(9, 1, 19, 0.4) 70%,
+    rgba(9, 1, 19, 0.85) 100%
   );
   pointer-events: none;
   z-index: 0;
-  animation: hp-breathe 9s ease-in-out infinite;
-  will-change: transform, opacity;
 }
 
 @keyframes hp-breathe {
@@ -256,11 +276,14 @@
 
 .VPHero {
   padding-top: 100px !important;
+  position: relative;
+  z-index: 1;
 }
 
 .VPHero .name    { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 60ms both; }
 .VPHero .tagline { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 140ms both; }
 .VPHero .actions { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 220ms both; }
+
 
 .VPFeatures .item:nth-child(1) .VPFeature { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 300ms both; }
 .VPFeatures .item:nth-child(2) .VPFeature { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 370ms both; }
@@ -403,15 +426,15 @@
 /* --- Hero search bar --- */
 
 .hp-hero-search {
-  max-width: 600px;
-  margin: 40px auto 100px;
-  padding: 0 24px;
+  padding: 40px 378px;
+  padding-bottom: 60px;
   position: relative;
   z-index: 10;
 }
 
 .hp-search-input {
   width: 100%;
+  max-width: 600px;
   padding: 12px 20px;
   padding-right: 100px;
   font-family: var(--vp-font-family-base);
@@ -440,9 +463,8 @@
 }
 
 .hp-search-kbd {
-  position: absolute;
-  right: 36px;
-  top: 50%;
+  position: initial;
+  margin-left: -80px;
   transform: translateY(-50%);
   padding: 4px 8px;
   font-family: var(--vp-font-family-mono);
