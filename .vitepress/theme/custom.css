@@ -127,10 +127,8 @@
 /* ======================
    5. NAV
    ====================== */
-.dark .VPNavBar {
-  background: rgba(9, 1, 19, 0.85);
-}
 
+/* --- Default nav (article pages) --- */
 .VPNavBar .logo {
   height: 28px;
   width: auto;
@@ -149,7 +147,21 @@
   font-size: 16px;
 }
 
-.VPNavBarAppearance.appearance {
+/* --- Homepage-specific nav styles --- */
+.VPHome ~ .VPNav .VPNavBar,
+body:has(.VPHome) .VPNavBar {
+  position: relative !important;
+  margin-top: 20px;
+}
+
+.dark .VPHome ~ .VPNav .VPNavBar,
+.dark body:has(.VPHome) .VPNavBar {
+  background: rgba(9, 1, 19, 0.85);
+}
+
+/* Hide appearance toggle only on homepage */
+.VPHome ~ .VPNav .VPNavBarAppearance.appearance,
+body:has(.VPHome) .VPNavBarAppearance.appearance {
   display: none;
 }
 
@@ -366,15 +378,15 @@
   box-shadow: none;
 }
 
-.VPNav {
+/* Homepage-only nav positioning */
+.VPHome ~ .VPNav,
+body:has(.VPHome) .VPNav {
   position: relative !important;
 }
 
 .VPNavBar {
-  position: relative !important;
   transition: background var(--t-slow) var(--ease),
               border-color var(--t-slow) var(--ease);
-  margin-top: 20px;
 }
 
 .VPSidebarItem .text {
@@ -1677,7 +1689,9 @@ body,
 }
 
 @media (min-width: 768px) {
-  .VPNav .wrapper .container {
+  /* Homepage-only nav container styling */
+  .VPHome ~ .VPNav .wrapper .container,
+  body:has(.VPHome) .VPNav .wrapper .container {
     max-width: calc(var(--vp-layout-max-width) - 292px);
     margin: auto;
     box-shadow: 0 4px 27px 3px rgba(234, 45, 127, .12);

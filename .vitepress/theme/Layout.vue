@@ -5,9 +5,21 @@ import { nextTick, onMounted, provide, watch } from 'vue'
 import HomeHero from './components/HomeHero.vue'
 
 const { Layout } = DefaultTheme
-const { isDark } = useData()
+const { isDark, frontmatter } = useData()
 const route = useRoute()
 const router = useRouter()
+
+/* -------------------------------------------------------
+   FORCE DARK MODE ON HOMEPAGE
+   ------------------------------------------------------- */
+const isHomePage = () => frontmatter.value?.layout === 'home'
+
+// Force dark mode on homepage
+watch(() => route.path, () => {
+  if (isHomePage()) {
+    isDark.value = true
+  }
+}, { immediate: true })
 
 /* -------------------------------------------------------
    SCROLL REVEAL OBSERVER
@@ -113,8 +125,12 @@ let reobserveCopy: (() => void) | null = null
 /* -------------------------------------------------------
    VIEW TRANSITIONS — dark mode toggle
    Circular clip-path reveal from the click point.
+   Block toggle on homepage (force dark).
    ------------------------------------------------------- */
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
+  // Prevent toggle on homepage
+  if (isHomePage()) return
+
   if (!canTransition()) {
     isDark.value = !isDark.value
     return
