@@ -1,0 +1,136 @@
+openapi: 3.0.0
+info:
+  title: Deep Linking API
+  description: |
+    Create, read, and update Branch deep links programmatically. This is a
+    placeholder POC spec used to prove the multi-spec pipeline end-to-end;
+    replace with the full Branch Deep Linking OpenAPI spec when ready.
+  termsOfService: 'https://branch.io/policies/'
+  contact:
+    name: Branch Support
+    url: 'https://help.branch.io/using-branch/page/submit-a-ticket'
+    email: support@branch.io
+  version: 0.0.1
+servers:
+  - url: 'https://api2.branch.io/v1'
+tags:
+  - name: Deep Linking API
+    description: Endpoints for creating and managing Branch deep links.
+paths:
+  /url:
+    post:
+      tags:
+        - Deep Linking API
+      summary: Create Deep Link
+      description: |
+        Create a Branch deep link programmatically. The returned URL is a
+        short link that routes users to the configured destination based on
+        their platform and whether the app is installed.
+      operationId: createDeepLink
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deepLink_body'
+      responses:
+        '200':
+          description: Link created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deepLink_response'
+              examples:
+                Result:
+                  value: |-
+                    {
+                      "url": "https://example.app.link/fG7aBcDeFg"
+                    }
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+              examples:
+                Result:
+                  value: |-
+                    {
+                      "error": {
+                        "message": "Invalid or missing branch_key",
+                        "code": 400
+                      }
+                    }
+components:
+  schemas:
+    deepLink_body:
+      type: object
+      required:
+        - branch_key
+      properties:
+        branch_key:
+          type: string
+          description: The Branch key of the originating app.
+          example: key_live_xxxx
+        channel:
+          type: string
+          description: Marketing channel associated with this link (e.g. `email`, `sms`, `facebook`).
+          example: email
+        feature:
+          type: string
+          description: Feature name associated with this link (e.g. `referrals`, `sharing`).
+          example: referrals
+        campaign:
+          type: string
+          description: Campaign name associated with this link.
+          example: summer-2026
+        alias:
+          type: string
+          description: Custom alias for the short link path. Must be unique per Branch domain.
+          example: summer-sale
+        data:
+          type: object
+          description: Arbitrary key/value data embedded behind the link; accessible as session parameters from the SDK.
+          properties:
+            $deeplink_path:
+              type: string
+              description: In-app deep link path. The Branch SDK routes to this path on open.
+              example: product/42
+            $fallback_url:
+              type: string
+              description: Fallback URL used when the app isn't installed.
+              example: 'https://example.com/fallback'
+            $desktop_url:
+              type: string
+              description: Redirect URL for desktop clicks.
+              example: 'https://example.com/desktop'
+            $og_title:
+              type: string
+              description: Open Graph title shown when the link is shared on social.
+              example: Summer Sale
+            $og_description:
+              type: string
+              description: Open Graph description shown when the link is shared on social.
+              example: 50% off everything
+            $og_image_url:
+              type: string
+              description: Open Graph image URL.
+              example: 'https://example.com/og.png'
+    deepLink_response:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The generated Branch short link.
+          example: 'https://example.app.link/fG7aBcDeFg'
+    error_response:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              example: Invalid or missing branch_key
+            code:
+              type: integer
+              example: 400
