@@ -27,6 +27,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Cache VitePress build
+        uses: actions/cache@v4
+        with:
+          path: .vitepress/cache
+          key: ${{ runner.os }}-vitepress-${{ hashFiles('package-lock.json', '.vitepress/**/*.ts', '.vitepress/**/*.mts', '.vitepress/**/*.vue', '.vitepress/**/*.css') }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-vitepress-${{ hashFiles('package-lock.json', '.vitepress/**/*.ts', '.vitepress/**/*.mts', '.vitepress/**/*.vue', '.vitepress/**/*.css') }}-
+            ${{ runner.os }}-vitepress-
+
       - name: Build VitePress site
         run: npm run docs:build
         # VitePress will fail the build if:
