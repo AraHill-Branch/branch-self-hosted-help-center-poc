@@ -254,6 +254,10 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+.VPHero {
+  padding-top: 100px !important;
+}
+
 .VPHero .name    { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 60ms both; }
 .VPHero .tagline { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 140ms both; }
 .VPHero .actions { animation: vp-enter var(--t-entrance) var(--ease-out-expo) 220ms both; }
@@ -338,7 +342,12 @@
   box-shadow: none;
 }
 
+.VPNav {
+  position: relative !important;
+}
+
 .VPNavBar {
+  position: relative !important;
   transition: background var(--t-slow) var(--ease),
               border-color var(--t-slow) var(--ease);
   margin-top: 20px;
