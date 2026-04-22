@@ -1,6 +1,6 @@
 ---
 title: "Home Page (New)"
-slug: home-page
+slug: home-page-new
 ---
 
 ## Overview
