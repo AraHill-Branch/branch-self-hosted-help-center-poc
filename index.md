@@ -95,28 +95,28 @@ features:
 <div class="hp-faq-intro">
 <h2>Frequently asked questions</h2>
 <div class="hp-faq-intro-desc">Quick answers to common questions about Branch products and features.</div>
-<div><a class="hp-faq-btn" href="/docs/products">More about Branch products <span class="hp-arrow">→</span></a></div>
+<div><a class="hp-btn" href="/docs/products">More about Branch products <span class="hp-arrow">→</span></a></div>
 </div>
 <div class="hp-faq-list">
 <details class="hp-faq-item">
 <summary>What is the difference between Engagement and Performance?<span class="hp-faq-icon">+</span></summary>
-<div class="hp-faq-answer">Branch's <a href="/docs/products#engagement">Engagement</a> and <a href="/docs/products#performance">Performance</a> products serve two distinct purposes. Engagement is for owned and organic channel campaigns, while Performance is for paid channel campaigns.</div>
+<div class="hp-faq-answer"><div class="hp-faq-answer-inner">Branch's <a href="/docs/products#engagement">Engagement</a> and <a href="/docs/products#performance">Performance</a> products serve two distinct purposes. Engagement is for owned and organic channel campaigns, while Performance is for paid channel campaigns.</div></div>
 </details>
 <details class="hp-faq-item">
 <summary>Which Engagement features are best for organic campaigns?<span class="hp-faq-icon">+</span></summary>
-<div class="hp-faq-answer">For organic marketing campaigns, start by looking at <a href="/docs/create-quick-links">Quick Links</a>, <a href="/docs/journeys">Journeys</a>, <a href="/docs/branch-qr-codes">QR Codes</a>, and <a href="/docs/email">Email</a>.</div>
+<div class="hp-faq-answer"><div class="hp-faq-answer-inner">For organic marketing campaigns, start by looking at <a href="/docs/create-quick-links">Quick Links</a>, <a href="/docs/journeys">Journeys</a>, <a href="/docs/branch-qr-codes">QR Codes</a>, and <a href="/docs/email">Email</a>.</div></div>
 </details>
 <details class="hp-faq-item">
 <summary>What is an attribution window?<span class="hp-faq-icon">+</span></summary>
-<div class="hp-faq-answer">An attribution window is the length of time in which a conversion event (like an app install) can be claimed by an event caused by an advertising campaign (like a link click). You can set your attribution window in the <a href="/docs/attribution-windows-link-settings">Branch dashboard</a>.</div>
+<div class="hp-faq-answer"><div class="hp-faq-answer-inner">An attribution window is the length of time in which a conversion event (like an app install) can be claimed by an event caused by an advertising campaign (like a link click). You can set your attribution window in the <a href="/docs/attribution-windows-link-settings">Branch dashboard</a>.</div></div>
 </details>
 <details class="hp-faq-item">
 <summary>What is the difference between deep linking and deferred deep linking?<span class="hp-faq-icon">+</span></summary>
-<div class="hp-faq-answer"><a href="/docs/creating-a-deep-link">Deep linking</a> takes users directly to content within your app, whereas <a href="/docs/san-deferred-deep-linking">deferred deep linking</a> asks a user to install the app before taking them to the content.</div>
+<div class="hp-faq-answer"><div class="hp-faq-answer-inner"><a href="/docs/creating-a-deep-link">Deep linking</a> takes users directly to content within your app, whereas <a href="/docs/san-deferred-deep-linking">deferred deep linking</a> asks a user to install the app before taking them to the content.</div></div>
 </details>
 <details class="hp-faq-item">
 <summary>What is Advanced Compliance?<span class="hp-faq-icon">+</span></summary>
-<div class="hp-faq-answer"><a href="/docs/advanced-compliance">Advanced Compliance</a> is a Branch feature that helps companies in healthcare or other highly regulated industries benefit from Branch's comprehensive set of mobile measurement tools, without sacrificing user privacy.</div>
+<div class="hp-faq-answer"><div class="hp-faq-answer-inner"><a href="/docs/advanced-compliance">Advanced Compliance</a> is a Branch feature that helps companies in healthcare or other highly regulated industries benefit from Branch's comprehensive set of mobile measurement tools, without sacrificing user privacy.</div></div>
 </details>
 </div>
 </div>
@@ -128,7 +128,7 @@ features:
 <div class="hp-links-label">/ Deep Linking</div>
 <h2>Branch Links</h2>
 <div class="hp-links-desc">Create Branch Links to share web links, deep link to pages in your app, track ads, and more.</div>
-<div><a class="hp-faq-btn" href="/docs/create-branch-links">Create a link <span class="hp-arrow">→</span></a></div>
+<div><a class="hp-btn" href="/docs/create-branch-links">Create a link <span class="hp-arrow">→</span></a></div>
 </div>
 <div class="hp-links-img">
 <img src="/img/new_visual_img_02_2.png" alt="Branch Links illustration">
