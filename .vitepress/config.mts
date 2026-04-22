@@ -96,6 +96,7 @@ export default defineConfig({
       }
     }
   },
+  appearance: 'force-dark',
   themeConfig: {
     logo: '/branch-logo-white.png',
     siteTitle: false,
