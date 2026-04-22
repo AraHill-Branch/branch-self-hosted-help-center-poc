@@ -59,6 +59,28 @@ export default defineConfig({
   title: "Branch Help Center",
   description: "Product Documentation",
   ignoreDeadLinks: true,
+  head: [
+    ['link', {
+      rel: 'preload',
+      as: 'font',
+      type: 'font/woff2',
+      href: '/fonts/TT_Hoves_Pro_Regular.woff2',
+      crossorigin: ''
+    }]
+  ],
+  markdown: {
+    config: (md) => {
+      const defaultImageRule = md.renderer.rules.image
+      md.renderer.rules.image = (tokens, idx, options, env, self) => {
+        const token = tokens[idx]
+        if (token.attrIndex('loading') < 0) token.attrPush(['loading', 'lazy'])
+        if (token.attrIndex('decoding') < 0) token.attrPush(['decoding', 'async'])
+        return defaultImageRule
+          ? defaultImageRule(tokens, idx, options, env, self)
+          : self.renderToken(tokens, idx, options)
+      }
+    }
+  },
   vite: {
     build: {
       rollupOptions: {

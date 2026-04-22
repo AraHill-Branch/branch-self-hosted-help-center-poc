@@ -80,7 +80,7 @@ features:
 <div class="hp-section">
 <div class="hp-uni reveal">
 <div class="hp-uni-img">
-<img src="/img/new_visual_img_01_2.png" alt="Branch University illustration">
+<img src="/img/new_visual_img_01_2.png" alt="Branch University illustration" loading="lazy" decoding="async">
 </div>
 <div class="hp-uni-body">
 <h3>Branch University</h3>
@@ -131,7 +131,7 @@ features:
 <div><a class="hp-btn" href="/docs/create-branch-links">Create a link <span class="hp-arrow">→</span></a></div>
 </div>
 <div class="hp-links-img">
-<img src="/img/new_visual_img_02_2.png" alt="Branch Links illustration">
+<img src="/img/new_visual_img_02_2.png" alt="Branch Links illustration" loading="lazy" decoding="async">
 </div>
 </div>
 </div>
