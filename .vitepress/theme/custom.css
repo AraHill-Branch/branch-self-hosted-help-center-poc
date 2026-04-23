@@ -509,12 +509,19 @@ body:has(.VPHome) .VPNav {
 
 /* Hide VitePress's built-in navbar search entirely. We replaced it with
    our own SearchButton (components/search/SearchButton.vue) mounted via
-   the nav-bar-content-after slot, backed by a fully custom SearchModal
-   that loads /search-index.json. VitePress still renders the default
-   VPNavBarSearch component even with no provider configured, so we
-   hide it globally. The homepage hero also has its own search trigger
-   inside HomeHero.vue. */
+   the nav-bar-title-after slot (so it sits next to the Branch logo),
+   backed by a fully custom SearchModal that loads /search-index.json.
+   VitePress still renders the default VPNavBarSearch component even with
+   no provider configured, so we hide it globally. */
 .VPNavBar .VPNavBarSearch {
+  display: none !important;
+}
+
+/* Hide our own nav search button on the homepage \u2014 the hero already has
+   a dedicated search bar below the 'Branch Help Center' title, so the
+   navbar copy would be a duplicate there. Only hub / article pages keep
+   the navbar button visible. */
+html:has(.VPContent.is-home) .VPNavBar .nav-search-wrapper {
   display: none !important;
 }
 

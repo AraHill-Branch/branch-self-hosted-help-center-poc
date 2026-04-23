@@ -182,7 +182,7 @@ watch(() => route.path, () => {
     <template #home-hero-before>
       <HomeHero />
     </template>
-    <template #nav-bar-content-after>
+    <template #nav-bar-title-after>
       <SearchButton class="nav-search-wrapper" />
     </template>
   </Layout>
