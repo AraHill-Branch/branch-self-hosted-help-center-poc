@@ -494,7 +494,8 @@ body:has(.VPHome) .VPNav {
    intentionally has no hero-related global styles. */
 
 /* Hide VitePress's built-in nav search button on the homepage only —
-   the hero search button above replaces it. Other pages keep it. */
+   the hero search button inside HomeHero.vue replaces it. Other pages
+   keep the navbar search as usual. */
 html:has(.VPContent.is-home) .VPNavBar .VPNavBarSearch {
   display: none !important;
 }
@@ -505,6 +506,10 @@ html:has(.VPContent.is-home) .VPNavBar .VPNavBarSearch {
 .api-operation-page .vp-doc > h1,
 .api-operation-page .api-search-only {
   display: none !important;
+}
+
+.hp-hero-search {
+  margin: 20px 0px 140px 0px !important;
 }
 
 /* --- Layout & resets --- */
