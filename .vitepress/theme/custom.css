@@ -500,9 +500,9 @@ body:has(.VPHome) .VPNav {
   font-family: var(--vp-font-family-base);
   font-size: 14px;
   color: var(--vp-c-text-1);
-  background: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
+  background: rgba(161, 161, 161, .1) !important;
+  border: 1px solid;
+  border-radius: 4px;
   outline: none;
   transition: border-color var(--t-base) var(--ease),
               box-shadow var(--t-base) var(--ease);
@@ -510,7 +510,7 @@ body:has(.VPHome) .VPNav {
 
 .dark .hp-search-input {
   background: rgba(15, 2, 31, 0.8);
-  border-color: rgba(101, 27, 200, 0.3);
+  border-color: #e4e4e7;
 }
 
 .hp-search-input:focus {
@@ -527,16 +527,16 @@ body:has(.VPHome) .VPNav {
   font-family: var(--vp-font-family-mono);
   font-size: 11px;
   color: var(--vp-c-text-3);
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
+  background: rgba(161, 161, 161, .1) !important;
+  border: 1px solid;
   border-radius: 4px;
   pointer-events: none;
   flex-shrink: 0;
 }
 
 .dark .hp-search-kbd {
-  background: rgba(19, 3, 38, 0.6);
-  border-color: rgba(101, 27, 200, 0.25);
+  background: rgba(161, 161, 161, .1) !important;
+  border-color: #e4e4e7;
 }
 
 .hp-search-kbd-inside {
@@ -548,15 +548,19 @@ body:has(.VPHome) .VPNav {
   font-family: var(--vp-font-family-mono);
   font-size: 11px;
   color: var(--vp-c-text-3);
-  background: var(--vp-c-bg-soft);
+  background: rgba(161, 161, 161, .1) !important;
   border: 1px solid var(--vp-c-divider);
   border-radius: 4px;
   pointer-events: none;
 }
 
 .dark .hp-search-kbd-inside {
-  background: rgba(19, 3, 38, 0.6);
+  background: rgba(161, 161, 161, .1) !important;
   border-color: rgba(101, 27, 200, 0.25);
+}
+
+.hp-hero-search {
+  margin: 20px 0px 140px 0px !important;
 }
 
 /* --- Layout & resets --- */
