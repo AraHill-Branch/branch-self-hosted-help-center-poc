@@ -490,73 +490,22 @@ body:has(.VPHome) .VPNav {
    Prefixed .hp- to avoid collisions with VitePress.
    ============================================================================ */
 
-/* --- Hero search bar (now in HomeHero.vue component) --- */
+/* Hero search styles now live inside HomeHero.vue (scoped). This section
+   intentionally has no hero-related global styles. */
 
-.hp-search-input {
-  width: 100%;
-  max-width: 600px;
-  padding: 12px 20px;
-  padding-right: 100px;
-  font-family: var(--vp-font-family-base);
-  font-size: 14px;
-  color: var(--vp-c-text-1);
-  background: rgba(161, 161, 161, .1) !important;
-  border: 1px solid;
-  border-radius: 4px;
-  outline: none;
-  transition: border-color var(--t-base) var(--ease),
-              box-shadow var(--t-base) var(--ease);
+/* Hide VitePress's built-in nav search button on the homepage only —
+   the hero search button inside HomeHero.vue replaces it. Other pages
+   keep the navbar search as usual. */
+html:has(.VPContent.is-home) .VPNavBar .VPNavBarSearch {
+  display: none !important;
 }
 
-.dark .hp-search-input {
-  background: rgba(15, 2, 31, 0.8);
-  border-color: #e4e4e7;
-}
-
-.hp-search-input:focus {
-  border-color: #651BC8;
-  box-shadow: 0 0 0 3px rgba(101, 27, 200, 0.1);
-}
-
-.hp-search-input::placeholder {
-  color: var(--vp-c-text-3);
-}
-
-.hp-search-kbd {
-  padding: 4px 8px;
-  font-family: var(--vp-font-family-mono);
-  font-size: 11px;
-  color: var(--vp-c-text-3);
-  background: rgba(161, 161, 161, .1) !important;
-  border: 1px solid;
-  border-radius: 4px;
-  pointer-events: none;
-  flex-shrink: 0;
-}
-
-.dark .hp-search-kbd {
-  background: rgba(161, 161, 161, .1) !important;
-  border-color: #e4e4e7;
-}
-
-.hp-search-kbd-inside {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 4px 8px;
-  font-family: var(--vp-font-family-mono);
-  font-size: 11px;
-  color: var(--vp-c-text-3);
-  background: rgba(161, 161, 161, .1) !important;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 4px;
-  pointer-events: none;
-}
-
-.dark .hp-search-kbd-inside {
-  background: rgba(161, 161, 161, .1) !important;
-  border-color: rgba(101, 27, 200, 0.25);
+/* API operation pages: the generated .md has an H1 and a hidden search
+   block that exist solely so VitePress indexes them. <ApiOperation> renders
+   its own visible title and content, so hide both of these from users. */
+.api-operation-page .vp-doc > h1,
+.api-operation-page .api-search-only {
+  display: none !important;
 }
 
 .hp-hero-search {

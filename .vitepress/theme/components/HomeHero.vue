@@ -1,7 +1,30 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
 
 const { frontmatter } = useData()
+
+// Display the correct OS modifier key ("⌘" vs "Ctrl") in the kbd chip.
+const metaKey = ref('\u2318')
+onMounted(() => {
+  if (typeof navigator !== 'undefined') {
+    const isMac = /Mac|iPhone|iPod|iPad/i.test(navigator.platform)
+    metaKey.value = isMac ? '\u2318' : 'Ctrl'
+  }
+})
+
+// Open VitePress's built-in local search modal by dispatching the same
+// Cmd+K / Ctrl+K keyboard event it listens for natively.
+function openSearch() {
+  const isMac = /Mac|iPhone|iPod|iPad/i.test(navigator.platform)
+  window.dispatchEvent(new KeyboardEvent('keydown', {
+    key: 'k',
+    code: 'KeyK',
+    metaKey: isMac,
+    ctrlKey: !isMac,
+    bubbles: true,
+  }))
+}
 </script>
 
 <template>
@@ -16,10 +39,23 @@ const { frontmatter } = useData()
         </p>
       </div>
       <div class="hp-hero-search">
-        <div class="search-wrapper">
-          <input type="text" placeholder="Search" class="hp-search-input">
-          <span class="hp-search-kbd">CMD + K</span>
-        </div>
+        <button
+          type="button"
+          class="search-button"
+          @click="openSearch"
+          aria-label="Search the Help Center"
+        >
+          <span class="search-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </span>
+          <span class="search-placeholder">Search the Help Center</span>
+          <span class="search-kbd">
+            <kbd>{{ metaKey }}</kbd><kbd>K</kbd>
+          </span>
+        </button>
       </div>
     </div>
     <div class="hp-hero-right">
@@ -91,29 +127,74 @@ const { frontmatter } = useData()
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: 60px 0px 140px 0px;
+  margin: 60px 0 140px;
   animation: vp-enter var(--t-entrance) var(--ease-out-expo) 220ms both;
 }
 
-.search-wrapper {
-  position: relative;
+.search-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   width: 100%;
   max-width: 600px;
+  padding: 12px 16px;
+  font-family: var(--vp-font-family-base);
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  background: rgba(15, 2, 31, 0.8);
+  border: 1px solid rgba(101, 27, 200, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--t-base) var(--ease),
+              background-color var(--t-base) var(--ease),
+              box-shadow var(--t-base) var(--ease);
 }
 
-.hp-search-kbd {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 4px 8px;
+.search-button:hover,
+.search-button:focus-visible {
+  outline: none;
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 0 0 3px var(--vp-c-brand-soft);
+}
+
+.search-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--vp-c-text-3);
+  flex-shrink: 0;
+}
+
+.search-placeholder {
+  flex: 1;
+  color: var(--vp-c-text-3);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.search-kbd {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.search-kbd kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
   font-family: var(--vp-font-family-mono);
   font-size: 11px;
+  font-weight: 500;
   color: var(--vp-c-text-3);
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 4px;
-  pointer-events: none;
+  background: rgba(19, 3, 38, 0.6);
+  border: 1px solid rgba(101, 27, 200, 0.25);
+  border-radius: 3px;
+  line-height: 1;
 }
 
 @keyframes vp-enter {
