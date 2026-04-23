@@ -27,7 +27,7 @@ function openSearch() {
     type="button"
     class="nav-search-button"
     aria-label="Search the Help Center"
-    @click="openSearch"
+    @click.stop.prevent="openSearch"
   >
     <span class="nav-search-icon" aria-hidden="true">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
