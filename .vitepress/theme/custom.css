@@ -493,10 +493,14 @@ body:has(.VPHome) .VPNav {
 /* Hero search styles now live inside HomeHero.vue (scoped). This section
    intentionally has no hero-related global styles. */
 
-/* Hide VitePress's built-in nav search button on the homepage only —
-   the hero search button inside HomeHero.vue replaces it. Other pages
-   keep the navbar search as usual. */
-html:has(.VPContent.is-home) .VPNavBar .VPNavBarSearch {
+/* Hide VitePress's built-in navbar search entirely. We replaced it with
+   our own SearchButton (components/search/SearchButton.vue) mounted via
+   the nav-bar-content-after slot, backed by a fully custom SearchModal
+   that loads /search-index.json. VitePress still renders the default
+   VPNavBarSearch component even with no provider configured, so we
+   hide it globally. The homepage hero also has its own search trigger
+   inside HomeHero.vue. */
+.VPNavBar .VPNavBarSearch {
   display: none !important;
 }
 

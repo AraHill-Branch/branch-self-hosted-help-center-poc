@@ -3,6 +3,8 @@ import DefaultTheme from 'vitepress/theme'
 import { useData, useRoute, useRouter } from 'vitepress'
 import { nextTick, onMounted, provide, watch } from 'vue'
 import HomeHero from './components/HomeHero.vue'
+import SearchButton from './components/search/SearchButton.vue'
+import SearchModal from './components/search/SearchModal.vue'
 
 const { Layout } = DefaultTheme
 const { isDark, frontmatter } = useData()
@@ -180,5 +182,9 @@ watch(() => route.path, () => {
     <template #home-hero-before>
       <HomeHero />
     </template>
+    <template #nav-bar-content-after>
+      <SearchButton class="nav-search-wrapper" />
+    </template>
   </Layout>
+  <SearchModal />
 </template>
