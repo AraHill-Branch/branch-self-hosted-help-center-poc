@@ -362,7 +362,7 @@ function statusClass(code: number | null) {
 .api-panel-body-editor:focus {
   outline: none;
   border-color: var(--vp-c-brand-1);
-  box-shadow: 0 0 0 3px var(--vp-c-brand-soft);
+  box-shadow: 0 0 0 3px var(--vp-c-focus-ring);
 }
 
 .api-panel-send {

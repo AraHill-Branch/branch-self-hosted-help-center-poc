@@ -220,8 +220,12 @@ mark {
   padding: 0;
 }
 
+/* Lighter match-highlight purple for dark mode.
+   #9241FF hits 4.31:1 on #090113 — below AA 4.5 for normal body text.
+   #b88aff hits 7.1:1 → clears AAA for both the 14.5px title and the
+   12.5px excerpt lines where the <mark> appears. */
 .dark mark {
-  color: #9241FF;
+  color: #b88aff;
 }
 
 .search-result-arrow {
