@@ -1,37 +1,25 @@
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
 import { useData, useRoute, useRouter } from 'vitepress'
-import { nextTick, onMounted, provide, ref, watch } from 'vue'
+import { nextTick, onMounted, provide, watch } from 'vue'
+import HomeHero from './components/HomeHero.vue'
 
 const { Layout } = DefaultTheme
-const { isDark } = useData()
+const { isDark, frontmatter } = useData()
 const route = useRoute()
 const router = useRouter()
 
 /* -------------------------------------------------------
-   HOMEPAGE SEARCH TRIGGER
-   The hero search bar is a styled button that dispatches
-   Cmd+K (or Ctrl+K on non-Mac) — the same shortcut VitePress's
-   built-in local search listens for. Opens the search modal.
+   FORCE DARK MODE ON HOMEPAGE
    ------------------------------------------------------- */
-const metaKey = ref('\u2318') // ⌘
-onMounted(() => {
-  if (typeof navigator !== 'undefined') {
-    const isMac = /Mac|iPhone|iPod|iPad/i.test(navigator.platform)
-    metaKey.value = isMac ? '\u2318' : 'Ctrl'
-  }
-})
+const isHomePage = () => frontmatter.value?.layout === 'home'
 
-function openSearch() {
-  const isMac = /Mac|iPhone|iPod|iPad/i.test(navigator.platform)
-  window.dispatchEvent(new KeyboardEvent('keydown', {
-    key: 'k',
-    code: 'KeyK',
-    metaKey: isMac,
-    ctrlKey: !isMac,
-    bubbles: true,
-  }))
-}
+// Force dark mode on homepage
+watch(() => route.path, () => {
+  if (isHomePage()) {
+    isDark.value = true
+  }
+}, { immediate: true })
 
 /* -------------------------------------------------------
    SCROLL REVEAL OBSERVER
@@ -137,8 +125,12 @@ let reobserveCopy: (() => void) | null = null
 /* -------------------------------------------------------
    VIEW TRANSITIONS — dark mode toggle
    Circular clip-path reveal from the click point.
+   Block toggle on homepage (force dark).
    ------------------------------------------------------- */
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
+  // Prevent toggle on homepage
+  if (isHomePage()) return
+
   if (!canTransition()) {
     isDark.value = !isDark.value
     return
@@ -185,24 +177,8 @@ watch(() => route.path, () => {
 
 <template>
   <Layout>
-    <template #home-hero-after>
-      <button
-        type="button"
-        class="hp-hero-search"
-        @click="openSearch"
-        aria-label="Search the Help Center"
-      >
-        <span class="hp-search-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.3-4.3" />
-          </svg>
-        </span>
-        <span class="hp-search-placeholder">Search the Help Center</span>
-        <span class="hp-search-kbd">
-          <kbd>{{ metaKey }}</kbd><kbd>K</kbd>
-        </span>
-      </button>
+    <template #home-hero-before>
+      <HomeHero />
     </template>
   </Layout>
 </template>
