@@ -1,13 +1,16 @@
 {
   "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:dev": "npm run search:index && vitepress dev",
+    "docs:build": "npm run search:index && vitepress build",
+    "docs:preview": "vitepress preview",
+    "search:index": "tsx scripts/build-search-index.ts"
   },
   "devDependencies": {
     "@rollup/plugin-yaml": "^4.1.2",
+    "minisearch": "^7.2.0",
     "shiki": "^4.0.2",
+    "tsx": "^4.21.0",
     "vitepress": "^1.6.4",
     "vitepress-openapi": "^0.1.20",
     "vitepress-sidebar": "^1.33.1"

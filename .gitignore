@@ -16,3 +16,5 @@ build/
 # VitePress build outputs and cache
 .vitepress/cache/
 .vitepress/dist/.claude/
+# Generated search index (rebuilt on every docs:build via search:index)
+public/search-index.json

@@ -117,58 +117,11 @@ export default defineConfig({
       { text: 'Branch', link: 'https://app.branch.io' }
     ],
     sidebar,
-    search: {
-      provider: 'local',
-      options: {
-        placeholder: 'Search the Help Center',
-        translations: {
-          button: {
-            buttonText: 'Search',
-            buttonAriaLabel: 'Search the Help Center',
-          },
-          modal: {
-            noResultsText: 'No results for',
-            resetButtonTitle: 'Clear',
-            footer: {
-              selectText: 'to select',
-              navigateText: 'to navigate',
-              closeText: 'to close',
-            },
-          },
-        },
-        miniSearch: {
-          // Custom tokenizer: keep identifiers like `center_logo_url` and
-          // `api-key` together as single tokens (the default splits on all
-          // Unicode punctuation, including _), but ALSO emit the sub-parts
-          // (`center`, `logo`, `url`) so "logo" alone matches. Both the
-          // full identifier AND its pieces land in the index.
-          options: {
-            tokenize: (text: string) => {
-              // Split on whitespace + common prose punctuation, keeping
-              // _, -, and . inside tokens so technical identifiers survive.
-              const base = text.split(/[\s.,;:!?()[\]{}"'`<>/\\|+=*&%$#@~^]+/u).filter(Boolean)
-              const extras: string[] = []
-              for (const t of base) {
-                if (t.includes('_')) extras.push(...t.split('_').filter(Boolean))
-                if (t.includes('-')) extras.push(...t.split('-').filter(Boolean))
-                if (/[a-z][A-Z]/.test(t)) {
-                  extras.push(...t.split(/(?<=[a-z])(?=[A-Z])/).filter(Boolean))
-                }
-              }
-              return [...base, ...extras].map(s => s.toLowerCase())
-            },
-            processTerm: (term: string) => term.toLowerCase(),
-          },
-          searchOptions: {
-            fuzzy: 0.2,
-            prefix: true,
-            maxFuzzy: 2,
-            // Title is most important, then sub-heading, then body.
-            boost: { title: 8, titles: 4, text: 2 },
-          },
-        },
-      },
-    },
+    // Built-in search is disabled; we render a custom search modal via
+    // Layout.vue that loads public/search-index.json (built by
+    // scripts/build-search-index.ts). Leaves VitePress's navbar without
+    // a default search button \u2014 we provide our own via the
+    // nav-bar-search-before slot.
     editLink: {
       pattern: 'https://github.com/AraHill-Branch/branch-self-hosted-help-center-poc/edit/main/:path',
       text: 'Suggest an edit'

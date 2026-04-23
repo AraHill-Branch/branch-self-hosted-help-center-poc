@@ -57,6 +57,11 @@
   --vp-c-brand-2: #5D0EC0;
   --vp-c-brand-3: #2F0D68;
   --vp-c-brand-soft: rgba(101, 27, 200, 0.1);
+  /* Separate from -brand-soft: that one tints backgrounds (too faint for
+     focus), this one is the focus-ring color. Needs >= 3:1 non-text
+     contrast against bg per WCAG 2.2 AA 1.4.11. 0.70a gives ~3.6:1 on
+     white, with headroom. */
+  --vp-c-focus-ring: rgba(101, 27, 200, 0.70);
 
   --vp-c-text-link: #00B8DB;
   --vp-c-text-link-hover: #48BC7D;
@@ -93,6 +98,15 @@
   --vp-c-brand-2: #651BC8;
   --vp-c-brand-3: #5D0EC0;
   --vp-c-brand-soft: rgba(146, 65, 255, 0.15);
+  /* Focus ring needs >= 3:1 vs bg per WCAG 2.2 AA 1.4.11 (non-text UI).
+     0.60 alpha blends to only 2.2:1; 0.85 blends to 3.4:1. Solid fails
+     visually too hot. */
+  --vp-c-focus-ring: rgba(146, 65, 255, 0.85);
+  /* WCAG 2.2 AA override: VitePress's default text-3 (#6a6a71) falls
+     to 3.82:1 against our #090113 bg, below the 4.5:1 normal-text AA
+     threshold. #8a8a90 hits 5.97:1 and stays clearly dimmer than
+     text-2 (#98989f at 7.15:1) so the visual hierarchy is preserved. */
+  --vp-c-text-3: #8a8a90;
   --vp-c-text-link: #00B8DB;
   --vp-c-text-link-hover: #48BC7D;
   --vp-button-brand-bg: #651BC8;
@@ -493,10 +507,21 @@ body:has(.VPHome) .VPNav {
 /* Hero search styles now live inside HomeHero.vue (scoped). This section
    intentionally has no hero-related global styles. */
 
-/* Hide VitePress's built-in nav search button on the homepage only —
-   the hero search button inside HomeHero.vue replaces it. Other pages
-   keep the navbar search as usual. */
-html:has(.VPContent.is-home) .VPNavBar .VPNavBarSearch {
+/* Hide VitePress's built-in navbar search entirely. We replaced it with
+   our own SearchButton (components/search/SearchButton.vue) mounted via
+   the nav-bar-title-after slot (so it sits next to the Branch logo),
+   backed by a fully custom SearchModal that loads /search-index.json.
+   VitePress still renders the default VPNavBarSearch component even with
+   no provider configured, so we hide it globally. */
+.VPNavBar .VPNavBarSearch {
+  display: none !important;
+}
+
+/* Hide our own nav search button on the homepage \u2014 the hero already has
+   a dedicated search bar below the 'Branch Help Center' title, so the
+   navbar copy would be a duplicate there. Only hub / article pages keep
+   the navbar button visible. */
+html:has(.VPContent.is-home) .VPNavBar .nav-search-wrapper {
   display: none !important;
 }
 
