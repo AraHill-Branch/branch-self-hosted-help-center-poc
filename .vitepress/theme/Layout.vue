@@ -191,7 +191,7 @@ watch(() => route.path, () => {
       <GetHelpButton />
     </template>
     <template #layout-bottom>
-      <Footer />
+      <Footer v-if="isHomePage()" />
     </template>
   </Layout>
   <SearchModal />

@@ -1697,7 +1697,7 @@ body,
 
 /* ============================================================================
    16. FOOTER TRANSITION
-   Soften junction between page content and footer
+   Soften junction between page content and footer (homepage only)
    ============================================================================ */
 
 .VPContent {
@@ -1705,7 +1705,8 @@ body,
   padding-top: 0;
 }
 
-.VPContent::after {
+/* Only show footer gradient on homepage */
+.VPContent.is-home::after {
   content: '';
   position: absolute;
   bottom: 0;
