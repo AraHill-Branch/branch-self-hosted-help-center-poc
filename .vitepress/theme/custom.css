@@ -121,6 +121,7 @@
 .VPFeatures {
   position: relative;
   z-index: 1;
+  margin-bottom: 60px;
 }
 
 .VPFeatures .container {
@@ -566,7 +567,11 @@ html:has(.VPContent.is-home) .VPNavBar .nav-search-wrapper {
 }
 
 .hp-section {
-  padding: 48px 0;
+  padding: 48px 0 24px;
+}
+
+.hp-section:last-child {
+  padding-bottom: 0;
 }
 
 .hp-section-head {
@@ -785,6 +790,7 @@ a.hp-view-all:hover .hp-arrow {
   transition: border-color var(--t-slow) var(--ease),
               box-shadow var(--t-slow) var(--ease),
               transform var(--t-slow) var(--ease);
+  margin: 48px 0;
 }
 
 .dark .hp-uni {
@@ -1688,7 +1694,82 @@ body,
 
 
 /* ============================================================================
-   16. REDUCED MOTION
+   16. FOOTER TRANSITION
+   Soften junction between page content and footer
+   ============================================================================ */
+
+.VPContent {
+  position: relative;
+}
+
+.VPContent::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(9, 1, 19, 0.08) 30%,
+    rgba(9, 1, 19, 0.25) 60%,
+    rgba(9, 1, 19, 0.5) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Homepage-specific footer transition */
+.hp-wrap {
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.hp-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(9, 1, 19, 0.1) 25%,
+    rgba(9, 1, 19, 0.3) 55%,
+    rgba(9, 1, 19, 0.6) 85%,
+    rgba(9, 1, 19, 0.85) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================================================
+   17. API OPERATION PAGE LAYOUT
+   Endpoint pages use layout: doc (default) so the left sidebar with the list
+   of endpoints stays visible, but the content container needs to break out
+   of VitePress's default narrow prose width so our 2-column ApiOperation
+   layout (content + sticky try-it/code panel) can breathe.
+   ============================================================================ */
+
+.api-operation-page .VPDoc .container,
+.api-operation-page .VPDoc .content,
+.api-operation-page .VPDoc .content-container,
+.api-operation-page .VPDoc .vp-doc {
+  max-width: none;
+}
+
+.api-operation-page .VPDoc .content {
+  padding: 0;
+}
+
+.api-operation-page .VPDoc .vp-doc {
+  padding: 0;
+}
+
+/* ============================================================================
+   18. REDUCED MOTION
    ============================================================================ */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1729,28 +1810,4 @@ body,
     box-shadow: 0 4px 27px 3px rgba(234, 45, 127, .12);
     padding: 0px 15px;
   }
-}
-
-
-/* ============================================================================
-   17. API OPERATION PAGE LAYOUT
-   Endpoint pages use layout: doc (default) so the left sidebar with the list
-   of endpoints stays visible, but the content container needs to break out
-   of VitePress's default narrow prose width so our 2-column ApiOperation
-   layout (content + sticky try-it/code panel) can breathe.
-   ============================================================================ */
-
-.api-operation-page .VPDoc .container,
-.api-operation-page .VPDoc .content,
-.api-operation-page .VPDoc .content-container,
-.api-operation-page .VPDoc .vp-doc {
-  max-width: none;
-}
-
-.api-operation-page .VPDoc .content {
-  padding: 0;
-}
-
-.api-operation-page .VPDoc .vp-doc {
-  padding: 0;
 }

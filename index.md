@@ -41,38 +41,38 @@ features:
 <div class="hp-res-col stagger-item">
 <h3>Beginner resources</h3>
 <ul class="hp-res-list">
-<li><div><a class="hp-res-link" href="/docs/what-is-branch">What is Branch?</a></div></li>
-<li><div><a class="hp-res-link" href="/docs/onboarding-guide">Onboarding guide</a></div></li>
-<li><div><a class="hp-res-link" href="/docs/glossary">Glossary</a></div></li>
+<li><div><a class="hp-res-link" href="/docs/what-is-branch" target="_blank">What is Branch?</a></div></li>
+<li><div><a class="hp-res-link" href="/docs/onboarding-guide" target="_blank">Onboarding guide</a></div></li>
+<li><div><a class="hp-res-link" href="/docs/glossary" target="_blank">Glossary</a></div></li>
 </ul>
-<div><a class="hp-view-all" href="/docs/getting-started">View all <span class="hp-arrow">→</span></a></div>
+<div><a class="hp-view-all" href="/docs/getting-started" target="_blank">View all <span class="hp-arrow">→</span></a></div>
 </div>
 <div class="hp-res-col stagger-item">
 <h3>Use cases</h3>
 <ul class="hp-res-list">
-<li><div><a class="hp-res-link" href="/marketer-hub/docs/seo-app-attribution">SEO app attribution</a></div></li>
-<li><div><a class="hp-res-link" href="/docs/qr-codes">QR codes</a></div></li>
-<li><div><a class="hp-res-link" href="/docs/household-measurement">Household measurement</a></div></li>
+<li><div><a class="hp-res-link" href="/marketer-hub/docs/seo-app-attribution" target="_blank">SEO app attribution</a></div></li>
+<li><div><a class="hp-res-link" href="/docs/qr-codes" target="_blank">QR codes</a></div></li>
+<li><div><a class="hp-res-link" href="/docs/household-measurement" target="_blank">Household measurement</a></div></li>
 </ul>
-<div><a class="hp-view-all" href="/marketer-hub/docs/marketer-hub-overview">View all <span class="hp-arrow">→</span></a></div>
+<div><a class="hp-view-all" href="/marketer-hub/docs/marketer-hub-overview" target="_blank">View all <span class="hp-arrow">→</span></a></div>
 </div>
 <div class="hp-res-col stagger-item">
 <h3>Branch dashboard</h3>
 <ul class="hp-res-list">
-<li><div><a class="hp-res-link" href="/docs/branch-dashboard-overview">Dashboard overview</a></div></li>
-<li><div><a class="hp-res-link" href="/docs/configure-default-link-behaviors">Configure link behaviors</a></div></li>
-<li><div><a class="hp-res-link" href="/docs/attribution-windows-link-settings">Attribution windows</a></div></li>
+<li><div><a class="hp-res-link" href="/docs/branch-dashboard-overview" target="_blank">Dashboard overview</a></div></li>
+<li><div><a class="hp-res-link" href="/docs/configure-default-link-behaviors" target="_blank">Configure link behaviors</a></div></li>
+<li><div><a class="hp-res-link" href="/docs/attribution-windows-link-settings" target="_blank">Attribution windows</a></div></li>
 </ul>
-<div><a class="hp-view-all" href="/docs/account-hub-overview">View all <span class="hp-arrow">→</span></a></div>
+<div><a class="hp-view-all" href="/docs/account-hub-overview" target="_blank">View all <span class="hp-arrow">→</span></a></div>
 </div>
 <div class="hp-res-col stagger-item">
 <h3>Branch Links</h3>
 <ul class="hp-res-list">
-<li><div><a class="hp-res-link" href="/docs/creating-a-deep-link">Create deep links</a></div></li>
-<li><div><a class="hp-res-link" href="/docs/create-quick-links">Create Quick Links</a></div></li>
-<li><div><a class="hp-res-link" href="/docs/ad-links">Create ad links</a></div></li>
+<li><div><a class="hp-res-link" href="/docs/creating-a-deep-link" target="_blank">Create deep links</a></div></li>
+<li><div><a class="hp-res-link" href="/docs/create-quick-links" target="_blank">Create Quick Links</a></div></li>
+<li><div><a class="hp-res-link" href="/docs/ad-links" target="_blank">Create ad links</a></div></li>
 </ul>
-<div><a class="hp-view-all" href="/docs/create-branch-links">View all <span class="hp-arrow">→</span></a></div>
+<div><a class="hp-view-all" href="/docs/create-branch-links" target="_blank">View all <span class="hp-arrow">→</span></a></div>
 </div>
 </div>
 </div>
@@ -95,28 +95,28 @@ features:
 <div class="hp-faq-intro">
 <h2>Frequently asked questions</h2>
 <div class="hp-faq-intro-desc">Quick answers to common questions about Branch products and features.</div>
-<div><a class="hp-btn" href="/docs/products">More about Branch products <span class="hp-arrow">→</span></a></div>
+<div><a class="hp-btn" href="/docs/products" target="_blank">More about Branch products <span class="hp-arrow">→</span></a></div>
 </div>
 <div class="hp-faq-list">
 <details class="hp-faq-item">
 <summary>What is the difference between Engagement and Performance?<span class="hp-faq-icon">+</span></summary>
-<div class="hp-faq-answer"><div class="hp-faq-answer-inner">Branch's <a href="/docs/products#engagement">Engagement</a> and <a href="/docs/products#performance">Performance</a> products serve two distinct purposes. Engagement is for owned and organic channel campaigns, while Performance is for paid channel campaigns.</div></div>
+<div class="hp-faq-answer"><div class="hp-faq-answer-inner">Branch's <a href="/docs/products#engagement" target="_blank">Engagement</a> and <a href="/docs/products#performance" target="_blank">Performance</a> products serve two distinct purposes. Engagement is for owned and organic channel campaigns, while Performance is for paid channel campaigns.</div></div>
 </details>
 <details class="hp-faq-item">
 <summary>Which Engagement features are best for organic campaigns?<span class="hp-faq-icon">+</span></summary>
-<div class="hp-faq-answer"><div class="hp-faq-answer-inner">For organic marketing campaigns, start by looking at <a href="/docs/create-quick-links">Quick Links</a>, <a href="/docs/journeys">Journeys</a>, <a href="/docs/branch-qr-codes">QR Codes</a>, and <a href="/docs/email">Email</a>.</div></div>
+<div class="hp-faq-answer"><div class="hp-faq-answer-inner">For organic marketing campaigns, start by looking at <a href="/docs/create-quick-links" target="_blank">Quick Links</a>, <a href="/docs/journeys" target="_blank">Journeys</a>, <a href="/docs/branch-qr-codes" target="_blank">QR Codes</a>, and <a href="/docs/email" target="_blank">Email</a>.</div></div>
 </details>
 <details class="hp-faq-item">
 <summary>What is an attribution window?<span class="hp-faq-icon">+</span></summary>
-<div class="hp-faq-answer"><div class="hp-faq-answer-inner">An attribution window is the length of time in which a conversion event (like an app install) can be claimed by an event caused by an advertising campaign (like a link click). You can set your attribution window in the <a href="/docs/attribution-windows-link-settings">Branch dashboard</a>.</div></div>
+<div class="hp-faq-answer"><div class="hp-faq-answer-inner">An attribution window is the length of time in which a conversion event (like an app install) can be claimed by an event caused by an advertising campaign (like a link click). You can set your attribution window in the <a href="/docs/attribution-windows-link-settings" target="_blank">Branch dashboard</a>.</div></div>
 </details>
 <details class="hp-faq-item">
 <summary>What is the difference between deep linking and deferred deep linking?<span class="hp-faq-icon">+</span></summary>
-<div class="hp-faq-answer"><div class="hp-faq-answer-inner"><a href="/docs/creating-a-deep-link">Deep linking</a> takes users directly to content within your app, whereas <a href="/docs/san-deferred-deep-linking">deferred deep linking</a> asks a user to install the app before taking them to the content.</div></div>
+<div class="hp-faq-answer"><div class="hp-faq-answer-inner"><a href="/docs/creating-a-deep-link" target="_blank">Deep linking</a> takes users directly to content within your app, whereas <a href="/docs/san-deferred-deep-linking" target="_blank">deferred deep linking</a> asks a user to install the app before taking them to the content.</div></div>
 </details>
 <details class="hp-faq-item">
 <summary>What is Advanced Compliance?<span class="hp-faq-icon">+</span></summary>
-<div class="hp-faq-answer"><div class="hp-faq-answer-inner"><a href="/docs/advanced-compliance">Advanced Compliance</a> is a Branch feature that helps companies in healthcare or other highly regulated industries benefit from Branch's comprehensive set of mobile measurement tools, without sacrificing user privacy.</div></div>
+<div class="hp-faq-answer"><div class="hp-faq-answer-inner"><a href="/docs/advanced-compliance" target="_blank">Advanced Compliance</a> is a Branch feature that helps companies in healthcare or other highly regulated industries benefit from Branch's comprehensive set of mobile measurement tools, without sacrificing user privacy.</div></div>
 </details>
 </div>
 </div>
@@ -128,7 +128,7 @@ features:
 <div class="hp-links-label">/ Deep Linking</div>
 <h2>Branch Links</h2>
 <div class="hp-links-desc">Create Branch Links to share web links, deep link to pages in your app, track ads, and more.</div>
-<div><a class="hp-btn" href="/docs/create-branch-links">Create a link <span class="hp-arrow">→</span></a></div>
+<div><a class="hp-btn" href="/docs/create-branch-links" target="_blank">Create a link <span class="hp-arrow">→</span></a></div>
 </div>
 <div class="hp-links-img">
 <img src="/img/new_visual_img_02_2.png" alt="Branch Links illustration" loading="lazy" decoding="async">
