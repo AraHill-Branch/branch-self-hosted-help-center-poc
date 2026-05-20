@@ -10,16 +10,7 @@ function scrollToTop() {
       <div class="footer-columns">
         <!-- Logo -->
         <div class="footer-logo">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="url(#branchGradient)"/>
-            <path d="M20 12L28 20L20 28L12 20L20 12Z" fill="white"/>
-            <defs>
-              <linearGradient id="branchGradient" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#FF6C04"/>
-                <stop offset="1" stop-color="#651BC8"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <img src="/glyph_white_92x89.png" alt="Branch" width="40" height="39" />
         </div>
 
         <!-- Shortcuts -->
@@ -314,7 +305,7 @@ function scrollToTop() {
 }
 
 .footer-scroll-top {
-  position: absolute;
+  position: fixed;
   right: 20px;
   bottom: 40px;
 }
@@ -361,8 +352,8 @@ function scrollToTop() {
   }
 
   .footer-scroll-top {
-    right: 50%;
-    transform: translateX(50%);
+    right: 20px;
+    transform: none;
   }
 }
 
