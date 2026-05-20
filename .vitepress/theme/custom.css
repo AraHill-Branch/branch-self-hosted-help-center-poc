@@ -227,10 +227,10 @@ body:has(.VPHome) .VPNavBar {
   margin-top: 20px;
 }
 
-/* Hide appearance toggle only on homepage */
-.VPHome ~ .VPNav .VPNavBarAppearance.appearance,
-body:has(.VPHome) .VPNavBarAppearance.appearance {
-  display: none;
+/* Hide appearance toggle and social links only on homepage */
+html:has(.VPContent.is-home) .VPNavBar [class*="Appearance"],
+html:has(.VPContent.is-home) .VPNavBar .VPSocialLinks {
+  display: none !important;
 }
 
 /* ======================
