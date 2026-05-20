@@ -5,6 +5,8 @@ import { nextTick, onMounted, provide, watch } from 'vue'
 import HomeHero from './components/HomeHero.vue'
 import SearchButton from './components/search/SearchButton.vue'
 import SearchModal from './components/search/SearchModal.vue'
+import GetHelpButton from './components/GetHelpButton.vue'
+import Footer from './components/Footer.vue'
 
 const { Layout } = DefaultTheme
 const { isDark, frontmatter } = useData()
@@ -184,6 +186,12 @@ watch(() => route.path, () => {
     </template>
     <template #nav-bar-title-after>
       <SearchButton class="nav-search-wrapper" />
+    </template>
+    <template #nav-bar-content-after>
+      <GetHelpButton />
+    </template>
+    <template #layout-bottom>
+      <Footer v-if="isHomePage()" />
     </template>
   </Layout>
   <SearchModal />

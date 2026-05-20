@@ -121,6 +121,8 @@
 .VPFeatures {
   position: relative;
   z-index: 1;
+  margin-bottom: 24px;
+  padding-top: 0;
 }
 
 .VPFeatures .container {
@@ -150,7 +152,11 @@
 /* --- Force nav to always be in dark mode --- */
 .VPNavBar {
   background: rgba(9, 1, 19, 0.85) !important;
-  border-bottom-color: rgba(101, 27, 200, 0.25) !important;
+}
+
+.VPNavBarTitle.has-sidebar .title {
+  border-bottom: none !important;
+  margin-top: 10px;
 }
 
 .VPNavBar .wrapper,
@@ -224,18 +230,32 @@
 .VPHome ~ .VPNav .VPNavBar,
 body:has(.VPHome) .VPNavBar {
   position: relative !important;
-  margin-top: 20px;
+  margin-top: 0;
+  padding-top: 20px;
 }
 
-/* Hide appearance toggle only on homepage */
-.VPHome ~ .VPNav .VPNavBarAppearance.appearance,
-body:has(.VPHome) .VPNavBarAppearance.appearance {
-  display: none;
+/* --- Articles page nav styles --- */
+.VPNavBar:not(.VPHome ~ .VPNav .VPNavBar):not(body:has(.VPHome) .VPNavBar) {
+  padding-top: 10px;
+  background: #090113 !important;
+}
+
+.VPNavBar:not(.VPHome ~ .VPNav .VPNavBar):not(body:has(.VPHome) .VPNavBar) .wrapper,
+.VPNavBar:not(.VPHome ~ .VPNav .VPNavBar):not(body:has(.VPHome) .VPNavBar) .container,
+.VPNavBar:not(.VPHome ~ .VPNav .VPNavBar):not(body:has(.VPHome) .VPNavBar) .content {
+  background-color: #090113 !important;
+}
+
+/* Hide appearance toggle and social links only on homepage */
+html:has(.VPContent.is-home) .VPNavBar [class*="Appearance"],
+html:has(.VPContent.is-home) .VPNavBar .VPSocialLinks {
+  display: none !important;
 }
 
 /* ======================
    6. SIDEBAR
    ====================== */
+
 .VPSidebarItem.is-active > .item > .indicator {
   background-color: #651BC8;
 }
@@ -525,6 +545,17 @@ html:has(.VPContent.is-home) .VPNavBar .nav-search-wrapper {
   display: none !important;
 }
 
+/* Expand search bar to take up space between logo and right nav menu */
+.VPNavBar .nav-search-wrapper {
+  margin-top: 6px;
+  margin-left: 50px;
+  margin-right: 70px;
+}
+
+.VPNavBar .nav-search-wrapper .nav-search-kbd {
+  margin-left: 250px;
+}
+
 /* API operation pages: the generated .md has an H1 and a hidden search
    block that exist solely so VitePress indexes them. <ApiOperation> renders
    its own visible title and content, so hide both of these from users. */
@@ -534,7 +565,7 @@ html:has(.VPContent.is-home) .VPNavBar .nav-search-wrapper {
 }
 
 .hp-hero-search {
-  margin: 20px 0px 140px 0px !important;
+  margin: 20px 0px 24px 0px !important;
 }
 
 /* --- Layout & resets --- */
@@ -566,7 +597,11 @@ html:has(.VPContent.is-home) .VPNavBar .nav-search-wrapper {
 }
 
 .hp-section {
-  padding: 48px 0;
+  padding: 48px 0 24px;
+}
+
+.hp-section:last-child {
+  padding-bottom: 0;
 }
 
 .hp-section-head {
@@ -785,6 +820,7 @@ a.hp-view-all:hover .hp-arrow {
   transition: border-color var(--t-slow) var(--ease),
               box-shadow var(--t-slow) var(--ease),
               transform var(--t-slow) var(--ease);
+  margin: 48px 0;
 }
 
 .dark .hp-uni {
@@ -1161,10 +1197,6 @@ a.hp-contact-card:hover .hp-contact-link .hp-arrow {
     grid-template-columns: repeat(2, 1fr);
   }
   .hp-res-col + .hp-res-col::before { display: none; }
-  .hp-res-col:nth-child(1),
-  .hp-res-col:nth-child(2) {
-    border-bottom: 1px solid var(--vp-c-divider);
-  }
   .hp-faq-layout {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -1285,6 +1317,9 @@ a.hp-contact-card:hover .hp-contact-link .hp-arrow {
 .VPSidebar {
   transition: transform var(--t-slow) var(--ease),
               opacity var(--t-slow) var(--ease);
+  padding-top: 10px !important;
+  top: 82px !important;
+  height: 100% !important;
 }
 
 .VPSidebarItem .item {
@@ -1688,7 +1723,84 @@ body,
 
 
 /* ============================================================================
-   16. REDUCED MOTION
+   16. FOOTER TRANSITION
+   Soften junction between page content and footer (homepage only)
+   ============================================================================ */
+
+.VPContent {
+  position: relative;
+  padding-top: 0;
+}
+
+/* Only show footer gradient on homepage */
+.VPContent.is-home::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(9, 1, 19, 0.08) 30%,
+    rgba(9, 1, 19, 0.25) 60%,
+    rgba(9, 1, 19, 0.5) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Homepage-specific footer transition */
+.hp-wrap {
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.hp-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(9, 1, 19, 0.1) 25%,
+    rgba(9, 1, 19, 0.3) 55%,
+    rgba(9, 1, 19, 0.6) 85%,
+    rgba(9, 1, 19, 0.85) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================================================
+   17. API OPERATION PAGE LAYOUT
+   Endpoint pages use layout: doc (default) so the left sidebar with the list
+   of endpoints stays visible, but the content container needs to break out
+   of VitePress's default narrow prose width so our 2-column ApiOperation
+   layout (content + sticky try-it/code panel) can breathe.
+   ============================================================================ */
+
+.api-operation-page .VPDoc .container,
+.api-operation-page .VPDoc .content,
+.api-operation-page .VPDoc .content-container,
+.api-operation-page .VPDoc .vp-doc {
+  max-width: none;
+}
+
+.api-operation-page .VPDoc .content {
+  padding: 0;
+}
+
+.api-operation-page .VPDoc .vp-doc {
+  padding: 0;
+}
+
+/* ============================================================================
+   18. REDUCED MOTION
    ============================================================================ */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1731,26 +1843,8 @@ body,
   }
 }
 
-
-/* ============================================================================
-   17. API OPERATION PAGE LAYOUT
-   Endpoint pages use layout: doc (default) so the left sidebar with the list
-   of endpoints stays visible, but the content container needs to break out
-   of VitePress's default narrow prose width so our 2-column ApiOperation
-   layout (content + sticky try-it/code panel) can breathe.
-   ============================================================================ */
-
-.api-operation-page .VPDoc .container,
-.api-operation-page .VPDoc .content,
-.api-operation-page .VPDoc .content-container,
-.api-operation-page .VPDoc .vp-doc {
-  max-width: none;
-}
-
-.api-operation-page .VPDoc .content {
-  padding: 0;
-}
-
-.api-operation-page .VPDoc .vp-doc {
-  padding: 0;
+@media (min-width: 960px) {
+  .VPNavBar.has-sidebar .wrapper {
+    padding-bottom: 10px !important;
+  }
 }
