@@ -547,14 +547,13 @@ html:has(.VPContent.is-home) .VPNavBar .nav-search-wrapper {
 
 /* Expand search bar to take up space between logo and right nav menu */
 .VPNavBar .nav-search-wrapper {
-  padding-right: 400px;
   margin-top: 6px;
   margin-left: 50px;
   margin-right: 70px;
 }
 
-.VPNavBar .nav-search-wrapper .nav-search-button {
-  width: 100%;
+.VPNavBar .nav-search-wrapper .nav-search-kbd {
+  margin-left: 250px;
 }
 
 /* API operation pages: the generated .md has an H1 and a hidden search

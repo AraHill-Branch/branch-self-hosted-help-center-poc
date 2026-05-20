@@ -29,13 +29,15 @@ function openSearch() {
     aria-label="Search the Help Center"
     @click.stop.prevent="openSearch"
   >
-    <span class="nav-search-icon" aria-hidden="true">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8" />
-        <path d="m21 21-4.3-4.3" />
-      </svg>
+    <span class="nav-search-left">
+      <span class="nav-search-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.3-4.3" />
+        </svg>
+      </span>
+      <span class="nav-search-label">Search the Help Center</span>
     </span>
-    <span class="nav-search-label">Search</span>
     <span class="nav-search-kbd">
       <kbd>{{ metaKey }}</kbd><kbd>K</kbd>
     </span>
@@ -44,8 +46,9 @@ function openSearch() {
 
 <style scoped>
 .nav-search-button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
   padding: 6px 10px;
   font-family: var(--vp-font-family-base);
@@ -58,6 +61,12 @@ function openSearch() {
   transition: border-color 140ms cubic-bezier(0.22, 0.61, 0.36, 1),
               background-color 140ms cubic-bezier(0.22, 0.61, 0.36, 1),
               color 140ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.nav-search-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .nav-search-button:hover,
@@ -82,7 +91,7 @@ function openSearch() {
 .nav-search-kbd {
   display: inline-flex;
   gap: 2px;
-  margin-left: 4px;
+  margin-left: auto;
 }
 
 .nav-search-kbd kbd {
