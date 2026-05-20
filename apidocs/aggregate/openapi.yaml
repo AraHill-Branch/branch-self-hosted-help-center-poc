@@ -1,0 +1,1141 @@
+openapi: 3.0.0
+info:
+  title: Aggregate API
+  description: Export log-level and aggregate-level data for measuring campaign performance.
+  termsOfService: "https://branch.io/policies/"
+  contact:
+    name: Branch Support
+    url: "https://help.branch.io/using-branch/page/submit-a-ticket"
+    email: support@branch.io
+  version: 1.0.0
+servers:
+  - url: "https://api2.branch.io/v2"
+security:
+  - appId: []
+    accessToken: []
+tags:
+  - name: Aggregate API
+    description: Pull aggregate Branch data filtered for limited-access users.
+paths:
+  /analytics:
+    post:
+      tags:
+        - Aggregate API
+      summary: Request Aggregate Export
+      description: |
+        By passing in the appropriate options, you can initiate an export of your aggregate Branch data.
+      operationId: requestAggregateExport
+      parameters:
+        - name: limit
+          in: query
+          description: The maximum number of results to return.
+          required: false
+          style: form
+          explode: true
+          schema:
+            maximum: 50000
+            minimum: 1
+            type: integer
+            format: int32
+        - name: format
+          in: query
+          description: Format of returned data. json or csv
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            default: csv
+            enum:
+              - csv
+              - json
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/analytics_body"
+      responses:
+        "200":
+          description: Status of aggregate export
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_200"
+              examples:
+                Result:
+                  value: |-
+                    {
+                      "code": 200,
+                      "job_id": "XXXX-0000-xxxx",
+                      "status_url": "https://api2.branch.io/v2/analytics/{JOB_ID_HERE}"
+                    }
+        "400":
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_400"
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Our product is failing to serve your request at this moment. Please try again later.",
+                            "code": 500
+                        }
+                    }
+  "/analytics/{job_id}":
+    get:
+      tags:
+        - Aggregate API
+      summary: Export Download Status
+      description: |
+        Check the status of an aggregate export job. When the job's status is `FINISHED`, the response includes a signed `response_url` you can use to download the export.
+      operationId: getExportDownloadStatus
+      parameters:
+        - name: job_id
+          in: path
+          description: |
+            The unique ID of the request. Obtained from the [Export Request](https://help.branch.io/developers-hub/docs/branch-aggregate-api#export-request).
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: Unique identifier for Branch app of requested data.
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: The maximum number of results to return.
+          required: false
+          style: form
+          explode: true
+          schema:
+            maximum: 50000
+            minimum: 1
+            type: integer
+            format: int32
+        - name: format
+          in: query
+          description: Format of returned data. json or csv
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            default: csv
+            enum:
+              - csv
+              - json
+      responses:
+        "200":
+          description: Current status of the aggregate export job. When `status` is `FINISHED`, `response_url` contains the signed download link.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/export_status_response"
+              examples:
+                Result:
+                  value:
+                    code: 200
+                    status: FINISHED
+                    response_url: "https://branch-exports-usw2.s3.amazonaws.com/partner-query/2023-05-12-2023-05-19-eo_install-day-{JOB_ID}.csv?Signature={SIGNATURE}&AWSAccessKeyId={AWS_KEY}&Expires={EXPIRATION}"
+        "400":
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_400"
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+        "404":
+          description: Job ID Not Found
+components:
+  schemas:
+    export_status_response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: HTTP-style response code.
+        status:
+          type: string
+          enum:
+            - QUEUED
+            - RUNNING
+            - FINISHED
+            - ERROR
+          example: FINISHED
+          description: Current state of the export job.
+        response_url:
+          type: string
+          description: Signed S3 URL for downloading the export. Present when `status` is `FINISHED`.
+          example: "https://branch-exports-usw2.s3.amazonaws.com/partner-query/2023-05-12-2023-05-19-eo_install-day-{JOB_ID}.csv?Signature={SIGNATURE}&AWSAccessKeyId={AWS_KEY}&Expires={EXPIRATION}"
+        error_message:
+          type: string
+          description: Human-readable error message. Present when `status` is `ERROR`.
+          example: "Invalid app_id"
+    inline_response_200:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        job_id:
+          type: string
+          description: |
+            The unique ID of the request. This is used in the [Export Download Status request](https://help.branch.io/developers-hub/docs/branch-aggregate-api#export-download-status).
+          example: XXXX-0000-xxxx
+        status_url:
+          type: string
+          description: The URL of the export request.
+          example: "https://api2.branch.io/v2/analytics/{JOB_ID_HERE}"
+    analytics_body:
+      type: object
+      description: ""
+      x-examples: {}
+      properties:
+        start_date:
+          type: string
+          description: The start of the interval time range represented as an ISO-8601 complete date.
+          format: date
+          example: "2023-05-15"
+        end_date:
+          type: string
+          description: The end of the interval time range represented as an ISO-8601 complete date.
+          format: date
+          example: "2023-05-16"
+        data_source:
+          type: string
+          description: "A string value representing the data source.  See [Topics](https://help.branch.io/developers-hub/docs/branch-aggregate-api#topics) for complete list. "
+          default: eo_install
+          enum:
+            - eo_impression
+            - eo_click
+            - eo_web_to_app_auto_redirect
+            - eo_branch_cta_view
+            - eo_open
+            - eo_install
+            - eo_reinstall
+            - eo_web_session_start
+            - eo_pageview
+            - eo_commerce_event
+            - eo_custom_event
+            - eo_content_event
+            - eo_dismissal
+            - eo_user_lifecycle_event
+            - cost
+            - skadnetwork-valid-messages
+            - eo_click_blocked
+            - eo_impression_blocked
+            - eo_install_blocked
+            - eo_reinstall_blocked
+            - eo_open_blocked
+            - eo_web_session_start_blocked
+            - eo_pageview_blocked
+            - eo_custom_event_blocked
+            - eo_content_event_blocked
+            - eo_commerce_event_blocked
+            - eo_user_lifecycle_event_blocked
+            - eo_branch_cta_view_blocked
+            - eo_web_to_app_auto_redirect_blocked
+        dimensions:
+          maxItems: 11
+          minItems: 1
+          type: array
+          description: |
+            An array representing dimension(s) to group by. Limit is 11. See [Dimensions](https://help.branch.io/developers-hub/docs/branch-aggregate-api#dimensions) for complete list.
+          default:
+            - name
+          example:
+            - user_data_os
+          items:
+            type: string
+            enum:
+              - name
+              - app_id
+              - app_name
+              - origin
+              - timestamp
+              - deep_linked
+              - from_desktop
+              - attributed
+              - user_data_app_store
+              - user_data_app_version
+              - user_data_os
+              - user_data_language
+              - user_data_platform
+              - user_data_environment
+              - user_data_geo_dma_code
+              - user_data_geo_country_code
+              - user_data_country
+              - user_data_cpp_level
+              - user_data_geo_region_en
+              - user_data_opted_in
+              - user_data_opted_in_status
+              - last_attributed_touch_type
+              - last_attributed_touch_data_tilde_tags
+              - last_attributed_touch_data_tilde_secondary_publisher
+              - last_attributed_touch_data_tilde_campaign
+              - last_attributed_touch_data_tilde_advertising_partner_name
+              - last_attributed_touch_data_tilde_advertising_partner_id
+              - last_attributed_touch_data_tilde_feature
+              - last_attributed_touch_data_tilde_creative_name
+              - last_attributed_touch_data_tilde_creative_id
+              - last_attributed_touch_data_tilde_ad_name
+              - last_attributed_touch_data_tilde_ad_id
+              - last_attributed_touch_data_tilde_campaign_id
+              - last_attributed_touch_data_tilde_placement
+              - last_attributed_touch_data_tilde_stage
+              - last_attributed_touch_data_tilde_channel
+              - last_attributed_touch_data_tilde_ad_set_name
+              - last_attributed_touch_data_tilde_ad_set_id
+              - last_attributed_touch_data_tilde_keyword
+              - last_attributed_touch_data_tilde_keyword_id
+              - last_attributed_touch_data_tilde_journey_id
+              - last_attributed_touch_data_tilde_view_name
+              - last_attributed_touch_data_tilde_view_id
+              - last_attributed_touch_data_tilde_agency
+              - last_attributed_touch_data_tilde_agency_id
+              - last_attributed_touch_data_tilde_customer_secondary_publisher
+              - last_attributed_touch_data_tilde_customer_ad_set_name
+              - last_attributed_touch_data_tilde_customer_ad_name
+              - last_attributed_touch_data_tilde_customer_keyword
+              - last_attributed_touch_data_tilde_customer_placement
+              - last_attributed_touch_data_tilde_customer_sub_site_name
+              - last_attributed_touch_data_tilde_customer_campaign
+              - last_attributed_touch_data_plus_web_format
+              - last_attributed_touch_data_plus_current_feature
+              - last_attributed_touch_data_plus_via_features
+              - last_attributed_touch_data_plus_aggregate_measurement
+              - last_attributed_touch_data_plus_pam_enabled
+              - last_attributed_touch_data_dollar_marketing_title
+              - last_attributed_touch_data_dollar_meta_is_mobile_data_terms_signed
+              - last_attributed_touch_data_dollar_3p
+              - last_cta_view_data_tilde_ad_name
+              - last_cta_view_data_tilde_secondary_publisher
+              - last_cta_view_data_tilde_campaign
+              - last_cta_view_data_tilde_advertising_partner_name
+              - last_cta_view_data_tilde_feature
+              - last_cta_view_data_tilde_ad_set_name
+              - last_cta_view_data_tilde_ad_set_id
+              - last_cta_view_data_tilde_campaign_id
+              - last_cta_view_data_tilde_creative_name
+              - last_cta_view_data_tilde_creative_id
+              - last_cta_view_data_plus_via_features
+              - last_cta_view_data_dollar_3p
+              - last_cta_view_data_dollar_meta_is_mobile_data_terms_signed
+              - last_cta_view_data_tilde_tags
+              - last_cta_view_data_plus_web_format
+              - last_cta_view_data_tilde_channel
+              - last_cta_view_data_tilde_ad_id
+              - last_cta_view_data_tilde_stage
+              - body_ad_network_id
+              - body_campaign_id
+              - body_app_id
+              - body_redownload
+              - body_source_app_id
+              - body_conversion_value
+              - body_last_attributed_touch_data_tilde_creative_name
+              - body_last_attributed_touch_data_tilde_ad_set_name
+              - body_last_attributed_touch_data_tilde_creative_id
+              - body_last_attributed_touch_data_tilde_ad_set_id
+              - body_last_attributed_touch_data_tilde_ad_name
+              - body_last_attributed_touch_data_tilde_ad_id
+              - body_last_attributed_touch_data_tilde_campaign
+              - body_last_attributed_touch_data_tilde_campaign_id
+              - body_last_attributed_touch_data_tilde_campaign_name
+              - annotation_dollar_3p
+              - annotation_conversion_value_mapped_value
+              - annotation_conversion_value_revision
+              - annotation_campaign_id_mapped_value
+              - annotation_campaign_id_revision
+              - annotation_source_app_id_mapped_value
+              - annotation_source_app_id_revision
+              - annotation_customer_event_alias
+              - install_activity_touch_data_dollar_meta_is_mobile_data_terms_signed
+              - reengagement_activity_touch_data_dollar_meta_is_mobile_data_terms_signed
+              - days_from_last_attributed_touch_to_event
+              - days_from_last_cta_view_to_event
+              - event_data_product_categories
+              - event_data_custom_param_1
+              - event_data_custom_param_2
+              - event_data_custom_param_3
+              - first_event_for_user
+              - customer_event_alias
+        granularity:
+          type: string
+          description: The time granularity that each band value will represent.
+          default: day
+          enum:
+            - day
+            - week
+            - month
+        aggregation:
+          type: string
+          description: 'How to count events towards the final result count.  When querying with a data source of "eo_commerce_event", the aggregation may also be specified as "revenue", in which case the counts returned are the sum of revenue from matching events, and not the number of events themselves.'
+          default: total_count
+          enum:
+            - unique_count
+            - total_count
+            - revenue
+            - cost
+            - cost-in-local-currency
+        enable_install_calculation:
+          type: boolean
+          description: "If true, then Branch will de-dupe unattributed installs caused by duplicate events from non-opt-in users coming from paid ads (result from [iOS 14.5 privacy changes](https://help.branch.io/faq/docs/ios-14-faqs))."
+          default: false
+        filters:
+          $ref: "#/components/schemas/analytics_body_filters"
+      required:
+        - start_date
+        - end_date
+        - data_source
+        - dimensions
+    inline_response_400:
+      type: object
+      properties:
+        error:
+          $ref: "#/components/schemas/inline_response_400_error"
+    inline_response_400_error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Authentication failed !
+        code:
+          type: integer
+          example: 400
+    inline_response_500:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/inline_response_500_error'
+    inline_response_500_error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        code:
+          type: integer
+          example: 500
+    analytics_body_filters:
+      type: object
+      description: |-
+        Keys are same as dimensions. Values are an array of values to match for the dimension.
+
+        An object defining filters to match or disallow certain values.
+      example:
+        attributed: "true"
+        user_data_os:
+          - IOS
+          - ANDROID
+      x-examples: {}
+      properties:
+        name:
+          type: array
+          description: 'The name of the event, such as "CLICK", "INSTALL", "PURCHASE" or custom event names like "UpdateSettings". Set either by the client (e.g. custom events) or automatically server side. See [events](https://help.branch.io/developers-hub/docs/tracking-commerce-content-lifecycle-and-custom-events#available-events) for Standard Events enum.'
+          items:
+            type: string
+            example: INSTALL
+        app_id:
+          type: array
+          description: 'Unique identifier for Branch app of requested data.'
+          items:
+            type: string
+            example: "0000000"
+        app_name:
+          type: array
+          description: 'The name of your Branch App'
+          items:
+            type: string
+            example: "MyApp"
+        origin:
+          type: array
+          description: "Whether the event originated with a Branch SDK/API call, or was sent by Segment or mParticle. Set automatically server side."
+          items:
+            type: string
+            enum:
+              - BRANCH
+              - SEGMENT
+              - MPARTICLE
+        timestamp:
+          type: array
+          description: Unix timestamp in milliseconds for the event. Set automatically server side.
+          items:
+            type: string
+            example: 1651159080
+        deep_linked:
+          type: array
+          description: True if the current app or web session resulted in the user being deep linked. Set automatically server side.
+          items:
+            type: string
+            enum:
+              - "true"
+              - "false"
+        from_desktop:
+          type: array
+          description: True if the last attributed touch originated on desktop and the user continued through to mobile via Text Me The App. Set automatically server side.
+          items:
+            type: string
+            enum:
+              - "true"
+              - "false"
+        attributed:
+          type: array
+          description: Whether the event is attributed. This will always be accompanied by last_attributed_touch_type and last_attributed_touch_data. Set automatically server side.
+          items:
+            type: string
+            enum:
+              - "true"
+              - "false"
+        user_data_os:
+          type: array
+          description: Operating System (OS) of the device where the event occurred. Note that robots include web and app robots for easy filtering. Specified by the client.
+          items:
+            type: string
+            enum:
+              - AMAZON_FIRE
+              - AMAZON_FIRE_TV
+              - ANDROID
+              - BADA
+              - BEOS
+              - BLACKBERRY
+              - BSD
+              - CENTOS
+              - CHROMIUM_OS
+              - DEBIAN
+              - DRAGONFLY
+              - FEDORA
+              - FIREFOX_OS
+              - FREEBSD
+              - GENTOO
+              - GNU
+              - IOS
+              - JOLI
+              - KUBUNTU
+              - LINUX
+              - MAC_OS
+              - MANDRIVA
+              - MEEGO
+              - MINT
+              - NETBSD
+              - NINTENDO
+              - OPENBSD
+              - OS_2
+              - OTHER
+              - PLAYSTATION
+              - RIM_TABLET_OS
+              - ROBOTS
+              - SAILFISH
+              - SLACKWARE
+              - SOLARIS
+              - SUSE
+              - SYMBIAN
+              - TIZEN
+              - TVOS
+              - UBUNTU
+              - UNIX
+              - WINDOWS
+              - WINDOWS_PHONE
+              - ZENWALK
+              - ROKU
+              - SAMSUNG
+              - ANDROID_TV
+              - LG
+              - PANASONIC
+        user_data_language:
+          type: array
+          description: "Language specified in the user_agent string (or in some cases other headers), Specified by the client."
+          items:
+            type: string
+        user_data_platform:
+          type: array
+          description: "Convenience dimension that allows users to easily see web vs app, desktop vs mobile, and iOS vs Android vs other. Derived from information specified by the client."
+          items:
+            type: string
+        user_data_environment:
+          type: array
+          description: "Runtime environment where the event occurred, which can distinguish between e.g. full app vs instant app. Specified by the client."
+          items:
+            type: string
+            enum:
+              - FULL_WEB
+              - FULL_APP
+              - IMESSAGE_APP
+              - INSTANT_APP
+              - TV_WEB
+              - TV_APP
+              - APP_CLIP
+        user_data_geo_dma_code:
+          type: array
+          description: "DMA code, derived from IP address. https://support.google.com/richmedia/answer/2745487?hl=en. Set automatically server side."
+          items:
+            type: string
+        user_data_geo_country_code:
+          type: array
+          description: "Country code, derived from IP address. Set automatically server side."
+          items:
+            type: string
+        user_data_country:
+          type: array
+          description: "Country, derived from user agent string or request body field. Specified by the client."
+          items:
+            type: string
+        user_data_cpp_level:
+          type: array
+          description: "Consumer Protection Preference level."
+          items:
+            type: string
+        user_data_geo_region_en:
+          type: array
+          description: "Human-readable region, derived from IP address. Set automatically server side."
+          items:
+            type: string
+        user_data_opted_in:
+          type: array
+          description: "Boolean for whether the second OPEN can be infered as INSTALL after opt-in. If set, the event can be considered as our synthetic OPEN generated by api-open by inspecting incoming event paramters with persona data. If the event is not considered as the second OPEN, the flag is not present. Only available for iOS14.5 or higher"
+          items:
+            type: string
+            enum:
+              - "true"
+              - "false"
+        user_data_opted_in_status:
+          type: array
+          description: Current authorization status of opt-in flag for iOS14.5 or higher traffic. The flag is sent directly from the SDK.
+          items:
+            type: string
+        last_attributed_touch_type:
+          type: array
+          description: "Whether the last attributed touch was an impression, a click, or a web to app auto redirect. Set automatically server side."
+          items:
+            type: string
+            enum:
+              - CLICK
+              - WEB_TO_APP_AUTO_REDIRECT
+              - IMPRESSION
+        last_attributed_touch_data_tilde_campaign:
+          type: array
+          description: "Campaign (name) specified for the last attributed touch. Can be specified on links by the client, or prefilled automatically server side in some cases."
+          items:
+            type: string
+        last_attributed_touch_data_tilde_campaign_id:
+          type: array
+          description: Campaign ID specified for the last attributed touch. Set automatically server side.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_channel:
+          type: array
+          description: "Channel specified for the last attributed touch. Can be specified on links by the client, or prefilled automatically server side in some cases."
+          items:
+            type: string
+        last_attributed_touch_data_tilde_feature:
+          type: array
+          description: "Feature specified for the last attributed touch. Can be specified on links by the client, or prefilled automatically server side in some cases."
+          items:
+            type: string
+        last_attributed_touch_data_tilde_stage:
+          type: array
+          description: "Stage specified for the last attributed touch. Can be specified on links by the client, or prefilled automatically server side in some cases."
+          items:
+            type: string
+        last_attributed_touch_data_tilde_tags:
+          type: array
+          description: "Tags specified for the last attributed touch. Can be specified on links by the client, or prefilled automatically server side in some cases."
+          items:
+            type: string
+        last_attributed_touch_data_tilde_advertising_partner_name:
+          type: array
+          description: Human-readable advertising partner name specified for the last attributed touch. Set automatically server side.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_advertising_partner_id:
+          type: array
+          description: "ID for the advertising partner specified for the last attributed touch. Set automatically server side OR specified by the client, for now, specific to partners migrating from TUNE."
+          items:
+            type: string
+        last_attributed_touch_data_tilde_secondary_publisher:
+          type: array
+          description: Secondary publisher specified for the last attributed touch. Passed by the ad network.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_creative_name:
+          type: array
+          description: Creative name specified for the last attributed touch. Set automatically server side.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_creative_id:
+          type: array
+          description: Creative ID specified for the last attributed touch. Set automatically server side.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_ad_set_name:
+          type: array
+          description: Ad set name specified for the last attributed touch. Set automatically server side.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_ad_set_id:
+          type: array
+          description: Ad set ID specified for the last attributed touch. Set automatically server side.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_ad_name:
+          type: array
+          description: Ad name specified for the last attributed touch. Set automatically server side.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_ad_id:
+          type: array
+          description: Ad ID specified for the last attributed touch. Set automatically server side.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_keyword:
+          type: array
+          description: Keyword specified for the last attributed touch. Set automatically server side.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_keyword_id:
+          type: array
+          description: Keyword ID for the last attributed touch. Set automatically server side.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_placement:
+          type: array
+          description: "Placement of the last touch, as set with an analytics tag. Actual app or website the ad appears on display campaigns."
+          items:
+            type: string
+        last_attributed_touch_data_tilde_agency:
+          type: array
+          description: "Agency of the last touch, as set with an analytics tag. Agency that runs ad campaigns on behalf of advertiser."
+          items:
+            type: string
+        last_attributed_touch_data_tilde_agency_id:
+          type: array
+          description: "ID of agency of the last touch, as set with an analytics tag. Agency that runs ad campaigns on behalf of advertiser."
+          items:
+            type: string
+        last_attributed_touch_data_tilde_customer_secondary_publisher:
+          type: array
+          description: Customer secondary publisher.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_customer_ad_set_name:
+          type: array
+          description: Customer ad set name.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_customer_ad_name:
+          type: array
+          description: Customer ad name.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_customer_keyword:
+          type: array
+          description: Customer keyword.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_customer_placement:
+          type: array
+          description: Customer placement.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_customer_sub_site_name:
+          type: array
+          description: Customer sub site name.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_customer_campaign:
+          type: array
+          description: Customer campaign.
+          items:
+            type: string
+        last_attributed_touch_data_dollar_marketing_title:
+          type: array
+          description: Marketing title of the Branch Link.
+          items:
+            type: string
+        last_attributed_touch_data_dollar_meta_is_mobile_data_terms_signed:
+          type: boolean
+          description: Whether the Meta mobile data terms have been signed for the Last Attributed Touch. When true, Meta does not require Branch to scrub Meta-related data from this attribution record.
+          default: false
+        last_attributed_touch_data_dollar_3p:
+          type: array
+          description: The third party that was part of the last touch.
+          items:
+            type: string
+        last_attributed_touch_data_plus_current_feature:
+          type: array
+          description: Branch feature (determined by Branch) of the current touch. Set automatically server side.
+          items:
+            type: string
+            enum:
+              - EMAIL
+              - ADS
+              - DESKTOP_JOURNEYS
+              - MOBILE_JOURNEYS
+              - DESKTOP_DEEPVIEWS
+              - MOBILE_DEEPVIEWS
+              - SOCIAL
+              - QUICK_LINKS
+              - APP_CLIP
+        last_attributed_touch_data_plus_via_features:
+          type: array
+          description: "All Branch features (determined by Branch) which were determined, via attribution, to have led to this event. For example, if an email link click leads to a Journey which leads to the app, the published eo_open will have +via_features: [EMAIL, JOURNEYS]. set automatically server side."
+          items:
+            type: string
+            enum:
+              - EMAIL
+              - ADS
+              - DESKTOP_JOURNEYS
+              - MOBILE_JOURNEYS
+              - DESKTOP_DEEPVIEWS
+              - MOBILE_DEEPVIEWS
+              - SOCIAL
+              - QUICK_LINKS
+              - APP_CLIP
+        last_attributed_touch_data_plus_web_format:
+          type: array
+          description: Set if an event originated with a touch on Google AMP or Facebook Instant Article. Specified by the client.
+          items:
+            type: string
+            enum:
+              - AMP
+              - INSTANT_ARTICLES
+        last_attributed_touch_data_plus_aggregate_measurement:
+          type: boolean
+          description: Aggregate measurement associated with the last attributed touch.
+          default: false
+        last_attributed_touch_data_plus_pam_enabled:
+          type: boolean
+          description: Whether PAM was enabled for the last attributed touch.
+          default: false
+        last_attributed_touch_data_tilde_journey_id:
+          type: array
+          description: Audience rule id for a Journey. Set automatically server side.
+          items:
+            type: string
+        last_attributed_touch_data_tilde_view_name:
+          type: array
+          description: '"View Name" or "title" for a branch view / template. Can be specified on links by the client, or prefilled automatically server side in some cases.'
+          items:
+            type: string
+        last_attributed_touch_data_tilde_view_id:
+          type: array
+          description: Branch View ID for a Journey. Set automatically server side.
+          items:
+            type: string
+        last_cta_view_data_tilde_campaign:
+          type: array
+          description: "Campaign (name) specified for the last Branch CTA view. Can be specified on links by the client, or prefilled automatically server side in some cases."
+          items:
+            type: string
+        last_cta_view_data_tilde_campaign_id:
+          type: array
+          description: Campaign id specified for the last Branch CTA view. Set automatically server side.
+          items:
+            type: string
+        last_cta_view_data_tilde_channel:
+          type: array
+          description: "Channel specified for the last Branch CTA view. Can be specified on links by the client, or prefilled automatically server side in some cases."
+          items:
+            type: string
+        last_cta_view_data_tilde_feature:
+          type: array
+          description: "Feature specified for the last Branch CTA view. Can be specified on links by the client, or prefilled automatically server side in some cases."
+          items:
+            type: string
+        last_cta_view_data_tilde_stage:
+          type: array
+          description: "Stage specified for the last Branch CTA view. Can be specified on links by the client, or prefilled automatically server side in some cases."
+          items:
+            type: string
+        last_cta_view_data_tilde_tags:
+          type: array
+          description: "Tags specified for the last Branch CTA view. Can be specified on links by the client, or prefilled automatically server side in some cases."
+          items:
+            type: string
+        last_cta_view_data_tilde_advertising_partner_name:
+          type: array
+          description: Human-readable advertising partner name specified for the last Branch CTA view. Set automatically server side.
+          items:
+            type: string
+        last_cta_view_data_tilde_secondary_publisher:
+          type: array
+          description: Secondary publisher specified for the last Branch CTA view. Passed by the ad network.
+          items:
+            type: string
+        last_cta_view_data_tilde_creative_name:
+          type: array
+          description: Creative name specified for the last Branch CTA view. Set automatically server side.
+          items:
+            type: string
+        last_cta_view_data_tilde_creative_id:
+          type: array
+          description: Creative ID specified for the last Branch CTA view. Set automatically server side.
+          items:
+            type: string
+        last_cta_view_data_tilde_ad_set_name:
+          type: array
+          description: Ad set name specified for the last Branch CTA view. Set automatically server side.
+          items:
+            type: string
+        last_cta_view_data_tilde_ad_set_id:
+          type: array
+          description: Ad Set ID specified for the last Branch CTA view. Set automatically server side.
+          items:
+            type: string
+        last_cta_view_data_tilde_ad_name:
+          type: array
+          description: Ad name specified for the last Branch CTA view. Set automatically server side.
+          items:
+            type: string
+        last_cta_view_data_tilde_ad_id:
+          type: array
+          description: Ad ID specified for the last Branch CTA view. Set automatically server side.
+          items:
+            type: string
+        last_cta_view_data_plus_via_features:
+          type: array
+          description: "All Branch features (determined by Branch) which were determined, via attribution, to have led to this event. For example, if an email link click leads to a Journeys CTA view, the published eo_branch_cta_view will have +via_features: [EMAIL, JOURNEYS]. set automatically server side."
+          items:
+            type: string
+            enum:
+              - EMAIL
+              - ADS
+              - DESKTOP
+              - JOURNEYS
+              - MOBILE_JOURNEYS
+              - DESKTOP_DEEPVIEWS
+              - MOBILE_DEEPVIEWS
+              - SOCIAL
+              - QUICK_LINKS
+        last_cta_view_data_dollar_3p:
+          type: array
+          description: Advertising partner short-code (e.g. e_rs) specified for the last Branch CTA view. Specified by the client.
+          items:
+            type: string
+        last_cta_view_data_dollar_meta_is_mobile_data_terms_signed:
+          type: boolean
+          description: Whether the Meta mobile data terms have been signed for the Last CTA View Touch. When true, Meta does not require Branch to scrub Meta-related data from this CTA view record.
+          default: false
+        last_cta_view_data_plus_web_format:
+          type: array
+          description: Set if an event originated with a Branch CTA view on Google AMP or Facebook Instant Article. Specified by the client.
+          items:
+            type: string
+        install_activity_touch_data_dollar_meta_is_mobile_data_terms_signed:
+          type: boolean
+          description: Whether the Meta mobile data terms have been signed for the Install Touch. When true, Meta does not require Branch to scrub Meta-related data from this record.
+          default: false
+        reengagement_activity_touch_data_dollar_meta_is_mobile_data_terms_signed:
+          type: boolean
+          description: Whether the Meta mobile data terms have been signed for the Reengagement Touch. When true, Meta does not require Branch to scrub Meta-related data from this reengagement record.
+          default: false
+        body_ad_network_id:
+          type: array
+          description: SKAdNetwork ad network ID. Set server side.
+          items:
+            type: string
+        body_campaign_id:
+          type: array
+          description: SKAdNetwork campaign ID. Set server side.
+          items:
+            type: string
+        body_app_id:
+          type: array
+          description: SKAdNetwork App ID. Set server side.
+          items:
+            type: string
+        body_redownload:
+          type: array
+          description: SKAdNetwork redownload status. Set server side.
+          items:
+            type: string
+        body_source_app_id:
+          type: array
+          description: SKAdNetwork source app ID. Set server side.
+          items:
+            type: string
+        body_conversion_value:
+          type: array
+          description: SKAdNetwork conversion value. Set server side.
+          items:
+            type: string
+        body_last_attributed_touch_data_tilde_creative_name:
+          type: array
+          description: SKAdNetwork LATD creative name. Set server side.
+          items:
+            type: string
+        body_last_attributed_touch_data_tilde_ad_set_name:
+          type: array
+          description: SKAdNetwork LATD ad set name. Set server side.
+          items:
+            type: string
+        body_last_attributed_touch_data_tilde_creative_id:
+          type: array
+          description: SKAdNetwork LATD creative ID. Set server side.
+          items:
+            type: string
+        body_last_attributed_touch_data_tilde_ad_set_id:
+          type: array
+          description: SKAdNetwork LATD ad set ID. Set server side.
+          items:
+            type: string
+        body_last_attributed_touch_data_tilde_ad_name:
+          type: array
+          description: SKAdNetwork LATD ad name. Set server side.
+          items:
+            type: string
+        body_last_attributed_touch_data_tilde_ad_id:
+          type: array
+          description: SKAdNetwork LATD ad iD. Set server side.
+          items:
+            type: string
+        body_last_attributed_touch_data_tilde_campaign_id:
+          type: array
+          description: SKAdNetwork LATD campaign ID. Set server side.
+          items:
+            type: string
+        body_last_attributed_touch_data_tilde_campaign_name:
+          type: array
+          description: SKAdNetwork LATD campaign name. Set server side.
+          items:
+            type: string
+        body_last_attributed_touch_data_tilde_campaign:
+          type: array
+          description: SKAdNetwork LATD campaign. Set server side.
+          items:
+            type: string
+        annotation_dollar_3p:
+          type: array
+          description: SKAdNetwork annotation 3p shortcode. Set server side.
+          items:
+            type: string
+        annotation_conversion_value_mapped_value:
+          type: array
+          description: SKAdNetwork annotation conversion value mapped value. Set server side.
+          items:
+            type: string
+        annotation_conversion_value_revision:
+          type: array
+          description: SKAdNetwork annotation conversion value revision. Set server side.
+          items:
+            type: string
+        annotation_campaign_id_mapped_value:
+          type: array
+          description: SKAdNetwork annotation campaign ID mapped value. Set server side.
+          items:
+            type: string
+        annotation_campaign_id_revision:
+          type: array
+          description: SKAdNetwork annotation campaign ID revision. Set server side.
+          items:
+            type: string
+        annotation_source_app_id_mapped_value:
+          type: array
+          description: SKAdNetwork annotation source app ID mapped value. Set server side.
+          items:
+            type: string
+        annotation_source_app_id_revision:
+          type: array
+          description: SKAdNetwork annotation source app ID. Set server side.
+          items:
+            type: string
+        annotation_customer_event_alias:
+          type: array
+          description: SKAdNetwork annotation customer event alias. Set server side.
+          items:
+            type: string
+        days_from_last_attributed_touch_to_event:
+          type: array
+          description: Number of days between when the last touch occurred and when this event subsequently occurred. Set automatically server side.
+          items:
+            type: string
+            pattern: \d
+        days_from_last_cta_view_to_event:
+          type: array
+          description: Number of days between when the last Branch CTA view occurred and when this event subsequently occurred. sSet automatically server side.
+          items:
+            type: string
+            pattern: \d
+        event_data_product_categories:
+          type: array
+          description: Iterate over content_items and aggregate the `category` from each product. Specified by the client.
+          items:
+            type: string
+            enum:
+              - ANIMALS_AND_PET_SUPPLIES
+              - APPAREL_AND_ACCESSORIES
+              - ARTS_AND_ENTERTAINMENT
+              - BABY_AND_TODDLER
+              - BUSINESS_AND_INDUSTRIAL
+              - CAMERAS_AND_OPTICS
+              - ELECTRONICS
+              - FOOD_BEVERAGES_AND_TOBACCO
+              - FURNITURE
+              - HARDWARE
+              - HEALTH_AND_BEAUTY
+              - HOME_AND_GARDEN
+              - LUGGAGE_AND_BAGS
+              - MATURE
+              - MEDIA
+              - OFFICE_SUPPLIES
+              - RELIGIOUS_AND_CEREMONIAL
+              - SOFTWARE
+              - SPORTING_GOODS
+              - TOYS_AND_GAMES
+              - VEHICLES_AND_PARTS
+        first_event_for_user:
+          type: array
+          description: If this is the first time for this persona that this event has been triggered. Set automatically server side.
+          items:
+            type: string
+            enum:
+              - "true"
+              - "false"
+        customer_event_alias:
+          type: array
+          description: 'Customers can specify that an event of type "purchase" should have name "buy20tokens". customer_event_alias captures this name, which is additional information. For most events this is likely unnecessary.'
+          items:
+            type: string
+  securitySchemes:
+    accessToken:
+      type: apiKey
+      description: 'Access token that encapsulates the user permissions for an organization. Obtain it from the Branch Dashboard. See [Credentials](/account-hub/new-branch/configuration-new/security-and-access-new/credentials-new).'
+      name: Access-Token
+      in: header
+    appId:
+      type: apiKey
+      description: Unique identifier for the Branch app whose data you want to query.
+      name: app_id
+      in: query
+  examples: {}

@@ -1,0 +1,295 @@
+openapi: 3.0.0
+info:
+  title: Attribution API
+  description: Branch's Attribution API is a powerful API to use in your mobile app for all things attribution and campaign measurement.
+  termsOfService: 'https://branch.io/policies/'
+  contact:
+    name: Branch Support
+    url: 'https://help.branch.io/using-branch/page/submit-a-ticket'
+    email: support@branch.io
+  version: 1.0.1
+servers:
+  - url: 'https://api2.branch.io/v1'
+tags:
+  - name: Attribution API
+    description: The Attribution API is a powerful API to use in your mobile app for all things attribution.
+paths:
+  /open:
+    post:
+      tags:
+        - Attribution API
+      summary: Request Open
+      description: 'The network request to v1/open should occur when you are successfully notified the app was brought to the foreground. Branch defines an app lifecycle as a session of when your application is launched (cold start, or if it was present in the iOS or Android task manager), and comes to the device’s foreground.'
+      operationId: requestOpen
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_api_setup_body'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/create_api_setup_200'
+        '400':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+        '429':
+          description: Rate Limit Reached
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "code": 429,
+                            "message": "Rate limit reached."
+                        }
+                    }
+components:
+  schemas:
+    create_api_setup_200:
+      type: object
+      properties:
+        session_id:
+          type: string
+          description: The generated session id assigned against the API Setup. This is the primary response the developer must look into.
+          example: 00000000
+        data:
+          type: object
+          additionalProperties: true
+          description: Branch link parameters and deep-link metadata for this session. Includes Branch's reserved keys (prefixed with `+`) and any custom params you set on the link.
+          example:
+            +clicked_branch_link: false
+            +is_first_session: true
+        device_fingerprint_id:
+          type: string
+          description: Device unique fingerprint identity used for transactional reference.
+          example: 00000000
+        invoke_register_app:
+          type: boolean
+          description: N/A
+          example: true
+    create_api_setup_body:
+      type: object
+      properties:
+        branch_key:
+          type: string
+          description: 'The Branch Key of the originating app obtained in your [Account Settings](https://help.branch.io/using-branch/docs/profile-settings)'
+          example: key_live_xxxx
+        branch_secret:
+          type: string
+          description: 'The Branch secret of the originating app obtained in your [Account Settings](https://help.branch.io/using-branch/docs/profile-settings)'
+          example: secret_live_xxxx
+        server_to_server:
+          type: boolean
+          description: Must be `true` for server-to-server attribution requests. Required.
+          example: true
+          default: true
+        app_version:
+          type: string
+          description: Your app's version
+          example: 1.12.4
+        model:
+          type: string
+          description: Model of the device.
+          example: iPhone 14 Pro
+        os:
+          type: string
+          description: System OS. Only accepts Android or iOS
+          enum:
+            - iOS
+            - Android
+          example: iOS
+        os_version:
+          type: string
+          description: 'The version of the device''s OS (e.g. “23” for Android or “9.1.2” for iOS respectively. Will accept any value, preferred default to “NA”. This cannot be blank.)'
+          example: '16.1'
+        user_agent:
+          type: string
+          description: The user agent of the device
+          example: 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1'
+        is_hardware_id_real:
+          type: boolean
+          description: 'Set to false if the hardware_id property cannot be populated, otherwise default to true'
+          example: true
+          default: true
+        ad_tracking_enabled:
+          type: boolean
+          description: 'A value used to determine whether the IDFA or GAID can be used for advertising purposes. If Limit Ad Tracking should be enabled, do not include in the request.'
+          example: true
+        hardware_id:
+          type: string
+          description: 'In iOS, populate with the IDFA if it''s available, otherwise fallback to IDFV. On Android, populate with the ANDROID_ID (hardware id). If no device ID is available, do not include in request.'
+          example: XXXX-0000
+        hardware_id_type:
+          type: string
+          description: 'Valid for iOS ONLY. Value confirms whether the iOS ID in the hardware_id property is an "idfa" or "vendor_id" (do not include in request, if hardware_id is not populated)'
+          example: idfa
+          enum:
+            - idfa
+            - vendor_id
+        ios_vendor_id:
+          type: string
+          description: 'iOS ONLY The IDFV if it''s available, otherwise do not include in request.'
+          example: XXXX-0000
+        google_advertising_id:
+          type: string
+          description: 'Valid for ANDROID ONLY. The Google Advertising ID if it''s available, otherwise do not include in request'
+          example: xxxx-0000
+        advertising_ids:
+          type: object
+          description: 'ANDROID ONLY The set of Advertising IDs if it''s available, otherwise do not include in request. Can include identifiers like OAID'
+          additionalProperties:
+            type: string
+        local_ip:
+          type: string
+          description: 'This is the device''s local IP address, if one is available. This is incremental to the falserequired IP header. An optional but highly recommended data metadata that improves attribution accuracy.'
+          example: 000.000.0.000
+        screen_height:
+          type: integer
+          description: Height of the device’s screen. An optional but useful data metadata that improves attribution accuracy.
+          example: 2556
+        screen_width:
+          type: integer
+          description: Width of the device’s screen. An optional but useful data metadata that improves attribution accuracy.
+          example: 1179
+        link_identifier:
+          type: string
+          description: 'a URI opens the app, check for a link_click_id query, and populate with that value (if missing, do not include in request) link_click_id may also be sourced by the [Google Install Referrer](https://help.branch.io/developers-hub/docs/attribution-api#section-optional-to-support-google-play-install-referrer)'
+          example: '00000000'
+        universal_link_url:
+          type: string
+          description: 'Populate with a Branch or non-Branch web url that opened the app (if missing, do not include in request)'
+          example: 'https://branch.app.link/example?utm_medium=test'
+        android_app_link_url:
+          type: string
+          description: 'Populate with a Branch or non-Branch web url that opened the app (if missing, do not include in request)'
+          example: 'https://branch.app.link/example?utm_medium=test'
+        facebook_app_link_checked:
+          type: boolean
+          description: 'Set to false to ensure we retrieve deep links from Facebook''s deferred deep linking API (requires adding your Facebook App Secret to the [Branch Dashboard](https://help.branch.io/using-branch/docs/facebook-app-install-ads#section-setup))'
+          example: false
+        install_referrer_extras:
+          type: string
+          description: 'Valid for ANDROID ONLY Populate it with the value of the full Android PlayStore Install Referrer URL. Only include in the app''s first session, if it''s available.'
+          example: utm_source=some_source&utm_medium=preload&utm_campaign=null&gclid=Cj0KCQiA7IDiBRCLARIsABIPohhqdEU00f-Obte_OIVTbjPo-iLDBjkhj8ov=
+        google_search_install_referrer:
+          type: string
+          description: 'Valid for ANDROID ONLY The value of the google_search_install_referrer query parameter on the referrerUrl from the Google Install Referrer. Only include in the app''s first session, if it''s available.'
+          example: 0000XXxx
+        clicked_referrer_ts:
+          type: integer
+          description: 'Valid for ANDROID ONLY The referrer click timestamp collected from the Play Install Referrer library. Only include in the app''s first session, if it''s available.'
+          example: 00000000
+        install_begin_ts:
+          type: integer
+          description: 'Valid for ANDROID ONLY The install begin timestamp collected from the Play Install Referrer library. Only include in the app''s first session, if it''s available.'
+          example: 00000000
+        apple_attribution_token:
+          type: string
+          description: 'Valid for iOS ONLY Attribution Token used for Apple Search Ads . used to call the Apple Search Ads Attribution API. The token has a 24 hr TTL, so send to Branch within that time in order to use it for attribution.'
+          example: XXXX0000xxxx
+        first_session:
+          type: boolean
+          description: 'Identifies if this is the first time the user opened the app. If true, Branch will check if we saw the user download the app before, and mark the session as a reinstall if yes, and an install if no. If this value was set to false, Branch will count the session as an open.'
+          example: false
+        server_to_server_identity:
+          type: boolean
+          description: 'Setting to true enables the ability to set an randomized_bundle_token property in v1/open requests and returns a value in the response. Do not set this property in the request, if this feature will not be used.'
+          example: false
+        randomized_bundle_token:
+          type: string
+          description: 'If server_to_server_identity is true, Branch returns a new identity value in any request that does not set randomized_bundle_token. After the first request, this property must be hardcoded with the randomized_bundle_token received in the first network response. Failure to return this value in subsequent requests severely limits the ability to connect different events for that user.'
+          example: '00000000'
+        identity:
+          type: string
+          description: 'If server_to_server_identity is true, this property can be used to associate a custom user ID with Branch''s anonymous identity. (You should never use personal user information here, and all values should be encrypted before being passed to Branch.)[https://help.branch.io/using-branch/docs/best-practices-to-avoid-sending-pii-to-branch#section-developer-identity}'
+          example: X0000000
+        tracking_disabled:
+          type: boolean
+          description: 'If set to true, Branch will not store any data from this app session. The network response can still return deep link data for processing, but no information will be stored afterwards.'
+          example: false
+        disable_ad_network_callouts:
+          type: boolean
+          description: 'If set to true, you can use the Branch Dashboard to selectively remove sessions with this flag (from being sent to ad networks)[https://help.branch.io/developers-hub/docs/filtering-ad-network-data#setting-the-event-flag-in-the-branch-sdk}'
+          example: false
+        local_url:
+          type: string
+          example: 'https://branch.app.link/example?utm_medium=test'
+          description: '(Optional, for NativeLink) Populate with a Branch web url that is present on the clipboard on the very first open (if missing, do not include in request)'
+        referrer_gclid:
+          type: string
+          description: 'Valid for ANDROID ONLY (Optional, for Google AdWord Campaigns) Extract the value of gclid from Android PlayStore Install Referrer URL. Utilized for tracking downstream events on Google Adwords when user opts out on Android 12+ devices (if missing, do not include in request)'
+          example: XXXX_0000_xxxx
+        gbraid:
+          type: string
+          description: 'Valid for IOS ONLY (Optional, for Google AdWord Campaigns) Extract the value of gbraid from the referring url/uri for the app session. Utilized for tracking downstream events on Google Adwords when users are opted out of ATT (if missing, do not include in request)'
+          example: XXXX_0000_xxxx
+        custom_param_1:
+          type: string
+          description: 'A customized parameter attached to your OPEN, INSTALL, or Event metadata to be used for visualizing/analyzing Branch aggregate data in both the Branch Dashboard reports and exports.'
+          example: PARAMETER 1
+        custom_param_2:
+          type: string
+          description: 'A customized parameter attached to your OPEN, INSTALL, or Event metadata to be used for visualizing/analyzing Branch aggregate data in both the Branch Dashboard reports and exports.'
+          example: PARAMETER 2
+        custom_param_3:
+          type: string
+          description: 'A customized parameter attached to your OPEN, INSTALL, or Event metadata to be used for visualizing/analyzing Branch aggregate data in both the Branch Dashboard reports and exports.'
+          example: PARAMETER 3
+        dma_eea:
+          type: boolean
+          description: 'Whether European regulations, including the DMA, apply to this user and conversion. Required if EU regulations apply to this user.'
+          example: true
+        dma_ad_personalization:
+          type: boolean
+          description: 'Whether end user has granted or denied ads personalization consent. Required if `dma_eea` is set to `true` (i.e., EU regulations apply to this user).'
+          example: true
+        dma_ad_user_data:
+          type: boolean
+          description: 'Whether end user has granted or denied consent for 3P transmission of user level data for ads. Required if `dma_eea` is set to `true` (i.e., EU regulations apply to this user).'
+          example: true
+      required:
+        - branch_key
+        - branch_secret
+        - server_to_server
+        - app_version
+        - model
+        - os
+        - os_version
+        - user_agent
+        - is_hardware_id_real
+        - ad_tracking_enabled
+    inline_response_400:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/inline_response_400_error'
+    inline_response_400_error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Authentication failed !
+        code:
+          type: integer
+          example: 400

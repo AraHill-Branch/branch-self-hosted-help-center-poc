@@ -1,0 +1,1847 @@
+openapi: 3.0.0
+info:
+  title: Scheduled Log Exports API
+  description: The Scheduled Log Exports API allows you to set up a recurring export of select device-level data that run on a daily or hourly basis.
+  termsOfService: 'https://branch.io/policies/'
+  contact:
+    name: Branch Support
+    url: 'https://help.branch.io/using-branch/page/submit-a-ticket'
+    email: support@branch.io
+  version: 1.0.2
+servers:
+  - url: 'https://api2.branch.io'
+security:
+  - appId: []
+    accessToken: []
+tags:
+  - name: Scheduled Log Exports API
+    description: The Scheduled Log Exports API allows you to set up custom export jobs that run on a daily or hourly basis.
+paths:
+  /scheduled-exports/logs/subscribe:
+    post:
+      tags:
+        - Scheduled Log Exports API
+      summary: Create New Subscription
+      description: |
+        Set up a new scheduled log export subscription. Supported at both app and org level. The result is a subscription that specifies what data will be exported (e.g. topic, columns, filters) and where data will be exported to
+      operationId: createScheduledLogExportSubscription
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_scheduled_log_export_subscription_body'
+      responses:
+        '200':
+          description: Status of aggregate export
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response_200_create_scheduled_log_export_subscription'
+        '401':
+          description: Auth Client failed response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Auth Client didn't return anything for the user id: $userid.",
+                            "code": 401
+                        }
+                    }
+        '404':
+          description: User Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Not authorized for the user id: $userid.",
+                            "code": 404
+                        }
+                    }
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Our product is failing to serve your request at this moment. Please try again later.",
+                            "code": 500
+                        }
+                    }
+  '/scheduled-exports/logs/subscription/{subscription_id}':
+    get:
+      tags:
+        - Scheduled Log Exports API
+      summary: Details on Single Subscription
+      description: This endpoint enables developers to retrive the subscription status via the `subscription_url` provided. Do make sure the `subscription_status` is set to `ACTIVE`.
+      operationId: checkSubscriptionStatus
+      parameters:
+        - name: subscription_id
+          in: path
+          description: |
+            A persistent id for the specific subscription.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: XXXX-0000-xxxx
+      responses:
+        '200':
+          description: Status of aggregate export
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_scheduled_log_export_subscription_body'
+        '400':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+        '404':
+          description: Job ID Not Found
+    delete:
+      tags:
+        - Scheduled Log Exports API
+      summary: Deactivate Subscription
+      description: |
+        Deactivates a single export subscription for a given Subscription Id.
+      operationId: deactivateSubscription
+      parameters:
+        - name: subscription_id
+          in: path
+          description: |
+            A persistent id for the specific subscription.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: XXXX-0000-xxxx
+      responses:
+        '200':
+          description: Status of aggregate export
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deactivate_subscription_body'
+        '400':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+        '404':
+          description: Job ID Not Found
+  '/scheduled-exports/logs/subscription/{subscription_id}/jobs':
+    parameters:
+      - schema:
+          type: string
+        name: subscription_id
+        in: path
+        required: true
+        description: 'ID for your subscription. Obtained from the [/subscribe path](https://help.branch.io/developers-hub/reference/createscheduledlogexportsubscription).'
+    post:
+      summary: Details on Many Export Jobs
+      tags:
+        - Scheduled Log Exports API
+      responses:
+        '200':
+          description: OK - Returns an array of export jobs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/get_export_job_body'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      operationId: getScheduledExportJobs
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: app_id
+          required: true
+          description: Unique identifier for Branch app of requested data.
+      security:
+        - accessToken: []
+      description: 'Once your subscription is active, you can query for the exported data and download the data via the array `export_url`. For data accessible via API, the files are stored in Branch''s S3 bucket, and you are provided a pre-signed S3 URL for exporting data. Typically data is accessible via API for 7 days, so be sure to download your data shortly after it is generated.'
+  /scheduled-exports/logs/subscriptions:
+    get:
+      security:
+        - appId: []
+          accessToken: []
+        - orgId: []
+          accessToken: []
+      tags:
+        - Scheduled Log Exports API
+      summary: Details on All Subscriptions
+      description: |
+        Returns all export subscriptions for an App or Organization. See what data is being exported (e.g. topic, columns, filters) and where data is exported to (e.g. email addresses, your data center, a Branch-hosted S3 bucket). NOTE: Developer either needs to provide app_id or organization_id along with accessToken to execute this operation.
+      operationId: getDetailsOnAllExportSubscription
+      responses:
+        '200':
+          description: Array of available subscriptions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/get_scheduled_log_export_subscription_body'
+        '400':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+        '404':
+          description: Job ID Not Found
+  /scheduled-exports/logs/subscription/externalId:
+    get:
+      security:
+        - appId: []
+          accessToken: []
+        - orgId: []
+          accessToken: []
+      tags:
+        - Scheduled Log Exports API
+      summary: Get External ID
+      description: |
+        Branch provides a unique "external Id" for your Branch account. This should be used when setting up data to be exported to your cloud data service (i.e. S3). NOTE: Developer either needs to provide app_id or organization_id along with accessToken to execute this operation.
+      operationId: getExternalIdBranch
+      responses:
+        '200':
+          description: The ID to be used in the Trust Relationship of the Role that you create to allow Branch to access your S3 bucket.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_external_id_body'
+        '400':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+        '404':
+          description: Job ID Not Found
+  '/scheduled-exports/logs/subscription/{subscription_id}/job/{job_id}':
+    get:
+      tags:
+        - Scheduled Log Exports API
+      security:
+        - appId: []
+          accessToken: []
+        - orgId: []
+          accessToken: []
+      summary: Details on Single Export Job
+      description: |
+        This endpoint provides a way to get details on the particular job, as long as you know the subscription_id and the job_id. Scheduled exports run at a regular cadence. Each individual run is considered a "job" and has a "job Id".
+      operationId: getDetailsOnIndividualExportJob
+      parameters:
+        - name: subscription_id
+          in: path
+          description: |
+            A persistent id for the specific subscription.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: XXXX-0000-xxxx
+        - name: job_id
+          in: path
+          description: |
+            The relevant job Id.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: XXXX-0000-xxxx
+      responses:
+        '200':
+          description: Export Job success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_export_job_body'
+        '400':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+        '404':
+          description: Job ID Not Found
+components:
+  schemas:
+    create_scheduled_log_export_subscription_body:
+      type: object
+      description: Create Scheduled Log Export Subscription Request Body
+      properties:
+        report:
+          type: object
+          description: Information about the report that should be generated.
+          required:
+            - cadence
+            - response_format
+            - report_type
+            - report_fields
+          properties:
+            cadence:
+              type: string
+              example: hourly
+              description: 'How frequently the report is generated, and for what time period it is generated. Options: hourly or daily.'
+              enum:
+                - hourly
+                - daily
+              default: hourly
+            response_format:
+              type: string
+              example: csv
+              description: 'format in which the export data is delivered. Options: csv, json, parquet.'
+              enum:
+                - csv
+                - json
+                - parquet
+              default: csv
+            response_format_compression:
+              type: string
+              example: gz
+              default: gz
+              description: 'method by which the export data should be compressed. Options: gz, snappy. Defaults to gz if not specified.'
+              enum:
+                - gz
+                - snappy
+            report_type:
+              type: string
+              default: eo_install
+              example: eo_install
+              enum:
+                - eo_impression
+                - eo_click
+                - eo_web_to_app_auto_redirect
+                - eo_branch_cta_view
+                - eo_open
+                - eo_install
+                - eo_reinstall
+                - eo_web_session_start
+                - eo_pageview
+                - eo_commerce_event
+                - eo_custom_event
+                - eo_content_event
+                - eo_dismissal
+                - eo_user_lifecycle_event
+                - skadnetwork_valid_messages
+                - eo_click_blocked
+                - eo_impression_blocked
+                - eo_install_blocked
+                - eo_reinstall_blocked
+                - eo_open_blocked
+                - eo_web_session_start_blocked
+                - eo_pageview_blocked
+                - eo_custom_event_blocked
+                - eo_content_event_blocked
+                - eo_commerce_event_blocked
+                - eo_user_lifecycle_event_blocked
+                - eo_branch_cta_view_blocked
+                - eo_web_to_app_auto_redirect_blocked
+              description: 'An array representing event type of your report. See [Available Topics](https://help.branch.io/developers-hub/docs/custom-exports#branch-available-topics) the for complete list.'
+            report_fields:
+              description: 'An array representing fields/columns available in your report. Pass `["all"]` to include every available field. The all fields option requires Sensitive Data, Fraud Settings & Data, and Export permissions. When using `"all"`, new fields are automatically included as they become available — design your systems to handle schema changes gracefully. Parquet is recommended for resilience to schema changes. See [Available EO Fields](https://help.branch.io/developers-hub/docs/custom-exports#branch-available-eo-fields) for the complete list.'
+              type: array
+              default:
+                - name
+              example:
+                - name
+              items:
+                type: string
+                example: timestamp
+                enum:
+                  - app_id
+                  - app_name
+                  - attributed
+                  - content_items
+                  - custom_data
+                  - customer_event_alias
+                  - days_from_last_attributed_touch_to_event
+                  - deep_linked
+                  - di_match_click_token
+                  - event_data_ad_type
+                  - event_data_affiliation
+                  - event_data_coupon
+                  - event_data_currency
+                  - event_data_description
+                  - event_data_exchange_rate
+                  - event_data_revenue
+                  - event_data_revenue_in_usd
+                  - event_data_search_query
+                  - event_data_shipping
+                  - event_data_tax
+                  - event_data_transaction_id
+                  - event_data_local_currency
+                  - event_data_local_currency_exchange_rate
+                  - event_data_revenue_in_local_currency
+                  - event_timestamp
+                  - existing_user
+                  - external_intent_uri
+                  - universal_link_url
+                  - android_app_link_url
+                  - first_event_for_user
+                  - hours_from_last_attributed_touch_to_event
+                  - id
+                  - install_activity_attributed
+                  - install_activity_data_has_clicked_ad
+                  - install_activity_data_has_clicked_email
+                  - install_activity_timestamp
+                  - install_activity_touch_data_additional_data_tilde_ad_id
+                  - install_activity_touch_data_additional_data_tilde_ad_set_id
+                  - install_activity_touch_data_additional_data_tilde_campaign_id
+                  - install_activity_touch_data_additional_data_tilde_creative_id
+                  - install_activity_touch_data_dollar_3p
+                  - install_activity_touch_data_plus_via_features
+                  - install_activity_touch_data_plus_web_format
+                  - install_activity_touch_data_tilde_ad_name
+                  - install_activity_touch_data_tilde_ad_set_name
+                  - install_activity_touch_data_tilde_advertising_partner_id
+                  - install_activity_touch_data_tilde_agency
+                  - install_activity_touch_data_tilde_agency_id
+                  - install_activity_touch_data_tilde_campaign
+                  - install_activity_touch_data_tilde_channel
+                  - install_activity_touch_data_tilde_creative_name
+                  - install_activity_touch_data_tilde_customer_ad_name
+                  - install_activity_touch_data_tilde_customer_ad_set_name
+                  - install_activity_touch_data_tilde_customer_campaign
+                  - install_activity_touch_data_tilde_customer_keyword
+                  - install_activity_touch_data_tilde_customer_placement
+                  - install_activity_touch_data_tilde_customer_secondary_publisher
+                  - install_activity_touch_data_tilde_customer_sub_site_name
+                  - install_activity_touch_data_tilde_feature
+                  - install_activity_touch_data_tilde_journey_name
+                  - install_activity_touch_data_tilde_keyword
+                  - install_activity_touch_data_tilde_placement
+                  - install_activity_touch_data_tilde_secondary_publisher
+                  - install_activity_touch_data_tilde_stage
+                  - install_activity_touch_data_tilde_tags
+                  - install_activity_touch_data_tilde_view_name
+                  - install_activity_touch_type
+                  - last_attributed_touch_data_custom_fields
+                  - last_attributed_touch_data_plus_current_feature
+                  - last_attributed_touch_data_tilde_id
+                  - last_attributed_touch_data_plus_touch_id
+                  - last_cta_view_data_plus_touch_id
+                  - last_attributed_touch_data_plus_via_features
+                  - last_attributed_touch_data_plus_web_format
+                  - last_attributed_touch_data_plus_attribution_method
+                  - last_attributed_touch_data_plus_attribution_method_type
+                  - last_attributed_touch_data_tilde_ad_id
+                  - last_attributed_touch_data_tilde_ad_name
+                  - last_attributed_touch_data_tilde_ad_set_id
+                  - last_attributed_touch_data_tilde_ad_set_name
+                  - last_attributed_touch_data_tilde_advertising_account_name
+                  - last_attributed_touch_data_tilde_advertising_account_id
+                  - last_attributed_touch_data_tilde_advertising_partner_id
+                  - last_attributed_touch_data_tilde_advertising_partner_name
+                  - last_attributed_touch_data_tilde_agency
+                  - last_attributed_touch_data_tilde_agency_id
+                  - last_attributed_touch_data_tilde_banner_dimensions
+                  - last_attributed_touch_data_tilde_branch_ad_format
+                  - last_attributed_touch_data_tilde_campaign
+                  - last_attributed_touch_data_tilde_campaign_id
+                  - last_attributed_touch_data_tilde_campaign_type
+                  - last_attributed_touch_data_tilde_channel
+                  - last_attributed_touch_data_tilde_creative_name
+                  - last_attributed_touch_data_tilde_creative_id
+                  - last_attributed_touch_data_tilde_customer_ad_name
+                  - last_attributed_touch_data_tilde_customer_ad_set_name
+                  - last_attributed_touch_data_tilde_customer_campaign
+                  - last_attributed_touch_data_tilde_customer_keyword
+                  - last_attributed_touch_data_tilde_customer_placement
+                  - last_attributed_touch_data_tilde_customer_secondary_publisher
+                  - last_attributed_touch_data_tilde_customer_sub_site_name
+                  - last_attributed_touch_data_tilde_external_touch_id
+                  - last_attributed_touch_data_tilde_feature
+                  - last_attributed_touch_data_tilde_journey_id
+                  - last_attributed_touch_data_tilde_journey_name
+                  - last_attributed_touch_data_tilde_keyword
+                  - last_attributed_touch_data_tilde_keyword_id
+                  - last_attributed_touch_data_tilde_optimization_model
+                  - last_attributed_touch_data_tilde_placement
+                  - last_attributed_touch_data_tilde_placement_id
+                  - last_attributed_touch_data_tilde_secondary_ad_format
+                  - last_attributed_touch_data_tilde_secondary_publisher
+                  - last_attributed_touch_data_tilde_secondary_publisher_id
+                  - last_attributed_touch_data_tilde_stage
+                  - last_attributed_touch_data_tilde_sub_site_name
+                  - last_attributed_touch_data_tilde_tags
+                  - last_attributed_touch_data_tilde_technology_partner
+                  - last_attributed_touch_data_tilde_touch_subtype
+                  - last_attributed_touch_data_tilde_view_id
+                  - last_attributed_touch_data_tilde_view_name
+                  - last_attributed_touch_timestamp
+                  - last_attributed_touch_timestamp_iso
+                  - last_attributed_touch_type
+                  - last_attributed_touch_data_tilde_organic_search_url
+                  - last_cta_view_data_custom_fields
+                  - last_cta_view_data_dollar_3p
+                  - last_attributed_touch_data_plus_referring_domain
+                  - last_cta_view_data_plus_via_features
+                  - last_cta_view_data_plus_web_format
+                  - last_cta_view_data_tilde_ad_id
+                  - last_cta_view_data_tilde_ad_name
+                  - last_cta_view_data_tilde_ad_set_id
+                  - last_cta_view_data_tilde_ad_set_name
+                  - last_cta_view_data_tilde_advertising_partner_name
+                  - last_cta_view_data_tilde_agency
+                  - last_cta_view_data_tilde_banner_dimensions
+                  - last_cta_view_data_tilde_branch_ad_format
+                  - last_cta_view_data_tilde_campaign
+                  - last_cta_view_data_tilde_campaign_id
+                  - last_cta_view_data_tilde_campaign_type
+                  - last_cta_view_data_tilde_channel
+                  - last_cta_view_data_tilde_creative_id
+                  - last_cta_view_data_tilde_creative_name
+                  - last_cta_view_data_tilde_external_touch_id
+                  - last_cta_view_data_tilde_feature
+                  - last_cta_view_data_tilde_id
+                  - last_cta_view_data_tilde_keyword_id
+                  - last_cta_view_data_tilde_optimization_model
+                  - last_cta_view_data_tilde_placement
+                  - last_cta_view_data_tilde_secondary_ad_format
+                  - last_cta_view_data_tilde_secondary_publisher
+                  - last_cta_view_data_tilde_stage
+                  - last_cta_view_data_tilde_tags
+                  - last_cta_view_data_tilde_technology_partner
+                  - last_cta_view_timestamp
+                  - last_cta_view_timestamp_iso
+                  - match_guaranteed
+                  - minutes_from_last_attributed_touch_to_event
+                  - name
+                  - organization_id
+                  - organization_name
+                  - origin
+                  - reengagement_activity_attributed
+                  - reengagement_activity_data_has_clicked_ad
+                  - reengagement_activity_data_has_clicked_email
+                  - reengagement_activity_timestamp
+                  - reengagement_activity_touch_data_additional_data_tilde_ad_id
+                  - reengagement_activity_touch_data_additional_data_tilde_ad_set_id
+                  - reengagement_activity_touch_data_additional_data_tilde_campaign_id
+                  - reengagement_activity_touch_data_additional_data_tilde_creative_id
+                  - reengagement_activity_touch_data_dollar_3p
+                  - reengagement_activity_touch_data_plus_via_features
+                  - reengagement_activity_touch_data_plus_web_format
+                  - reengagement_activity_touch_data_tilde_ad_name
+                  - reengagement_activity_touch_data_tilde_ad_set_name
+                  - reengagement_activity_touch_data_tilde_advertising_partner_id
+                  - reengagement_activity_touch_data_tilde_advertising_partner_name
+                  - reengagement_activity_touch_data_tilde_agency
+                  - reengagement_activity_touch_data_tilde_agency_id
+                  - reengagement_activity_touch_data_tilde_campaign
+                  - reengagement_activity_touch_data_tilde_channel
+                  - reengagement_activity_touch_data_tilde_creative_name
+                  - reengagement_activity_touch_data_tilde_customer_ad_name
+                  - reengagement_activity_touch_data_tilde_customer_ad_set_name
+                  - reengagement_activity_touch_data_tilde_customer_campaign
+                  - reengagement_activity_touch_data_tilde_customer_keyword
+                  - reengagement_activity_touch_data_tilde_customer_placement
+                  - reengagement_activity_touch_data_tilde_customer_secondary_publisher
+                  - reengagement_activity_touch_data_tilde_customer_sub_site_name
+                  - reengagement_activity_touch_data_tilde_feature
+                  - reengagement_activity_touch_data_tilde_journey_name
+                  - reengagement_activity_touch_data_tilde_keyword
+                  - reengagement_activity_touch_data_tilde_placement
+                  - reengagement_activity_touch_data_tilde_secondary_publisher
+                  - reengagement_activity_touch_data_tilde_stage
+                  - reengagement_activity_touch_data_tilde_tags
+                  - reengagement_activity_touch_data_tilde_view_name
+                  - reengagement_activity_touch_type
+                  - referrer_click_timestamp
+                  - seconds_from_install_to_event
+                  - seconds_from_last_attributed_touch_to_event
+                  - seconds_from_last_attributed_touch_to_store_install_begin
+                  - site_event_items_count
+                  - store_install_begin_timestamp
+                  - timestamp
+                  - timestamp_iso
+                  - user_data_aaid
+                  - user_data_android_id
+                  - user_data_app_package_name
+                  - user_data_app_version
+                  - user_data_brand
+                  - user_data_browser
+                  - user_data_build
+                  - user_data_cpu_type
+                  - user_data_cross_platform_id
+                  - user_data_developer_identity
+                  - user_data_device_type
+                  - user_data_environment
+                  - user_data_geo_city_code
+                  - user_data_geo_city_en
+                  - user_data_geo_country_code
+                  - user_data_geo_country_en
+                  - user_data_geo_dma_code
+                  - user_data_geo_lat
+                  - user_data_geo_lon
+                  - user_data_geo_postal_code
+                  - user_data_geo_region_en
+                  - user_data_geo_region_code
+                  - user_data_http_referrer
+                  - user_data_idfa
+                  - user_data_idfv
+                  - user_data_installer_package_name
+                  - user_data_internet_connection_type
+                  - user_data_ip
+                  - user_data_is_jailbroken
+                  - user_data_kindle_id
+                  - user_data_language
+                  - user_data_limit_ad_tracking
+                  - user_data_model
+                  - user_data_os
+                  - user_data_os_version
+                  - user_data_os_version_android
+                  - user_data_past_cross_platform_ids
+                  - user_data_platform
+                  - user_data_prob_cross_platform_ids
+                  - user_data_roku_rida
+                  - user_data_screen_height
+                  - user_data_screen_width
+                  - user_data_sdk_version
+                  - user_data_user_agent
+                  - user_data_windows_aid
+                  - user_data_device_locale
+                  - user_data_carrier_name
+                  - user_data_opted_in_status
+                  - user_data_app_store
+                  - user_data_dma_eea
+                  - user_data_dma_ad_personalization
+                  - user_data_dma_ad_user_data
+                  - measurement_metadata_method_type
+                  - measurement_metadata_method_name
+            filter:
+              type: array
+              description: |-
+                Filter by fields and boolean operators against fields of the LogInstalls model; must be URI encoded and JSON parsed. Example: ["eq", "name", "PURCHASE"].
+
+                NOTE: ADD EACH SYNTAX AS ITS OWN STRING
+              uniqueItems: true
+              items:
+                oneOf:
+                  - enum:
+                      - eq
+                      - gt
+                      - gte
+                      - lt
+                      - lte
+                      - like
+                      - between
+                      - in
+                      - and
+                      - or
+                      - not
+                      - array_contains
+                    example: eq
+                    title: Cthulhu prefix notation
+                    description: 'See [Cthulhu Filter Specification](https://help.branch.io/developers-hub/docs/custom-exports#cthulhu-filter-specification) for details on options.'
+                    default: eq
+                  - title: EO Field Key
+                    description: 'See [Available EO Fields](https://help.branch.io/developers-hub/docs/custom-exports#branch-available-eo-fields) for full list description.'
+                    default: name
+                    enum:
+                      - app_id
+                      - app_name
+                      - attributed
+                      - content_items
+                      - custom_data
+                      - customer_event_alias
+                      - days_from_last_attributed_touch_to_event
+                      - deep_linked
+                      - di_match_click_token
+                      - event_data_ad_type
+                      - event_data_affiliation
+                      - event_data_coupon
+                      - event_data_currency
+                      - event_data_description
+                      - event_data_exchange_rate
+                      - event_data_revenue
+                      - event_data_revenue_in_usd
+                      - event_data_search_query
+                      - event_data_shipping
+                      - event_data_tax
+                      - event_data_transaction_id
+                      - event_data_local_currency
+                      - event_data_local_currency_exchange_rate
+                      - event_data_revenue_in_local_currency
+                      - event_timestamp
+                      - existing_user
+                      - external_intent_uri
+                      - universal_link_url
+                      - android_app_link_url
+                      - first_event_for_user
+                      - hours_from_last_attributed_touch_to_event
+                      - id
+                      - install_activity_attributed
+                      - install_activity_data_has_clicked_ad
+                      - install_activity_data_has_clicked_email
+                      - install_activity_timestamp
+                      - install_activity_touch_data_additional_data_tilde_ad_id
+                      - install_activity_touch_data_additional_data_tilde_ad_set_id
+                      - install_activity_touch_data_additional_data_tilde_campaign_id
+                      - install_activity_touch_data_additional_data_tilde_creative_id
+                      - install_activity_touch_data_dollar_3p
+                      - install_activity_touch_data_plus_via_features
+                      - install_activity_touch_data_plus_web_format
+                      - install_activity_touch_data_tilde_ad_name
+                      - install_activity_touch_data_tilde_ad_set_name
+                      - install_activity_touch_data_tilde_advertising_partner_id
+                      - install_activity_touch_data_tilde_agency
+                      - install_activity_touch_data_tilde_agency_id
+                      - install_activity_touch_data_tilde_campaign
+                      - install_activity_touch_data_tilde_channel
+                      - install_activity_touch_data_tilde_creative_name
+                      - install_activity_touch_data_tilde_customer_ad_name
+                      - install_activity_touch_data_tilde_customer_ad_set_name
+                      - install_activity_touch_data_tilde_customer_campaign
+                      - install_activity_touch_data_tilde_customer_keyword
+                      - install_activity_touch_data_tilde_customer_placement
+                      - install_activity_touch_data_tilde_customer_secondary_publisher
+                      - install_activity_touch_data_tilde_customer_sub_site_name
+                      - install_activity_touch_data_tilde_feature
+                      - install_activity_touch_data_tilde_journey_name
+                      - install_activity_touch_data_tilde_keyword
+                      - install_activity_touch_data_tilde_placement
+                      - install_activity_touch_data_tilde_secondary_publisher
+                      - install_activity_touch_data_tilde_stage
+                      - install_activity_touch_data_tilde_tags
+                      - install_activity_touch_data_tilde_view_name
+                      - install_activity_touch_type
+                      - last_attributed_touch_data_custom_fields
+                      - last_attributed_touch_data_plus_current_feature
+                      - last_attributed_touch_data_tilde_id
+                      - last_attributed_touch_data_plus_touch_id
+                      - last_cta_view_data_plus_touch_id
+                      - last_attributed_touch_data_plus_via_features
+                      - last_attributed_touch_data_plus_web_format
+                      - last_attributed_touch_data_plus_attribution_method
+                      - last_attributed_touch_data_plus_attribution_method_type
+                      - last_attributed_touch_data_tilde_ad_id
+                      - last_attributed_touch_data_tilde_ad_name
+                      - last_attributed_touch_data_tilde_ad_set_id
+                      - last_attributed_touch_data_tilde_ad_set_name
+                      - last_attributed_touch_data_tilde_advertising_account_name
+                      - last_attributed_touch_data_tilde_advertising_account_id
+                      - last_attributed_touch_data_tilde_advertising_partner_id
+                      - last_attributed_touch_data_tilde_advertising_partner_name
+                      - last_attributed_touch_data_tilde_agency
+                      - last_attributed_touch_data_tilde_agency_id
+                      - last_attributed_touch_data_tilde_banner_dimensions
+                      - last_attributed_touch_data_tilde_branch_ad_format
+                      - last_attributed_touch_data_tilde_campaign
+                      - last_attributed_touch_data_tilde_campaign_id
+                      - last_attributed_touch_data_tilde_campaign_type
+                      - last_attributed_touch_data_tilde_channel
+                      - last_attributed_touch_data_tilde_creative_name
+                      - last_attributed_touch_data_tilde_creative_id
+                      - last_attributed_touch_data_tilde_customer_ad_name
+                      - last_attributed_touch_data_tilde_customer_ad_set_name
+                      - last_attributed_touch_data_tilde_customer_campaign
+                      - last_attributed_touch_data_tilde_customer_keyword
+                      - last_attributed_touch_data_tilde_customer_placement
+                      - last_attributed_touch_data_tilde_customer_secondary_publisher
+                      - last_attributed_touch_data_tilde_customer_sub_site_name
+                      - last_attributed_touch_data_tilde_external_touch_id
+                      - last_attributed_touch_data_tilde_feature
+                      - last_attributed_touch_data_tilde_journey_id
+                      - last_attributed_touch_data_tilde_journey_name
+                      - last_attributed_touch_data_tilde_keyword
+                      - last_attributed_touch_data_tilde_keyword_id
+                      - last_attributed_touch_data_tilde_optimization_model
+                      - last_attributed_touch_data_tilde_placement
+                      - last_attributed_touch_data_tilde_placement_id
+                      - last_attributed_touch_data_tilde_secondary_ad_format
+                      - last_attributed_touch_data_tilde_secondary_publisher
+                      - last_attributed_touch_data_tilde_secondary_publisher_id
+                      - last_attributed_touch_data_tilde_stage
+                      - last_attributed_touch_data_tilde_sub_site_name
+                      - last_attributed_touch_data_tilde_tags
+                      - last_attributed_touch_data_tilde_technology_partner
+                      - last_attributed_touch_data_tilde_touch_subtype
+                      - last_attributed_touch_data_tilde_view_id
+                      - last_attributed_touch_data_tilde_view_name
+                      - last_attributed_touch_timestamp
+                      - last_attributed_touch_timestamp_iso
+                      - last_attributed_touch_type
+                      - last_attributed_touch_data_tilde_organic_search_url
+                      - last_cta_view_data_custom_fields
+                      - last_cta_view_data_dollar_3p
+                      - last_attributed_touch_data_plus_referring_domain
+                      - last_cta_view_data_plus_via_features
+                      - last_cta_view_data_plus_web_format
+                      - last_cta_view_data_tilde_ad_id
+                      - last_cta_view_data_tilde_ad_name
+                      - last_cta_view_data_tilde_ad_set_id
+                      - last_cta_view_data_tilde_ad_set_name
+                      - last_cta_view_data_tilde_advertising_partner_name
+                      - last_cta_view_data_tilde_agency
+                      - last_cta_view_data_tilde_banner_dimensions
+                      - last_cta_view_data_tilde_branch_ad_format
+                      - last_cta_view_data_tilde_campaign
+                      - last_cta_view_data_tilde_campaign_id
+                      - last_cta_view_data_tilde_campaign_type
+                      - last_cta_view_data_tilde_channel
+                      - last_cta_view_data_tilde_creative_id
+                      - last_cta_view_data_tilde_creative_name
+                      - last_cta_view_data_tilde_external_touch_id
+                      - last_cta_view_data_tilde_feature
+                      - last_cta_view_data_tilde_id
+                      - last_cta_view_data_tilde_keyword_id
+                      - last_cta_view_data_tilde_optimization_model
+                      - last_cta_view_data_tilde_placement
+                      - last_cta_view_data_tilde_secondary_ad_format
+                      - last_cta_view_data_tilde_secondary_publisher
+                      - last_cta_view_data_tilde_stage
+                      - last_cta_view_data_tilde_tags
+                      - last_cta_view_data_tilde_technology_partner
+                      - last_cta_view_timestamp
+                      - last_cta_view_timestamp_iso
+                      - match_guaranteed
+                      - minutes_from_last_attributed_touch_to_event
+                      - name
+                      - organization_id
+                      - organization_name
+                      - origin
+                      - reengagement_activity_attributed
+                      - reengagement_activity_data_has_clicked_ad
+                      - reengagement_activity_data_has_clicked_email
+                      - reengagement_activity_timestamp
+                      - reengagement_activity_touch_data_additional_data_tilde_ad_id
+                      - reengagement_activity_touch_data_additional_data_tilde_ad_set_id
+                      - reengagement_activity_touch_data_additional_data_tilde_campaign_id
+                      - reengagement_activity_touch_data_additional_data_tilde_creative_id
+                      - reengagement_activity_touch_data_dollar_3p
+                      - reengagement_activity_touch_data_plus_via_features
+                      - reengagement_activity_touch_data_plus_web_format
+                      - reengagement_activity_touch_data_tilde_ad_name
+                      - reengagement_activity_touch_data_tilde_ad_set_name
+                      - reengagement_activity_touch_data_tilde_advertising_partner_id
+                      - reengagement_activity_touch_data_tilde_advertising_partner_name
+                      - reengagement_activity_touch_data_tilde_agency
+                      - reengagement_activity_touch_data_tilde_agency_id
+                      - reengagement_activity_touch_data_tilde_campaign
+                      - reengagement_activity_touch_data_tilde_channel
+                      - reengagement_activity_touch_data_tilde_creative_name
+                      - reengagement_activity_touch_data_tilde_customer_ad_name
+                      - reengagement_activity_touch_data_tilde_customer_ad_set_name
+                      - reengagement_activity_touch_data_tilde_customer_campaign
+                      - reengagement_activity_touch_data_tilde_customer_keyword
+                      - reengagement_activity_touch_data_tilde_customer_placement
+                      - reengagement_activity_touch_data_tilde_customer_secondary_publisher
+                      - reengagement_activity_touch_data_tilde_customer_sub_site_name
+                      - reengagement_activity_touch_data_tilde_feature
+                      - reengagement_activity_touch_data_tilde_journey_name
+                      - reengagement_activity_touch_data_tilde_keyword
+                      - reengagement_activity_touch_data_tilde_placement
+                      - reengagement_activity_touch_data_tilde_secondary_publisher
+                      - reengagement_activity_touch_data_tilde_stage
+                      - reengagement_activity_touch_data_tilde_tags
+                      - reengagement_activity_touch_data_tilde_view_name
+                      - reengagement_activity_touch_type
+                      - referrer_click_timestamp
+                      - seconds_from_install_to_event
+                      - seconds_from_last_attributed_touch_to_event
+                      - seconds_from_last_attributed_touch_to_store_install_begin
+                      - site_event_items_count
+                      - store_install_begin_timestamp
+                      - timestamp
+                      - timestamp_iso
+                      - user_data_aaid
+                      - user_data_android_id
+                      - user_data_app_package_name
+                      - user_data_app_version
+                      - user_data_brand
+                      - user_data_browser
+                      - user_data_build
+                      - user_data_cpu_type
+                      - user_data_cross_platform_id
+                      - user_data_developer_identity
+                      - user_data_device_type
+                      - user_data_environment
+                      - user_data_geo_city_code
+                      - user_data_geo_city_en
+                      - user_data_geo_country_code
+                      - user_data_geo_country_en
+                      - user_data_geo_dma_code
+                      - user_data_geo_lat
+                      - user_data_geo_lon
+                      - user_data_geo_postal_code
+                      - user_data_geo_region_en
+                      - user_data_geo_region_code
+                      - user_data_http_referrer
+                      - user_data_idfa
+                      - user_data_idfv
+                      - user_data_installer_package_name
+                      - user_data_internet_connection_type
+                      - user_data_ip
+                      - user_data_is_jailbroken
+                      - user_data_kindle_id
+                      - user_data_language
+                      - user_data_limit_ad_tracking
+                      - user_data_model
+                      - user_data_os
+                      - user_data_os_version
+                      - user_data_os_version_android
+                      - user_data_past_cross_platform_ids
+                      - user_data_platform
+                      - user_data_prob_cross_platform_ids
+                      - user_data_roku_rida
+                      - user_data_screen_height
+                      - user_data_screen_width
+                      - user_data_sdk_version
+                      - user_data_user_agent
+                      - user_data_windows_aid
+                      - user_data_device_locale
+                      - user_data_carrier_name
+                      - user_data_opted_in_status
+                      - user_data_app_store
+                      - user_data_dma_eea
+                      - user_data_dma_ad_personalization
+                      - user_data_dma_ad_user_data
+                      - measurement_metadata_method_type
+                      - measurement_metadata_method_name
+                    example: name
+                  - title: EO Field Value
+                    example: PURCHASE
+                    description: The value(s) for the EO Field Key(s) for the filter.
+                type: string
+        destination:
+          type: object
+          description: Information about where a finished report is stored and how it can be accessed
+          required:
+            - subscription_type
+          properties:
+            subscription_type:
+              type: string
+              description: 'Should be set to "branch" if you want data stored in Branch''s S3 bucket, and accessible via API'
+              example: cloud
+              default: branch
+              enum:
+                - branch
+                - email
+                - cloud
+            cloud:
+              type: string
+              description: 'For cloud-based destinations. Can be either `s3` or `gcs`.'
+              example: s3
+            bucket:
+              type: string
+              description: The cloud bucket being used for subscription.
+              example: my-branch-export-bucket
+            prefix:
+              type: string
+              description: The prefix or folder you are using for Branch exports.
+              example: my-folder
+            resource_access_id:
+              type: string
+              description: ARN for the Role (AWS) or full service account name (GCP) you are using for Branch exports.
+              example: 'arn:aws:iam::xxxxxxxxxxxx:role/role-name-here'
+            recipient_emails:
+              type: array
+              description: 'ONLY FOR `subscription_type`: `email`. List of recipient email addresses.'
+              items:
+                type: string
+      required:
+        - report
+        - destination
+    get_scheduled_log_export_subscription_body:
+      type: object
+      description: Scheduled Log Subscription Body
+      properties:
+        subscription_id:
+          type: string
+          description: A persistent id for the retrieved subscription
+          example: XXXX-0000-xxxx
+        report:
+          type: object
+          description: Information about the report that should be generated.
+          properties:
+            cadence:
+              type: string
+              example: hourly
+              description: 'How frequently the report is generated, and for what time period it is generated. Options: hourly or daily.'
+              enum:
+                - hourly
+                - daily
+            response_format:
+              type: string
+              example: csv
+              description: 'format in which the export data is delivered. Options: csv, json, parquet.'
+              enum:
+                - csv
+                - json
+                - parquet
+            response_format_compression:
+              type: string
+              example: gz
+              default: gz
+              description: 'method by which the export data should be compressed. Options: gz, snappy. Defaults to gz if not specified.'
+              enum:
+                - gz
+                - snappy
+            report_type:
+              type: string
+              default: eo_install
+              example: eo_install
+              enum:
+                - eo_impression
+                - eo_click
+                - eo_web_to_app_auto_redirect
+                - eo_branch_cta_view
+                - eo_open
+                - eo_install
+                - eo_reinstall
+                - eo_web_session_start
+                - eo_pageview
+                - eo_commerce_event
+                - eo_custom_event
+                - eo_content_event
+                - eo_dismissal
+                - eo_user_lifecycle_event
+                - skadnetwork_valid_messages
+                - eo_click_blocked
+                - eo_impression_blocked
+                - eo_install_blocked
+                - eo_reinstall_blocked
+                - eo_open_blocked
+                - eo_web_session_start_blocked
+                - eo_pageview_blocked
+                - eo_custom_event_blocked
+                - eo_content_event_blocked
+                - eo_commerce_event_blocked
+                - eo_user_lifecycle_event_blocked
+                - eo_branch_cta_view_blocked
+                - eo_web_to_app_auto_redirect_blocked
+              description: 'An array representing event type of your report. See [Available Topics](https://help.branch.io/developers-hub/docs/custom-exports#branch-available-topics) the for complete list.'
+            report_fields:
+              description: 'An array representing fields/columns available in your report. Pass `["all"]` to include every available field. The all fields option requires Sensitive Data, Fraud Settings & Data, and Export permissions. When using `"all"`, new fields are automatically included as they become available — design your systems to handle schema changes gracefully. Parquet is recommended for resilience to schema changes. See [Available EO Fields](https://help.branch.io/developers-hub/docs/custom-exports#branch-available-eo-fields) for the complete list.'
+              type: array
+              default:
+                - name
+              example:
+                - name
+              items:
+                type: string
+                example: timestamp
+                enum:
+                  - app_id
+                  - app_name
+                  - attributed
+                  - content_items
+                  - custom_data
+                  - customer_event_alias
+                  - days_from_last_attributed_touch_to_event
+                  - deep_linked
+                  - di_match_click_token
+                  - event_data_ad_type
+                  - event_data_affiliation
+                  - event_data_coupon
+                  - event_data_currency
+                  - event_data_description
+                  - event_data_exchange_rate
+                  - event_data_revenue
+                  - event_data_revenue_in_usd
+                  - event_data_search_query
+                  - event_data_shipping
+                  - event_data_tax
+                  - event_data_transaction_id
+                  - event_data_local_currency
+                  - event_data_local_currency_exchange_rate
+                  - event_data_revenue_in_local_currency
+                  - event_data_custom_param_1
+                  - event_data_custom_param_2
+                  - event_data_custom_param_3
+                  - event_timestamp
+                  - existing_user
+                  - external_intent_uri
+                  - universal_link_url
+                  - android_app_link_url
+                  - first_event_for_user
+                  - hours_from_last_attributed_touch_to_event
+                  - id
+                  - install_activity_attributed
+                  - install_activity_data_has_clicked_ad
+                  - install_activity_data_has_clicked_email
+                  - install_activity_timestamp
+                  - install_activity_touch_data_additional_data_tilde_ad_id
+                  - install_activity_touch_data_additional_data_tilde_ad_set_id
+                  - install_activity_touch_data_additional_data_tilde_campaign_id
+                  - install_activity_touch_data_additional_data_tilde_creative_id
+                  - install_activity_touch_data_dollar_3p
+                  - install_activity_touch_data_plus_via_features
+                  - install_activity_touch_data_plus_web_format
+                  - install_activity_touch_data_tilde_ad_name
+                  - install_activity_touch_data_tilde_ad_set_name
+                  - install_activity_touch_data_tilde_advertising_partner_id
+                  - install_activity_touch_data_tilde_agency
+                  - install_activity_touch_data_tilde_agency_id
+                  - install_activity_touch_data_tilde_campaign
+                  - install_activity_touch_data_tilde_channel
+                  - install_activity_touch_data_tilde_creative_name
+                  - install_activity_touch_data_tilde_customer_ad_name
+                  - install_activity_touch_data_tilde_customer_ad_set_name
+                  - install_activity_touch_data_tilde_customer_campaign
+                  - install_activity_touch_data_tilde_customer_keyword
+                  - install_activity_touch_data_tilde_customer_placement
+                  - install_activity_touch_data_tilde_customer_secondary_publisher
+                  - install_activity_touch_data_tilde_customer_sub_site_name
+                  - install_activity_touch_data_tilde_feature
+                  - install_activity_touch_data_tilde_journey_name
+                  - install_activity_touch_data_tilde_keyword
+                  - install_activity_touch_data_tilde_placement
+                  - install_activity_touch_data_tilde_secondary_publisher
+                  - install_activity_touch_data_tilde_stage
+                  - install_activity_touch_data_tilde_tags
+                  - install_activity_touch_data_tilde_view_name
+                  - install_activity_touch_type
+                  - last_attributed_touch_data_custom_fields
+                  - last_attributed_touch_data_plus_current_feature
+                  - last_attributed_touch_data_tilde_id
+                  - last_attributed_touch_data_plus_touch_id
+                  - last_cta_view_data_plus_touch_id
+                  - last_attributed_touch_data_plus_via_features
+                  - last_attributed_touch_data_plus_web_format
+                  - last_attributed_touch_data_plus_attribution_method
+                  - last_attributed_touch_data_plus_attribution_method_type
+                  - last_attributed_touch_data_tilde_ad_id
+                  - last_attributed_touch_data_tilde_ad_name
+                  - last_attributed_touch_data_tilde_ad_set_id
+                  - last_attributed_touch_data_tilde_ad_set_name
+                  - last_attributed_touch_data_tilde_advertising_account_name
+                  - last_attributed_touch_data_tilde_advertising_account_id
+                  - last_attributed_touch_data_tilde_advertising_partner_id
+                  - last_attributed_touch_data_tilde_advertising_partner_name
+                  - last_attributed_touch_data_tilde_agency
+                  - last_attributed_touch_data_tilde_agency_id
+                  - last_attributed_touch_data_tilde_banner_dimensions
+                  - last_attributed_touch_data_tilde_branch_ad_format
+                  - last_attributed_touch_data_tilde_campaign
+                  - last_attributed_touch_data_tilde_campaign_id
+                  - last_attributed_touch_data_tilde_campaign_type
+                  - last_attributed_touch_data_tilde_channel
+                  - last_attributed_touch_data_tilde_creative_name
+                  - last_attributed_touch_data_tilde_creative_id
+                  - last_attributed_touch_data_tilde_customer_ad_name
+                  - last_attributed_touch_data_tilde_customer_ad_set_name
+                  - last_attributed_touch_data_tilde_customer_campaign
+                  - last_attributed_touch_data_tilde_customer_keyword
+                  - last_attributed_touch_data_tilde_customer_placement
+                  - last_attributed_touch_data_tilde_customer_secondary_publisher
+                  - last_attributed_touch_data_tilde_customer_sub_site_name
+                  - last_attributed_touch_data_tilde_external_touch_id
+                  - last_attributed_touch_data_tilde_feature
+                  - last_attributed_touch_data_tilde_journey_id
+                  - last_attributed_touch_data_tilde_journey_name
+                  - last_attributed_touch_data_tilde_keyword
+                  - last_attributed_touch_data_tilde_keyword_id
+                  - last_attributed_touch_data_tilde_optimization_model
+                  - last_attributed_touch_data_tilde_placement
+                  - last_attributed_touch_data_tilde_placement_id
+                  - last_attributed_touch_data_tilde_secondary_ad_format
+                  - last_attributed_touch_data_tilde_secondary_publisher
+                  - last_attributed_touch_data_tilde_secondary_publisher_id
+                  - last_attributed_touch_data_tilde_stage
+                  - last_attributed_touch_data_tilde_sub_site_name
+                  - last_attributed_touch_data_tilde_tags
+                  - last_attributed_touch_data_tilde_technology_partner
+                  - last_attributed_touch_data_tilde_touch_subtype
+                  - last_attributed_touch_data_tilde_view_id
+                  - last_attributed_touch_data_tilde_view_name
+                  - last_attributed_touch_timestamp
+                  - last_attributed_touch_timestamp_iso
+                  - last_attributed_touch_type
+                  - last_attributed_touch_data_tilde_organic_search_url
+                  - last_cta_view_data_custom_fields
+                  - last_cta_view_data_dollar_3p
+                  - last_attributed_touch_data_plus_referring_domain
+                  - last_cta_view_data_plus_via_features
+                  - last_cta_view_data_plus_web_format
+                  - last_cta_view_data_tilde_ad_id
+                  - last_cta_view_data_tilde_ad_name
+                  - last_cta_view_data_tilde_ad_set_id
+                  - last_cta_view_data_tilde_ad_set_name
+                  - last_cta_view_data_tilde_advertising_partner_name
+                  - last_cta_view_data_tilde_agency
+                  - last_cta_view_data_tilde_banner_dimensions
+                  - last_cta_view_data_tilde_branch_ad_format
+                  - last_cta_view_data_tilde_campaign
+                  - last_cta_view_data_tilde_campaign_id
+                  - last_cta_view_data_tilde_campaign_type
+                  - last_cta_view_data_tilde_channel
+                  - last_cta_view_data_tilde_creative_id
+                  - last_cta_view_data_tilde_creative_name
+                  - last_cta_view_data_tilde_external_touch_id
+                  - last_cta_view_data_tilde_feature
+                  - last_cta_view_data_tilde_id
+                  - last_cta_view_data_tilde_keyword_id
+                  - last_cta_view_data_tilde_optimization_model
+                  - last_cta_view_data_tilde_placement
+                  - last_cta_view_data_tilde_secondary_ad_format
+                  - last_cta_view_data_tilde_secondary_publisher
+                  - last_cta_view_data_tilde_stage
+                  - last_cta_view_data_tilde_tags
+                  - last_cta_view_data_tilde_technology_partner
+                  - last_cta_view_timestamp
+                  - last_cta_view_timestamp_iso
+                  - match_guaranteed
+                  - minutes_from_last_attributed_touch_to_event
+                  - name
+                  - organization_id
+                  - organization_name
+                  - origin
+                  - reengagement_activity_attributed
+                  - reengagement_activity_data_has_clicked_ad
+                  - reengagement_activity_data_has_clicked_email
+                  - reengagement_activity_timestamp
+                  - reengagement_activity_touch_data_additional_data_tilde_ad_id
+                  - reengagement_activity_touch_data_additional_data_tilde_ad_set_id
+                  - reengagement_activity_touch_data_additional_data_tilde_campaign_id
+                  - reengagement_activity_touch_data_additional_data_tilde_creative_id
+                  - reengagement_activity_touch_data_dollar_3p
+                  - reengagement_activity_touch_data_plus_via_features
+                  - reengagement_activity_touch_data_plus_web_format
+                  - reengagement_activity_touch_data_tilde_ad_name
+                  - reengagement_activity_touch_data_tilde_ad_set_name
+                  - reengagement_activity_touch_data_tilde_advertising_partner_id
+                  - reengagement_activity_touch_data_tilde_advertising_partner_name
+                  - reengagement_activity_touch_data_tilde_agency
+                  - reengagement_activity_touch_data_tilde_agency_id
+                  - reengagement_activity_touch_data_tilde_campaign
+                  - reengagement_activity_touch_data_tilde_channel
+                  - reengagement_activity_touch_data_tilde_creative_name
+                  - reengagement_activity_touch_data_tilde_customer_ad_name
+                  - reengagement_activity_touch_data_tilde_customer_ad_set_name
+                  - reengagement_activity_touch_data_tilde_customer_campaign
+                  - reengagement_activity_touch_data_tilde_customer_keyword
+                  - reengagement_activity_touch_data_tilde_customer_placement
+                  - reengagement_activity_touch_data_tilde_customer_secondary_publisher
+                  - reengagement_activity_touch_data_tilde_customer_sub_site_name
+                  - reengagement_activity_touch_data_tilde_feature
+                  - reengagement_activity_touch_data_tilde_journey_name
+                  - reengagement_activity_touch_data_tilde_keyword
+                  - reengagement_activity_touch_data_tilde_placement
+                  - reengagement_activity_touch_data_tilde_secondary_publisher
+                  - reengagement_activity_touch_data_tilde_stage
+                  - reengagement_activity_touch_data_tilde_tags
+                  - reengagement_activity_touch_data_tilde_view_name
+                  - reengagement_activity_touch_type
+                  - referrer_click_timestamp
+                  - seconds_from_install_to_event
+                  - seconds_from_last_attributed_touch_to_event
+                  - seconds_from_last_attributed_touch_to_store_install_begin
+                  - site_event_items_count
+                  - store_install_begin_timestamp
+                  - timestamp
+                  - timestamp_iso
+                  - user_data_aaid
+                  - user_data_android_id
+                  - user_data_app_package_name
+                  - user_data_app_version
+                  - user_data_brand
+                  - user_data_browser
+                  - user_data_build
+                  - user_data_cpu_type
+                  - user_data_cross_platform_id
+                  - user_data_developer_identity
+                  - user_data_device_type
+                  - user_data_environment
+                  - user_data_geo_city_code
+                  - user_data_geo_city_en
+                  - user_data_geo_country_code
+                  - user_data_geo_country_en
+                  - user_data_geo_dma_code
+                  - user_data_geo_lat
+                  - user_data_geo_lon
+                  - user_data_geo_postal_code
+                  - user_data_geo_region_en
+                  - user_data_geo_region_code
+                  - user_data_http_referrer
+                  - user_data_idfa
+                  - user_data_idfv
+                  - user_data_installer_package_name
+                  - user_data_internet_connection_type
+                  - user_data_ip
+                  - user_data_is_jailbroken
+                  - user_data_kindle_id
+                  - user_data_language
+                  - user_data_limit_ad_tracking
+                  - user_data_model
+                  - user_data_os
+                  - user_data_os_version
+                  - user_data_os_version_android
+                  - user_data_past_cross_platform_ids
+                  - user_data_platform
+                  - user_data_prob_cross_platform_ids
+                  - user_data_roku_rida
+                  - user_data_screen_height
+                  - user_data_screen_width
+                  - user_data_sdk_version
+                  - user_data_user_agent
+                  - user_data_windows_aid
+                  - user_data_device_locale
+                  - user_data_carrier_name
+                  - user_data_opted_in_status
+                  - user_data_dma_eea
+                  - user_data_dma_ad_personalization
+                  - user_data_dma_ad_user_data
+                  - measurement_metadata_method_type
+                  - measurement_metadata_method_name
+            filter:
+              type: array
+              description: 'Filter by fields and boolean operators against fields of the LogInstalls model; must be URI encoded and JSON parsed. Example: ["eq", "name", "PURCHASE"]'
+              uniqueItems: true
+              items:
+                oneOf:
+                  - enum:
+                      - eq
+                      - gt
+                      - gte
+                      - lt
+                      - lte
+                      - like
+                      - between
+                      - in
+                      - and
+                      - or
+                      - not
+                      - array_contains
+                    example: eq
+                    title: Cthulhu prefix notation
+                    description: 'See [Cthulhu Filter Specification](https://help.branch.io/developers-hub/docs/custom-exports#cthulhu-filter-specification) for details on options.'
+                    default: eq
+                  - title: EO Field Key
+                    description: 'See [Available EO Fields](https://help.branch.io/developers-hub/docs/custom-exports#branch-available-eo-fields) for full list description.'
+                    default: name
+                    enum:
+                      - app_id
+                      - app_name
+                      - attributed
+                      - content_items
+                      - custom_data
+                      - customer_event_alias
+                      - days_from_last_attributed_touch_to_event
+                      - deep_linked
+                      - di_match_click_token
+                      - event_data_ad_type
+                      - event_data_affiliation
+                      - event_data_coupon
+                      - event_data_currency
+                      - event_data_description
+                      - event_data_exchange_rate
+                      - event_data_revenue
+                      - event_data_revenue_in_usd
+                      - event_data_search_query
+                      - event_data_shipping
+                      - event_data_tax
+                      - event_data_transaction_id
+                      - event_data_local_currency
+                      - event_data_local_currency_exchange_rate
+                      - event_data_revenue_in_local_currency
+                      - event_data_custom_param_1
+                      - event_data_custom_param_2
+                      - event_data_custom_param_3
+                      - event_timestamp
+                      - existing_user
+                      - external_intent_uri
+                      - universal_link_url
+                      - android_app_link_url
+                      - first_event_for_user
+                      - hours_from_last_attributed_touch_to_event
+                      - id
+                      - install_activity_attributed
+                      - install_activity_data_has_clicked_ad
+                      - install_activity_data_has_clicked_email
+                      - install_activity_timestamp
+                      - install_activity_touch_data_additional_data_tilde_ad_id
+                      - install_activity_touch_data_additional_data_tilde_ad_set_id
+                      - install_activity_touch_data_additional_data_tilde_campaign_id
+                      - install_activity_touch_data_additional_data_tilde_creative_id
+                      - install_activity_touch_data_dollar_3p
+                      - install_activity_touch_data_plus_via_features
+                      - install_activity_touch_data_plus_web_format
+                      - install_activity_touch_data_tilde_ad_name
+                      - install_activity_touch_data_tilde_ad_set_name
+                      - install_activity_touch_data_tilde_advertising_partner_id
+                      - install_activity_touch_data_tilde_agency
+                      - install_activity_touch_data_tilde_agency_id
+                      - install_activity_touch_data_tilde_campaign
+                      - install_activity_touch_data_tilde_channel
+                      - install_activity_touch_data_tilde_creative_name
+                      - install_activity_touch_data_tilde_customer_ad_name
+                      - install_activity_touch_data_tilde_customer_ad_set_name
+                      - install_activity_touch_data_tilde_customer_campaign
+                      - install_activity_touch_data_tilde_customer_keyword
+                      - install_activity_touch_data_tilde_customer_placement
+                      - install_activity_touch_data_tilde_customer_secondary_publisher
+                      - install_activity_touch_data_tilde_customer_sub_site_name
+                      - install_activity_touch_data_tilde_feature
+                      - install_activity_touch_data_tilde_journey_name
+                      - install_activity_touch_data_tilde_keyword
+                      - install_activity_touch_data_tilde_placement
+                      - install_activity_touch_data_tilde_secondary_publisher
+                      - install_activity_touch_data_tilde_stage
+                      - install_activity_touch_data_tilde_tags
+                      - install_activity_touch_data_tilde_view_name
+                      - install_activity_touch_type
+                      - last_attributed_touch_data_custom_fields
+                      - last_attributed_touch_data_plus_current_feature
+                      - last_attributed_touch_data_tilde_id
+                      - last_attributed_touch_data_plus_touch_id
+                      - last_cta_view_data_plus_touch_id
+                      - last_attributed_touch_data_plus_via_features
+                      - last_attributed_touch_data_plus_web_format
+                      - last_attributed_touch_data_plus_attribution_method
+                      - last_attributed_touch_data_plus_attribution_method_type
+                      - last_attributed_touch_data_tilde_ad_id
+                      - last_attributed_touch_data_tilde_ad_name
+                      - last_attributed_touch_data_tilde_ad_set_id
+                      - last_attributed_touch_data_tilde_ad_set_name
+                      - last_attributed_touch_data_tilde_advertising_account_name
+                      - last_attributed_touch_data_tilde_advertising_account_id
+                      - last_attributed_touch_data_tilde_advertising_partner_id
+                      - last_attributed_touch_data_tilde_advertising_partner_name
+                      - last_attributed_touch_data_tilde_agency
+                      - last_attributed_touch_data_tilde_agency_id
+                      - last_attributed_touch_data_tilde_banner_dimensions
+                      - last_attributed_touch_data_tilde_branch_ad_format
+                      - last_attributed_touch_data_tilde_campaign
+                      - last_attributed_touch_data_tilde_campaign_id
+                      - last_attributed_touch_data_tilde_campaign_type
+                      - last_attributed_touch_data_tilde_channel
+                      - last_attributed_touch_data_tilde_creative_name
+                      - last_attributed_touch_data_tilde_creative_id
+                      - last_attributed_touch_data_tilde_customer_ad_name
+                      - last_attributed_touch_data_tilde_customer_ad_set_name
+                      - last_attributed_touch_data_tilde_customer_campaign
+                      - last_attributed_touch_data_tilde_customer_keyword
+                      - last_attributed_touch_data_tilde_customer_placement
+                      - last_attributed_touch_data_tilde_customer_secondary_publisher
+                      - last_attributed_touch_data_tilde_customer_sub_site_name
+                      - last_attributed_touch_data_tilde_external_touch_id
+                      - last_attributed_touch_data_tilde_feature
+                      - last_attributed_touch_data_tilde_journey_id
+                      - last_attributed_touch_data_tilde_journey_name
+                      - last_attributed_touch_data_tilde_keyword
+                      - last_attributed_touch_data_tilde_keyword_id
+                      - last_attributed_touch_data_tilde_optimization_model
+                      - last_attributed_touch_data_tilde_placement
+                      - last_attributed_touch_data_tilde_placement_id
+                      - last_attributed_touch_data_tilde_secondary_ad_format
+                      - last_attributed_touch_data_tilde_secondary_publisher
+                      - last_attributed_touch_data_tilde_secondary_publisher_id
+                      - last_attributed_touch_data_tilde_stage
+                      - last_attributed_touch_data_tilde_sub_site_name
+                      - last_attributed_touch_data_tilde_tags
+                      - last_attributed_touch_data_tilde_technology_partner
+                      - last_attributed_touch_data_tilde_touch_subtype
+                      - last_attributed_touch_data_tilde_view_id
+                      - last_attributed_touch_data_tilde_view_name
+                      - last_attributed_touch_timestamp
+                      - last_attributed_touch_timestamp_iso
+                      - last_attributed_touch_type
+                      - last_attributed_touch_data_tilde_organic_search_url
+                      - last_cta_view_data_custom_fields
+                      - last_cta_view_data_dollar_3p
+                      - last_attributed_touch_data_plus_referring_domain
+                      - last_cta_view_data_plus_via_features
+                      - last_cta_view_data_plus_web_format
+                      - last_cta_view_data_tilde_ad_id
+                      - last_cta_view_data_tilde_ad_name
+                      - last_cta_view_data_tilde_ad_set_id
+                      - last_cta_view_data_tilde_ad_set_name
+                      - last_cta_view_data_tilde_advertising_partner_name
+                      - last_cta_view_data_tilde_agency
+                      - last_cta_view_data_tilde_banner_dimensions
+                      - last_cta_view_data_tilde_branch_ad_format
+                      - last_cta_view_data_tilde_campaign
+                      - last_cta_view_data_tilde_campaign_id
+                      - last_cta_view_data_tilde_campaign_type
+                      - last_cta_view_data_tilde_channel
+                      - last_cta_view_data_tilde_creative_id
+                      - last_cta_view_data_tilde_creative_name
+                      - last_cta_view_data_tilde_external_touch_id
+                      - last_cta_view_data_tilde_feature
+                      - last_cta_view_data_tilde_id
+                      - last_cta_view_data_tilde_keyword_id
+                      - last_cta_view_data_tilde_optimization_model
+                      - last_cta_view_data_tilde_placement
+                      - last_cta_view_data_tilde_secondary_ad_format
+                      - last_cta_view_data_tilde_secondary_publisher
+                      - last_cta_view_data_tilde_stage
+                      - last_cta_view_data_tilde_tags
+                      - last_cta_view_data_tilde_technology_partner
+                      - last_cta_view_timestamp
+                      - last_cta_view_timestamp_iso
+                      - match_guaranteed
+                      - minutes_from_last_attributed_touch_to_event
+                      - name
+                      - organization_id
+                      - organization_name
+                      - origin
+                      - reengagement_activity_attributed
+                      - reengagement_activity_data_has_clicked_ad
+                      - reengagement_activity_data_has_clicked_email
+                      - reengagement_activity_timestamp
+                      - reengagement_activity_touch_data_additional_data_tilde_ad_id
+                      - reengagement_activity_touch_data_additional_data_tilde_ad_set_id
+                      - reengagement_activity_touch_data_additional_data_tilde_campaign_id
+                      - reengagement_activity_touch_data_additional_data_tilde_creative_id
+                      - reengagement_activity_touch_data_dollar_3p
+                      - reengagement_activity_touch_data_plus_via_features
+                      - reengagement_activity_touch_data_plus_web_format
+                      - reengagement_activity_touch_data_tilde_ad_name
+                      - reengagement_activity_touch_data_tilde_ad_set_name
+                      - reengagement_activity_touch_data_tilde_advertising_partner_id
+                      - reengagement_activity_touch_data_tilde_advertising_partner_name
+                      - reengagement_activity_touch_data_tilde_agency
+                      - reengagement_activity_touch_data_tilde_agency_id
+                      - reengagement_activity_touch_data_tilde_campaign
+                      - reengagement_activity_touch_data_tilde_channel
+                      - reengagement_activity_touch_data_tilde_creative_name
+                      - reengagement_activity_touch_data_tilde_customer_ad_name
+                      - reengagement_activity_touch_data_tilde_customer_ad_set_name
+                      - reengagement_activity_touch_data_tilde_customer_campaign
+                      - reengagement_activity_touch_data_tilde_customer_keyword
+                      - reengagement_activity_touch_data_tilde_customer_placement
+                      - reengagement_activity_touch_data_tilde_customer_secondary_publisher
+                      - reengagement_activity_touch_data_tilde_customer_sub_site_name
+                      - reengagement_activity_touch_data_tilde_feature
+                      - reengagement_activity_touch_data_tilde_journey_name
+                      - reengagement_activity_touch_data_tilde_keyword
+                      - reengagement_activity_touch_data_tilde_placement
+                      - reengagement_activity_touch_data_tilde_secondary_publisher
+                      - reengagement_activity_touch_data_tilde_stage
+                      - reengagement_activity_touch_data_tilde_tags
+                      - reengagement_activity_touch_data_tilde_view_name
+                      - reengagement_activity_touch_type
+                      - referrer_click_timestamp
+                      - seconds_from_install_to_event
+                      - seconds_from_last_attributed_touch_to_event
+                      - seconds_from_last_attributed_touch_to_store_install_begin
+                      - site_event_items_count
+                      - store_install_begin_timestamp
+                      - timestamp
+                      - timestamp_iso
+                      - user_data_aaid
+                      - user_data_android_id
+                      - user_data_app_package_name
+                      - user_data_app_version
+                      - user_data_brand
+                      - user_data_browser
+                      - user_data_build
+                      - user_data_cpu_type
+                      - user_data_cross_platform_id
+                      - user_data_developer_identity
+                      - user_data_device_type
+                      - user_data_environment
+                      - user_data_geo_city_code
+                      - user_data_geo_city_en
+                      - user_data_geo_country_code
+                      - user_data_geo_country_en
+                      - user_data_geo_dma_code
+                      - user_data_geo_lat
+                      - user_data_geo_lon
+                      - user_data_geo_postal_code
+                      - user_data_geo_region_en
+                      - user_data_geo_region_code
+                      - user_data_http_referrer
+                      - user_data_idfa
+                      - user_data_idfv
+                      - user_data_installer_package_name
+                      - user_data_internet_connection_type
+                      - user_data_ip
+                      - user_data_is_jailbroken
+                      - user_data_kindle_id
+                      - user_data_language
+                      - user_data_limit_ad_tracking
+                      - user_data_model
+                      - user_data_os
+                      - user_data_os_version
+                      - user_data_os_version_android
+                      - user_data_past_cross_platform_ids
+                      - user_data_platform
+                      - user_data_prob_cross_platform_ids
+                      - user_data_roku_rida
+                      - user_data_screen_height
+                      - user_data_screen_width
+                      - user_data_sdk_version
+                      - user_data_user_agent
+                      - user_data_windows_aid
+                      - user_data_device_locale
+                      - user_data_carrier_name
+                      - user_data_opted_in_status
+                      - user_data_dma_eea
+                      - user_data_dma_ad_personalization
+                      - user_data_dma_ad_user_data
+                      - measurement_metadata_method_type
+                      - measurement_metadata_method_name
+                    example: name
+                  - title: EO Field Value
+                    example: PURCHASE
+                    description: The value(s) for the EO Field Key(s) for the filter.
+                type: string
+            subscription_status:
+              type: string
+              description: Current subscription status
+              example: ACTIVE
+        destination:
+          type: object
+          description: Information about where a finished report is stored and how it can be accessed
+          properties:
+            subscription_type:
+              type: string
+              description: 'Should be set to branch if you want data stored in Branch''s S3 bucket, and accessible via API'
+              example: cloud
+            cloud:
+              type: string
+              description: 'The cloud service being used for external exports. Can be either `s3` or `gcs`.'
+              example: s3
+            bucket:
+              type: string
+              description: The cloud bucket being used for subscription.
+              example: my-branch-export-bucket
+            prefix:
+              type: string
+              description: The prefix or folder you are using for Branch exports.
+              example: my-folder
+            resource_access_id:
+              type: string
+              description: ARN for the Role (AWS) or full service account name (GCP) you are using for Branch exports.
+              example: 'arn:aws:iam::xxxxxxxxxxxx:role/role-name-here'
+            recipient_emails:
+              description: Array of recipient emails associated with subscription
+              type: array
+              items:
+                type: string
+                example: example@branch.io
+    deactivate_subscription_body:
+      type: object
+      description: Deactivate Subscription Body
+      properties:
+        status:
+          type: string
+          description: Indicates whether the deactivate request succeeded.
+          example: SUCCESS
+        description:
+          type: string
+          description: Additional information about the status of the request
+          example: Subscription deactivated successfully
+    get_external_id_body:
+      type: object
+      description: Body for external id
+      properties:
+        external_id:
+          type: string
+          description: A persistent external id against the App Id
+          example: XXXX-0000-xxxx
+    response_200_create_scheduled_log_export_subscription:
+      type: object
+      properties:
+        subscription_id:
+          type: string
+          example: XXXX-0000-xxxx
+          description: 'A persistent id for this subscription, used to check the status, locate recent export jobs, and make modifications'
+        status:
+          type: string
+          description: |
+            if PENDING, Branch is still working on an initial export to test out this subscription. If ACTIVE then the subscription was set up successfully. If FAILED then the test export was unsuccessful.
+          example: PENDING
+          enum:
+            - PENDING
+            - ACTIVE
+            - FAILED
+        description:
+          type: string
+          example: Generating sample report. Subscription will finish after Report is uploaded
+          description: More information about the subscription's status.
+        subscription_url:
+          type: string
+          example: 'https://api2.branch.io/scheduled-exports/exports/logs/subscription/{SUBSCRIPTION_ID_HERE}?app_id={APP_ID_HERE}'
+          description: |
+            Get details on this subscription. See the section "Get details on one log export subscription" below.
+    inline_response_400:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/inline_response_400_error'
+    inline_response_400_error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Authentication failed !
+        code:
+          type: integer
+          example: 400
+    inline_response_401:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/inline_response_401_error'
+    inline_response_401_error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Auth Client failed response
+        code:
+          type: integer
+          example: 401
+    inline_response_404:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/inline_response_404_error'
+    inline_response_404_error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: User Not Found
+        code:
+          type: integer
+          example: 404
+    inline_response_500:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/inline_response_500_error'
+    inline_response_500_error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        code:
+          type: integer
+          example: 500
+    get_export_job_body:
+      type: object
+      description: Export Job Body
+      properties:
+        job_id:
+          type: string
+          description: A persistent identifier for this export job run
+          example: XXXX-0000-xxxx
+        status:
+          type: string
+          description: 'whether the job is in progress, succeeded or failed. Available options are PENDING_GENERATION, PENDING_UPLOAD, RUNNING, SUCCEEDED and FAILED'
+          enum:
+            - PENDING_GENERATION
+            - PENDING_UPLOAD
+            - RUNNING
+            - SUCCEEDED
+          example: SUCCEEDED
+        start_date:
+          type: string
+          description: |
+            The earliest date for which exported objects will be included. Format is set to yyyy-MM-dd'T'HH:mm:ssZ. Timezone is UTC.
+          example: '2023-05-19T00:00:00.000-00:00'
+        end_date:
+          type: string
+          description: |
+            The latest date for which exported objects will be included. Format is set to yyyy-MM-dd'T'HH:mm:ssZ. Timezone is UTC. Please note that this includes data through the final millisecond. So if end_date is 2023-05-30T19:59:59, this export job run will include data through the final millisecond i.e. 2023-05-30T19:59:59.999.
+          example: '2023-05-20T00:00:00.000-00:00'
+        export_url:
+          description: |
+            if the export job is for a subscription with destination.subscription_type set to branch, then this will be an array of pre-signed S3 URLs for export files that you can then download.
+          type: array
+          items:
+            type: string
+            example: 'https://branch-exports-web-usw2.s3.us-west-1.amazonaws.com/v2/y%3D2021/m%3D09/d%3D16/app_id%3D{APP_ID_HERE}/job_id%3D{JOB_ID_HERE}/task_id%3D{TASK_ID_HERE}/unique-csv-file-name-here.csv.gz?X-Amz-Algorithm={AMZ_ALGORITHM_HERE}&X-Amz-Date={AMZ_DATE_HERE}&X-Amz-SignedHeaders={AMZ_SIGNED_HEADERS_HERE}&X-Amz-Expires={AMZ_EXPIRATION_HERE}&X-Amz-Credential={AMZ_CREDENTIAL_HERE}&X-Amz-Signature={AMZ_SIGNATURE_HERE}'
+        lines_exported:
+          type: integer
+          description: Number of objects in the export (e.g. CSV rows).
+          example: 43
+  securitySchemes:
+    appId:
+      type: apiKey
+      description: app_id | Unique identifier for Branch app of requested data.
+      name: app_id
+      in: query
+    orgId:
+      type: apiKey
+      description: organization_id | the organization Id with which the Access Token and subscriptions are associated
+      name: organization_id
+      in: query
+    accessToken:
+      type: apiKey
+      description: |
+        Access-Token | Key that encapsulates the users permission w.r.t an org. Obtained from the Branch Dashboard needed for [authentication](https://help.branch.io/developers-hub/docs/branch-aggregate-api#authentication).
+      name: Access-Token
+      in: header
+  examples: {}

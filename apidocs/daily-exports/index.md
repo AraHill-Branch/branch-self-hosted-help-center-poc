@@ -1,13 +1,13 @@
 ---
-title: "Deep Linking API"
-slug: deep-linking
+title: "Daily Exports API"
+slug: daily-exports
 ---
 
-# Deep Linking API
+# Daily Exports API
 
 ## Overview
 
-Branch's Deep Linking API is a powerful tool for all things Branch Links. You can programmatically generate links at scale to support all of your campaigns while tagging the links appropriately based on channel and other analytics tags.
+Export ALL device-level data from a specific day.
 
 ## Authentication
 
@@ -16,7 +16,7 @@ All requests require a Branch Key. See [the API authentication overview](/apidoc
 ## Endpoint
 
 ```
-POST https://api2.branch.io/v1/url
+POST https://api2.branch.io/v3/export
 Content-Type: application/json
 ```
 

@@ -1,0 +1,817 @@
+openapi: 3.0.0
+info:
+  title: App API
+  description: The App API allows developers to view and make updates to an existing Branch app configuration to better support workflows.
+  termsOfService: 'https://branch.io/policies/'
+  contact:
+    name: Branch Support
+    url: 'https://help.branch.io/using-branch/page/submit-a-ticket'
+    email: support@branch.io
+  version: 1.0.1
+servers:
+  - url: 'https://api2.branch.io/v1'
+tags:
+  - name: App API
+    description: The App API allows developers to view and make updates to an existing Branch app configuration to better support workflows.
+paths:
+  '/app/{branch_key}':
+    get:
+      tags:
+        - App API
+      summary: Get Current Branch App Config
+      operationId: getCurrentBranchAppConfig
+      description: This endpoint retrieves all app related configurations for the requested branch.
+      parameters:
+        - name: branch_key
+          in: path
+          description: 'The Branch Key of the originating app obtained in your [Account Settings](https://help.branch.io/using-branch/docs/profile-settings)'
+          required: true
+          schema:
+            type: string
+            example: key_live_xxxx
+        - name: branch_secret
+          in: query
+          description: 'The Branch Secret Key of the originating app obtained in your [Account Settings](https://help.branch.io/using-branch/docs/profile-settings)'
+          style: form
+          schema:
+            type: string
+            example: secret_live_xxxx
+          required: true
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/app_config_get_200'
+        '400':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+        '429':
+          description: Rate Limit Reached
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "code": 429,
+                            "message": "Rate limit reached."
+                        }
+                    }
+    put:
+      tags:
+        - App API
+      summary: Update Branch App Config
+      description: This endpoint is used updated the existing branch app configurations.  All parameters passed within the request body will be updated as per the value provided.
+      operationId: updateBranchAppConfig
+      parameters:
+        - name: branch_key
+          in: path
+          description: 'The Branch Key of the originating app obtained in your [Account Settings](https://help.branch.io/using-branch/docs/profile-settings)'
+          required: true
+          schema:
+            type: string
+            example: key_live_xxxx
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/app_config_put_request_body'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/app_config_get_200'
+        '400':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+        '429':
+          description: Rate Limit Reached
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "code": 429,
+                            "message": "Rate limit reached."
+                        }
+                    }
+components:
+  schemas:
+    app_config_get_200:
+      type: object
+      properties:
+        alternate_short_url_domain:
+          description: An alternative short URL to the domain
+          type: string
+          example: branch-alternate.app.link
+        always_open_app:
+          description: Indicates whether to try to open the app on link click or not
+          type: integer
+          example: 1
+        android_cd_enabled:
+          description: 'Indicate if CD [Content Discovery] is enabled for Android'
+          type: boolean
+        android_cd_hashed:
+          description: Android CD hash details
+          type: string
+        android_tablet_url:
+          description: URL specific to Android tablets
+          type: string
+        auto_fetch:
+          description: Details auto fetching flag
+          type: boolean
+        deepview_configs:
+          description: Android & iOS configurations related to deep views
+          type: object
+          properties:
+            ios:
+              type: object
+              description: iOS related deep view configurations
+              properties:
+                enabled:
+                  description: Indicate iOS related configurations are enabled
+                  type: boolean
+                  example: true
+                clipboard_deepview:
+                  description: Deepview details
+                  type: string
+                  example: branch_clipboard_deepview
+                deepview_audience_id:
+                  description: Unique deepview id
+                  type: integer
+                  example: 0
+            android:
+              type: object
+              description: Android related deep view configurations
+              properties:
+                enabled:
+                  description: Indicate Android related configurations are enabled
+                  type: boolean
+                  example: true
+                clipboard_deepview:
+                  description: Deepview details
+                  type: string
+                  example: branch_clipboard_deepview
+                deepview_audience_id:
+                  description: Unique deepview id
+                  type: integer
+                  example: 0
+        default_short_url_domain:
+          description: Short URL to the default domain
+          type: string
+          example: branch.app.link
+        desktop_uri_scheme:
+          description: Standard URI scheme if available
+          type: string
+        esp_config:
+          description: Specific configurations for email service providers
+          type: object
+          properties:
+            map_query_params_to_deep_link_data:
+              type: array
+              items:
+                type: string
+            secrets:
+              type: array
+              items:
+                type: string
+            strip_protocol_from_deeplink_path:
+              type: boolean
+              example: false
+            email_enabled:
+              type: boolean
+              example: false
+            strip_protocol_from_android_deeplink_path:
+              type: boolean
+              example: false
+            default_to_open_for_android_deeplink_path:
+              type: boolean
+              example: false
+            append_full_url_for_key:
+              type: string
+              example: $canonical_url
+            append_all_params:
+              type: boolean
+              example: true
+            ads_enabled:
+              type: boolean
+              example: false
+            append_path_for_key:
+              type: string
+            strip_protocol_from_ios_deeplink_path:
+              type: boolean
+              example: false
+            has_confirmed:
+              type: boolean
+              example: true
+        imei_collection_enabled:
+          description: Indicate if IMEI collection is enabled
+          type: boolean
+        imei_terms_and_conditions:
+          description: IMEI terms and condition if available
+          type: string
+        ios_bundle_settings:
+          description: iOS settings
+          type: string
+        ios_additional_bundle_ids:
+          description: 'Additional ios bundle ids '
+          type: array
+          items:
+            type: string
+            example: com.test
+        ios_cd_enabled:
+          description: 'Indicate if CD [Content Discovery] is enabled for iOS'
+          type: boolean
+        ios_cd_hashed:
+          description: iOS CD hash details
+          type: string
+        ipad_url:
+          description: Ipad URL associated with the request
+          type: string
+        ios_app_store_id:
+          description: Application id specific to iOS
+          type: string
+        map_utm_params:
+          description: ''
+          type: string
+        reserved_analytics_to_utm:
+          description: ''
+          type: string
+        origin:
+          description: Request origin
+          type: string
+        sitemap_enabled:
+          description: 'Indicate if CD [Content Discovery] is enabled for Android'
+          type: string
+        tmta_enabled:
+          description: ''
+          type: string
+        wechat_url:
+          description: Wechat URL against the request
+          type: string
+        redirect_domains_whitelist:
+          description: Whitelist urls for redirection
+          type: array
+          items:
+            type: string
+        journeys_open_app:
+          description: ''
+          type: string
+        passive_deepview_ios:
+          description: ''
+          type: string
+        passive_deepview_android:
+          description: ''
+          type: string
+        uri_redirect_mode:
+          description: URI redirection mode
+          type: integer
+          example: 1
+        timezone:
+          description: Request timezone
+          type: string
+          example: America/Los_Angeles
+        mac_uri_scheme:
+          description: MAC uri scheme
+          type: string
+          example: 'branch-example-mac://'
+        mac_store_url:
+          description: Mac Store valid URL if avialable
+          type: string
+        windows_uri_scheme:
+          description: ''
+          type: string
+          example: 'examplebranchsdk://'
+        windows_store_url:
+          description: Windows Store valid URL if avialable
+          type: string
+        windows_package_family_name:
+          description: ''
+          type: string
+        organization_id:
+          description: ''
+          type: string
+        sk_ad_network_enabled:
+          description: ''
+          type: string
+        ios_app_store_id_verified:
+          description: Identifies if the ios app store id is verified officially
+          type: boolean
+        local_currency:
+          description: Local currency at the time of request
+          type: string
+        organic_search_domains:
+          description: Search domains
+          type: array
+          items:
+            type: string
+        id:
+          description: Request Id
+          type: string
+          example: '00000000'
+        app_key:
+          description: Requesting application key
+          type: string
+          example: '00000000'
+        zuora_account_id:
+          description: ''
+          type: string
+        branch_key:
+          description: 'The Branch Key of the originating app obtained in your [Account Settings](https://help.branch.io/using-branch/docs/profile-settings)'
+          type: string
+          example: key_live_xxxx
+        branch_secret:
+          description: 'The Branch Secret of the originating app obtained in your [Account Settings](https://help.branch.io/using-branch/docs/profile-settings)'
+          type: string
+          example: secret_live_xxxx
+        creation_date:
+          description: Date app was created
+          type: string
+          example: '2019-06-19T19:37:31.887Z'
+        app_name:
+          description: Name of the app
+          type: string
+          example: My App Name
+        dev_name:
+          description: Main contact name
+          type: string
+          example: First Last
+        dev_email:
+          description: Main contact email
+          type: string
+          example: test@branch.io
+        dev_phone_number:
+          description: Main contact phone
+          type: string
+          example: ''
+        android_app:
+          description: Whether an Android app is enabled. 0 is for disabled. 1 is for enabled.
+          type: integer
+          example: 0
+        android_url:
+          description: 'url of Android store, or namespace (com.android.myapp)'
+          type: string
+        android_uri_scheme:
+          description: the Android URI scheme
+          type: string
+          example: ''
+        android_package_name:
+          description: the Android package name
+          type: string
+        sha256_cert_fingerprints:
+          description: 'The SHA256 fingerprints for App Links'
+          type: array
+          items:
+            type: string
+        android_app_links_enabled:
+          description: whether App Links are enabled
+          type: boolean
+          example: false
+        ios_app:
+          description: whether an iOS app is enabled
+          type: integer
+          example: 0
+        ios_url:
+          description: 'Url of iOS store, or app id (id00000000)'
+          type: string
+        ios_uri_scheme:
+          description: The iOS URI scheme
+          type: string
+          example: ''
+        ios_store_country:
+          description: 'The country code of the app, default to US'
+          type: string
+          example: US
+        ios_bundle_id:
+          description: The iOS bundle ID
+          type: string
+          example: com.test.app
+        ios_team_id:
+          description: The iOS Team ID
+          type: string
+          example: 0000XXXX
+        universal_linking_enabled:
+          description: whether Universal Links are enabled
+          type: string
+        fire_url:
+          description: the redirect on Fire phones
+          type: string
+        windows_phone_url:
+          description: the redirect on Windows phones
+          type: string
+        blackberry_url:
+          description: The redirect on Blackberry phones
+          type: string
+        web_url:
+          description: backup website if URLs are null
+          type: string
+          example: 'https://branch.io'
+        default_desktop_url:
+          description: 'the default desktop redirect, or null if set to hosted SMS'
+          type: string
+          example: 'http://branch.io'
+        short_url_domain:
+          description: white labeled domain for short links
+          type: string
+        text_message:
+          description: 'text message to use, {{ link }} will be replaced with short link'
+          type: string
+          example: ''
+        og_app_id:
+          description: optional default Open Graph (OG) app id
+          type: string
+        og_title:
+          description: optional default OG title
+          type: string
+          example: Branch Monster Factory
+        og_image_url:
+          description: optional default OG image URL
+          type: string
+          example: ''
+        og_description:
+          description: optional default OG description
+          type: string
+        deepview_desktop:
+          description: the current deepview selected for the desktop platform
+          type: string
+        deepview_ios:
+          description: the current deepview selected for the iOS platform
+          type: string
+        deepview_android:
+          description: the current deepview selected for the Android platform
+          type: string
+    app_config_put_request_body:
+      type: object
+      title: ''
+      properties:
+        branch_secret:
+          type: string
+          description: 'The Branch Secret of the originating app obtained in your [Account Settings](https://help.branch.io/using-branch/docs/profile-settings)'
+          example: secret_live_xxxx
+        dev_email:
+          type: string
+          description: The main contact developer email (max 255 characters).
+          example: test@branch.io
+          pattern: '^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$'
+        always_open_app:
+          type: integer
+          description: Indicates whether to try to open the app on link click or not
+          minimum: 0
+          maximum: 1
+          enum:
+            - 0
+            - 1
+        android_app:
+          type: integer
+          description: Whether an Android app is enabled. 0 is for disabled. 1 is for enabled.
+          minimum: 0
+          maximum: 1
+          enum:
+            - 0
+            - 1
+        android_app_links_enabled:
+          description: whether App Links are enabled
+          type: boolean
+          enum:
+            - true
+            - false
+          example: false
+        android_cd_enabled:
+          description: 'Indicate if CD [Content Discovery] is enabled for Android'
+          type: boolean
+        android_cd_hashed:
+          description: Android CD hash details
+          type: string
+        android_tablet_url:
+          description: URL specific to Android tablets
+          type: string
+        auto_fetch:
+          description: Details auto fetching flag
+          type: boolean
+        deepview_configs:
+          description: Android & iOS configurations related to deep views
+          type: object
+          properties:
+            ios:
+              type: object
+              description: iOS related deep view configurations
+              properties:
+                enabled:
+                  description: Indicate iOS related configurations are enabled
+                  type: boolean
+                  example: true
+                clipboard_deepview:
+                  description: Deepview details
+                  type: string
+                  example: branch_clipboard_deepview
+                deepview_audience_id:
+                  description: Unique deepview id
+                  type: integer
+                  example: 0
+            android:
+              type: object
+              description: Android related deep view configurations
+              properties:
+                enabled:
+                  description: Indicate Android related configurations are enabled
+                  type: boolean
+                  example: true
+                clipboard_deepview:
+                  description: Deepview details
+                  type: string
+                  example: branch_clipboard_deepview
+                deepview_audience_id:
+                  description: Unique deepview id
+                  type: integer
+                  example: 0
+        default_short_url_domain:
+          description: Short URL to the default domain
+          type: string
+          example: branch.app.link
+        desktop_uri_scheme:
+          description: Standard URI scheme if available
+          type: string
+        esp_config:
+          description: Specific configurations for email service providers
+          type: object
+          properties:
+            map_query_params_to_deep_link_data:
+              type: array
+              items:
+                type: string
+            secrets:
+              type: array
+              items:
+                type: string
+            strip_protocol_from_deeplink_path:
+              type: boolean
+              example: false
+            email_enabled:
+              type: boolean
+              example: false
+            strip_protocol_from_android_deeplink_path:
+              type: boolean
+              example: false
+            default_to_open_for_android_deeplink_path:
+              type: boolean
+              example: false
+            append_full_url_for_key:
+              type: string
+              example: 'https://example.com/sample-page/'
+            append_all_params:
+              type: boolean
+              example: true
+            ads_enabled:
+              type: boolean
+              example: false
+            append_path_for_key:
+              type: string
+            strip_protocol_from_ios_deeplink_path:
+              type: boolean
+              example: false
+            has_confirmed:
+              type: boolean
+              example: true
+        imei_collection_enabled:
+          description: Indicate if IMEI collection is enabled
+          type: boolean
+        imei_terms_and_conditions:
+          description: IMEI terms and condition if available
+          type: string
+        ios_bundle_settings:
+          description: iOS settings
+          type: string
+        ios_additional_bundle_ids:
+          description: 'Additional ios bundle ids '
+          type: array
+          items:
+            type: string
+            example: com.test
+        ios_cd_enabled:
+          description: 'Indicate if CD [Content Discovery] is enabled for iOS'
+          type: boolean
+        ios_cd_hashed:
+          description: iOS CD hash details
+          type: string
+        ipad_url:
+          description: Ipad URL associated with the request
+          type: string
+        ios_app_store_id:
+          description: Application id specific to iOS
+          type: string
+        map_utm_params:
+          description: ''
+          type: string
+        reserved_analytics_to_utm:
+          description: ''
+          type: string
+        origin:
+          description: Request origin
+          type: string
+        sitemap_enabled:
+          description: 'Indicate if CD [Content Discovery] is enabled for Android'
+          type: string
+        wechat_url:
+          description: Wechat URL against the request
+          type: string
+        redirect_domains_whitelist:
+          description: Whitelist urls for redirection
+          type: array
+          items:
+            type: string
+        journeys_open_app:
+          description: ''
+          type: string
+        passive_deepview_ios:
+          description: ''
+          type: string
+        passive_deepview_android:
+          description: ''
+          type: string
+        uri_redirect_mode:
+          description: URI redirection mode
+          type: integer
+          example: 1
+        timezone:
+          description: Request timezone
+          type: string
+          example: America/Los_Angeles
+        mac_uri_scheme:
+          description: MAC uri scheme
+          type: string
+          example: branch-example-mac
+        mac_store_url:
+          description: Mac Store valid URL if avialable
+          type: string
+        windows_uri_scheme:
+          description: ''
+          type: string
+          example: examplebranchsdk
+        windows_store_url:
+          description: Windows Store valid URL if avialable
+          type: string
+        windows_package_family_name:
+          description: ''
+          type: string
+        ios_app_store_id_verified:
+          description: Identifies if the ios app store id is verified officially
+          type: boolean
+        organic_search_domains:
+          description: Search domains
+          type: array
+          items:
+            type: string
+        creation_date:
+          description: Date app was created
+          type: string
+          example: '2019-06-19T19:37:31.887Z'
+        app_name:
+          description: Name of the app
+          type: string
+          example: My App Name
+        dev_name:
+          description: Main contact name
+          type: string
+          example: First Last
+        dev_phone_number:
+          description: Main contact phone
+          type: string
+          example: ''
+        android_url:
+          description: 'url of Android store, or namespace (com.android.myapp)'
+          type: string
+        android_uri_scheme:
+          description: the Android URI scheme
+          type: string
+          example: ''
+        android_package_name:
+          description: the Android package name
+          type: string
+        sha256_cert_fingerprints:
+          description: 'The SHA256 fingerprints for App Links'
+          type: array
+          items:
+            type: string
+        ios_app:
+          description: whether an iOS app is enabled
+          type: integer
+          example: 0
+        ios_url:
+          description: 'Url of iOS store, or app id (id00000000)'
+          type: string
+        ios_uri_scheme:
+          description: The iOS URI scheme
+          type: string
+          example: ''
+        ios_store_country:
+          description: 'The country code of the app, default to US'
+          type: string
+          example: US
+        ios_bundle_id:
+          description: The iOS bundle ID
+          type: string
+          example: com.test.app
+        ios_team_id:
+          description: The iOS Team ID
+          type: string
+          example: 0000XXXX
+        universal_linking_enabled:
+          description: whether Universal Links are enabled
+          type: string
+        fire_url:
+          description: the redirect on Fire phones
+          type: string
+        windows_phone_url:
+          description: the redirect on Windows phones
+          type: string
+        blackberry_url:
+          description: The redirect on Blackberry phones
+          type: string
+        web_url:
+          description: backup website if URLs are null
+          type: string
+          example: 'https://branch.io'
+        default_desktop_url:
+          description: 'the default desktop redirect, or null if set to hosted SMS'
+          type: string
+          example: 'http://branch.io'
+        text_message:
+          description: 'text message to use, {{ link }} will be replaced with short link'
+          type: string
+          example: ''
+        og_app_id:
+          description: optional default Open Graph (OG) app id
+          type: string
+        og_title:
+          description: optional default OG title
+          type: string
+          example: Branch Monster Factory
+        og_image_url:
+          description: optional default OG image URL
+          type: string
+          example: ''
+        og_description:
+          description: optional default OG description
+          type: string
+        deepview_desktop:
+          description: the current deepview selected for the desktop platform
+          type: string
+        deepview_ios:
+          description: the current deepview selected for the iOS platform
+          type: string
+        deepview_android:
+          description: the current deepview selected for the Android platform
+          type: string
+      required:
+        - branch_secret
+        - dev_email
+    inline_response_400:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/inline_response_400_error'
+    inline_response_400_error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Authentication failed !
+        code:
+          type: integer
+          example: 400

@@ -1,0 +1,375 @@
+openapi: 3.0.0
+info:
+  title: Cross-Events Export API
+  description: Query and compare vast pools of data across multiple sources.
+  termsOfService: "https://branch.io/policies/"
+  contact:
+    name: Branch Support
+    url: "https://help.branch.io/using-branch/page/submit-a-ticket"
+    email: support@branch.io
+  version: 1.0.0
+servers:
+  - url: "https://api2.branch.io/v1"
+security:
+  - appId: []
+    accessToken: []
+tags:
+  - name: Cross-Events Export API
+    description: Query and compare vast pools of data across multiple sources.
+paths:
+  /branch_aggregate/async/analytics:
+    post:
+      tags:
+        - Cross-Events Export API
+      summary: Request Data Export
+      description: Initiate an export of your aggregate Branch data.
+      operationId: requestCrossEventsDataExport
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/analytics_body"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_200"
+              examples:
+                Result:
+                  value: |-
+                    {
+                      "code": 200,
+                      "job_id": "XXXX-0000-xxxx",
+                      "status_url": "https://api2.branch.io/v1/branch_aggregate/async/status/{JOB_ID_HERE}"
+                    }
+        "400":
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_400"
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+  "/branch_aggregate/async/status/{job_id}":
+    get:
+      tags:
+        - Cross-Events Export API
+      summary: Retrieve Download Status
+      description: Receive a status update on your aggregate export request, as well as a URL to the data.
+      operationId: retrieveExportDownloadStatus
+      parameters:
+        - name: job_id
+          in: path
+          description: The unique ID of the request. Obtained from the [export request](https://help.branch.io/developers-hub/reference/cross-events-export-api#request-data-export).
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: app_id
+          in: query
+          description: The unique identifier for the app. Alternatively, provide `organization_id`.
+          required: true
+          style: form
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Job Successfully Finished
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_200_1"
+              examples:
+                Result:
+                  value:
+                    code: 200
+                    status: FINISHED
+                    response_url: "https://branch-exports-usw2.s3.amazonaws.com/partner-query/2023-05-12-2023-05-19-eo_install-day-{JOB_ID}.csv?Signature={SIGNATURE}&AWSAccessKeyId={AWS_KEY}&Expires={EXPIRATION}"
+        "400":
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_400"
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+        "404":
+          description: Job ID Not Found
+components:
+  schemas:
+    inline_response_200_1:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Response code
+        job_id:
+          type: string
+          description: The unique ID of the request.
+          example: XXXX-0000-xxxx
+        status_url:
+          type: string
+          description: The URL of the export request.
+          example: "https://api2.branch.io/v1/branch_aggregate/async/status/{JOB_ID_HERE}"
+    inline_response_200:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        job_id:
+          type: string
+          description: The unique ID of the request.
+          example: XXXX-0000-xxxx
+        status_url:
+          type: string
+          description: The URL of the export request.
+          
+          example: "https://api2.branch.io/v1/branch_aggregate/async/status/{JOB_ID_HERE}"
+    analytics_body:
+      type: object
+      description: ""
+      x-examples: {}
+      properties:
+        start_date:
+          type: string
+          description: The start of the interval time range represented as an ISO-8601 complete date.
+          format: date
+          example: "2023-05-15"
+        end_date:
+          type: string
+          description: The end of the interval time range represented as an ISO-8601 complete date.
+          format: date
+          example: "2023-05-16"
+        dimensions:
+          type: array
+          description: An array representing dimension(s) to group by. See [dimensions](https://help.branch.io/developers-hub/reference/cross-events-export-api#dimensions) section for more.
+          example:
+            - user_data_os
+          items:
+            type: string
+            enum:
+              - link_alias
+              - link_archived
+              - link_creation_source
+              - link_dollar_sign_3p
+              - link_dollar_sign_android_deeplink_path
+              - link_dollar_sign_android_deepview
+              - link_dollar_sign_android_passive_deepview
+              - link_dollar_sign_android_url
+              - link_dollar_sign_canonical_identifier
+              - link_dollar_sign_canonical_url
+              - link_dollar_sign_deeplink_path
+              - link_dollar_sign_desktop_deeplink_path
+              - link_dollar_sign_desktop_deepview
+              - link_dollar_sign_desktop_passive_deepview
+              - link_dollar_sign_desktop_url
+              - link_dollar_sign_fallback_url
+              - link_dollar_sign_ios_deeplink_path
+              - link_dollar_sign_ios_deepview
+              - link_dollar_sign_ios_passive_deepview
+              - link_dollar_sign_ios_url
+              - link_dollar_sign_marketing_title
+              - link_dollar_sign_og_description
+              - link_dollar_sign_og_image_url
+              - link_dollar_sign_og_title
+              - link_dollar_sign_og_type
+              - link_dollar_sign_og_url
+              - link_dollar_sign_uri_redirect_mode
+              - link_dollar_sign_web_only
+              - link_domain
+              - link_id
+              - link_tilde_campaign
+              - link_tilde_channel
+              - link_tilde_feature
+              - link_tilde_quick_link_template_id
+              - link_tilde_tags
+              - link_type
+              - last_op
+              - name
+              - origin
+              - deep_linked
+              - from_desktop
+              - attributed
+              - user_data_app_store
+              - user_data_app_version
+              - user_data_os
+              - user_data_language
+              - user_data_platform
+              - user_data_environment
+              - user_data_geo_dma_code
+              - user_data_geo_country_code
+              - user_data_country
+              - user_data_geo_region_en
+              - user_data_opted_in
+              - user_data_opted_in_status
+              - last_attributed_touch_type
+              - last_attributed_touch_data_tilde_tags
+              - last_attributed_touch_data_tilde_secondary_publisher
+              - last_attributed_touch_data_tilde_campaign
+              - last_attributed_touch_data_tilde_advertising_partner_name
+              - last_attributed_touch_data_tilde_advertising_partner_id
+              - last_attributed_touch_data_tilde_feature
+              - last_attributed_touch_data_tilde_creative_name
+              - last_attributed_touch_data_tilde_creative_id
+              - last_attributed_touch_data_tilde_ad_name
+              - last_attributed_touch_data_tilde_ad_id
+              - last_attributed_touch_data_tilde_campaign_id
+              - last_attributed_touch_data_tilde_placement
+              - last_attributed_touch_data_tilde_stage
+              - last_attributed_touch_data_tilde_channel
+              - last_attributed_touch_data_tilde_ad_set_name
+              - last_attributed_touch_data_tilde_ad_set_id
+              - last_attributed_touch_data_tilde_keyword
+              - last_attributed_touch_data_tilde_keyword_id
+              - last_attributed_touch_data_tilde_journey_id
+              - last_attributed_touch_data_tilde_view_name
+              - last_attributed_touch_data_tilde_view_id
+              - last_attributed_touch_data_tilde_agency
+              - last_attributed_touch_data_tilde_agency_id
+              - last_attributed_touch_data_tilde_customer_secondary_publisher
+              - last_attributed_touch_data_tilde_customer_ad_set_name
+              - last_attributed_touch_data_tilde_customer_ad_name
+              - last_attributed_touch_data_tilde_customer_keyword
+              - last_attributed_touch_data_tilde_customer_placement
+              - last_attributed_touch_data_tilde_customer_sub_site_name
+              - last_attributed_touch_data_tilde_customer_campaign
+              - last_attributed_touch_data_plus_web_format
+              - last_attributed_touch_data_plus_current_feature
+              - last_attributed_touch_data_plus_via_features
+              - last_attributed_touch_data_dollar_marketing_title
+              - last_attributed_touch_data_dollar_3p
+              - last_cta_view_data_tilde_ad_name
+              - last_cta_view_data_tilde_secondary_publisher
+              - last_cta_view_data_tilde_campaign
+              - last_cta_view_data_tilde_advertising_partner_name
+              - last_cta_view_data_tilde_feature
+              - last_cta_view_data_tilde_ad_set_name
+              - last_cta_view_data_tilde_ad_set_id
+              - last_cta_view_data_tilde_campaign_id
+              - last_cta_view_data_tilde_creative_name
+              - last_cta_view_data_tilde_creative_id
+              - last_cta_view_data_plus_via_features
+              - last_cta_view_data_dollar_3p
+              - last_cta_view_data_tilde_tags
+              - last_cta_view_data_plus_web_format
+              - last_cta_view_data_tilde_channel
+              - last_cta_view_data_tilde_ad_id
+              - last_cta_view_data_tilde_stage
+              - body_ad_network_id
+              - body_campaign_id
+              - body_app_id
+              - body_redownload
+              - body_source_app_id
+              - body_conversion_value
+              - body_last_attributed_touch_data_tilde_creative_name
+              - body_last_attributed_touch_data_tilde_ad_set_name
+              - body_last_attributed_touch_data_tilde_creative_id
+              - body_last_attributed_touch_data_tilde_ad_set_id
+              - body_last_attributed_touch_data_tilde_ad_name
+              - body_last_attributed_touch_data_tilde_ad_id
+              - body_last_attributed_touch_data_tilde_campaign
+              - body_last_attributed_touch_data_tilde_campaign_id
+              - body_last_attributed_touch_data_tilde_campaign_name
+              - annotation_dollar_3p
+              - annotation_conversion_value_mapped_value
+              - annotation_conversion_value_revision
+              - annotation_campaign_id_mapped_value
+              - annotation_campaign_id_revision
+              - annotation_source_app_id_mapped_value
+              - annotation_source_app_id_revision
+              - annotation_customer_event_alias
+              - days_from_last_attributed_touch_to_event
+              - days_from_last_cta_view_to_event
+              - event_data_product_categories
+              - event_data_custom_param_1
+              - event_data_custom_param_2
+              - event_data_custom_param_3
+              - first_event_for_user
+              - customer_event_alias
+        filter:
+          type: object
+          description: An object representing a filter, or multiple filters. See filter [examples](https://help.branch.io/developers-hub/reference/cross-events-export-api#filters).
+          example: {"type":"in","dimension":"name","values":["x","y"]}
+        granularity:
+          type: string
+          description: The time granularity that each band value will represent.
+          default: all
+          enum:
+            - day
+            - week
+            - month
+            - all
+        limit_sort_spec:
+          type: object
+          description: An object describing column/row ordering and limiting. See [schema](https://help.branch.io/developers-hub/reference/cross-events-export-api#schema-for-limit_sort_spec).
+          example: { "sort_columns": [] }
+        aggregations:
+          type: array
+          description: An array where each element is an aggregation object. Aggregation object requires field name, display name, and data source. See [schema](https://help.branch.io/developers-hub/reference/cross-events-export-api#schema-for-aggregation) and [more](https://help.branch.io/developers-hub/reference/cross-events-export-api#data-source--field-name).
+          example: [{ "field_name": "sketch_unique_count", "display_name": "unique_lifecycle_events_count", "data_source": "eo_user_lifecycle_event"}, {"field_name":"total_count","display_name":"eo_click","data_source":"eo_click"}]
+          items:
+            type: object
+        response_format_compression:
+          type: string
+          description: Compression method to use for data file.
+          default: snappy
+          enum:
+            - snappy
+            - gz
+        response_format:
+          type: string
+          description: Compression format to use for data file.
+          default: parquet
+          enum:
+            - parquet
+            - csv
+            - json
+      required:
+        - start_date
+        - end_date
+    inline_response_400:
+      type: object
+      properties:
+        error:
+          $ref: "#/components/schemas/inline_response_400_error"
+    inline_response_400_error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Authentication failed !
+        code:
+          type: integer
+          example: 400
+  securitySchemes:
+    accessToken:
+      type: apiKey
+      description: Key that encapsulates the user's permission with regards to an organization. Obtained from the Branch Dashboard and needed for [authentication](https://help.branch.io/developers-hub/reference/cross-events-export-api#authentication).
+      name: Access-Token
+      in: header
+    appId:
+      type: apiKey
+      description: app_id | Unique identifier for Branch app of requested data.
+      name: app_id
+      in: query
+  examples: {}

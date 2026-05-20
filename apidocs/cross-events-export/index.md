@@ -1,13 +1,17 @@
 ---
-title: "Deep Linking API"
-slug: deep-linking
+title: "Cross-Events Export API"
+slug: cross-events-export
 ---
 
-# Deep Linking API
+# Cross-Events Export API
 
 ## Overview
 
-Branch's Deep Linking API is a powerful tool for all things Branch Links. You can programmatically generate links at scale to support all of your campaigns while tagging the links appropriately based on channel and other analytics tags.
+Query and compare vast pools of data across multiple sources.
+
+## Packaging
+
+Cross-Events Export is available on premium plans. [Contact Sales](https://branch.io/contact-sales/) for access.
 
 ## Authentication
 
@@ -16,7 +20,7 @@ All requests require a Branch Key. See [the API authentication overview](/apidoc
 ## Endpoint
 
 ```
-POST https://api2.branch.io/v1/url
+POST https://api2.branch.io/v1/branch_aggregate/async/analytics
 Content-Type: application/json
 ```
 

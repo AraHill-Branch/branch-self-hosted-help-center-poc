@@ -3,33 +3,56 @@ title: "APIs Overview"
 slug: apis-overview
 ---
 
-The following Branch APIs can help you query and export data, create Branch Links, make your own custom Branch QR Codes, and much more.
+# APIs Overview
 
-### Data APIs
+The Branch APIs let you query and export data, create Branch Links, generate custom Branch QR Codes, and more.
 
-| API | Purpose | Type of Data | Timing | Export Window |
+## Data APIs
+
+| API | Purpose | Type of data | Timing | Export window |
 | --- | --- | --- | --- | --- |
-| [**Daily Exports**](https://help.branch.io/apidocs/daily-exports-api) | Export **all** device-level data in batches on a daily basis. | Log | Delayed & batched | Rolling 7 day window |
-| [**Custom Exports**](https://help.branch.io/apidocs/custom-exports-api) | Export **select** device-level data using your own filters. | Log | Delayed & batched | Rolling 120 day window |
-| [**Scheduled Log Exports**](https://help.branch.io/apidocs/scheduled-log-exports-api) | Set up a recurring export of select device-level data. | Log | Delayed & batched (hourly or daily cadence) | N/A |
-| [**Cross-Events Export**](https://help.branch.io/apidocs/cross-events-export-api) | Query and compare large pools of data across multiple sources. | Aggregate | Delayed & batched | Rolling 2 year window |
-| [**Unified Analytics Export**](https://help.branch.io/apidocs/unified-analytics-export) | Get unified analytics data into your data warehouse. | Aggregate | Delayed & batched | Rolling 2 year window |
-| [**Aggregate**](https://help.branch.io/apidocs/aggregate-api) | Pull aggregate Branch data filtered for limited-access users. | Aggregate | Delayed & batched | Rolling 2 year window |
-| [**Cohort**](https://help.branch.io/apidocs/cohort-api) | Pull cohort Branch data to understand user behavior and performance over time. | Aggregate | Delayed & batched | Rolling 2 year window |
-| [**Query**](https://help.branch.io/apidocs/query-api) | Export **select** campaign- level data. | Aggregate | Real Time | Rolling 2 year window |
+| [**Daily Exports**](/apidocs/daily-exports/) | Export **all** device-level data in batches on a daily basis. | Log | Delayed & batched | Rolling 7 days |
+| [**Custom Exports**](/apidocs/custom-exports/) | Export **select** device-level data using your own filters. | Log | Delayed & batched | Rolling 120 days |
+| [**Scheduled Log Exports**](/apidocs/scheduled-log-exports/) | Set up a recurring export of select device-level data. | Log | Delayed & batched (hourly or daily) | N/A |
+| [**Cross-Events Export**](/apidocs/cross-events-export/) | Query and compare large pools of data across multiple sources. | Aggregate | Delayed & batched | Rolling 2 years |
+| [**Aggregate**](/apidocs/aggregate/) | Pull aggregate Branch data filtered for limited-access users. | Aggregate | Delayed & batched | Rolling 2 years |
+| [**Cohort**](/apidocs/cohort/) | Pull cohort data to understand user behavior and performance over time. | Aggregate | Delayed & batched | Rolling 2 years |
+| [**Query**](/apidocs/query/) | Export **select** campaign-level data. | Aggregate | Real time | Rolling 2 years |
 
-### Functional APIs
+## Functional APIs
 
 | API | Purpose |
 | --- | --- |
-| [**Deep Linking**](https://help.branch.io/apidocs/deep-linking-api) | Create, read, update, and delete your Branch Links. |
-| [**Events**](https://help.branch.io/apidocs/events-api) | Track all of your events/conversions for your app. |
-| [**QR Code**](https://help.branch.io/apidocs/qr-code-api) | Programmatically generate and customize Branch-powered QR codes. |
-| [**Attribution**](https://help.branch.io/apidocs/attribution-api) | Attribute your app sessions to your active campaigns. |
-| [**App**](https://help.branch.io/apidocs/app-api) | View and make updates to an existing Branch app configuration to better support workflows. |
-| [**Data Subject Request**](https://help.branch.io/apidocs/data-subject-request-branch-api) | GDPR and CCPA related uses for accessing and erasing user/device data from Branch. |
-| [**Short Links**](https://help.branch.io/apidocs/quick-links-api) | Programmatically generate Branch Deep Links that surface on the Branch Dashboard. |
+| [**Deep Linking**](/apidocs/deep-linking/) | Create, read, update, and delete Branch deep links. |
+| [**Quick Links**](/apidocs/quick-links/) | Programmatically create, update, and bulk-manage Branch Quick Links. |
+| [**QR Code**](/apidocs/qr-code/) | Programmatically generate and customize Branch-powered QR codes. |
+| [**Events**](/apidocs/events/) | Track events and conversions for your app. |
+| [**Attribution**](/apidocs/attribution/) | Attribute app sessions to your active campaigns. |
+| [**App**](/apidocs/app/) | View and update an existing Branch app configuration. |
+| [**Data Subject Request**](/apidocs/data-subject-request/) | GDPR and CCPA workflows for accessing and erasing user / device data from Branch. |
 
-## API Access
+## Authentication
 
-Some Branch APIs are included with the Branch Growth Platform, while others require specific Branch packages. Please [contact our Sales team](https://www.branch.io/contact-sales/) to learn more about pricing and availability.
+All Branch APIs authenticate with your **Branch Key**. Most endpoints accept the key in the JSON request body as `branch_key`; export and data APIs accept an access token.
+
+### Retrieve your Branch Key
+
+In the New Branch experience:
+
+1. Navigate to **Configuration → Security & Access → Credentials**.
+2. Use the copy icon to copy your Branch Key.
+
+In the legacy Branch experience:
+
+1. Navigate to **Account → Settings → Profile**.
+2. Use the copy icon to copy your Branch Key.
+
+See the [Credentials guide](/account-hub/new-branch/configuration-new/security-and-access-new/credentials-new) for managing access tokens, organization IDs, and additional credentials.
+
+## Conventions
+
+- **Base URL:** `https://api2.branch.io`
+- **Versioning:** included in the path (`/v1/`, `/v2/`, `/v3/`)
+- **Content type:** `application/json` unless otherwise noted
+- **Errors:** every endpoint returns a JSON error body of `{ "error": { "message": string, "code": integer } }`
+- **Rate limits:** documented per-API in the operation reference

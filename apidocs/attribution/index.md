@@ -1,13 +1,13 @@
 ---
-title: "Deep Linking API"
-slug: deep-linking
+title: "Attribution API"
+slug: attribution
 ---
 
-# Deep Linking API
+# Attribution API
 
 ## Overview
 
-Branch's Deep Linking API is a powerful tool for all things Branch Links. You can programmatically generate links at scale to support all of your campaigns while tagging the links appropriately based on channel and other analytics tags.
+Branch's Attribution API is a powerful API to use in your mobile app for all things attribution and campaign measurement.
 
 ## Authentication
 
@@ -16,7 +16,7 @@ All requests require a Branch Key. See [the API authentication overview](/apidoc
 ## Endpoint
 
 ```
-POST https://api2.branch.io/v1/url
+POST https://api2.branch.io/v1/open
 Content-Type: application/json
 ```
 
