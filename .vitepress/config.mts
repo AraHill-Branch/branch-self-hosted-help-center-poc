@@ -68,6 +68,7 @@ export default defineConfig({
   description: "Product Documentation",
   ignoreDeadLinks: true,
   head: [
+    ['link', { rel: 'icon', type: 'image/png', href: '/branch-gylph-violet800-180px.png' }],
     ['link', {
       rel: 'preload',
       as: 'font',

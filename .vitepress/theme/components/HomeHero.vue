@@ -67,19 +67,21 @@ function openSearch() {
 <style scoped>
 .hp-hero-container {
   max-width: 1158px;
-  margin: 10px auto;
+  margin: 0 auto;
   padding: 0 20px;
   position: relative;
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 48px;
+  gap: 24px;
   align-items: center;
 }
 
 .hp-hero-left {
   display: flex;
   flex-direction: column;
+  max-height: 500px;
+  width: auto;
 }
 
 .hp-hero-content {
@@ -91,10 +93,13 @@ function openSearch() {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-height: 500px;
+  width: auto;
 }
 
 .hero-banner {
-  width: 100%;
+  width: 120%;
+  max-width: 120%;
   height: auto;
   animation: vp-enter var(--t-entrance) var(--ease-out-expo) 300ms both;
 }
@@ -103,7 +108,7 @@ function openSearch() {
   font-size: 48px;
   font-weight: 700;
   line-height: 1.1;
-  margin: 0 0 16px;
+  margin: 0 0 12px;
   animation: vp-enter var(--t-entrance) var(--ease-out-expo) 60ms both;
 }
 
@@ -119,7 +124,7 @@ function openSearch() {
   font-weight: 400;
   color: white;
   line-height: 1.5;
-  margin: 0 0 48px;
+  margin: 0 0 24px;
   animation: vp-enter var(--t-entrance) var(--ease-out-expo) 140ms both;
 }
 
@@ -127,7 +132,7 @@ function openSearch() {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: 60px 0 140px;
+  margin: 24px 0 0;
   animation: vp-enter var(--t-entrance) var(--ease-out-expo) 220ms both;
 }
 
