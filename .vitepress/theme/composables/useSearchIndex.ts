@@ -7,6 +7,7 @@
 
 import { ref, shallowRef, readonly } from 'vue'
 import MiniSearch, { type SearchResult } from 'minisearch'
+import { MINISEARCH_OPTIONS, runSearch } from './searchOptions'
 
 export type SearchHit = SearchResult & {
   id: string
@@ -34,29 +35,10 @@ async function load(): Promise<void> {
       const res = await fetch('/search-index.json')
       if (!res.ok) throw new Error(`HTTP ${res.status} loading /search-index.json`)
       const payload = await res.json()
-      miniSearch.value = MiniSearch.loadJS(payload.miniSearchIndex, {
-        fields: ['title', 'headings', 'body', 'breadcrumb'],
-        storeFields: ['id', 'title', 'breadcrumb', 'hub', 'type', 'body'],
-        tokenize: (text) => {
-          const base = text.split(/[\s.,;:!?()[\]{}"'`<>/\\|+=*&%$#@~^]+/u).filter(Boolean)
-          const extras: string[] = []
-          for (const t of base) {
-            if (t.includes('_')) extras.push(...t.split('_').filter(Boolean))
-            if (t.includes('-')) extras.push(...t.split('-').filter(Boolean))
-            if (/[a-z][A-Z]/.test(t)) {
-              extras.push(...t.split(/(?<=[a-z])(?=[A-Z])/).filter(Boolean))
-            }
-          }
-          return [...base, ...extras].map((s) => s.toLowerCase())
-        },
-        processTerm: (t) => t.toLowerCase(),
-        searchOptions: {
-          fuzzy: 0.2,
-          prefix: true,
-          maxFuzzy: 2,
-          boost: { title: 8, headings: 4, breadcrumb: 3, body: 1 },
-        },
-      })
+      // Hydrate with the same options the indexer used. Drift between
+      // build-time tokenize/options and runtime here would silently
+      // corrupt the index.
+      miniSearch.value = MiniSearch.loadJS(payload.miniSearchIndex, MINISEARCH_OPTIONS)
       state.value = 'ready'
     } catch (e: any) {
       error.value = e?.message ?? String(e)
@@ -70,9 +52,9 @@ async function load(): Promise<void> {
 
 function search(query: string): SearchHit[] {
   if (!miniSearch.value) return []
-  const q = query.trim()
-  if (!q) return []
-  return miniSearch.value.search(q) as unknown as SearchHit[]
+  // runSearch handles the full ranking strategy: exact-title boost,
+  // doc-type boost, AND-then-OR fallback for multi-word queries.
+  return runSearch<SearchHit>(miniSearch.value, query)
 }
 
 export function useSearchIndex() {

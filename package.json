@@ -4,7 +4,9 @@
     "docs:dev": "npm run search:index && vitepress dev",
     "docs:build": "npm run search:index && vitepress build",
     "docs:preview": "vitepress preview",
-    "search:index": "tsx scripts/build-search-index.ts"
+    "search:index": "tsx scripts/build-search-index.ts",
+    "search:eval": "npm run search:index --silent && tsx scripts/search-eval.ts",
+    "search:audit": "npm run search:index --silent && tsx scripts/search-audit.ts"
   },
   "devDependencies": {
     "@rollup/plugin-yaml": "^4.1.2",
