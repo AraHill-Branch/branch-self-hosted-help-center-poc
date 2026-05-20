@@ -545,6 +545,18 @@ html:has(.VPContent.is-home) .VPNavBar .nav-search-wrapper {
   display: none !important;
 }
 
+/* Expand search bar to take up space between logo and right nav menu */
+.VPNavBar .nav-search-wrapper {
+  padding-right: 400px;
+  margin-top: 6px;
+  margin-left: 50px;
+  margin-right: 70px;
+}
+
+.VPNavBar .nav-search-wrapper .nav-search-button {
+  width: 100%;
+}
+
 /* API operation pages: the generated .md has an H1 and a hidden search
    block that exist solely so VitePress indexes them. <ApiOperation> renders
    its own visible title and content, so hide both of these from users. */
