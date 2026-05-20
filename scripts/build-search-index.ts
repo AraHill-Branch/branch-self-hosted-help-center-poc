@@ -30,18 +30,20 @@ import {
   marketerHubSidebar,
   developerHubSidebar,
 } from '../.vitepress/sidebar-hubs'
+import { MINISEARCH_OPTIONS } from '../.vitepress/theme/composables/searchOptions'
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
 type Hub = 'account' | 'marketer' | 'developer' | 'apidocs'
-type DocType = 'article' | 'api-endpoint' | 'api-overview' | 'category' | 'release-note'
+type DocType = 'article' | 'overview' | 'api-endpoint' | 'api-overview' | 'category' | 'release-note'
 
 type IndexedDoc = {
   id: string
   title: string
   headings: string
+  slug: string
   body: string
   breadcrumb: string
   hub: Hub
@@ -151,7 +153,7 @@ function urlFromFilePath(filePath: string): string {
   return url
 }
 
-function classifyType(filePath: string, hub: Hub): DocType {
+function classifyType(filePath: string, hub: Hub, title: string): DocType {
   const url = urlFromFilePath(filePath)
   if (hub === 'apidocs') {
     if (/\/apidocs\/[^/]+\/operations\/[^/]+$/.test(url)) return 'api-endpoint'
@@ -161,6 +163,19 @@ function classifyType(filePath: string, hub: Hub): DocType {
   // Top-level hub landing / section index pages are "category"-ish.
   const rel = url.replace(/^\/[^/]+\//, '')
   if (!rel || rel === '' || rel.endsWith('/')) return 'category'
+  // Overview / landing pages: Branch convention is title ending in
+  // "Overview" / "Guide" / "Reference" / "Introduction", OR the file
+  // name matches its parent folder (e.g. fraud/fraud.md), OR the slug
+  // ends in -overview. These get a doc-type boost in ranking because
+  // single-word queries should land them, not their sub-pages.
+  if (/\b(overview|guide|reference|introduction)$/i.test(title.trim())) return 'overview'
+  const parts = filePath.replace(/\\/g, '/').split('/')
+  if (parts.length >= 2) {
+    const stem = parts[parts.length - 1].replace(/\.md$/, '')
+    const parent = parts[parts.length - 2]
+    if (stem === parent) return 'overview'
+  }
+  if (/-overview$/.test(url)) return 'overview'
   return 'article'
 }
 
@@ -238,15 +253,23 @@ for (const [hub, rootDir] of HUB_DIRS) {
     const title = String(frontmatter?.title ?? firstH1(body) ?? '').trim() || normalised
     const headings = extractHeadings(body)
     const bodyText = stripToPlainText(body)
+    // Leaf slug captures terminology that lives in the URL but not the
+    // title — e.g., /windows-sdk/windows-cpp-sdk-overview's title is
+    // "Windows SDK Overview" (no "cpp"), but the slug carries the C++
+    // signal. Our tokenizer splits on `-` so "windows-cpp-sdk-overview"
+    // becomes [windows, cpp, sdk, overview] at index time.
+    const slugMatch = normalised.match(/[^/]+$/)
+    const slug = slugMatch ? slugMatch[0] : ''
 
     docs.push({
       id: normalised,
       title,
       headings,
+      slug,
       body: bodyText,
       breadcrumb,
       hub,
-      type: classifyType(relative('.', filePath).replace(/^\.\//, ''), hub),
+      type: classifyType(relative('.', filePath).replace(/^\.\//, ''), hub, title),
     })
   }
 }
@@ -262,31 +285,11 @@ for (const d of docs) {
   if (d.body.length > 1200) d.body = d.body.slice(0, 1200)
 }
 
-const miniSearch = new MiniSearch<IndexedDoc>({
-  fields: ['title', 'headings', 'body', 'breadcrumb'],
-  storeFields: ['id', 'title', 'breadcrumb', 'hub', 'type', 'body'],
-  // Keep technical identifiers (center_logo_url, api-key) intact AND emit the
-  // sub-parts (center, logo, url) so both "logo" and "center_logo_url" hit.
-  tokenize: (text) => {
-    const base = text.split(/[\s.,;:!?()[\]{}"'`<>/\\|+=*&%$#@~^]+/u).filter(Boolean)
-    const extras: string[] = []
-    for (const t of base) {
-      if (t.includes('_')) extras.push(...t.split('_').filter(Boolean))
-      if (t.includes('-')) extras.push(...t.split('-').filter(Boolean))
-      if (/[a-z][A-Z]/.test(t)) {
-        extras.push(...t.split(/(?<=[a-z])(?=[A-Z])/).filter(Boolean))
-      }
-    }
-    return [...base, ...extras].map((s) => s.toLowerCase())
-  },
-  processTerm: (t) => t.toLowerCase(),
-  searchOptions: {
-    fuzzy: 0.2,
-    prefix: true,
-    maxFuzzy: 2,
-    boost: { title: 8, headings: 4, breadcrumb: 3, body: 1 },
-  },
-})
+// Indexer + runtime + harness all import the same MiniSearch options
+// from .vitepress/theme/composables/searchOptions.ts. Changing tokenize
+// or fields in only one place silently corrupts the index — having one
+// source of truth prevents that drift.
+const miniSearch = new MiniSearch<IndexedDoc>(MINISEARCH_OPTIONS)
 miniSearch.addAll(docs)
 
 // miniSearch's storeFields carries every stored field (id, title,
