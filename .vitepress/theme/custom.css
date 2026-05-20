@@ -152,7 +152,10 @@
 /* --- Force nav to always be in dark mode --- */
 .VPNavBar {
   background: rgba(9, 1, 19, 0.85) !important;
-  border-bottom-color: rgba(101, 27, 200, 0.25) !important;
+}
+
+.VPNavBarTitle.has-sidebar .title {
+  border-bottom: none !important;
 }
 
 .VPNavBar .wrapper,
@@ -1169,10 +1172,6 @@ a.hp-contact-card:hover .hp-contact-link .hp-arrow {
     grid-template-columns: repeat(2, 1fr);
   }
   .hp-res-col + .hp-res-col::before { display: none; }
-  .hp-res-col:nth-child(1),
-  .hp-res-col:nth-child(2) {
-    border-bottom: 1px solid var(--vp-c-divider);
-  }
   .hp-faq-layout {
     grid-template-columns: 1fr;
     gap: 24px;
