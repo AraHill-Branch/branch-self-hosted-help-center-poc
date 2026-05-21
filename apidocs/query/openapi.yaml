@@ -1,0 +1,363 @@
+openapi: 3.0.0
+info:
+  title: Query API
+  description: The Query API is an HTTP API that can be used for programmatically querying pre-aggregated analytics.
+  termsOfService: 'https://branch.io/policies/'
+  contact:
+    name: Branch Support
+    url: 'https://help.branch.io/using-branch/page/submit-a-ticket'
+    email: support@branch.io
+  version: 1.0.1
+servers:
+  - url: 'https://api2.branch.io/v1'
+tags:
+  - name: Query API
+    description: The Query API is an HTTP API that can be used for programmatically querying pre-aggregated analytics.
+paths:
+  /query/analytics:
+    post:
+      tags:
+        - Query API
+      summary: Post Query
+      description: |
+        This endpoint provides a way to query dashboard analytics without having to access the Branch Dashboard.
+      operationId: postQuery
+      parameters:
+        - name: limit
+          in: query
+          description: |
+            Maximum number of results to return in the response. If granularity is set to day, Branch will pull results up to the limit for each day. So if limit is set to 1000 and 5 days worth of data is queried, with granularity=day, then this API will return up to 5000 results.
+          required: false
+          schema:
+            type: integer
+            example: 100
+            maximum: 1000
+        - name: after
+          in: query
+          description: |
+            A pagination parameter indicating the index of the first result to return in the response. Eg, with 100 results returned, setting "after" to 50 would return elements 51-100
+          required: false
+          schema:
+            type: integer
+        - name: query_id
+          in: query
+          description: |
+            Returned as query parameter on the "paging" object nexturl and previous_url. Locks the last event to count for a query, so new events that occur between queries are not added to the results (prevents count change over time)
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/query_body'
+      responses:
+        '200':
+          description: Status of aggregate export
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResultsResponse'
+              examples:
+                Result:
+                  value:
+                    results:
+                      - result:
+                          attributed: "true"
+                          total_count: 129
+                        timestamp: "2023-05-01T00:00:00.000-08:00"
+                      - result:
+                          attributed: "true"
+                          total_count: 125
+                        timestamp: "2023-05-04T00:00:00.000-08:00"
+                      - result:
+                          attributed: "false"
+                          total_count: 95
+                        timestamp: "2023-05-04T00:00:00.000-08:00"
+                    paging:
+                      next_url: "/v1/query/analytics?limit=5&after=3"
+                      total_count: 14
+        '400':
+          description: Authentication Failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+              examples:
+                Result:
+                  value: |-
+                    {
+                        "error": {
+                            "message": "Authentication failed !",
+                            "code": 400
+                        }
+                    }
+components:
+  schemas:
+    query_body:
+      type: object
+      description: Query Request Body
+      required:
+        - branch_key
+        - branch_secret
+        - start_date
+        - end_date
+        - data_source
+        - aggregation
+        - dimensions
+      properties:
+        branch_key:
+          type: string
+          description: The Branch key of the app analytics information is being pulled for.
+          example: key_live_xxxx
+        branch_secret:
+          type: string
+          description: 'The Branch secret of the app, used for authentication.'
+          example: secret_live_xxxx
+        start_date:
+          type: string
+          description: A timestamp representing the oldest date to return data for. Timezone of the timestamp is set in your Branch Dashboard configuration. Please note that start_date cannot be earlier than 2017-10-14.
+          example: '2023-05-01'
+          format: date
+        end_date:
+          type: string
+          description: The last timestamp (exclusive) to return data for. No events that triggered after the enddate will be counted in the query results. Timezone of the timestamp is set in your Branch Dashboard configuration. Please note that end_date cannot be more than 7 days after the startdate
+          example: '2023-05-07'
+          format: date
+        data_source:
+          type: string
+          example: eo_install
+          default: eo_install
+          description: |
+            The type of event to query for. The values are valid Branch data sources. Here are the descriptions:
+              * `eo_impression` - Real-time User-device level impressions/ad-views triggered via Impression Tracking Ad Links. SAN Ad Partner's impressions not included in this data source.
+              * `eo_click` - Real-time user-device level Link clicks recorded through User Clicks on the Branch Links. SAN Ad Partner's clicks are not included in this bucket.
+              * `xx_impression` - Combined Aggregated Data Source containing both Real-Time user-device level impressions and the SAN Ad Partner's Impressions passed to Branch Systems from SAN servers.
+              * `xx_click` - Combined Aggregated Data source containing both Reat-Time User-device level Clicks and the SAN Ad Partner's Clicks passed to Branch systems from SAN servers.
+          enum:
+            - eo_impression
+            - eo_click
+            - xx_impression
+            - xx_click
+            - eo_web_to_app_auto_redirect
+            - eo_branch_cta_view
+            - eo_open
+            - eo_install
+            - eo_reinstall
+            - eo_web_session_start
+            - eo_pageview
+            - eo_commerce_event
+            - eo_custom_event
+            - eo_content_event
+            - eo_dismissal
+            - eo_user_lifecycle_event
+            - cost
+        aggregation:
+          type: string
+          description: |
+            How to count events towards the final result count. When using unique_count, each event is only counted if an event by that user has not already been seen.
+          example: total_count
+          default: total_count
+          enum:
+            - unique_count
+            - total_count
+            - revenue
+            - cost
+            - cost_in_local_currency
+        dimensions:
+          type: array
+          description: |
+            List of event fields to use as splits for the query. Results counts are returned grouped with other events that have matchings values for each key provided in dimensions.
+          items:
+            type: string
+            example: attributed
+            default: attributed
+            enum:
+              - name
+              - origin
+              - timestamp
+              - deep_linked
+              - from_desktop
+              - attributed
+              - last_attributed_touch_type
+              - last_attributed_touch_data_tilde_tags
+              - last_attributed_touch_data_tilde_secondary_publisher
+              - last_attributed_touch_data_plus_current_feature
+              - last_attributed_touch_data_plus_via_features
+              - last_attributed_touch_data_tilde_campaign
+              - last_attributed_touch_data_tilde_advertising_partner_name
+              - last_attributed_touch_data_tilde_feature
+              - last_attributed_touch_data_tilde_creative_name
+              - last_attributed_touch_data_plus_web_format
+              - last_attributed_touch_data_tilde_creative_id
+              - last_attributed_touch_data_tilde_ad_name
+              - last_attributed_touch_data_tilde_ad_id
+              - last_attributed_touch_data_tilde_campaign_id
+              - last_attributed_touch_data_tilde_placement
+              - last_attributed_touch_data_tilde_stage
+              - last_attributed_touch_data_tilde_channel
+              - last_attributed_touch_data_tilde_ad_set_name
+              - last_attributed_touch_data_tilde_ad_set_id
+              - last_attributed_touch_data_tilde_keyword
+              - last_attributed_touch_data_tilde_keyword_id
+              - last_attributed_touch_data_tilde_journey_id
+              - last_attributed_touch_data_tilde_view_name
+              - last_attributed_touch_data_tilde_view_id
+              - last_attributed_touch_data_tilde_customer_secondary_publisher
+              - last_attributed_touch_data_tilde_customer_ad_set_name
+              - last_attributed_touch_data_tilde_customer_ad_name
+              - last_attributed_touch_data_tilde_customer_keyword
+              - last_attributed_touch_data_tilde_customer_placement
+              - last_attributed_touch_data_tilde_customer_sub_site_name
+              - last_attributed_touch_data_tilde_customer_campaign
+              - last_attributed_touch_data_tilde_marketing_title
+              - last_attributed_touch_data_dollar_marketing_title
+              - last_attributed_touch_data_dollar_3p
+              - user_data_app_store
+              - user_data_app_version
+              - user_data_os
+              - user_data_language
+              - user_data_platform
+              - user_data_environment
+              - user_data_geo_dma_code
+              - user_data_geo_country_code
+              - user_data_country
+              - user_data_geo_region_en
+              - user_data_opted_in
+              - user_data_opted_in_status
+              - last_cta_view_data_tilde_ad_name
+              - last_cta_view_data_tilde_secondary_publisher
+              - last_cta_view_data_tilde_campaign
+              - last_cta_view_data_tilde_advertising_partner_name
+              - last_cta_view_data_tilde_feature
+              - last_cta_view_data_tilde_ad_set_name
+              - last_cta_view_data_tilde_ad_set_id
+              - last_cta_view_data_tilde_campaign_id
+              - last_cta_view_data_tilde_creative_name
+              - last_cta_view_data_tilde_creative_id
+              - last_cta_view_data_plus_via_features
+              - last_cta_view_data_dollar_3p
+              - last_cta_view_data_tilde_tags
+              - last_cta_view_data_plus_web_format
+              - last_cta_view_data_tilde_channel
+              - last_cta_view_data_tilde_ad_id
+              - last_cta_view_data_tilde_stage
+              - days_from_last_attributed_touch_to_event
+              - days_from_last_cta_view_to_event
+              - event_data_product_categories
+              - event_data_custom_param_1
+              - event_data_custom_param_2
+              - event_data_custom_param_3
+              - first_event_for_user
+              - customer_event_alias
+        filters:
+          $ref: '#/components/schemas/filterBodyDictionary'
+        enable_install_recalculation:
+          type: boolean
+          default: false
+          example: false
+          description: This field related to Result formatting. De-dupe unattributed installs caused by duplicate events from non-opt-in users coming from paid ads.
+        granularity:
+          type: string
+          description: |
+            This field related to Result formatting. Range of time to roll multiple events into a single result count. Eg, with a value of "day" the counts for each day are returned independently, where "all" would return a single count for the entire time range.
+          example: all
+          default: all
+          enum:
+            - all
+            - day
+        ordered_by:
+          type: string
+          description: |
+            Field indicates which key of result to sort results on. Only supports 1 sort key as of now. Possible values are any element of query "dimensions" or the value of "aggregation" in the query
+          example: attributed
+          default: attributed
+          enum:
+            - name
+            - origin
+            - timestamp
+            - deep_linked
+            - from_desktop
+            - attributed
+            - unique_count
+            - total_count
+            - revenue
+            - cost
+            - cost_in_local_currency
+        ordered:
+          type: string
+          description: |
+            Field indicates the sorting order of the output.
+          example: descending
+          default: descending
+          enum:
+            - ascending
+            - descending
+        zero_fill:
+          type: boolean
+          default: false
+          example: false
+          description: |
+            Whether to return result objects where the result count was 0. If set to false, results with count = 0 will be omitted from the response. If result is empty and zerofill=true, fields will be loaded with null/0 to provide a schema.
+    filterBodyDictionary:
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          type: string
+      example:
+        '!last_attributed_touch_data_plus_current_feature':
+          - MOBILE_DEEPVIEWS
+          - DESKTOP_DEEPVIEWS
+    QueryResultsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          description: Array of result rows. Each row pairs a `result` object (the metric values for that grouping) with a `timestamp`.
+          items:
+            type: object
+            properties:
+              result:
+                $ref: '#/components/schemas/QueryResultObject'
+              timestamp:
+                type: string
+                format: date-time
+                description: Timestamp for the result row.
+                example: '2023-05-01T00:00:00.000-08:00'
+        paging:
+          type: object
+          properties:
+            next_url:
+              type: string
+              description: URL to next result set
+              example: /v1/query/analytics?limit=5&after=5
+            total_count:
+              type: integer
+              description: Number of total records retrieved against search
+              example: 14
+    QueryResultObject:
+      type: object
+      properties:
+        attributed:
+          type: boolean
+          example: true
+        total_count:
+          type: integer
+          example: 129
+    inline_response_400:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/inline_response_400_error'
+    inline_response_400_error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Authentication failed !
+        code:
+          type: integer
+          example: 400
+  examples: {}

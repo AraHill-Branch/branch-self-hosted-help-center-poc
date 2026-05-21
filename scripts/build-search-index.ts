@@ -280,9 +280,20 @@ for (const [hub, rootDir] of HUB_DIRS) {
 
 // Trim body for each doc before indexing: we need enough context for an
 // excerpt around the match (~80 chars) but shipping every page's full text
-// in the index is wasteful. 1200 chars gives room for 2-3 excerpt windows.
+// in the index is wasteful.
+//
+// API endpoint pages have parameter names and descriptions concatenated
+// inside a hidden `.api-search-only` div (see scripts/generate-api-pages.mjs).
+// That content can be 5–15k chars per page because OpenAPI specs are dense.
+// Truncating to 1200 chars wipes most parameter names — so search for
+// "$twitter_card" or "code_pattern_url" returns nothing. We bump the cap
+// for api-endpoint docs specifically so per-param lookups work, while
+// keeping the tighter cap on regular articles to control payload size.
+const BODY_CAP_DEFAULT = 1200
+const BODY_CAP_API_ENDPOINT = 16000
 for (const d of docs) {
-  if (d.body.length > 1200) d.body = d.body.slice(0, 1200)
+  const cap = d.type === 'api-endpoint' ? BODY_CAP_API_ENDPOINT : BODY_CAP_DEFAULT
+  if (d.body.length > cap) d.body = d.body.slice(0, cap)
 }
 
 // Indexer + runtime + harness all import the same MiniSearch options
