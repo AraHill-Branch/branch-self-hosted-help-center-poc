@@ -48,11 +48,11 @@ function loadSpec(apiFolder) {
   return yaml.load(readFileSync(p, 'utf8'))
 }
 
-function pageFor(apiFolder, spec, operation) {
+function pageFor(apiFolder, spec, operation, pathLevelParameters) {
   const apiTitle = spec.info?.title ?? apiFolder
   const summary = operation.summary ?? operation.operationId
   const pageTitle = `${summary} - ${apiTitle}`
-  const searchText = buildApiSearchText(spec, operation)
+  const searchText = buildApiSearchText(spec, operation, pathLevelParameters)
 
   // Structure:
   // - H1 is required so VitePress's search indexer picks up the page at
@@ -91,11 +91,17 @@ function main() {
     if (!existsSync(opsDir)) continue
 
     let written = 0
-    for (const verbs of Object.values(spec.paths ?? {})) {
-      for (const operation of Object.values(verbs ?? {})) {
+    // Same HTTP-verb filter the runtime + sidebar use — path-level keys
+    // like `summary`, `description`, `parameters` are NOT operations.
+    const HTTP_VERBS = new Set(['get', 'post', 'put', 'patch', 'delete', 'options', 'head', 'trace'])
+    for (const pathItem of Object.values(spec.paths ?? {})) {
+      if (!pathItem || typeof pathItem !== 'object') continue
+      const pathLevelParameters = Array.isArray(pathItem.parameters) ? pathItem.parameters : []
+      for (const [verb, operation] of Object.entries(pathItem)) {
+        if (!HTTP_VERBS.has(verb.toLowerCase())) continue
         if (!operation?.operationId) continue
         const outPath = join(opsDir, `${operation.operationId}.md`)
-        writeFileSync(outPath, pageFor(apiFolder, spec, operation), 'utf8')
+        writeFileSync(outPath, pageFor(apiFolder, spec, operation, pathLevelParameters), 'utf8')
         written++
       }
     }

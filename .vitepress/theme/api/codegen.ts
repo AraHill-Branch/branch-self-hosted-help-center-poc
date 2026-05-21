@@ -1,28 +1,76 @@
-// Build an example request body from a JSON schema. Uses schema examples when present,
-// otherwise synthesises a minimal valid-looking payload.
-export function buildExample(schema: any, seen = new Set<any>()): any {
+import type { OpenApiSchema } from './spec'
+
+/**
+ * Build an example value from a JSON schema. Uses schema.example when present
+ * (skipping `null` placeholders, which produce a wall of nulls in Try-it
+ * bodies), otherwise synthesises a minimal valid-looking payload.
+ *
+ * Behaviour:
+ *   - `example: null`           -> ignored (treated as "no example provided")
+ *   - missing example, scalar   -> a default value based on `type`
+ *   - object with properties    -> recurse; if `requiredOnly` is true, only
+ *                                  include required keys
+ *   - oneOf/anyOf               -> use the first branch
+ *   - allOf                     -> merged property set (handled by deref + parents)
+ *
+ * The same function is used by ApiCodePanel (Try-it body) and ApiResponses
+ * (response-shape preview), so the two stay in sync.
+ */
+export function buildExample(
+  schema: OpenApiSchema | undefined | null,
+  opts: { requiredOnly?: boolean } = {},
+  seen = new Set<OpenApiSchema>(),
+): any {
   if (!schema || typeof schema !== 'object') return null
   if (seen.has(schema)) return null
   seen.add(schema)
-  if (schema.example !== undefined) return schema.example
+
+  if (schema.example !== undefined && schema.example !== null) return schema.example
+
+  // Composition: prefer first branch of oneOf/anyOf.
+  if (schema.oneOf?.length) return buildExample(schema.oneOf[0], opts, seen)
+  if (schema.anyOf?.length) return buildExample(schema.anyOf[0], opts, seen)
+  // allOf: merge property sets so the example reflects every constraint.
+  if (schema.allOf?.length) {
+    const merged: Record<string, any> = {}
+    for (const branch of schema.allOf) {
+      const e = buildExample(branch, opts, seen)
+      if (e && typeof e === 'object' && !Array.isArray(e)) Object.assign(merged, e)
+    }
+    if (Object.keys(merged).length) return merged
+  }
+
   if (schema.type === 'object' && schema.properties) {
     const out: Record<string, any> = {}
     const required = new Set<string>(schema.required ?? [])
-    for (const [k, v] of Object.entries<any>(schema.properties)) {
-      // For unrequired nested objects with only scalar children, fill sparsely.
-      if (!required.has(k) && v.type === 'object') continue
-      out[k] = buildExample(v, seen)
+    for (const [k, v] of Object.entries(schema.properties)) {
+      if (opts.requiredOnly && !required.has(k)) continue
+      const val = buildExample(v, opts, seen)
+      // Drop properties whose example computes to `null` AND that the user
+      // didn't explicitly require — keeps Try-it bodies clean of null wall.
+      if (val === null && !required.has(k)) continue
+      out[k] = val
     }
     return out
   }
-  if (schema.type === 'array') return schema.items ? [buildExample(schema.items, seen)] : []
-  if (schema.enum) return schema.enum[0]
+  if (schema.type === 'array') {
+    return schema.items ? [buildExample(schema.items, opts, seen)] : []
+  }
+  if (schema.enum?.length) return schema.enum[0]
   switch (schema.type) {
-    case 'string': return schema.format === 'date-time' ? new Date().toISOString() : ''
+    case 'string':
+      if (schema.format === 'date-time') return new Date().toISOString()
+      if (schema.format === 'date') return new Date().toISOString().slice(0, 10)
+      if (schema.format === 'uuid') return '00000000-0000-0000-0000-000000000000'
+      if (schema.format === 'email') return 'user@example.com'
+      return ''
     case 'integer':
-    case 'number': return 0
-    case 'boolean': return false
-    default: return null
+    case 'number':
+      return schema.minimum ?? 0
+    case 'boolean':
+      return schema.default ?? false
+    default:
+      return null
   }
 }
 
@@ -35,66 +83,194 @@ function indent(s: string, n = 2): string {
   return s.split('\n').map((l, i) => (i === 0 ? l : pad + l)).join('\n')
 }
 
-export type SampleLang = 'curl' | 'javascript' | 'python' | 'php'
+export type SampleLang =
+  | 'curl' | 'javascript' | 'python' | 'php'
+  | 'ruby' | 'go' | 'java' | 'csharp'
 
-export function generateSample(lang: SampleLang, opts: {
+export const SAMPLE_LANGS: { id: SampleLang; label: string; shiki: string }[] = [
+  { id: 'curl',       label: 'cURL',       shiki: 'bash' },
+  { id: 'javascript', label: 'JavaScript', shiki: 'javascript' },
+  { id: 'python',     label: 'Python',     shiki: 'python' },
+  { id: 'ruby',       label: 'Ruby',       shiki: 'ruby' },
+  { id: 'go',         label: 'Go',         shiki: 'go' },
+  { id: 'java',       label: 'Java',       shiki: 'java' },
+  { id: 'csharp',     label: '.NET',       shiki: 'csharp' },
+  { id: 'php',        label: 'PHP',        shiki: 'php' },
+]
+
+export function shikiLangFor(lang: SampleLang): string {
+  return SAMPLE_LANGS.find((l) => l.id === lang)?.shiki ?? 'plaintext'
+}
+
+export interface GenerateSampleOpts {
   verb: string
   url: string
   body?: any
   acceptHeader?: string
-}): string {
-  const { verb, url, body, acceptHeader } = opts
+  /** Headers to include verbatim (e.g. Authorization). Keys are case-sensitive. */
+  extraHeaders?: Record<string, string>
+}
+
+export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): string {
+  const { verb, url, body, acceptHeader, extraHeaders } = opts
   const hasBody = body !== undefined && body !== null && verb !== 'GET'
+  const expectsBinary = acceptHeader?.startsWith('image/')
+
+  // All headers, in stable order, for code-sample generation.
+  const allHeaders: [string, string][] = []
+  if (acceptHeader) allHeaders.push(['Accept', acceptHeader])
+  if (hasBody) allHeaders.push(['Content-Type', 'application/json'])
+  if (extraHeaders) {
+    for (const [k, v] of Object.entries(extraHeaders)) allHeaders.push([k, v])
+  }
 
   switch (lang) {
-    case 'curl':
-      return [
-        `curl --request ${verb} \\`,
-        `  --url ${url} \\`,
-        acceptHeader ? `  --header 'accept: ${acceptHeader}' \\` : null,
-        hasBody ? `  --header 'content-type: application/json' \\` : null,
-        hasBody ? `  --data '${j(body)}'` : null,
-        acceptHeader?.startsWith('image/') ? `  --output response.png` : null,
-      ].filter(Boolean).join('\n')
+    case 'curl': {
+      const lines: (string | null)[] = [`curl --request ${verb} \\`, `  --url ${url} \\`]
+      for (const [k, v] of allHeaders) lines.push(`  --header '${k}: ${v}' \\`)
+      if (hasBody) lines.push(`  --data '${j(body)}' \\`)
+      if (expectsBinary) lines.push(`  --output response.png`)
+      // Strip trailing backslash from the final non-null entry.
+      const out = lines.filter((l): l is string => Boolean(l))
+      out[out.length - 1] = out[out.length - 1].replace(/\s\\$/, '')
+      return out.join('\n')
+    }
 
-    case 'javascript':
+    case 'javascript': {
+      const headersObj = allHeaders.length
+        ? `{ ${allHeaders.map(([k, v]) => `'${k}': '${v}'`).join(', ')} }`
+        : null
       return [
         `const response = await fetch('${url}', {`,
         `  method: '${verb}',`,
-        hasBody ? `  headers: { 'Content-Type': 'application/json' },` : null,
+        headersObj ? `  headers: ${headersObj},` : null,
         hasBody ? `  body: JSON.stringify(${indent(j(body), 2)}),` : null,
         `})`,
-        acceptHeader?.startsWith('image/')
-          ? `const blob = await response.blob() // image data`
+        expectsBinary
+          ? `const blob = await response.blob() // image bytes`
           : `const data = await response.json()`,
-      ].filter(Boolean).join('\n')
+      ].filter((l): l is string => l !== null).join('\n')
+    }
 
-    case 'python':
+    case 'python': {
+      const headersDict = allHeaders.length
+        ? `{ ${allHeaders.map(([k, v]) => `'${k}': '${v}'`).join(', ')} }`
+        : null
       return [
         `import requests`,
         ``,
-        hasBody ? `payload = ${indent(j(body).replace(/"/g, '"'), 0)}` : null,
+        hasBody ? `payload = ${j(body)}` : null,
         ``,
         `response = requests.${verb.toLowerCase()}(`,
         `    '${url}',`,
+        headersDict ? `    headers=${headersDict},` : null,
         hasBody ? `    json=payload,` : null,
         `)`,
-        acceptHeader?.startsWith('image/')
+        expectsBinary
           ? `\nwith open('response.png', 'wb') as f:\n    f.write(response.content)`
           : `\ndata = response.json()`,
-      ].filter(x => x !== null).join('\n')
+      ].filter((l): l is string => l !== null).join('\n')
+    }
 
-    case 'php':
+    case 'ruby': {
+      const headerLines = allHeaders.map(([k, v]) => `request['${k}'] = '${v}'`).join('\n  ')
+      return [
+        `require 'net/http'`,
+        `require 'json'`,
+        ``,
+        `uri = URI('${url}')`,
+        `request = Net::HTTP::${verb.charAt(0)}${verb.slice(1).toLowerCase()}.new(uri)`,
+        headerLines ? `  ${headerLines}` : null,
+        hasBody ? `request.body = ${JSON.stringify(j(body))}` : null,
+        ``,
+        `response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|`,
+        `  http.request(request)`,
+        `end`,
+        ``,
+        expectsBinary
+          ? `File.write('response.png', response.body)`
+          : `data = JSON.parse(response.body)`,
+      ].filter((l): l is string => l !== null).join('\n')
+    }
+
+    case 'go': {
+      const headerSets = allHeaders.map(([k, v]) => `\treq.Header.Set("${k}", "${v}")`).join('\n')
+      return [
+        `package main`,
+        ``,
+        `import (`,
+        `\t"bytes"`,
+        `\t"io"`,
+        `\t"net/http"`,
+        `)`,
+        ``,
+        `func main() {`,
+        hasBody ? `\tpayload := bytes.NewBufferString(\`${j(body)}\`)` : null,
+        hasBody
+          ? `\treq, _ := http.NewRequest("${verb}", "${url}", payload)`
+          : `\treq, _ := http.NewRequest("${verb}", "${url}", nil)`,
+        headerSets || null,
+        `\tres, _ := http.DefaultClient.Do(req)`,
+        `\tdefer res.Body.Close()`,
+        `\tbody, _ := io.ReadAll(res.Body)`,
+        `\t_ = body`,
+        `}`,
+      ].filter((l): l is string => l !== null).join('\n')
+    }
+
+    case 'java': {
+      const headerCalls = allHeaders.map(([k, v]) => `        .header("${k}", "${v}")`).join('\n')
+      return [
+        `import java.net.URI;`,
+        `import java.net.http.HttpClient;`,
+        `import java.net.http.HttpRequest;`,
+        `import java.net.http.HttpResponse;`,
+        ``,
+        `var client = HttpClient.newHttpClient();`,
+        `var request = HttpRequest.newBuilder()`,
+        `        .uri(URI.create("${url}"))`,
+        headerCalls || null,
+        hasBody
+          ? `        .${verb}(HttpRequest.BodyPublishers.ofString(${JSON.stringify(j(body))}))`
+          : `        .${verb}()`,
+        `        .build();`,
+        ``,
+        `var response = client.send(request, HttpResponse.BodyHandlers.ofString());`,
+      ].filter((l): l is string => l !== null).join('\n')
+    }
+
+    case 'csharp': {
+      const headerCalls = allHeaders.map(([k, v]) => `request.Headers.Add("${k}", "${v}");`).join('\n')
+      return [
+        `using System.Net.Http;`,
+        `using System.Text;`,
+        ``,
+        `var client = new HttpClient();`,
+        `var request = new HttpRequestMessage(HttpMethod.${verb.charAt(0)}${verb.slice(1).toLowerCase()}, "${url}");`,
+        headerCalls || null,
+        hasBody
+          ? `request.Content = new StringContent(${JSON.stringify(j(body))}, Encoding.UTF8, "application/json");`
+          : null,
+        `var response = await client.SendAsync(request);`,
+        `var body = await response.Content.ReadAsStringAsync();`,
+      ].filter((l): l is string => l !== null).join('\n')
+    }
+
+    case 'php': {
+      const headerLines = allHeaders.length
+        ? `curl_setopt($ch, CURLOPT_HTTPHEADER, [${allHeaders.map(([k, v]) => `'${k}: ${v}'`).join(', ')}]);`
+        : null
       return [
         `<?php`,
         `$ch = curl_init('${url}');`,
         `curl_setopt($ch, CURLOPT_CUSTOMREQUEST, '${verb}');`,
         `curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);`,
-        hasBody ? `curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);` : null,
+        headerLines,
         hasBody ? `curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(${phpArray(body)}));` : null,
         `$response = curl_exec($ch);`,
         `curl_close($ch);`,
-      ].filter(Boolean).join('\n')
+      ].filter((l): l is string => l !== null).join('\n')
+    }
   }
 }
 

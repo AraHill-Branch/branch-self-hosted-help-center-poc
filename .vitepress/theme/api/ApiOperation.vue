@@ -1,31 +1,80 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { getOperation } from './spec'
+import { useRoute } from 'vitepress'
+import { getOperation, type OpenApiParameter } from './spec'
 import ApiHeader from './ApiHeader.vue'
 import ApiSchemaTable from './ApiSchemaTable.vue'
+import ApiParametersTable from './ApiParametersTable.vue'
 import ApiResponses from './ApiResponses.vue'
 import ApiCodePanel from './ApiCodePanel.vue'
+import BranchCredentialsBar from './BranchCredentialsBar.vue'
 
 const props = defineProps<{ operationId: string }>()
 
-const data = computed(() => getOperation(props.operationId))
+// Scope the lookup to the API folder we're currently inside. Without this,
+// two specs sharing an operationId silently resolve to whichever was loaded
+// first. The route gives us the folder: /apidocs/<apiKey>/operations/<id>.
+const route = useRoute()
+const apiKey = computed(() => {
+  const m = route.path.match(/^\/apidocs\/([^/]+)\//)
+  return m?.[1]
+})
+
+const data = computed(() => getOperation(props.operationId, apiKey.value))
 const operation = computed(() => data.value?.operation)
+
 const bodySchema = computed(() => {
   const content = operation.value?.requestBody?.content
   if (!content) return null
-  // Prefer application/json; fall back to any schema present.
   return content['application/json']?.schema ?? Object.values(content)[0]?.schema ?? null
 })
+
 const endpointUrl = computed(() => {
   if (!operation.value) return ''
   return `${operation.value._serverUrl ?? ''}${operation.value._path ?? ''}`
 })
+
+// Combine operation-level + path-level parameters, then bucket by `in`.
+// Path-level parameters are inherited unless an operation-level parameter
+// with the same name+in shadows them. (OpenAPI 3.0 §4.7.8)
+const allParameters = computed<OpenApiParameter[]>(() => {
+  if (!operation.value) return []
+  const opParams = operation.value.parameters ?? []
+  const pathParams = operation.value._pathParameters ?? []
+  const seen = new Set(opParams.map((p) => `${p.in}:${p.name}`))
+  const merged = [...opParams]
+  for (const p of pathParams) {
+    if (!seen.has(`${p.in}:${p.name}`)) merged.push(p)
+  }
+  return merged
+})
+
+const pathParams = computed(() => allParameters.value.filter((p) => p.in === 'path'))
+const queryParams = computed(() => allParameters.value.filter((p) => p.in === 'query'))
+const headerParams = computed(() => allParameters.value.filter((p) => p.in === 'header'))
 </script>
 
 <template>
   <div v-if="operation" class="api-op">
     <div class="api-op-main">
+      <BranchCredentialsBar />
+
       <ApiHeader :operation="operation" :endpoint-url="endpointUrl" />
+
+      <section v-if="pathParams.length" class="api-op-section">
+        <h2 class="api-op-h2">Path parameters</h2>
+        <ApiParametersTable :parameters="pathParams" />
+      </section>
+
+      <section v-if="queryParams.length" class="api-op-section">
+        <h2 class="api-op-h2">Query parameters</h2>
+        <ApiParametersTable :parameters="queryParams" />
+      </section>
+
+      <section v-if="headerParams.length" class="api-op-section">
+        <h2 class="api-op-h2">Header parameters</h2>
+        <ApiParametersTable :parameters="headerParams" />
+      </section>
 
       <section v-if="bodySchema" class="api-op-section">
         <h2 class="api-op-h2">Body parameters</h2>
@@ -43,6 +92,9 @@ const endpointUrl = computed(() => {
         :operation="operation"
         :endpoint-url="endpointUrl"
         :body-schema="bodySchema"
+        :path-params="pathParams"
+        :query-params="queryParams"
+        :header-params="headerParams"
       />
     </aside>
   </div>
@@ -55,7 +107,7 @@ const endpointUrl = computed(() => {
 <style scoped>
 .api-op {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 440px);
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 420px);
   gap: 48px;
   max-width: 1280px;
   margin: 0 auto;
@@ -102,8 +154,9 @@ const endpointUrl = computed(() => {
   font-family: var(--vp-font-family-mono);
 }
 
-/* Responsive: collapse to single column below 1100px. The code panel moves inline above the tables so it's still reachable. */
-@media (max-width: 1100px) {
+/* Tighter responsive breakpoint — common laptops (1280×) keep the split
+   layout. The aside collapses inline below 980px. */
+@media (max-width: 980px) {
   .api-op {
     grid-template-columns: 1fr;
     gap: 32px;

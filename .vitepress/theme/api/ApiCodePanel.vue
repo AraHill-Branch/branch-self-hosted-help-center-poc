@@ -1,20 +1,19 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
-import type { OpenApiOperation, OpenApiSchema } from './spec'
-import { buildExample, generateSample, type SampleLang } from './codegen'
+import { computed, onBeforeUnmount, ref, watch } from 'vue'
+import type { OpenApiOperation, OpenApiParameter, OpenApiSchema } from './spec'
+import { buildExample, generateSample, SAMPLE_LANGS, shikiLangFor, type SampleLang } from './codegen'
+import { useBranchCredentials, applyCredentials, applyCredentialsToValue } from './useBranchCredentials'
 import HighlightedCode from './HighlightedCode.vue'
 
-const sampleLangToShikiLang: Record<SampleLang, string> = {
-  curl: 'bash',
-  javascript: 'javascript',
-  python: 'python',
-  php: 'php',
-}
+const credentials = useBranchCredentials()
 
 const props = defineProps<{
   operation: OpenApiOperation
   endpointUrl: string
   bodySchema: OpenApiSchema | null
+  pathParams?: OpenApiParameter[]
+  queryParams?: OpenApiParameter[]
+  headerParams?: OpenApiParameter[]
 }>()
 
 const tabs: { id: 'try' | 'samples'; label: string }[] = [
@@ -22,26 +21,78 @@ const tabs: { id: 'try' | 'samples'; label: string }[] = [
   { id: 'samples', label: 'Code samples' },
 ]
 const activeTab = ref<'try' | 'samples'>('try')
-
-const langs: { id: SampleLang; label: string }[] = [
-  { id: 'curl', label: 'cURL' },
-  { id: 'javascript', label: 'JavaScript' },
-  { id: 'python', label: 'Python' },
-  { id: 'php', label: 'PHP' },
-]
 const activeLang = ref<SampleLang>('curl')
 
-// Build initial body from the schema and keep it editable for try-it.
+// ---------------------------------------------------------------------------
+// Parameter input state — path / query / header
+// Stored in three reactive records keyed by `<in>:<name>`. Default values
+// come from spec `example` -> schema `example` -> schema `default` -> empty.
+// ---------------------------------------------------------------------------
+
+function defaultValue(p: OpenApiParameter): string {
+  if (p.example !== undefined && p.example !== null) return String(p.example)
+  if (p.schema?.example !== undefined && p.schema.example !== null) return String(p.schema.example)
+  if (p.schema?.default !== undefined && p.schema.default !== null) return String(p.schema.default)
+  return ''
+}
+
+function initInputs(params?: OpenApiParameter[]): Record<string, string> {
+  const out: Record<string, string> = {}
+  for (const p of params ?? []) out[p.name] = defaultValue(p)
+  return out
+}
+
+/**
+ * Map a parameter to a stored credential, when one applies. This lets us
+ * pre-fill `app_id` from the credentials bar even when the spec doesn't
+ * declare it as a securityScheme. Returns the stored value or null.
+ */
+function storedCredentialFor(p: OpenApiParameter): string | null {
+  if (/^app[-_]?id$/i.test(p.name) && credentials.value.appId) return credentials.value.appId
+  if (/^access[-_]?token$/i.test(p.name) && credentials.value.accessToken) return credentials.value.accessToken
+  if (/^branch[-_]?key$/i.test(p.name) && credentials.value.branchKey) return credentials.value.branchKey
+  return null
+}
+
+function effectiveInput(p: OpenApiParameter, inputs: Record<string, string>): string {
+  const stored = storedCredentialFor(p)
+  if (stored) return stored
+  return inputs[p.name] ?? ''
+}
+
+const pathInputs = ref<Record<string, string>>(initInputs(props.pathParams))
+const queryInputs = ref<Record<string, string>>(initInputs(props.queryParams))
+const headerInputs = ref<Record<string, string>>(initInputs(props.headerParams))
+
+watch(() => props.operation.operationId, () => {
+  pathInputs.value = initInputs(props.pathParams)
+  queryInputs.value = initInputs(props.queryParams)
+  headerInputs.value = initInputs(props.headerParams)
+})
+
+// ---------------------------------------------------------------------------
+// Body editor
+// ---------------------------------------------------------------------------
+
 const initialBody = computed(() => (props.bodySchema ? buildExample(props.bodySchema) : null))
 const bodyText = ref(initialBody.value ? JSON.stringify(initialBody.value, null, 2) : '')
 watch(() => props.operation.operationId, () => {
   bodyText.value = initialBody.value ? JSON.stringify(initialBody.value, null, 2) : ''
 })
 
+const parsedBody = computed(() => {
+  if (!bodyText.value.trim()) return undefined
+  try { return JSON.parse(bodyText.value) } catch { return undefined }
+})
+
+// ---------------------------------------------------------------------------
+// Accept header — best-guess from the spec's first non-JSON response
+// content-type. Used for both display and the actual fetch.
+// ---------------------------------------------------------------------------
+
 const acceptHeader = computed(() => {
   const res = props.operation.responses
-  const codes = Object.keys(res)
-  for (const c of codes) {
+  for (const c of Object.keys(res)) {
     const content = res[c]?.content
     if (!content) continue
     const mime = Object.keys(content)[0]
@@ -50,22 +101,88 @@ const acceptHeader = computed(() => {
   return 'application/json'
 })
 
-// Body for code samples — follow edits the user makes in the try-it pane.
-const parsedBody = computed(() => {
-  if (!bodyText.value.trim()) return undefined
-  try { return JSON.parse(bodyText.value) } catch { return undefined }
+// ---------------------------------------------------------------------------
+// Compose the request URL (path-param substitution + query string)
+// ---------------------------------------------------------------------------
+
+// Substitute stored credentials into each path/query input value BEFORE
+// composing the URL, so an operation like `POST /url/bulk/{branch_key}`
+// hits the real API with the user's key rather than a literal placeholder.
+function withCreds(v: string): string {
+  return applyCredentials(v, credentials.value)
+}
+
+const composedUrl = computed(() => {
+  let url = props.endpointUrl
+  for (const p of props.pathParams ?? []) {
+    const v = withCreds(effectiveInput(p, pathInputs.value))
+    url = url.replace(`{${p.name}}`, encodeURIComponent(v))
+  }
+  const qs: string[] = []
+  for (const p of props.queryParams ?? []) {
+    const v = withCreds(effectiveInput(p, queryInputs.value))
+    if (v !== '') qs.push(`${encodeURIComponent(p.name)}=${encodeURIComponent(v)}`)
+  }
+  return qs.length ? `${url}?${qs.join('&')}` : url
 })
 
-const currentSample = computed(() =>
-  generateSample(activeLang.value, {
-    verb: props.operation._verb!,
-    url: props.endpointUrl,
-    body: parsedBody.value,
-    acceptHeader: acceptHeader.value,
-  })
-)
+const extraHeaders = computed<Record<string, string>>(() => {
+  const out: Record<string, string> = {}
+  for (const p of props.headerParams ?? []) {
+    const v = effectiveInput(p, headerInputs.value)
+    if (v) out[p.name] = v
+  }
+  // Auto-inject Access-Token from the credentials store when this op
+  // uses Access-Token header auth (e.g. data/export APIs).
+  const accessTokenHeaderName = (props.headerParams ?? []).find(
+    (p) => /access[-_]?token/i.test(p.name),
+  )?.name
+  if (credentials.value.accessToken && accessTokenHeaderName && !out[accessTokenHeaderName]) {
+    out[accessTokenHeaderName] = credentials.value.accessToken
+  }
+  // Run every header value through credential substitution so placeholder
+  // values the user left in still benefit from the stored credentials.
+  for (const k of Object.keys(out)) out[k] = withCreds(out[k])
+  return out
+})
 
+// ---------------------------------------------------------------------------
+// Code samples — switch language, copy
+// ---------------------------------------------------------------------------
+
+const currentSample = computed(() => {
+  // Substitute the user's stored credentials into the body before code
+  // generation so the rendered sample matches what they'd actually send.
+  const substitutedBody = parsedBody.value !== undefined
+    ? applyCredentialsToValue(parsedBody.value, credentials.value)
+    : undefined
+  const raw = generateSample(activeLang.value, {
+    verb: props.operation._verb!,
+    url: composedUrl.value,
+    body: substitutedBody,
+    acceptHeader: acceptHeader.value,
+    extraHeaders: extraHeaders.value,
+  })
+  // One final pass over the string handles any placeholders that live
+  // outside the JSON body (e.g. URLs that embed a key).
+  return applyCredentials(raw, credentials.value)
+})
+
+const copied = ref(false)
+async function copySample() {
+  try {
+    await navigator.clipboard.writeText(currentSample.value)
+    copied.value = true
+    setTimeout(() => (copied.value = false), 1200)
+  } catch { /* no-op */ }
+}
+
+// ---------------------------------------------------------------------------
 // Try-it state
+// All response fields reset together via resetResponse() so a previous send
+// can't leave stale statusText / isJson values around.
+// ---------------------------------------------------------------------------
+
 const sending = ref(false)
 const responseStatus = ref<number | null>(null)
 const responseStatusText = ref<string>('')
@@ -75,14 +192,27 @@ const responseIsJson = ref(false)
 const responseError = ref<string | null>(null)
 const responseTime = ref<number | null>(null)
 
+function resetResponse() {
+  // Revoke any previously-allocated blob URL before dropping the reference.
+  // Without this, calling Try-it multiple times leaks one blob per send.
+  if (responseImageUrl.value) URL.revokeObjectURL(responseImageUrl.value)
+  responseStatus.value = null
+  responseStatusText.value = ''
+  responseBody.value = ''
+  responseImageUrl.value = null
+  responseIsJson.value = false
+  responseError.value = null
+  responseTime.value = null
+}
+
+onBeforeUnmount(() => {
+  if (responseImageUrl.value) URL.revokeObjectURL(responseImageUrl.value)
+})
+
 async function sendRequest() {
   if (sending.value) return
   sending.value = true
-  responseStatus.value = null
-  responseBody.value = ''
-  responseError.value = null
-  responseImageUrl.value = null
-  responseTime.value = null
+  resetResponse()
 
   let parsed: any
   try {
@@ -92,12 +222,22 @@ async function sendRequest() {
     sending.value = false
     return
   }
+  // Substitute stored credentials into the outgoing body so the
+  // user's pasted Branch Key actually reaches the API (without forcing
+  // them to edit each JSON field by hand).
+  if (parsed !== undefined) {
+    parsed = applyCredentialsToValue(parsed, credentials.value)
+  }
+
+  // Real headers sent to the API. Mirrors what codegen.ts puts in samples
+  // so what the user sees and what we send line up.
+  const headers: Record<string, string> = { Accept: acceptHeader.value }
+  if (parsed !== undefined) headers['Content-Type'] = 'application/json'
+  for (const [k, v] of Object.entries(extraHeaders.value)) headers[k] = v
 
   const started = performance.now()
   try {
-    const headers: Record<string, string> = {}
-    if (parsed !== undefined) headers['Content-Type'] = 'application/json'
-    const res = await fetch(props.endpointUrl, {
+    const res = await fetch(composedUrl.value, {
       method: props.operation._verb,
       headers,
       body: parsed !== undefined ? JSON.stringify(parsed) : undefined,
@@ -126,17 +266,6 @@ async function sendRequest() {
   }
 }
 
-async function copySample() {
-  try {
-    await navigator.clipboard.writeText(currentSample.value)
-    copied.value = true
-    setTimeout(() => (copied.value = false), 1200)
-  } catch {
-    // no-op
-  }
-}
-const copied = ref(false)
-
 function statusClass(code: number | null) {
   if (code === null) return ''
   if (code >= 200 && code < 300) return 'ok'
@@ -144,6 +273,11 @@ function statusClass(code: number | null) {
   if (code >= 500) return 'server-err'
   return ''
 }
+
+const showRequestBodyEditor = computed(() => Boolean(props.bodySchema))
+const showParamsSection = computed(
+  () => Boolean(props.pathParams?.length || props.queryParams?.length || props.headerParams?.length),
+)
 </script>
 
 <template>
@@ -164,10 +298,66 @@ function statusClass(code: number | null) {
     <div v-show="activeTab === 'try'" class="api-panel-body">
       <div class="api-panel-request-header">
         <span class="api-panel-verb" :data-verb="operation._verb">{{ operation._verb }}</span>
-        <code class="api-panel-url">{{ endpointUrl }}</code>
+        <code class="api-panel-url">{{ composedUrl }}</code>
       </div>
 
-      <div v-if="bodySchema" class="api-panel-section">
+      <div v-if="showParamsSection" class="api-panel-section">
+        <div v-if="pathParams?.length" class="api-panel-param-group">
+          <div class="api-panel-label">Path</div>
+          <label v-for="p in pathParams" :key="`p-${p.name}`" class="api-panel-input-row">
+            <span class="api-panel-input-name">{{ p.name }}</span>
+            <input
+              v-model="pathInputs[p.name]"
+              :placeholder="p.example ?? p.schema?.example ?? ''"
+              spellcheck="false"
+              class="api-panel-input"
+            />
+          </label>
+        </div>
+        <div v-if="queryParams?.length" class="api-panel-param-group">
+          <div class="api-panel-label">Query</div>
+          <label v-for="p in queryParams" :key="`q-${p.name}`" class="api-panel-input-row">
+            <span class="api-panel-input-name">{{ p.name }}</span>
+            <select
+              v-if="p.schema?.enum?.length"
+              v-model="queryInputs[p.name]"
+              class="api-panel-input"
+            >
+              <option v-for="opt in p.schema.enum" :key="String(opt)" :value="String(opt)">{{ opt }}</option>
+            </select>
+            <input
+              v-else-if="p.schema?.type === 'integer' || p.schema?.type === 'number'"
+              v-model="queryInputs[p.name]"
+              type="number"
+              :min="p.schema?.minimum"
+              :max="p.schema?.maximum"
+              :placeholder="String(p.schema?.default ?? p.example ?? p.schema?.example ?? '')"
+              class="api-panel-input"
+            />
+            <input
+              v-else
+              v-model="queryInputs[p.name]"
+              :placeholder="String(p.schema?.default ?? p.example ?? p.schema?.example ?? '')"
+              spellcheck="false"
+              class="api-panel-input"
+            />
+          </label>
+        </div>
+        <div v-if="headerParams?.length" class="api-panel-param-group">
+          <div class="api-panel-label">Headers</div>
+          <label v-for="p in headerParams" :key="`h-${p.name}`" class="api-panel-input-row">
+            <span class="api-panel-input-name">{{ p.name }}</span>
+            <input
+              v-model="headerInputs[p.name]"
+              :placeholder="String(p.example ?? p.schema?.example ?? '')"
+              spellcheck="false"
+              class="api-panel-input"
+            />
+          </label>
+        </div>
+      </div>
+
+      <div v-if="showRequestBodyEditor" class="api-panel-section">
         <div class="api-panel-label">Request body</div>
         <textarea
           v-model="bodyText"
@@ -183,7 +373,8 @@ function statusClass(code: number | null) {
       </button>
 
       <div class="api-panel-note">
-        This sends a real request to the live Branch API. Replace <code>key_live_xxxx</code> with your own Branch Key to get a successful response.
+        Try it sends a real request to the Branch API. Replace any
+        <code>key_live_xxxx</code> / placeholder values with your own credentials before sending. CORS may block the request from the docs origin; if you see a network error, copy the cURL sample and run it from your shell.
       </div>
 
       <div v-if="responseError" class="api-panel-section api-panel-error">
@@ -209,6 +400,9 @@ function statusClass(code: number | null) {
           :code="responseBody"
           :lang="responseIsJson ? 'json' : 'txt'"
         />
+        <div v-else class="api-panel-empty-body">
+          No response body.
+        </div>
       </div>
     </div>
 
@@ -216,7 +410,7 @@ function statusClass(code: number | null) {
     <div v-show="activeTab === 'samples'" class="api-panel-body">
       <div class="api-panel-lang-tabs" role="tablist">
         <button
-          v-for="l in langs"
+          v-for="l in SAMPLE_LANGS"
           :key="l.id"
           role="tab"
           class="api-panel-lang-tab"
@@ -227,13 +421,17 @@ function statusClass(code: number | null) {
       </div>
 
       <div class="api-panel-sample-wrap">
-        <button class="api-panel-copy" @click="copySample" :aria-label="copied ? 'Copied' : 'Copy to clipboard'">
+        <button
+          class="api-panel-copy"
+          @click="copySample"
+          :aria-label="copied ? 'Copied' : 'Copy code sample'"
+        >
           <span v-if="!copied">Copy</span>
           <span v-else>Copied</span>
         </button>
         <HighlightedCode
           :code="currentSample"
-          :lang="sampleLangToShikiLang[activeLang]"
+          :lang="shikiLangFor(activeLang)"
         />
       </div>
     </div>
@@ -339,6 +537,48 @@ function statusClass(code: number | null) {
   overflow-x: auto;
   white-space: nowrap;
   min-width: 0;
+}
+
+.api-panel-param-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.api-panel-input-row {
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) 2fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.api-panel-input-name {
+  font-family: var(--vp-font-family-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--vp-c-text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.api-panel-input {
+  width: 100%;
+  font-family: var(--vp-font-family-mono);
+  font-size: 12px;
+  padding: 6px 8px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  background: var(--vp-c-bg-alt);
+  color: var(--vp-c-text-1);
+}
+
+.dark .api-panel-input { background: var(--vp-c-bg-soft); }
+
+.api-panel-input:focus {
+  outline: none;
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 0 0 2px var(--vp-c-focus-ring);
 }
 
 .api-panel-body-editor {
@@ -474,6 +714,16 @@ function statusClass(code: number | null) {
   display: block;
 }
 
+.api-panel-empty-body {
+  padding: 12px;
+  background: var(--vp-c-bg-alt);
+  border: 1px dashed var(--vp-c-divider);
+  border-radius: 6px;
+  color: var(--vp-c-text-3);
+  font-size: 12px;
+  text-align: center;
+}
+
 .api-panel-body pre {
   margin: 0;
   padding: 12px;
@@ -497,6 +747,7 @@ function statusClass(code: number | null) {
 
 .api-panel-lang-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 2px;
   padding: 3px;
   background: var(--vp-c-bg-soft);
@@ -504,7 +755,6 @@ function statusClass(code: number | null) {
 }
 
 .api-panel-lang-tab {
-  flex: 1;
   padding: 6px 8px;
   font-family: var(--vp-font-family-base);
   font-size: 11.5px;
@@ -547,14 +797,22 @@ function statusClass(code: number | null) {
   border: 1px solid var(--vp-c-divider);
   border-radius: 3px;
   cursor: pointer;
-  opacity: 0;
+  /* Always visible — fixes a discoverability + a11y miss on hover-only. */
+  opacity: 0.85;
   transition: opacity 140ms ease, color 140ms ease, border-color 140ms ease;
+  z-index: 1;
 }
 
-.api-panel-sample-wrap:hover .api-panel-copy { opacity: 1; }
+.api-panel-sample-wrap:hover .api-panel-copy,
+.api-panel-copy:focus-visible { opacity: 1; }
 
 .api-panel-copy:hover {
   color: var(--vp-c-brand-1);
   border-color: var(--vp-c-brand-1);
+}
+
+.api-panel-copy:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
 }
 </style>

@@ -15,7 +15,12 @@ The Cohort API is available on premium plans. [Contact Sales](https://branch.io/
 
 ## Authentication
 
-All requests require a Branch Key. See [the API authentication overview](/apidocs/#authentication) for how to retrieve it and apply it to your requests.
+All requests authenticate with two credentials:
+
+- **`Access-Token` header** — your Branch access token, retrieved from **Configuration → Security & Access → Credentials** in the Branch Dashboard.
+- **`app_id` query parameter** — the Branch App ID identifying which app's data you are querying.
+
+Paste both into the credentials bar at the top of any operation page and the code samples and Try-it will use them automatically. See the [API authentication overview](/apidocs/#authentication) for more.
 
 ## Endpoint
 

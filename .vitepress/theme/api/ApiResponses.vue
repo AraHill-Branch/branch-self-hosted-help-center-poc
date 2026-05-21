@@ -1,18 +1,25 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import ApiSchemaTable from './ApiSchemaTable.vue'
 import HighlightedCode from './HighlightedCode.vue'
+import { buildExample } from './codegen'
 
 const props = defineProps<{
   responses: Record<string, { description?: string; content?: Record<string, { schema?: any; examples?: any }> }>
 }>()
 
 const statusCodes = computed(() => Object.keys(props.responses))
-const active = ref(statusCodes.value[0] ?? '')
+// Default the active tab to the FIRST 2xx response when present; otherwise
+// fall back to the first listed.
+const defaultStatus = computed(() => {
+  const codes = statusCodes.value
+  const ok = codes.find((c) => /^2/.test(c))
+  return ok ?? codes[0] ?? ''
+})
+const active = ref(defaultStatus.value)
+watch(defaultStatus, (v) => { if (!props.responses[active.value]) active.value = v })
 
-function setActive(code: string) {
-  active.value = code
-}
+function setActive(code: string) { active.value = code }
 
 function statusClass(code: string) {
   const n = parseInt(code, 10)
@@ -30,51 +37,40 @@ const activeContent = computed(() => {
   return c['application/json'] ?? Object.values(c)[0] ?? null
 })
 const activeSchema = computed(() => activeContent.value?.schema ?? null)
-const activeExample = computed(() => {
+
+// Has the spec author provided an explicit `examples:` block? If so we
+// prefer that (real, realistic data). If not, we synthesise one from the
+// schema — but ONLY when the result has some non-trivial signal. Pure
+// skeletons ({ id: "", object: "" }) are worse than no example.
+const explicitExample = computed<string | null>(() => {
   const ex = activeContent.value?.examples
-  if (ex) {
-    const first = Object.values(ex)[0] as any
-    if (first?.value !== undefined) {
-      return typeof first.value === 'string' ? first.value : JSON.stringify(first.value, null, 2)
-    }
-  }
-  // Auto-generate a minimal example from schema.
-  if (activeSchema.value) return buildExample(activeSchema.value)
-  return null
+  if (!ex) return null
+  const first = Object.values(ex)[0] as any
+  if (first?.value === undefined) return null
+  if (typeof first.value === 'string') return first.value
+  return JSON.stringify(first.value, null, 2)
 })
 
-function buildExample(schema: any, seen = new Set<any>()): any {
-  if (!schema || typeof schema !== 'object') return null
-  if (seen.has(schema)) return null
-  seen.add(schema)
-  if (schema.example !== undefined) return schema.example
-  if (schema.type === 'object' && schema.properties) {
-    const out: Record<string, any> = {}
-    for (const [k, v] of Object.entries<any>(schema.properties)) {
-      out[k] = buildExample(v, seen)
-    }
-    return out
-  }
-  if (schema.type === 'array') return schema.items ? [buildExample(schema.items, seen)] : []
-  if (schema.enum) return schema.enum[0]
-  switch (schema.type) {
-    case 'string': return ''
-    case 'integer':
-    case 'number': return 0
-    case 'boolean': return false
-    default: return null
-  }
+const synthesizedExample = computed<any>(() => {
+  if (!activeSchema.value) return null
+  return buildExample(activeSchema.value)
+})
+
+function isMeaningful(value: any): boolean {
+  if (value === null || value === undefined) return false
+  if (typeof value === 'string') return value.length > 0
+  if (typeof value === 'number' || typeof value === 'boolean') return true
+  if (Array.isArray(value)) return value.some(isMeaningful)
+  if (typeof value === 'object') return Object.values(value).some(isMeaningful)
+  return false
 }
 
-const activeExampleString = computed(() => {
-  const ex = activeExample.value
-  if (ex === null || ex === undefined) return null
-  if (typeof ex === 'string') return ex
-  try {
-    return JSON.stringify(ex, null, 2)
-  } catch {
-    return String(ex)
-  }
+const activeExampleString = computed<string | null>(() => {
+  if (explicitExample.value !== null) return explicitExample.value
+  const synth = synthesizedExample.value
+  if (synth === null || synth === undefined) return null
+  if (!isMeaningful(synth)) return null  // Don't show all-empty skeletons.
+  return typeof synth === 'string' ? synth : JSON.stringify(synth, null, 2)
 })
 
 const activeExampleLang = computed(() => {
@@ -87,7 +83,9 @@ const activeExampleLang = computed(() => {
 const activeIsBinary = computed(() => {
   const c = activeResponse.value?.content
   if (!c) return false
-  return Object.keys(c).some(mime => mime.startsWith('image/') || mime.startsWith('audio/') || mime.startsWith('video/') || mime === 'application/octet-stream')
+  return Object.keys(c).some(mime =>
+    mime.startsWith('image/') || mime.startsWith('audio/') || mime.startsWith('video/') || mime === 'application/octet-stream',
+  )
 })
 </script>
 
@@ -118,7 +116,7 @@ const activeIsBinary = computed(() => {
         </div>
       </div>
 
-      <div v-if="activeSchema && activeSchema.properties" class="api-responses-schema">
+      <div v-if="activeSchema && (activeSchema.properties || activeSchema.oneOf || activeSchema.anyOf || activeSchema.allOf)" class="api-responses-schema">
         <div class="api-responses-label">Schema</div>
         <ApiSchemaTable :schema="activeSchema" />
       </div>
