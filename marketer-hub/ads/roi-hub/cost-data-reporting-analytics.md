@@ -38,5 +38,5 @@ When looking at Dashboard Reports and Exports, Branch applies certain rules/form
 | Availability | Description |
 | --- | --- |
 | Cost Rule | This is a rule that is applied across all of Branch for a combination of Partners and Campaign IDs that if there are no Branch tracked clicks, installs, reinstalls, opens, web session start, or SKAdNetwork downloads then Cost isn't shown. |
-| Always Enabled | The following partners/sources always show cost data, regardless of attribution matching:   - [Criteo](criteo.md) - [GMP](google-marketing-platform.md) (CM360 Country Mapping, CM360 Device Mapping, and DV360) - [ROI Hub email ingestion](cost-data-via-email-import.md) - [ROI Hub file ingestion](cost-data-via-file-upload.md) |
+| Always Enabled | The following partners/sources always show cost data, regardless of attribution matching: <ul><li><a href="criteo.md">Criteo</a></li><li><a href="google-marketing-platform.md">GMP</a> (CM360 Country Mapping, CM360 Device Mapping, and DV360)</li><li><a href="cost-data-via-email-import.md">ROI Hub email ingestion</a></li><li><a href="cost-data-via-file-upload.md">ROI Hub file ingestion</a></li></ul> |
 | Cost Reporting | To analyze Cost you can use the following pages in the Branch Dashboard: Summary, Unified Analytics, Ads Analytics, and Cohorts. Or the following APIs: Query API and Cohort Exports API. |
