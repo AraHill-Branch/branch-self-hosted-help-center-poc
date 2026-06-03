@@ -105,10 +105,14 @@ const hubs = [
   display: block;
   padding: 8px 16px;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(0, 0, 0, 0.87);
   text-decoration: none;
   transition: color 0.25s, background-color 0.25s;
   white-space: nowrap;
+}
+
+.dark .hub-nav-item {
+  color: rgba(255, 255, 255, 0.87);
 }
 
 .hub-nav-item:hover {

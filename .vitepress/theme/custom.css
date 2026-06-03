@@ -194,18 +194,33 @@
   font-size: 16px;
 }
 
-/* Force dropdown menu dark mode */
-.VPNavBarMenuGroup .VPMenu {
+/* Dropdown menu - dark mode */
+.dark .VPNavBarMenuGroup .VPMenu {
   background: rgba(15, 2, 31, 0.95) !important;
   border-color: rgba(101, 27, 200, 0.3) !important;
 }
 
-.VPNavBarMenuGroup .VPMenuLink {
+.dark .VPNavBarMenuGroup .VPMenuLink {
   color: rgba(255, 255, 255, 0.87) !important;
 }
 
-.VPNavBarMenuGroup .VPMenuLink:hover {
+.dark .VPNavBarMenuGroup .VPMenuLink:hover {
   background: rgba(101, 27, 200, 0.15) !important;
+  color: #48BC7D !important;
+}
+
+/* Dropdown menu - light mode */
+.VPNavBarMenuGroup .VPMenu {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-color: rgba(101, 27, 200, 0.2) !important;
+}
+
+.VPNavBarMenuGroup .VPMenuLink {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.VPNavBarMenuGroup .VPMenuLink:hover {
+  background: rgba(101, 27, 200, 0.08) !important;
   color: #48BC7D !important;
 }
 
@@ -263,6 +278,54 @@ html:has(.VPContent.is-home) .VPNavBar .VPSocialLinks {
 /* ======================
    7. CONTENT
    ====================== */
+
+/* Widen content area on article pages */
+:root {
+  --vp-layout-max-width: 1440px;
+}
+
+@media (min-width: 1440px) {
+  .VPSidebar[data-v-8f603b0e] {
+    padding-left: 100px !important;
+    width: 350px !important;
+  }
+
+  .VPContent.has-sidebar[data-v-52f1cd35] {
+    padding-left: 400px !important;
+    padding-right: 100px !important;
+    margin-bottom: 80px !important;
+  }
+
+  .VPNavBar.has-sidebar .title[data-v-84a11e99] {
+    padding-left: 140px !important;
+  }
+}
+
+.VPDoc.has-sidebar {
+  display: flex;
+  justify-content: center;
+}
+
+.container[data-v-343c73d6] {
+  max-width: 1440px !important;
+  flex: 1;
+}
+
+.content-container[data-v-343c73d6] {
+  max-width: none !important;
+  width: 100%;
+}
+
+.content[data-v-343c73d6] {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px !important;
+}
+
+.vp-doc {
+  max-width: none !important;
+}
+
 .vp-doc a {
   color: #00B8DB;
 }
@@ -283,6 +346,122 @@ html:has(.VPContent.is-home) .VPNavBar .VPSocialLinks {
 
 .dark .vp-doc th {
   background: #130326;
+}
+
+/* Table list styling */
+.vp-doc table ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 8px 0;
+}
+
+.vp-doc table li {
+  margin: 4px 0;
+  line-height: 1.6;
+}
+
+/* ======================
+   ACCORDIONS / DETAILS
+   ====================== */
+
+/* Accordion container */
+.vp-doc details {
+  margin: 12px 0;
+  padding: 16px 20px;
+  border: 1px solid rgba(101, 27, 200, 0.25);
+  border-radius: 0;
+  background: rgba(142, 81, 255, 0.08);
+  transition: border-color var(--t-slow) var(--ease),
+              box-shadow var(--t-slow) var(--ease),
+              background var(--t-slow) var(--ease);
+}
+
+.dark .vp-doc details {
+  background: rgba(19, 3, 38, 0.4);
+}
+
+.vp-doc details:hover {
+  border-color: rgba(101, 27, 200, 0.45);
+  box-shadow: 0 2px 16px rgba(101, 27, 200, 0.10);
+}
+
+.dark .vp-doc details:hover {
+  background: rgba(19, 3, 38, 0.6);
+}
+
+/* Accordion summary (clickable header) */
+.vp-doc details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: color var(--t-base) var(--ease);
+}
+
+.vp-doc details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.vp-doc details > summary::marker {
+  display: none;
+  content: '';
+}
+
+.vp-doc details > summary:hover {
+  color: #48BC7D;
+}
+
+/* Arrow icon */
+.vp-doc details > summary::after {
+  content: '›';
+  font-size: 24px;
+  font-weight: 300;
+  color: #651BC8;
+  flex-shrink: 0;
+  margin-left: 16px;
+  transform: rotate(0deg);
+  transition: transform var(--t-base) var(--ease),
+              color var(--t-base) var(--ease);
+}
+
+.dark .vp-doc details > summary::after {
+  color: #9241FF;
+}
+
+.vp-doc details[open] > summary::after {
+  transform: rotate(90deg);
+}
+
+.vp-doc details > summary:hover::after {
+  color: #48BC7D;
+}
+
+/* Accordion content */
+.vp-doc details > summary + * {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--vp-c-divider);
+  animation: accordion-open 300ms var(--ease) both;
+}
+
+.dark .vp-doc details > summary + * {
+  border-top-color: rgba(101, 27, 200, 0.2);
+}
+
+@keyframes accordion-open {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -1806,21 +1985,10 @@ body,
 
 
 /* --- External link indicator ---
-   Links with target="_blank" get a subtle ↗ on hover. */
+   Disabled: no arrow for external links. */
 
 .vp-doc a[target="_blank"]::after {
-  content: ' ↗';
-  display: inline-block;
-  font-size: 0.75em;
-  opacity: 0;
-  transform: translateX(-2px);
-  transition: opacity var(--t-base) var(--ease),
-              transform var(--t-base) var(--ease);
-}
-
-.vp-doc a[target="_blank"]:hover::after {
-  opacity: 0.7;
-  transform: translateX(1px);
+  display: none !important;
 }
 
 /* Disable external link arrow for homepage custom components */
