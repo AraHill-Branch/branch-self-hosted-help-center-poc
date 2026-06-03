@@ -194,18 +194,33 @@
   font-size: 16px;
 }
 
-/* Force dropdown menu dark mode */
-.VPNavBarMenuGroup .VPMenu {
+/* Dropdown menu - dark mode */
+.dark .VPNavBarMenuGroup .VPMenu {
   background: rgba(15, 2, 31, 0.95) !important;
   border-color: rgba(101, 27, 200, 0.3) !important;
 }
 
-.VPNavBarMenuGroup .VPMenuLink {
+.dark .VPNavBarMenuGroup .VPMenuLink {
   color: rgba(255, 255, 255, 0.87) !important;
 }
 
-.VPNavBarMenuGroup .VPMenuLink:hover {
+.dark .VPNavBarMenuGroup .VPMenuLink:hover {
   background: rgba(101, 27, 200, 0.15) !important;
+  color: #48BC7D !important;
+}
+
+/* Dropdown menu - light mode */
+.VPNavBarMenuGroup .VPMenu {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-color: rgba(101, 27, 200, 0.2) !important;
+}
+
+.VPNavBarMenuGroup .VPMenuLink {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.VPNavBarMenuGroup .VPMenuLink:hover {
+  background: rgba(101, 27, 200, 0.08) !important;
   color: #48BC7D !important;
 }
 
