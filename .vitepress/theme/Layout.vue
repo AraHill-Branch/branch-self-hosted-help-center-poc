@@ -194,6 +194,14 @@ watch(() => route.path, () => {
     <template #nav-bar-content-after>
       <GetHelpButton />
     </template>
+    <template #nav-screen-content-before>
+      <HubNav />
+    </template>
+    <template #nav-screen-content-after>
+      <div class="mobile-nav-content">
+        <GetHelpButton />
+      </div>
+    </template>
     <template #layout-bottom>
       <Footer v-if="isHomePage()" />
     </template>

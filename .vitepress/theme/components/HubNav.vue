@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useRoute } from 'vitepress'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const route = useRoute()
+const isOpen = ref(false)
 
 const hubName = computed(() => {
   if (route.path.startsWith('/account-hub/')) return 'Account Hub'
@@ -16,11 +17,15 @@ const hubs = [
   { text: 'Marketer Hub', link: '/marketer-hub/' },
   { text: 'Developer Hub', link: '/developer-hub/' }
 ]
+
+function toggleMenu() {
+  isOpen.value = !isOpen.value
+}
 </script>
 
 <template>
-  <div class="hub-nav-dropdown">
-    <button class="hub-nav-button" type="button">
+  <div class="hub-nav-dropdown" :class="{ open: isOpen }">
+    <button class="hub-nav-button" type="button" @click="toggleMenu">
       <span class="hub-nav-text">{{ hubName }}</span>
       <svg class="hub-nav-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

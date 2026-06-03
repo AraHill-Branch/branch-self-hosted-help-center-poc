@@ -263,7 +263,9 @@ body:has(.VPHome) .VPNavBar {
 
 /* Hide appearance toggle and social links only on homepage */
 html:has(.VPContent.is-home) .VPNavBar [class*="Appearance"],
-html:has(.VPContent.is-home) .VPNavBar .VPSocialLinks {
+html:has(.VPContent.is-home) .VPNavBar .VPSocialLinks,
+html:has(.VPContent.is-home) .VPNavScreen [class*="Appearance"],
+html:has(.VPContent.is-home) .VPNavScreen .VPSocialLinks {
   display: none !important;
 }
 
@@ -699,7 +701,141 @@ body:has(.VPHome) .VPNav {
 
 
 /* ============================================================================
-   13. HOMEPAGE CUSTOM SECTIONS
+   13. MOBILE NAVIGATION
+   Mobile-specific styles for nav components in hamburger menu.
+   ============================================================================ */
+
+/* Mobile nav content wrapper in VPNavScreen */
+.mobile-nav-content {
+  padding: 12px 0;
+  border-top: 1px solid var(--vp-c-divider);
+  margin-top: 12px;
+}
+
+/* Mobile hub dropdown - expand in place instead of hover */
+@media (max-width: 767px) {
+  /* Hub nav in nav-screen-content-before */
+  .VPNavScreen .hub-nav-dropdown {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--vp-c-divider);
+  }
+
+  .VPNavScreen .hub-nav-button {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 24px 0 0;
+    font-size: 14px;
+    line-height: 48px;
+    height: 48px;
+    color: var(--vp-c-text-1);
+  }
+
+  /* Legacy - keep for mobile-nav-content wrapper if needed */
+  .mobile-nav-content .hub-nav-dropdown {
+    display: block;
+    width: 100%;
+  }
+
+  .mobile-nav-content .hub-nav-button {
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 24px;
+    font-size: 14px;
+    color: var(--vp-c-text-1);
+  }
+
+  /* VPNavScreen hub menu styles */
+  .VPNavScreen .hub-nav-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 0 0 20px;
+  }
+
+  .VPNavScreen .hub-nav-dropdown.open .hub-nav-menu {
+    max-height: 300px;
+  }
+
+  .VPNavScreen .hub-nav-dropdown.open .hub-nav-icon {
+    transform: rotate(180deg);
+  }
+
+  .VPNavScreen .hub-nav-item {
+    font-size: 14px;
+    line-height: 36px;
+  }
+
+  /* Legacy mobile-nav-content styles */
+  .mobile-nav-content .hub-nav-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 0 0 24px;
+  }
+
+  .mobile-nav-content .hub-nav-dropdown.open .hub-nav-menu {
+    max-height: 300px;
+    padding: 8px 0 8px 24px;
+  }
+
+  .mobile-nav-content .hub-nav-dropdown.open .hub-nav-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Get Help button mobile styling */
+  .mobile-nav-content .get-help-btn {
+    display: block;
+    width: calc(100% - 48px);
+    margin: 16px 24px;
+    text-align: center;
+  }
+
+  /* Hide desktop nav components on mobile */
+  .VPNavBar .hub-nav-dropdown,
+  .VPNavBar .get-help-btn {
+    display: none !important;
+  }
+}
+
+/* Desktop - hide mobile wrapper, show inline nav components */
+@media (min-width: 768px) {
+  .mobile-nav-content {
+    display: none;
+  }
+}
+
+/* Fix horizontal scroll on mobile */
+@media (max-width: 767px) {
+  #app {
+    max-width: 100%;
+  }
+
+  .Layout {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+/* ============================================================================
+   14. HOMEPAGE CUSTOM SECTIONS
    Prefixed .hp- to avoid collisions with VitePress.
    ============================================================================ */
 

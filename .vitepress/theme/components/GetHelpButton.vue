@@ -7,7 +7,6 @@ const isHomePage = () => frontmatter.value?.layout === 'home'
 
 <template>
   <a
-    v-if="isHomePage()"
     href="https://support.branch.io"
     class="get-help-btn"
     target="_blank"
