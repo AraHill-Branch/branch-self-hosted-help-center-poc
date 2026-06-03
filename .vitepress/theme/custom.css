@@ -263,6 +263,50 @@ html:has(.VPContent.is-home) .VPNavBar .VPSocialLinks {
 /* ======================
    7. CONTENT
    ====================== */
+
+/* Widen content area on article pages */
+:root {
+  --vp-layout-max-width: 1440px;
+}
+
+@media (min-width: 1440px) {
+  .VPSidebar[data-v-8f603b0e] {
+    padding-left: 100px !important;
+    width: 350px !important;
+  }
+
+  .VPContent.has-sidebar[data-v-52f1cd35] {
+    padding-left: 400px !important;
+    padding-right: 100px !important;
+    margin-bottom: 80px !important;
+  }
+}
+
+.VPDoc.has-sidebar {
+  display: flex;
+  justify-content: center;
+}
+
+.container[data-v-343c73d6] {
+  max-width: 1440px !important;
+  flex: 1;
+}
+
+.content-container[data-v-343c73d6] {
+  max-width: none !important;
+  width: 100%;
+}
+
+.content[data-v-343c73d6] {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px !important;
+}
+
+.vp-doc {
+  max-width: none !important;
+}
+
 .vp-doc a {
   color: #00B8DB;
 }
