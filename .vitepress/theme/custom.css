@@ -684,6 +684,110 @@ html:has(.VPContent.is-home) .VPNavBar .nav-search-wrapper {
   margin: 20px 0px 24px 0px !important;
 }
 
+/* ======================
+   ACCORDIONS / DETAILS
+   ====================== */
+
+/* Accordion container */
+.vp-doc details {
+  margin: 12px 0;
+  padding: 16px 20px;
+  border: 1px solid rgba(101, 27, 200, 0.25);
+  border-radius: 0;
+  background: rgba(142, 81, 255, 0.08);
+  transition: border-color var(--t-slow) var(--ease),
+              box-shadow var(--t-slow) var(--ease),
+              background var(--t-slow) var(--ease);
+}
+
+.dark .vp-doc details {
+  background: rgba(19, 3, 38, 0.4);
+}
+
+.vp-doc details:hover {
+  border-color: rgba(101, 27, 200, 0.45);
+  box-shadow: 0 2px 16px rgba(101, 27, 200, 0.10);
+}
+
+.dark .vp-doc details:hover {
+  background: rgba(19, 3, 38, 0.6);
+}
+
+/* Accordion summary (clickable header) */
+.vp-doc details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: color var(--t-base) var(--ease);
+}
+
+.vp-doc details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.vp-doc details > summary::marker {
+  display: none;
+  content: '';
+}
+
+.vp-doc details > summary:hover {
+  color: #48BC7D;
+}
+
+/* Arrow icon */
+.vp-doc details > summary::after {
+  content: '›';
+  font-size: 24px;
+  font-weight: 300;
+  color: #651BC8;
+  flex-shrink: 0;
+  margin-left: 16px;
+  transform: rotate(0deg);
+  transition: transform var(--t-base) var(--ease),
+              color var(--t-base) var(--ease);
+}
+
+.dark .vp-doc details > summary::after {
+  color: #9241FF;
+}
+
+.vp-doc details[open] > summary::after {
+  transform: rotate(90deg);
+}
+
+.vp-doc details > summary:hover::after {
+  color: #48BC7D;
+}
+
+/* Accordion content */
+.vp-doc details > summary + * {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--vp-c-divider);
+  animation: accordion-open 300ms var(--ease) both;
+}
+
+.dark .vp-doc details > summary + * {
+  border-top-color: rgba(101, 27, 200, 0.2);
+}
+
+@keyframes accordion-open {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* --- Layout & resets --- */
 
 .hp-wrap {
@@ -1820,8 +1924,7 @@ body,
 /* --- External link indicator ---
    Links with target="_blank" get a subtle ↗ on hover. */
 
-.vp-doc a[target="_blank"]::after,
-.hp-wrap a[target="_blank"]:not(.hp-btn):not(.hp-contact-card)::after {
+.vp-doc a[target="_blank"]::after {
   content: ' ↗';
   display: inline-block;
   font-size: 0.75em;
@@ -1831,10 +1934,15 @@ body,
               transform var(--t-base) var(--ease);
 }
 
-.vp-doc a[target="_blank"]:hover::after,
-.hp-wrap a[target="_blank"]:not(.hp-btn):not(.hp-contact-card):hover::after {
+.vp-doc a[target="_blank"]:hover::after {
   opacity: 0.7;
   transform: translateX(1px);
+}
+
+/* Disable external link arrow for homepage custom components */
+.hp-wrap a.hp-btn::after,
+.hp-wrap a.hp-contact-card::after {
+  display: none !important;
 }
 
 

@@ -180,14 +180,6 @@ export default defineConfig({
     logo: '/branch-logo-white.png',
     siteTitle: false,
     nav: [
-      {
-        text: 'Account Hub',
-        items: [
-          { text: 'Account Hub', link: '/account-hub/' },
-          { text: 'Marketer Hub', link: '/marketer-hub/' },
-          { text: 'Developer Hub', link: '/developer-hub/' }
-        ]
-      },
       { text: 'API Documentation', link: '/apidocs/' },
       { text: 'Branch', link: 'https://app.branch.io' }
     ],
