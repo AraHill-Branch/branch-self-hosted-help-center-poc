@@ -54,8 +54,8 @@ function openSearch() {
   font-family: var(--vp-font-family-base);
   font-size: 13px;
   color: rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid #651BC8;
   border-radius: 6px;
   cursor: pointer;
   transition: border-color 140ms cubic-bezier(0.22, 0.61, 0.36, 1),

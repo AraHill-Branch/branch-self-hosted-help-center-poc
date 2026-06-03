@@ -295,6 +295,10 @@ html:has(.VPContent.is-home) .VPNavBar .VPSocialLinks {
     padding-right: 100px !important;
     margin-bottom: 80px !important;
   }
+
+  .VPNavBar.has-sidebar .title[data-v-84a11e99] {
+    padding-left: 140px !important;
+  }
 }
 
 .VPDoc.has-sidebar {
@@ -1981,21 +1985,10 @@ body,
 
 
 /* --- External link indicator ---
-   Links with target="_blank" get a subtle ↗ on hover. */
+   Disabled: no arrow for external links. */
 
 .vp-doc a[target="_blank"]::after {
-  content: ' ↗';
-  display: inline-block;
-  font-size: 0.75em;
-  opacity: 0;
-  transform: translateX(-2px);
-  transition: opacity var(--t-base) var(--ease),
-              transform var(--t-base) var(--ease);
-}
-
-.vp-doc a[target="_blank"]:hover::after {
-  opacity: 0.7;
-  transform: translateX(1px);
+  display: none !important;
 }
 
 /* Disable external link arrow for homepage custom components */
