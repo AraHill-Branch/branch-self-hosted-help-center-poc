@@ -1,4 +1,11 @@
 /* ======================
+   0. RESET
+   ====================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ======================
    1. FONTS
    ====================== */
 @font-face {
@@ -128,6 +135,13 @@
 .VPFeatures .container {
   max-width: 1158px;
   padding: 0 20px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .VPFeatures .container {
+    padding: 0 16px;
+  }
 }
 
 .VPFeature .icon img {
@@ -169,6 +183,32 @@
 .VPNavBar .logo {
   height: 28px;
   width: auto;
+}
+
+/* Mobile - make logo, search icon, hamburger proportional (articles only) */
+@media (max-width: 767px) {
+  .VPNavBar:not(.VPHome ~ .VPNav .VPNavBar):not(body:has(.VPHome) .VPNavBar) .logo {
+    height: 22px;
+  }
+
+  /* Remove title margin-top on mobile for proper centering */
+  .VPNavBarTitle.has-sidebar .title {
+    margin-top: 0 !important;
+  }
+
+  /* Vertically center nav elements on article pages */
+  .VPNavBar:not(.VPHome ~ .VPNav .VPNavBar):not(body:has(.VPHome) .VPNavBar) .content-body {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+  }
+
+  /* Force nav title to use visual alignment */
+  .VPNavBar:not(.VPHome ~ .VPNav .VPNavBar):not(body:has(.VPHome) .VPNavBar) .VPNavBarTitle {
+    display: flex;
+    align-items: center;
+  }
 }
 
 /* Force dark mode text colors in nav */
@@ -224,11 +264,66 @@
   color: #48BC7D !important;
 }
 
+/* Replace "Menu" with "More articles" in sidebar toggle only */
+.VPLocalNav .menu .menu-text {
+  font-size: 0;
+}
+
+.VPLocalNav .menu .menu-text::before {
+  content: 'More articles';
+  font-size: 12px;
+}
+
 /* Force hamburger menu icon dark mode */
 .VPNavBarHamburger .container .top,
 .VPNavBarHamburger .container .middle,
 .VPNavBarHamburger .container .bottom {
   background: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* Mobile - scale hamburger to match logo/search */
+@media (max-width: 767px) {
+  .VPNavBarHamburger .container {
+    width: 18px !important;
+    height: 14px !important;
+    margin-top: 0 !important;
+  }
+
+  /* Landing page - adjust margin-top for hamburger */
+  .VPHome ~ .VPNav .VPNavBarHamburger .container,
+  body:has(.VPHome) .VPNavBarHamburger .container {
+    margin-top: 8px !important;
+  }
+
+  .VPNavBarHamburger .container .top {
+    top: 0 !important;
+    left: auto !important;
+    right: 0 !important;
+    width: 16px !important;
+    transform: translateX(0) !important;
+  }
+
+  .VPNavBarHamburger .container .middle {
+    top: 6px !important;
+    left: auto !important;
+    right: 0 !important;
+    width: 16px !important;
+    transform: translateX(0) !important;
+  }
+
+  .VPNavBarHamburger .container .bottom {
+    top: 12px !important;
+    left: auto !important;
+    right: 0 !important;
+    width: 12px !important;
+    transform: translateX(0) !important;
+  }
+
+  .VPNavBarHamburger:hover .container .top,
+  .VPNavBarHamburger:hover .container .middle,
+  .VPNavBarHamburger:hover .container .bottom {
+    transform: translateX(0) !important;
+  }
 }
 
 /* Force social links dark mode */
@@ -253,6 +348,10 @@ body:has(.VPHome) .VPNavBar {
 .VPNavBar:not(.VPHome ~ .VPNav .VPNavBar):not(body:has(.VPHome) .VPNavBar) {
   padding-top: 10px;
   background: #090113 !important;
+}
+
+.VPNav:not(.VPHome ~ .VPNav):not(body:has(.VPHome) .VPNav) {
+  margin-bottom: 20px;
 }
 
 .VPNavBar:not(.VPHome ~ .VPNav .VPNavBar):not(body:has(.VPHome) .VPNavBar) .wrapper,
@@ -321,7 +420,13 @@ html:has(.VPContent.is-home) .VPNavScreen .VPSocialLinks {
 .content[data-v-343c73d6] {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 48px !important;
+  padding: 0 24px !important;
+}
+
+@media (min-width: 768px) {
+  .content[data-v-343c73d6] {
+    padding: 0 48px !important;
+  }
 }
 
 .vp-doc {
@@ -502,8 +607,8 @@ html:has(.VPContent.is-home) .VPNavScreen .VPSocialLinks {
 .VPHome {
   position: relative;
   overflow: hidden;
-  margin-left: 20px;
-  margin-right: 20px;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Background image container for hero + feature cards */
@@ -813,6 +918,11 @@ body:has(.VPHome) .VPNav {
   .VPNavBar .get-help-btn {
     display: none !important;
   }
+
+  /* Reduce mobile nav spacing */
+  .VPNavBar:not(.VPHome ~ .VPNav .VPNavBar):not(body:has(.VPHome) .VPNavBar) .content-body {
+    gap: 8px;
+  }
 }
 
 /* Desktop - hide mobile wrapper, show inline nav components */
@@ -826,11 +936,11 @@ body:has(.VPHome) .VPNav {
 @media (max-width: 767px) {
   #app {
     max-width: 100%;
+    overflow-x: hidden;
   }
 
-  .Layout {
-    margin-left: 20px;
-    margin-right: 20px;
+  body {
+    overflow-x: hidden;
   }
 }
 
@@ -863,8 +973,15 @@ html:has(.VPContent.is-home) .VPNavBar .nav-search-wrapper {
 /* Expand search bar to take up space between logo and right nav menu */
 .VPNavBar .nav-search-wrapper {
   margin-top: 6px;
-  margin-left: 50px;
-  margin-right: 70px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+@media (min-width: 768px) {
+  .VPNavBar .nav-search-wrapper {
+    margin-left: 50px;
+    margin-right: 70px;
+  }
 }
 
 .VPNavBar .nav-search-wrapper .nav-search-kbd {
@@ -995,6 +1112,13 @@ html:has(.VPContent.is-home) .VPNavBar .nav-search-wrapper {
   padding: 0 20px;
   position: relative;
   z-index: 1;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .hp-wrap {
+    padding: 0 16px;
+  }
 }
 
 .hp-wrap h2,

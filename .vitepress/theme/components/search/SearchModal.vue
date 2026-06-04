@@ -176,14 +176,7 @@ defineExpose({ open: openModal, close: closeModal })
 }
 
 .search-footer {
-  display: flex;
-  gap: 20px;
-  padding: 10px 16px;
-  border-top: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg-soft);
-  font-size: 12px;
-  color: var(--vp-c-text-3);
-  flex-shrink: 0;
+  display: none;
 }
 
 .search-footer span {

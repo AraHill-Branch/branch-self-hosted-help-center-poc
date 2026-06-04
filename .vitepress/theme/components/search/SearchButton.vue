@@ -115,5 +115,25 @@ function openSearch() {
 @media (max-width: 768px) {
   .nav-search-kbd { display: none; }
   .nav-search-label { display: none; }
+
+  /* Make search icon proportional to logo/hamburger */
+  .nav-search-button {
+    padding: 0;
+    min-width: 36px;
+    height: 36px;
+    justify-content: center;
+    background: transparent;
+    border: none;
+  }
+
+  .nav-search-button:hover,
+  .nav-search-button:focus-visible {
+    background: rgba(101, 27, 200, 0.15);
+  }
+
+  .nav-search-icon svg {
+    width: 18px;
+    height: 18px;
+  }
 }
 </style>

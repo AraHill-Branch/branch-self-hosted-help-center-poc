@@ -75,6 +75,7 @@ function openSearch() {
   grid-template-columns: 1fr 1.2fr;
   gap: 24px;
   align-items: center;
+  width: 100%;
 }
 
 .hp-hero-left {
@@ -98,8 +99,8 @@ function openSearch() {
 }
 
 .hero-banner {
-  width: 120%;
-  max-width: 120%;
+  width: 100%;
+  max-width: 100%;
   height: auto;
   animation: vp-enter var(--t-entrance) var(--ease-out-expo) 300ms both;
 }
@@ -209,7 +210,7 @@ function openSearch() {
 
 @media (max-width: 768px) {
   .hp-hero-container {
-    padding: 60px 24px 40px;
+    padding: 60px 16px 40px;
     grid-template-columns: 1fr;
     gap: 32px;
   }
