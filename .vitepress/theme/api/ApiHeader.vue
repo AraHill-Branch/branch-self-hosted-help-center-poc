@@ -342,4 +342,45 @@ async function copyEndpoint() {
   font-size: 10.5px;
   color: var(--vp-c-text-3);
 }
+
+/* Mobile responsive */
+@media (max-width: 767px) {
+  .api-header {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .api-title {
+    font-size: 24px;
+  }
+
+  .api-path {
+    font-size: 12px;
+    max-width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+
+  .api-endpoint-url {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .api-endpoint-label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .api-endpoint-code {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    margin-bottom: 8px;
+  }
+
+  .api-endpoint-copy {
+    display: inline-block;
+  }
+}
 </style>

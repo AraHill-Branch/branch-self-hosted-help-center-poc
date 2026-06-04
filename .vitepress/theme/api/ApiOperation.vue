@@ -112,6 +112,8 @@ const headerParams = computed(() => allParameters.value.filter((p) => p.in === '
   max-width: 1280px;
   margin: 0 auto;
   padding: 40px 24px 96px;
+  width: 100%;
+  overflow-x: visible;
   align-items: start;
 }
 
@@ -160,12 +162,30 @@ const headerParams = computed(() => allParameters.value.filter((p) => p.in === '
   .api-op {
     grid-template-columns: 1fr;
     gap: 32px;
+    padding: 24px 16px 48px;
   }
 
   .api-op-aside {
     position: static;
     order: -1;
     margin-top: 24px;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Mobile: force everything to fit */
+@media (max-width: 767px) {
+  .api-op {
+    padding: 16px 12px 32px;
+    overflow-x: visible;
+  }
+
+  .api-op-main,
+  .api-op-aside {
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
   }
 }
 </style>
