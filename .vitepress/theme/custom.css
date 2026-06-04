@@ -11,20 +11,10 @@ html, body {
   width: 100%;
 }
 
-/* Allow horizontal scroll on API pages only */
-body:has(.api-operation-page) {
-  overflow-x: auto;
-}
-
 #app {
   overflow-x: clip;
   max-width: 100%;
   width: 100%;
-}
-
-/* Allow horizontal scroll on API pages only */
-.api-operation-page #app {
-  overflow-x: visible;
 }
 
 /* ======================
@@ -2372,6 +2362,59 @@ body,
 
 .api-operation-page .VPDoc .vp-doc {
   padding: 0;
+}
+
+/* Mobile responsive fixes for API pages */
+@media (max-width: 767px) {
+  /* Force page-level containment */
+  .api-operation-page,
+  .api-operation-page .VPDoc,
+  .api-operation-page .VPDoc .container,
+  .api-operation-page .VPDoc .content,
+  .api-operation-page .VPDoc .content-container,
+  .api-operation-page .vp-doc {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* API operation layout */
+  .api-operation-page .api-op {
+    padding: 24px 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Ensure all API components fit */
+  .api-operation-page * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Tables scroll horizontally if needed */
+  .api-operation-page table,
+  .api-operation-page .api-params-table,
+  .api-operation-page .api-schema-table,
+  .api-operation-page pre,
+  .api-operation-page .api-code-panel {
+    overflow-x: auto;
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Code blocks constrained */
+  .api-operation-page pre code {
+    display: block;
+    white-space: pre;
+    word-wrap: normal;
+    max-width: 100%;
+  }
+
+  /* API aside (code panel) full width on mobile */
+  .api-operation-page .api-op-aside {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 }
 
 /* ============================================================================
