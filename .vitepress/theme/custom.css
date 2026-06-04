@@ -5,6 +5,16 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+#app {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 /* ======================
    1. FONTS
    ====================== */
@@ -608,7 +618,6 @@ html:has(.VPContent.is-home) .VPNavScreen .VPSocialLinks {
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 100vw;
 }
 
 /* Background image container for hero + feature cards */
@@ -940,6 +949,19 @@ body:has(.VPHome) .VPNav {
   }
 
   body {
+    overflow-x: hidden;
+  }
+
+  .VPHome, .VPHome * {
+    max-width: 100%;
+  }
+
+  .hp-hero-container,
+  .hp-wrap,
+  .hp-section,
+  .VPFeatures,
+  .VPFeatures .container {
+    max-width: 100% !important;
     overflow-x: hidden;
   }
 }
