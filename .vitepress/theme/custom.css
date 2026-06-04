@@ -349,6 +349,12 @@ body:has(.api-operation-page) {
 }
 
 /* Force social links dark mode */
+.VPNavBar .VPSocialLinks,
+.VPNavBar .VPNavBarSocialLinks,
+.VPNavBar .social-links {
+  margin-right: 8px;
+}
+
 .VPNavBar .VPSocialLink {
   color: rgba(255, 255, 255, 0.87) !important;
 }
@@ -1019,7 +1025,7 @@ html:has(.VPContent.is-home) .VPNavBar .nav-search-wrapper {
 @media (min-width: 768px) {
   .VPNavBar .nav-search-wrapper {
     margin-left: 50px;
-    margin-right: 70px;
+    margin-right: 24px;
   }
 }
 
