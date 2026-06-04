@@ -815,4 +815,32 @@ const showParamsSection = computed(
   outline: 2px solid var(--vp-c-brand-1);
   outline-offset: 2px;
 }
+
+/* Mobile responsive */
+@media (max-width: 767px) {
+  .api-panel {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .api-panel-input,
+  .api-panel-body,
+  .api-panel-sample-wrap {
+    max-width: 100%;
+  }
+
+  .api-panel-input input,
+  .api-panel-input textarea {
+    font-size: 14px;
+  }
+
+  .api-panel-lang-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .api-panel-lang-tab {
+    flex-shrink: 0;
+  }
+}
 </style>
