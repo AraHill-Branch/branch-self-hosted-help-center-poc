@@ -30,12 +30,30 @@ watchEffect(async () => {
 .hl :deep(pre.shiki) {
   margin: 0;
   padding: 14px 16px;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow-x: auto;
   font-family: var(--vp-font-family-mono);
   font-size: 12.5px;
   line-height: 1.55;
-  background-color: #0d1117 !important;
+}
+
+/* Dual-theme wiring: Shiki emits --shiki-light / --shiki-dark on every token
+   (defaultColor:false in highlight.ts). Light is the default; under VitePress's
+   html.dark we swap to the dark variables. Background lives on the <pre>; tokens
+   only carry color. */
+.hl :deep(pre.shiki) {
+  background-color: var(--shiki-light-bg);
+}
+.hl :deep(pre.shiki),
+.hl :deep(pre.shiki span) {
+  color: var(--shiki-light);
+}
+:global(html.dark) .hl :deep(pre.shiki) {
+  background-color: var(--shiki-dark-bg);
+}
+:global(html.dark) .hl :deep(pre.shiki),
+:global(html.dark) .hl :deep(pre.shiki span) {
+  color: var(--shiki-dark);
 }
 
 .hl :deep(pre.shiki code) {

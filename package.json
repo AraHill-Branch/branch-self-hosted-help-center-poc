@@ -2,20 +2,20 @@
   "type": "module",
   "scripts": {
     "docs:dev": "npm run apidocs:generate && npm run search:index && vitepress dev",
-    "docs:build": "npm run apidocs:generate && npm run search:index && vitepress build",
+    "docs:build": "npm run apidocs:generate && npm run apidocs:check-highlight && npm run search:index && vitepress build",
     "docs:preview": "vitepress preview",
     "apidocs:generate": "node scripts/generate-api-pages.mjs",
+    "apidocs:check-highlight": "tsx scripts/check-highlighter.ts",
     "search:index": "tsx scripts/build-search-index.ts",
     "search:eval": "npm run search:index --silent && tsx scripts/search-eval.ts",
     "search:audit": "npm run search:index --silent && tsx scripts/search-audit.ts"
   },
   "devDependencies": {
     "@rollup/plugin-yaml": "^4.1.2",
+    "js-yaml": "^4.2.0",
     "minisearch": "^7.2.0",
-    "shiki": "^4.0.2",
+    "shiki": "^2.1.0",
     "tsx": "^4.21.0",
-    "vitepress": "^1.6.4",
-    "vitepress-openapi": "^0.1.20",
-    "vitepress-sidebar": "^1.33.1"
+    "vitepress": "^1.6.4"
   }
 }
