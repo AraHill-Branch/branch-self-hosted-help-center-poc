@@ -141,6 +141,9 @@ export default defineConfig({
   title: "Branch Help Center",
   description: "Product Documentation",
   ignoreDeadLinks: true,
+  sitemap: {
+    hostname: 'https://boisterous-tanuki-75d338.netlify.app'
+  },
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/branch-gylph-violet800-180px.png' }],
     ['link', {
