@@ -46,11 +46,11 @@ Use this glossary to learn about terms commonly used in Branch. To submit a term
 | **API** |  | Application Programming Interface. A set of protocols that allows different software systems to communicate with each other. SDKs typically include APIs but also provide additional tools and documentation to make integration easier. |
 | **Branch Dashboard** |  | The web interface where users manage their Branch account, view analytics, create links and banners, configure integrations, manage team members, and export data. |
 |  | Liveview | A real-time dashboard showing event data as it happens. |
-|  | Short Link | A Branch link created directly in the dashboard interface. |
+|  | Short Link | A Branch Link created directly in Branch. |
 | **App Link** |  | Branch's default link domain provided to all customers. App links direct users to apps or specific app content and require an active website to function properly. |
-| **Short Link** |  | A Branch link with a custom alias added to the end of the domain for easy sharing and recognition. For example, in "https://espn.app.link/sms", "sms" is the alias. |
-| **Dynamic Long Link** |  | A Branch link that includes multiple query parameters to pass data directly in the URL. For example, "https://espn.app.link?example=one&~campaign=test" sends key-value pairs into the app without requiring dashboard configuration. |
-| **3p Link** |  | Third-party link. A Branch link formatted to meet the specific requirements of external platforms like ad networks or SMS providers. |
+| **Short Link** |  | A Branch Link with a custom alias added to the end of the domain for easy sharing and recognition. For example, in "https://espn.app.link/sms", "sms" is the alias. |
+| **Dynamic Long Link** |  | A Branch Link that includes multiple query parameters to pass data directly in the URL. For example, "https://espn.app.link?example=one&~campaign=test" sends key-value pairs into the app without requiring configuration in Branch. |
+| **3p Link** |  | Third-party link. A Branch Link formatted to meet the specific requirements of external platforms like ad networks or SMS providers. |
 
 ## Branch analytics
 
@@ -59,9 +59,9 @@ Use this glossary to learn about terms commonly used in Branch. To submit a term
 | **Event Ontology (EO)** | Branch's standardized event taxonomy for consistent analytics tracking across platforms. |
 | **Pageview** | Measured each time a webpage loads with the Branch Web SDK initialized. |
 | **Branch CTA View (View)** | Counted when a Branch banner or Deepview loads and displays in a user's browser. |
-| **Web Session Start** | Measured when a webpage with the Branch Web SDK opens in a new tab or when a user arrives via a Branch link. |
+| **Web Session Start** | Measured when a webpage with the Branch Web SDK opens in a new tab or when a user arrives via a Branch Link. |
 | **Impression** | Counted when a paid advertisement displays on a user's screen, tracked through Branch's Mobile Measurement Partner (MMP) API or Branch Links. |
-| **Click** | Counted each time a user clicks a Branch link. |
+| **Click** | Counted each time a user clicks a Branch Link. |
 | **Install** | Measured the first time a user opens an app after downloading it to a device. |
 | **Open** | Counted each time a user opens an app after the initial install. |
 | **Reinstall** | Measured when a user downloads and opens an app they previously uninstalled. |
@@ -88,7 +88,7 @@ Use this glossary to learn about terms commonly used in Branch. To submit a term
 |  | Webhooks | Real-time server notifications triggered when specific events occur, also called "postbacks." |
 |  | Data Integration | Sending Branch event data to third-party analytics platforms through automated webhooks. Event Ingestion is the reverse: importing events from third parties into Branch. |
 |  | Export API | An API endpoint that lets you download user-level data as CSV files for any day within the past week. |
-|  | Query API | An API endpoint to retrieve the same campaign-level analytics data shown in the Branch dashboard. |
+|  | Query API | An API endpoint to retrieve the same campaign-level analytics data shown in Branch. |
 | **Ads** |  | Branch's advertising product that enables deep linking in ads and provides last-touch attribution across all ad networks and platforms. |
 |  | Publisher | A website or app that sells advertising space on their platform. |
 |  | Advertiser | A company that buys advertising space to promote their products or services. |
@@ -98,8 +98,8 @@ Use this glossary to learn about terms commonly used in Branch. To submit a term
 |  | SAN, non-SAN | Self-Attributing Networks are ad platforms (like Facebook or Google) that track and attribute conversions within their own ecosystems. Non-SANs rely on third-party attribution providers like Branch. |
 |  | MMP | Mobile Measurement Partner. A designation used by Self-Attributing Networks to identify approved third parties that can access their private APIs. |
 |  | Fraud | Malicious activity that artificially generates ad engagement to steal advertising budgets. Branch provides fraud detection to identify suspicious activity patterns. |
-|  | Cost Ingestion | Branch's ability to import ad spend data from select ad networks and display it alongside campaign performance metrics in the dashboard. |
-| **Email** |  | Branch's email product that tracks Branch link usage in marketing emails and sends click data back to email service providers for reporting. |
+|  | Cost Ingestion | Branch's ability to import ad spend data from select ad networks and display it alongside campaign performance metrics in Branch. |
+| **Email** |  | Branch's email product that tracks Branch Link usage in marketing emails and sends click data back to email service providers for reporting. |
 |  | ESP | Email Service Provider. Marketing platforms like Salesforce that send large-scale email campaigns. |
 |  | CTD | Click Tracking Domain. A redirect applied to email links to track clicks, typically by email service providers. Redirects can prevent iOS Universal Links from working properly. |
 |  | Simplified Integration | A Branch email integration method that uses a CNAME pointing to Branch to automate setup. Includes Auto-Branchify, which automatically converts standard web links to Branch Links in emails. |

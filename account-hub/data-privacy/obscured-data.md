@@ -1,5 +1,5 @@
 ---
-title: "Obscured Data"
+title: "Obscured data"
 slug: obscured-data
 ---
 

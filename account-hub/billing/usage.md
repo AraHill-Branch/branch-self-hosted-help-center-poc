@@ -5,11 +5,11 @@ slug: usage
 
 ## Overview
 
-The Branch Dashboard gives you insight into metrics that impact your Branch invoice.
+Branch gives you insight into metrics that impact your Branch invoice.
 
 You can use this information to measure utilization for the current month, so that you do not go over your allowed limits. It allows you to analyze trends from month to month.
 
-Depending on your plan, the Branch Dashboard will reflect either your app’s **monthly active users (MAU)** count, or it will show **volume credit** usage.
+Depending on your plan, Branch reflects either your app’s **monthly active users (MAU)** count or your **volume credit** usage.
 
 ::: danger Warning
 Please note that this article explains the [legacy Branch experience](branch-dashboard-overview.md) of viewing usage, which is slated for deprecation.  
@@ -29,9 +29,9 @@ Volume credits correspond to the number of end-user actions tracked, attributed,
 
 ## Track usage
 
-The [Usage tab](https://dashboard.branch.io/account-settings/usage) is where you will find a historical 12-month view of your app’s usage.
+The [Usage tab](https://dashboard.branch.io/account-settings/usage) is where you'll find a historical 12-month view of your app’s usage.
 
-For some users, this report will reflect your app’s **monthly active users**, while for others it will show **volume credits**.
+For some users, this report reflects your app’s **monthly active users**, while for others it shows **volume credits**.
 
 You can export this information in PNG, XLS, SVG, or CSV format using the navigation drawer icon on the right.
 

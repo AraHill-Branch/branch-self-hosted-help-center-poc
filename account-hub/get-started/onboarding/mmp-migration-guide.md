@@ -1,5 +1,5 @@
 ---
-title: "MMP Migration Guide"
+title: "MMP migration guide"
 slug: mmp-migration-guide
 ---
 
@@ -12,7 +12,7 @@ This guide walks you through how to migrate from your current MMP (Adjust, Singu
 To help ensure a seamless transition to Branch, we recommend implementing these best practices:
 
 - **Start small with tracking link transitions** - Begin by switching tracking links on your lowest-spend ad networks first to minimize potential attribution loss during the initial rollout.
-- **Maintain dual SDK coverage** - Keep your existing MMP SDK active for a minimum of 2 weeks post-release to ensure continuous data collection from users who haven't yet updated to the latest app version containing the Branch SDK.
+- **Maintain dual SDK coverage** - Keep your existing MMP SDK active for a minimum of two weeks post-release to ensure continuous data collection from users who haven't yet updated to the latest app version containing the Branch SDK.
 - **Implement a forced app update** - Consider requiring users to update to the latest version to ensure your entire user base transitions to Branch SDK rather than remaining on your legacy MMP solution.
 - **Migrate all optimization events** - Ensure that every event currently sent to ad networks for campaign optimization is properly configured to flow through the Branch SDK.
 - **Phase your implementation approach** - Begin by replicating your current MMP configuration exactly within Branch, then gradually expand functionality and explore additional features once the baseline setup is stable.
@@ -103,9 +103,9 @@ Set up your Branch account, integrate the Branch SDK into your mobile app, and r
 
 | **Task** | **Owner** | **Description** | **Time estimate\*** |
 | --- | --- | --- | --- |
-| Set up Branch Dashboard | Marketing Team | Configure important fields within the Branch Dashboard, such as link domain and global attribution window settings. Visit our [general onboarding guide](https://help.branch.io/docs/onboarding-guide#step-1-set-up-branch-dashboard) for more details. | 1 day |
+| Set up Branch | Marketing Team | Configure important fields within Branch, such as link domain and global attribution window settings. Visit our [general onboarding guide](https://help.branch.io/docs/onboarding-guide#step-1-set-up-branch-dashboard) for more details. | 1 day |
 | Set up Branch SDK, track Branch Events, and validate setup | Mobile Development Team | Integrate the Branch SDK into your app and use it to start tracking Branch Events. Visit our [general onboarding guide](https://help.branch.io/docs/onboarding-guide#step-2-set-up-branch-mobile-sdks) for more details. | 8 days |
-| Release your app | Mobile Development Team | **Important**: If you choose to [import historical data](migration-guide.md#step-1-import-historical-data-optional), please ensure that the import is complete before you release the app.  Branch recommends releasing your app with both your existing MMP and Branch enabled for a short period of time (at least 2 weeks). This will prevent any gaps in your data as users migrate onto the new version of your app. After that, you can remove your existing MMP from future app updates. | 1 day |
+| Release your app | Mobile Development Team | **Important**: If you choose to [import historical data](migration-guide.md#step-1-import-historical-data-optional), please ensure that the import is complete before you release the app.  Branch recommends releasing your app with both your existing MMP and Branch enabled for a short period of time (at least two weeks). This will prevent any gaps in your data as users migrate onto the new version of your app. After that, you can remove your existing MMP from future app updates. | 1 day |
 
 If you are planning to use the same custom domain on Branch as your previous MMP, you will need to CNAME the domain and migrate the links. Migration of the domain can lead to a short down time when transitioning to Branch.
 
@@ -122,7 +122,7 @@ Owned media refers to attribution links you use in content sharing, email, SMS, 
 
 | **Task** | **Owner** | **Description** | **Time estimate\*** |
 | --- | --- | --- | --- |
-| Re-create owned links in Branch | Marketing Team, Development Team | Using your existing owned links as reference, re-create your links with Branch. You have several options for how to create links: in the Dashboard, with one of our APIs, or using the SDK.  Learn more in our [App Link](create-app-links.md) and [Web Link](create-web-links.md) guides. | 2-5 days, depending on how many links you need to re-create |
+| Re-create owned links in Branch | Marketing Team, Development Team | Using your existing owned links as reference, re-create your links with Branch. You have several options for how to create links: in Branch, with one of our APIs, or using the SDK.  Learn more in our [App Link](create-app-links.md) and [Web Link](create-web-links.md) guides. | 2-5 days, depending on how many links you need to re-create |
 | Replace old owned links | Marketing Team | Replace your existing owned links from your old MMP with your new Branch Links. | 1-3 days, depending on how many links you need to replace |
 
 </details>
@@ -138,9 +138,13 @@ Configure self-attributing network (SAN) ad partners like Google and Facebook, s
 
 | **Task** | **Owner** | **Description** | **Time estimate\*** |
 | --- | --- | --- | --- |
+<<<<<<< Updated upstream
 | Integrate SAN partners in Branch | Marketing Team | Enable all relevant SAN partners in the Branch Dashboard, and map your Branch Events to the ad partner events.    Only Apple Ads and Google support connecting multiple MMPs. For all other partners, you will need to disable the ad partner from your previous MMP before you enable them in Branch.  For more information on individual SAN partners, visit our guides: <ul><li><a href="google-ads.md">Google</a></li><li><a href="facebook-ads-index.md">Facebook/Meta</a></li><li><a href="apple-ads-index.md">Apple Ads</a></li><li><a href="snap.md">Snap</a></li><li><a href="twitter-ads.md">Twitter</a></li><li><a href="tiktok-for-business.md">TikTok For Business</a></li></ul> | 15 minutes per ad partner |
+=======
+| Integrate SAN partners in Branch | Marketing Team | Enable all relevant SAN partners in Branch, and map your Branch Events to the ad partner events.    Only Apple Ads and Google support connecting multiple MMPs. For all other partners, you will need to disable the ad partner from your previous MMP before you enable them in Branch.  For more information on individual SAN partners, visit our guides:   - [Google](google-ads.md) - [Facebook/Meta](facebook-ads-index.md) - [Apple Ads](apple-ads-index.md) - [Snap](snap.md) - [Twitter](twitter-ads.md) - [TikTok For Business](tiktok-for-business.md) | 15 minutes per ad partner |
+>>>>>>> Stashed changes
 | Replace SAN links | Marketing Team | In your SAN campaigns, replace each of your existing MMP ad links with a Branch Ad Link. Learn more in our [Ad Link](ad-links.md) guide. | 1-2 days, depending on how many links you need to re-create and replace |
-| Integrate non-SAN partners in Branch | Marketing Team | Enable all relevant non-SAN partners in the Branch Dashboard, and validate the Postbacks to ensure the right events are sent to the ad partner.  Start with low-spend networks to mitigate the risk of lost attribution. For more details, visit our [Ad Partner Integration](ad-partner-integration-guide.md) guide. | 15 minutes per ad partner |
+| Integrate non-SAN partners in Branch | Marketing Team | Enable all relevant non-SAN partners in Branch, and validate the Postbacks to ensure the right events are sent to the ad partner.  Start with low-spend networks to mitigate the risk of lost attribution. For more details, visit our [Ad Partner Integration](ad-partner-integration-guide.md) guide. | 15 minutes per ad partner |
 | Replace non-SAN links | Marketing Team | In your non-SAN campaigns, replace each of your existing MMP ad links with a Branch Ad Link. Learn more in our [Ad Link](ad-links.md) guide. | 1-2 days, depending on how many links you need to re-create and replace |
 | Use SKAN with Branch | Marketing Team, Development Team | SKAN postbacks can be supported only by a single MMP. If your existing MMP is already sending SKAN postbacks to Apple, you will need to wait until the legacy MMP is fully disabled to start using SKAN with Branch.  To start using SKAN with Branch:   1. Ensure <a href="https://developer.apple.com/documentation/storekit">StoreKit</a> is enabled on the app (to be done by developer) 2. Test SKAN campaign with ad partners: <ul><li><a href="google-skadnetwork.md">Google Ads</a></li><li><a href="tiktok-skadnetwork.md">TikTok</a></li><li><a href="facebook-skadnetwork.md">Facebook</a></li></ul> | 5 hours |
 
@@ -159,7 +163,7 @@ To determine which Branch data export(s) best fit your use cases, check out this
 
 | **Task** | **Owner** | **Description** | **Time estimate\*** |
 | --- | --- | --- | --- |
-| Integrate Branch with data partners | Data Team | If you’d like to send Branch data to a supported data partner, you can configure that integration in the Branch Dashboard. Visit our general [Data Integration Implementation](data-integration-implementation-guide.md) guide for more details. | 15 minutes per partner |
+| Integrate Branch with data partners | Data Team | If you’d like to send Branch data to a supported data partner, you can configure that integration in Branch. Visit our general [Data Integration Implementation](data-integration-implementation-guide.md) guide for more details. | 15 minutes per partner |
 | Pass partner-specific metadata to Branch SDK | Data Team | To pass Branch Event data to your data partner, you will first need to pass partner-specific metadata to the Branch SDK.  Refer to our list of [Data Integration Partners](data-integration-partners.md) for detailed information regarding the metadata that must be sent for each data partner. | 1 hour |
 | Export Branch data using APIs | Data Team | You can export Branch data either at the aggregate-level or the log-level based on your requirements.  Log-level: <ul><li><a href="https://help.branch.io/apidocs/daily-exports-api">Daily Export API</a></li><li><a href="https://help.branch.io/apidocs/custom-exports-api">Custom Export API</a></li><li><a href="https://help.branch.io/apidocs/scheduled-log-exports-api">Scheduled Log Exports API</a></li></ul> Aggregate-level: <ul><li><a href="http://help.branch.io/apidocs/aggregate-api">Aggregate API</a></li><li><a href="https://help.branch.io/apidocs/query-api">Query API</a></li><li><a href="https://help.branch.io/apidocs/cross-events-export-api">Cross-Events Export API</a></li></ul> | 3 hours |
 | Test and validate your setup | Data Team | For data partner integrations, you can reference the [Liveview Webhook Records](https://dashboard.branch.io/overview/webhooks) tab to monitor the data being passed to your data partners in real time.  Also make sure to verify that any Branch APIs you are utilizing are providing the expected outputs. | 1 hour |

@@ -1,5 +1,5 @@
 ---
-title: "Activation Onboarding Guide"
+title: "Activation onboarding guide"
 slug: activation-onboarding-guide
 ---
 
@@ -11,9 +11,9 @@ With Activation, you can create shortened web and app links, as well as custom Q
 
 Activation simplifies how you generate branded web links, app links, and QR codes, providing dedicated click insights and exports without requiring complex SDK setups for your web campaigns.
 
-The information and resources in this guide will help you:
+The information and resources in this guide help you:
 
-- Set up your Branch Dashboard
+- Set up your Branch account
 - Choose the right link creation method for your use case
 - Test and manage your links
 - View and export your data
@@ -22,17 +22,17 @@ The information and resources in this guide will help you:
 
 Web Links are web-only Short Links that work everywhere. App Links are deep links that take users to specific pages in your app. Web and App Links look the same (yourbrand.com/slug or yourbrand.app.link/slug) depending on if you choose to use a custom domain or a Branch-provided app.link domain.
 
-#### Expected behavior for Web Links
+#### Expected behavior for web links
 
 If your end user does **not** have your app installed, or if you don’t have an app, the link will open in their default web browser. If they do have your app downloaded, the link will open in your app through an in-app web view.
 
 #### Expected behavior for App Links
 
-If your end user has your app installed, the App Link will deep link to the specific app page you’ve chosen. If they do **not** have your app installed, they will taken to the redirect destination for non-app users which can be configured as a web page, a Branch Deepview, or the app store listing to download the app.
+If your end user has your app installed, the App Link will deep link to the specific app page you’ve chosen. If they do **not** have your app installed, they will be taken to the redirect destination for non-app users which can be configured as a web page, a Branch Deepview, or the app store listing to download the app.
 
 ## Before you begin
 
-The questions in this section will help you decide how you want to set up Activation for your scenario. The questions you’ll need to answer depend on whether you are a new or existing Branch user.
+The questions in this section help you decide how you want to set up Activation for your scenario. The questions you’ll need to answer depend on whether you are a new or existing Branch user.
 
 ::: info Note
 To show an in-app web view for web links when a user has your app downloaded, you must update your Branch SDK to version 3.12.0 or higher for iOS and 5.18.0 for Android. If you don’t update the SDK, your app’s homepage will open using Android App Linking or Apple Universal Links.
@@ -61,7 +61,7 @@ If you are an existing Branch user, start by answering the following questions:
 
 1. Will you continue using **the same domain with Branch for shortened links or a different domain**?
 
-   1. If you choose to use your existing domain for all links, then Activation will be enabled for your current Branch Dashboard.
+   1. If you choose to use your existing domain for all links, then Activation will be enabled for your current Branch account.
    2. If you want to [use a different domain](advanced-link-configuration.md) from your current Branch domain, do you also want to **consolidate to the same domain for web and app linking or keep them separate**?
 
       1. Learn more about the implications of consolidating or separating your web and app linking domains in the ["Choose web and app domains"](activation-onboarding-guide.md#choose-web-and-app-domains) section below.
@@ -110,9 +110,9 @@ Use [Link Validator](link-validator.md) to test how your link will behave based 
 
 With Activation, you can export your campaign data using Dashboard Exports, Branch’s Advanced Data Feeds, or one of the APIs included in your package.
 
-#### Branch Dashboard
+#### Manual exports in Branch
 
-Export data as a CSV or JSON file manually from the Branch Dashboard using [Dashboard Exports](dashboard-exports.md). Choose between Daily or Custom exports to identify the best configuration of your export.
+Export data as a CSV or JSON file manually from Branch using [Dashboard Exports](dashboard-exports.md). Choose between Daily or Custom exports to identify the best configuration of your export.
 
 #### Included APIs
 
@@ -221,7 +221,7 @@ Only if you want to create app links or support in-app webviews for web links.
 <details>
 <summary>Do shortened links expire?</summary>
 
-Short Links created in the Branch Dashboard will never expired, even if archived. Links created with the Deep Linking API will expire 380 days after creation or the last time a user clicked it.
+Short Links created in Branch will never expire, even if archived. Links created with the Deep Linking API will expire 380 days after creation or the last time a user clicked it.
 
 </details>
 

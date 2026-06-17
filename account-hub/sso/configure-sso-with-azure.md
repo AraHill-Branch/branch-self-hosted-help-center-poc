@@ -1,9 +1,9 @@
 ---
-title: "Configure SSO With Azure"
+title: "Configure SSO with Azure"
 slug: configure-sso-with-azure
 ---
 
-## Introduction
+## Overview
 
 This guide provides step-by-step instructions for setting up Single Sign-On (SSO) with Branch using **Microsoft Entra ID** (formerly Azure Active Directory) as your Identity Provider (IdP).
 
@@ -19,7 +19,7 @@ To configure SSO, you’ll need to get your unique URLs from Branch, configure M
 
 ### Before you begin
 
-Before you begin, ensure you have:
+To configure SSO with Microsoft Entra ID, you first need:
 
 - Admin access to your Branch account.
 - Admin access to your Azure portal and the Microsoft Entra ID service.

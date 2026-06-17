@@ -1,5 +1,5 @@
 ---
-title: "Add and Manage Test Devices (New)"
+title: "Add and manage test devices (New)"
 slug: add-and-manage-test-devices-new
 ---
 
@@ -20,18 +20,18 @@ To identify your device as a test device within Branch, you need to provide one 
 - **Android**: Google Advertising ID (GAID)
 - **iOS**: Identifier for Advertisers (IDFA)
 
-**Use Branch's Device ID Finder App**
+**Use Branch's Device ID Finder app**
 
 If you don't know how to access your device's IDs, you can use Branch's Device ID Finder app to easily see your device's ID.
 
-- Get the Android App
-- Get the iOS App
+- Get the Android app
+- Get the iOS app
 
 ::: info Note
 - You can add up to 50 test devices per app in Branch.
 - Any user can add a device for testing; however, you must have Edit access to remove a test device.
-- The test device is specific to the app you add it under. If you use it to test other apps, Branch will treat it like live traffic and it will be attributed and used for downstream analytics.
-- These test devices will work in both the live and test environment. You only need to add it once.
+- The test device is specific to the app you add it under. If you use it to test other apps, Branch treats it like live traffic and attributes it for downstream analytics.
+- These test devices work in both the live and test environment. You only need to add it once.
 :::
 
 To ensure you can use your device to test:

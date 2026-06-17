@@ -1,19 +1,19 @@
 ---
-title: "Manage Invoices (New)"
+title: "Manage invoices (New)"
 slug: billing-invoices-new
 ---
 
 ## Overview
 
-The way you view your invoices will depend on whether you are using the [legacy](branch-dashboard-overview.md) or [new](new-branch.md) Branch platform, as well as whether you are an enterprise or self-serve customer.
+The way you view your invoices depends on whether you are using the [legacy](branch-dashboard-overview.md) or [new](new-branch.md) Branch platform, as well as whether you are an enterprise or self-serve customer.
 
-An invoice will be sent via email to the billing contact of your account with details of the charge and a copy of the invoice receipt.
+Branch sends an invoice via email to the billing contact of your account with details of the charge and a copy of the invoice receipt.
 
-### Invoice History
+### Invoice history
 
-Navigate to the [**Billing**](https://branchdocs.app.link/billing-new-to-billing-settings)tab to view the **Invoice history** module.
+Go to the [**Billing**](https://branchdocs.app.link/billing-new-to-billing-settings) tab to view the **Invoice history** module.
 
-The **Invoice History** module gives you a high-level overview of your past invoices, including:
+The **Invoice history** module gives you a high-level overview of your past invoices, including:
 
 - Invoice number
 - Invoice date

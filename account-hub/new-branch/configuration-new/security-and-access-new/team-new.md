@@ -30,7 +30,7 @@ To add a new team member to your Branch account:
 7. Configure granular **Permissions** by selecting **View access** and/or **Edit access** for specific features.
 8. Select **Invite** to send an invitation email to the new team member.
 
-The new team member will receive an email invitation to join your Branch account. Once they've accepted, their status in the team member table will change to **Joined**.
+The new team member receives an email invitation to join your Branch account. Once they've accepted, their status in the team member table changes to **Joined**.
 
 ### Search team members
 
@@ -59,7 +59,7 @@ Removing a team member immediately revokes their access to your Branch account. 
 
 ## Team member roles
 
-Branch provides four role types to control team member access and permissions: Admin, Team Member, Limited Read, and Full Read. Each role grants different levels of access to your Branch account. To learn more about each role, visit our dedicated [guide](default-access-levels-users-roles-permissions.md).
+Branch provides four role types to control team member access and permissions: Admin, Team Member, Limited Read, and Full Read. Each role grants different levels of access to your Branch account. To learn more about each role, see [Default access levels, users, roles, and permissions](default-access-levels-users-roles-permissions.md).
 
 ## Best practices
 

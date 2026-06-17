@@ -1,9 +1,9 @@
 ---
-title: "Configure SSO With Okta"
+title: "Configure SSO with Okta"
 slug: configure-sso-with-okta
 ---
 
-## Introduction
+## Overview
 
 This guide provides step-by-step instructions for setting up Single Sign-On (SSO) with Branch using **Okta** as your Identity Provider (IdP).
 
@@ -19,7 +19,7 @@ To configure SSO, you’ll need to get your unique URLs from Branch, configure O
 
 ### Before you begin
 
-Before you begin, ensure you have:
+To configure SSO with Okta, you first need:
 
 - Admin access to your Branch account.
 - Admin access to your Okta account.
@@ -35,21 +35,20 @@ This step is different depending on whether you are on the [legacy](branch-dashb
 
 Now, log in to your Okta admin dashboard to create the Branch application.
 
-1. In Okta, navigation to **Applications** → **Applications** and select **Create App Integration**.
-
-   2. Select **SAML 2.0** as the sign-on method and click **Next**.  
+1. In Okta, navigate to **Applications** → **Applications** and select **Create App Integration**.
+2. Select **SAML 2.0** as the sign-on method and select **Next**.  
    
 
-3. On the **General Settings** page, enter an app name (e.g., “Branch”) and click **Next**.
+3. On the **General Settings** page, enter an app name (e.g., “Branch”) and select **Next**.
 4. On the **Configure SAML** page, in the **General** section, fill in the fields using the values from the Branch tab you kept open from step 1.
 
-   3. Single sign-on URI: Paste the `Single Sign-On URL`from Branch.
-   4. Audience URI (SP Entity ID): Paste the `Service Provider Entity ID` from Branch.
+   1. Single sign-on URI: Paste the `Single Sign-On URL` from Branch.
+   2. Audience URI (SP Entity ID): Paste the `Service Provider Entity ID` from Branch.
 5. In the same section, configure the following Okta settings:
 
-   3. Name ID format: Set to `EmailAddress`
-   4. Application username: Set to `Email`  
-      *[Image: Configuration settings for SAML integration in Okta for Branch.]*.png)
+   1. Name ID format: Set to `EmailAddress`
+   2. Application username: Set to `Email`  
+      *[Image: Configuration settings for SAML integration in Okta for Branch.]*
 
 ### Step 3: Map attributes in Okta
 
@@ -76,7 +75,7 @@ Your Okta application is now configured. The final step is to provide Okta’s m
 
 1. In your new Okta application, go to the **Sign On** tab.
 2. Find the **SAML setup instructions** and select **View SAML setup instructions**.
-3. A new page will open with your metadata. Copy the **Identity Provider Single Sign-On URL** or the **Metadata URL**.
+3. A new page opens with your metadata. Copy the **Identity Provider Single Sign-On URL** or the **Metadata URL**.
 4. Go back to your Branch **Configure Custom SAML** browser tab.
 5. Complete step [2.3](https://help.branch.io/docs/configure-sso#:~:text=Step%202.3%3A%20Configure%20connection) in our main guide. Paste your Okta **Metadata URL** (recommended) or manually enter the **Single Sign-On URL** and upload the **Signing Certificate** (also found on the Okta setup instructions page).
 

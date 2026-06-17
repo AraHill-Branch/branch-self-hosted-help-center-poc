@@ -1,5 +1,5 @@
 ---
-title: "Home Page (New)"
+title: "Home page (New)"
 slug: home-page-new
 ---
 
@@ -7,7 +7,7 @@ slug: home-page-new
 
 The [Home page](https://branchdocs.app.link/e/home-page-to-dashboard) is your central hub for getting started with Branch. It's designed to guide you through the essential setup tasks, track your progress, and provide easy access to helpful resources.
 
-This page gives you a high-level overview of your overall Branch implementation progress, and well as detailed steps to take that will help make sure you are getting the most out of the Branch Growth Platform.
+This page gives you a high-level overview of your overall Branch implementation progress, as well as detailed steps to help you get the most out of the Branch Growth Platform.
 
 ::: info Note
 The Home page is available for self-serve customers with new accounts created after July 7, 2025. This page will continue to **roll out to our remaining customers throughout 2025**.
@@ -16,8 +16,6 @@ The Home page is available for self-serve customers with new accounts created af
 ## Home page features
 
 The Home page offers several features that make it easier to see where you are in the implementation process.
-
-
 
 ### Branch setup checklist
 
@@ -29,20 +27,20 @@ Each task card gives you important information at a glance:
 
 - **Title and description:** Explains what the task is and why it's important.
 - **Time estimate**: Shows the approximate time it takes to complete the task.
-- **Role tag**:Indicates who on your team is typically responsible for this task (e.g., Admin, Developer).
+- **Role tag**: Indicates who on your team is typically responsible for this task (e.g., Admin, Developer).
 - **Status label**: The current state of the task.
 
   - **To Do**: The default state for an incomplete task.
-  - **Complete**: The task has been finished. The card will be marked as "Complete" and may show the initial of the team member who completed it.
+  - **Complete**: The task has been finished. The card is marked as "Complete" and may show the initial of the team member who completed it.
   - **Dismissed**: You have chosen to hide this task from your main view.
 
 #### Interactive task cards
 
 The task cards are interactive, allowing you to take action directly from the Home page.
 
-- **Action buttons:** Each card has a primary call-to-action button (e.g., "Invite team," "Set timezone," "Configure link domain") that will take you to the relevant page to complete the task.
+- **Action buttons:** Each card has a primary call-to-action button (e.g., "Invite team," "Set timezone," "Configure link domain") that takes you to the relevant page to complete the task.
 - **Dropdown menus:** Some tasks, like "Integrate the Branch SDK," have dropdown menus that provide more specific options and links to detailed guides (e.g., iOS, Android, or Web SDK guides).
-- **More Options Menu (**`...`**):** Clicking the three-dot menu on a task card reveals additional actions:
+- **More options menu (**`...`**):** Selecting the three-dot menu on a task card reveals additional actions:
 
   - **Mark complete:** Manually mark a task as finished.
   - **Dismiss:** Hide the task from your to-do list.

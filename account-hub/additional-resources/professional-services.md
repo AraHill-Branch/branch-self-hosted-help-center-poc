@@ -1,5 +1,5 @@
 ---
-title: "Professional Services"
+title: "Professional services"
 slug: professional-services
 ---
 
@@ -37,6 +37,6 @@ To ensure a successful setup, all customers who purchase a Branch Growth Platfor
 
 This way, Branch can reliably guarantee quality support for your onboarding, implementation, and enablement experiences. Do things right the first time and spend your valuable time getting the most out of our product.
 
-## Get Started
+## Get started
 
-When you're ready to discuss Branch packaging, contact our [sales team](https://www.branch.io/contact-sales) to get started!
+When you're ready to discuss Branch packaging, contact our [sales team](https://www.branch.io/contact-sales) to get started.

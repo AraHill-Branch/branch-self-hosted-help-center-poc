@@ -11,7 +11,7 @@ Using SSO makes it easier to add or remove Branch users, and improves their logi
 
 ### Before you begin
 
-Before you begin, ensure you have:
+To configure SSO, you first need:
 
 - Admin access to your Branch account.
 - Admin access to your organization's IdP (e.g., Okta, Azure AD) account.

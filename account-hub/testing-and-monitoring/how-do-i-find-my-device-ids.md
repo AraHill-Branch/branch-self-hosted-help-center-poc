@@ -1,5 +1,5 @@
 ---
-title: "Find your Device IDs"
+title: "Find your device IDs"
 slug: how-do-i-find-my-device-ids
 ---
 
@@ -11,7 +11,7 @@ Neither identifier is particularly easy to find, and both can be reset. While th
 
 Find out how to find and reset your device identifier on iOS and Android below.
 
-## Find my Apple device ID
+## Find your Apple device ID
 
 Apple does not currently provide a built-in way for users to directly view their IDFA. To do this, you'll need to use a third-party app from the App Store.
 
@@ -23,13 +23,13 @@ However, you can reset your IDFA if you need to. To do this:
 
    1. You can toggle this back on at this point if you'd like.
 
-## Find my Android device ID
+## Find your Android device ID
 
 To find your AAID:
 
 1. Go to the **Settings** app on your device.
 2. Navigate to **Google Settings**.
-3. Select **Ads** — your AAID will be visible at the bottom of the screen.
+3. Select **Ads** — your AAID is visible at the bottom of the screen.
 
 To reset your AAID:
 

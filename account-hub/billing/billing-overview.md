@@ -1,9 +1,9 @@
 ---
-title: "Billing Overview"
+title: "Billing overview"
 slug: billing-overview
 ---
 
-### Trials
+## Trials
 
 You're welcome to sign up for Branch on a **30-day** trial. This trial allows you to use our **self-serve** offerings at no cost. You'll be asked to add a credit card to your account at sign-up.
 

@@ -1,5 +1,5 @@
 ---
-title: "Troubleshooting Link Formatting Errors"
+title: "Troubleshooting link formatting errors"
 slug: troubleshooting-link-formatting-errors
 ---
 
@@ -18,7 +18,7 @@ Attribution will not occur because the device ID on the link must be in an accep
 
 Ensure you're using a real device ID. If you're testing, use a correctly formatted dummy ID. If you don't have a device ID and this link is not server to server, you can remove the device ID macro altogether and retest.
 
-## S2S & no device ID present
+## S2S and no device ID present
 
 #### Cause
 
@@ -28,7 +28,7 @@ Server to server clicks must have device IDs for attribution. Point in time mode
 
 Use a device ID macro like `$idfa` or `$aaid`.
 
-## S2S & both $idfa AND $aaid
+## S2S and both $idfa and $aaid
 
 The error could also be: (`$idfa\_sha1` AND `$aaid\_sha1`) or (`$idfa\_md5` AND `$aaid\_md5`).
 

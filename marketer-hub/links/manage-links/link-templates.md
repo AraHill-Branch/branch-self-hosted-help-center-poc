@@ -57,6 +57,10 @@ Setting the **Redirect Type** to *Default* will use the settings set on the [App
 
 Adding link data to your Link Template is optional. You can add fields that will be useful for the mobile app (ex. [deep linking parameters](deep-link-data-options.md#deep-link-data-key-values)). You may need to reach out to your mobile development team to confirm with key/value pairs are necessary for your link based on your use case. These fields can also be marked as **Required**.
 
+::: warning Caution
+The link data fields in a Link Template support flat key/value pairs only. They don't support nested key/value pairs (nested JSON objects). To recreate a nested JSON structure, like the `data` object your developers send when they create links with the API, use the [Deep Linking API](https://help.branch.io/apidocs/deep-linking-api) instead.
+:::
+
 ### 5. Social Media Tags
 
 Adding social media tags to your Link Template is optional. These tags can be set in order to fill Open Graph tags that make your Short Link more descriptive with a title, description, and image.

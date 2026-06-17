@@ -25,7 +25,7 @@ Our Engagement product helps eliminate broken experiences, enhance team efficien
 
 With advanced A/B testing, targeting, and customization, growth-focused teams can further drive traffic and optimize conversions among their users.
 
-### In Action
+### In action
 
 Take a look at a few of our favorite Engagement features and preview some ways to get started with them.
 
@@ -67,7 +67,7 @@ Take your campaigns one step further by bridging the gap between household devic
 
 Importantly, Performance helps make sure you're protecting your ad budget from fraud and eliminating low-quality traffic. We help detect and prevent even the most sophisticated fraud with flexible blocking rules, dashboard visibility, and hands-on fraud mitigation support.
 
-### In Action
+### In action
 
 Below are some key Performance features alongside some suggested ways to get started with them.
 
@@ -105,7 +105,7 @@ Help prevent wasted spend with higher quality data based on a privacy-preserving
 
 ## Activation
 
-*[Image: Mobile and desktop interface showcasing social media engagement and advertising features.]*.png)Address common challenges in link creation and analytics with a more streamlined approach.
+Address common challenges in link creation and analytics with a more streamlined approach.
 
 Branch Activation is an enterprise custom QR and link shortening offering enabling you to activate your customers with web links, app links, and QR codes, and report on user interactions at scale.
 
@@ -115,7 +115,7 @@ You can create effective, measurable links for high-visibility channels like soc
 
 Unify your linking strategy on one secure, scalable platform. Improve click-through rates with branded links, reduce vendor complexities, and benefit from enterprise-grade governance—all while supporting your teams in executing their campaigns efficiently.
 
-### In Action
+### In action
 
 Explore how Activation’s key capabilities can enhance your marketing efforts.
 

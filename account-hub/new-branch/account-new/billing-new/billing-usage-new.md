@@ -9,7 +9,7 @@ slug: billing-usage-new
 
 You can use this information to measure utilization for the current month, so that you do not go over your allowed limits. It allows you to analyze trends from month to month.
 
-Depending on your plan, Branch will reflect either your app’s **monthly active users (MAU)** count, or it will show **volume credit** usage.
+Depending on your plan, Branch reflects either your app’s **monthly active users (MAU)** count, or shows **volume credit** usage.
 
 ### Monthly active users
 
@@ -23,9 +23,9 @@ Volume credits correspond to the number of end-user actions tracked, attributed,
 
 ## Track usage
 
-How you view your app’s usage metrics will depend on whether your account uses Branch’s new or legacy billing experience.
+How you view your app’s usage metrics depends on whether your account uses Branch’s new or legacy billing experience.
 
-On the [Billing tab](https://branchdocs.app.link/billing-new-to-billing-settings), you will find a module called Volume Credit Usage. This module shows you the number of volume credits your app has used this month, out of the total number of volume credits you have purchased. This bar resets monthly.
+On the [Billing tab](https://branchdocs.app.link/billing-new-to-billing-settings), you'll find a module called **Volume Credit Usage**. This module shows you the number of volume credits your app has used this month, out of the total number of volume credits you have purchased. This bar resets monthly.
 
-From this same module, you can click **Manage Plan** to adjust your Branch package.
+From this same module, you can select **Manage Plan** to adjust your Branch package.
 

@@ -1,12 +1,12 @@
 ---
-title: "Link Configuration FAQ"
+title: "Link configuration FAQ"
 slug: link-configuration-faq
 ---
 
 The most frequently asked questions about link configuration.
 
 <details>
-<summary>Why are Branch deep links redirecting to Desktop Fallbacks on iPad?</summary>
+<summary>Why are Branch Links redirecting to Desktop Fallbacks on iPad?</summary>
 
 Apple treats iPad as a desktop device. This means all links by default will redirect as if on a Desktop device. Using this guide, [add custom fallback for iPad devices](configure-default-link-behaviors.md#i-pad-redirect-link-behavior).
 
@@ -22,9 +22,9 @@ Check out our [Add Multiple Custom Domains](https://help.branch.io/docs/add-mult
 </details>
 
 <details>
-<summary>Why does the link redirect to fallback\_url even when the app is already installed when the link is clicked from Chrome/Gmail?</summary>
+<summary>Why does the link redirect to fallback\_url even when the app is already installed when the link is selected from Chrome/Gmail?</summary>
 
-This usually happens when the Android URI scheme set on the dashboard does not match with the one in the Android Manifest file.
+This usually happens when the Android URI scheme set in Branch does not match with the one in the Android Manifest file.
 
 </details>
 
@@ -44,17 +44,17 @@ In absence of the above information (i.e. if no package name or App Store ID can
 <details>
 <summary>How do I set up an iPad redirect to my website?</summary>
 
-When clicking on a Branch Link from an iPad, users are being redirected to the website and not the App Store. With the release of OS 13+, the iPad is now reporting as a desktop because Apple is sending the user agent as macOS. You can do one of two things to resolve the issue:
+When clicking a Branch Link from an iPad, users are redirected to the website and not the App Store. With the release of OS 13+, the iPad is now reporting as a desktop because Apple is sending the user agent as macOS. You can do one of two things to resolve the issue:
 
 1. Set an `$ipad_url` on the link-level
-2. Or, set the iPad fallback in the [Advanced Mobile Redirects](https://dashboard.branch.io/configuration/general) section of link settings in the Branch dashboard to the iTunes link for your app.
+2. Or, set the iPad fallback in the [Advanced Mobile Redirects](https://dashboard.branch.io/configuration/general) section of link settings in Branch to the iTunes link for your app.
 
 </details>
 
 <details>
 <summary>When configuring my redirects I cannot find my app from the list of apps, what do I do?</summary>
 
-If you are unable to find your app using the App search field on the Branch Dashboard Configuration page. Please select 'Custom URL 'and enter the link to the Playstore or AppStore for your app.  
+If you are unable to find your app using the App search field on the Configuration page in Branch, select **Custom URL** and enter the link to the Play Store or App Store for your app.  
  This will not impact functionality in any way.
 
 If you are unable to find your app using the App Search field on the [Configuration](https://dashboard.branch.io/configuration/general) page, you can do the following:

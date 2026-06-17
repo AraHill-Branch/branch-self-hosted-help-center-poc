@@ -35,7 +35,7 @@ Your Branch Secret should only be used in secure, server-side environments. Neve
 
 ### Access Token
 
-Your Access Token is a unique identifier assigned specifically to you. Each user will have their own Access Token, as long as they have the correct [permissions](user-accounts-and-permissions.md). The Access Token is used to verify your specific permissions within an organization.
+Your Access Token is a unique identifier assigned specifically to you. Each user has their own Access Token, as long as they have the correct [permissions](user-accounts-and-permissions.md). The Access Token verifies your specific permissions within an organization.
 
 It's primarily used for extracting data from certain [APIs](https://help.branch.io/apidocs/apis-overview) that require additional authentication.
 
@@ -55,7 +55,7 @@ By default, credential values are masked for security. To view and copy your cre
 If you suspect a credential has been compromised or need to rotate credentials for security purposes, you can reset any credential using the **Reset** button.
 
 ::: warning Caution
-Resetting a credential will immediately invalidate the old value. Any integrations, applications, or scripts using the old credential will stop working until you update them with the new value. Plan your credential rotations carefully to avoid service disruptions.
+Resetting a credential immediately invalidates the old value. Any integrations, applications, or scripts using the old credential stop working until you update them with the new value. Plan your credential rotations carefully to avoid service disruptions.
 :::
 
 To reset a credential:

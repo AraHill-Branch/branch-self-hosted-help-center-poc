@@ -37,19 +37,19 @@ Your app ID is sensitive information. Keep it secure and do not share it publicl
 
 ### App logo
 
-Upload your company or app logo to personalize your Branch experience. Your logo will appear in the top-left corner of Branch.
+Upload your company or app logo to personalize your Branch experience. Your logo appears in the top-left corner of Branch.
 
 To upload a logo, select the upload icon and select an image file from your computer.
 
 ### Timezone
 
-Select the timezone that Branch will use to display dates and times throughout the platform. This affects how analytics data, reports, and timestamps are displayed.
+Select the timezone that Branch uses to display dates and times throughout the platform. This affects how analytics data, reports, and timestamps are displayed.
 
 Setting the correct timezone ensures that your data is displayed accurately and aligns with your team's working hours.
 
 ### Local currency
 
-Select the currency that Branch will use to display monetary values in your reports and dashboards. This setting affects how revenue and cost data is presented throughout the platform.
+Select the currency that Branch uses to display monetary values in your reports and dashboards. This setting affects how revenue and cost data is presented throughout the platform.
 
 Choose the currency that aligns with your primary business operations and reporting needs.
 
@@ -57,4 +57,4 @@ Choose the currency that aligns with your primary business operations and report
 
 After making any changes to your General settings, select the **Save Changes** button in the top-right corner of the page to apply your updates.
 
-Branch will save your settings and apply them immediately.
+Branch saves your settings and applies them immediately.

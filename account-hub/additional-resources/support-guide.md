@@ -1,5 +1,5 @@
 ---
-title: "Support Guide"
+title: "Support guide"
 slug: support-guide
 ---
 
@@ -33,7 +33,7 @@ By allocating Professional Service Hours for your team, you're securing support 
 
 ### Premium support
 
-Rely on our Premium Support Services to resolve your concerns quickly. Response times are as fast as 2 hours, **even on weekends**.
+Rely on our Premium Support Services to resolve your concerns quickly. Response times are as fast as two hours, **even on weekends**.
 
 Our Premium Support Service hours follow a fixed pricing model, which offers more predictability and reliability as you plan for your team's ongoing needs.
 

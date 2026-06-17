@@ -7,10 +7,6 @@ slug: profile-new
 
 Use the **Profile** tab on the **Manage account** page to manage your Branch account. This includes your name, role, preferences, and more. You can also view your user ID and account email.
 
-::: info Your title goes here
-Your content goes here
-:::
-
 ## Open the Profile tab
 
 Follow these steps to open the **Profile** tab:
@@ -24,7 +20,7 @@ On the **Profile** tab in the **Manage account** section in Branch, you can upda
 
 ### Update your name
 
-Your name is the name that will appear in Branch and the name that automated emails from Branch will be addressed to.
+Your name is the name that appears in Branch and the name that automated emails from Branch are addressed to.
 
 Follow these steps to update your Branch account name:
 

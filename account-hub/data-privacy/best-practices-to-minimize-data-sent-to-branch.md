@@ -1,27 +1,27 @@
 ---
-title: "Best Practices to Minimize Data Sent to Branch"
+title: "Best practices to minimize data sent to Branch"
 slug: best-practices-to-minimize-data-sent-to-branch
 ---
 
 ## Overview
 
-To protect user privacy, users of Branch’s services should not send any data to Branch through our services that are considered personally identifiable information (PII).  
-  
+To protect user privacy, users of Branch’s services should not send any data to Branch through our services that is considered personally identifiable information (PII).
+
 PII includes, but is not limited to, information such as full name, username, email addresses, and account numbers.
 
-When configuring Branch on a digital property, review the best practices in this document to minimize the data sent to Branch. The information provided in this document is for informational purposes only. You should consult with legal counsel to confirm the sensitivity of the data you plan to send to Branch and any associated legal obligations.
+When configuring Branch on a digital property, review the best practices in this document to minimize the data sent to Branch. The information provided in this document is for informational purposes only. Consult with legal counsel to confirm the sensitivity of the data you plan to send to Branch and any associated legal obligations.
 
-This document will help you understand:
+This document helps you understand:
 
 - How Branch treats different types of data—depending on whether they are categorized as personal data, PII, pseudonymous data, or anonymous data.
 - Why it’s important to secure personal data before sharing with Branch or other third parties.
 - Treatment of various data parameters across Branch’s services.
 
-## PII, Personal Data, Pseudonymous & Anonymous Data
+## PII, personal data, pseudonymous, and anonymous data
 
-From a privacy perspective, data is often classified into four categories: personally identifiable data, personal data, pseudonymous data, or anonymous data. There are also additional categorizations of data depending on the data protection regulatory scheme, such as protected health information. In general, personally identifiable information includes the more sensitive forms of data that can identify individuals. Unless expressly set out in the permitted data fields below, personal data, PII and other sensitive data should either not be shared with Branch at all or should be pseudonymized or anonymized before being shared with Branch if at all. Below we discuss these different categories of data and some best practices for pseudonymization and anonymization.
+From a privacy perspective, data is often classified into four categories: personally identifiable data, personal data, pseudonymous data, or anonymous data. There are also additional categorizations of data depending on the data protection regulatory scheme, such as protected health information. In general, personally identifiable information includes the more sensitive forms of data that can identify individuals. Unless expressly set out in the permitted data fields below, personal data, PII, and other sensitive data should either not be shared with Branch at all or should be pseudonymized or anonymized before being shared with Branch if at all. Below we discuss these different categories of data and some best practices for pseudonymization and anonymization.
 
-### What is Personally Identifiable Information?
+### What is personally identifiable information?
 
 At Branch, we treat data as personal data or personally identifiable data depending on the laws of the relevant jurisdiction. Generally, Branch interprets **Personally Identifiable Information** (PII) as information that could be used on its own to directly identify, contact, or precisely locate an individual.  
 This includes things like:
@@ -34,19 +34,19 @@ This includes things like:
 
 Branch does not collect PII to provide our services and strongly advises customers not to do so to ensure they are not sending PII to Branch inadvertently.
 
-### What is Personal Data?
+### What is personal data?
 
 **Personal data** is a relatively broad category of data that was introduced in 2018 under the European General Data Protection Regulation and is any information that relates to an identified or identifiable living individual such as IP address, cookie ID, and advertising identifiers like IDFA and GAID. Branch collects Personal Data from customers to provide our services.
 
-### What is Pseudonymous Data?
+### What is pseudonymous data?
 
 **Pseudonymous data** is data that is rendered de-identified via a technique that replaces personal data or PII fields in a data record with pseudonyms so that the data record can no longer be attributed to an end user without the use of additional information. Pseudonymization is accomplished by ensuring that identifying reference information is maintained separately via technical and organizational measures to prevent re-identification to an end user.
 
-### What is Anonymous Data?
+### What is anonymous data?
 
-**Anonymous data** is not linked to an end user’s device and does not specifically identify an end user in any way nor provide the potential for future identification of that end user. For instance, aggregated data that you view in your Branch dashboard on the number of installs in a given time period is anonymous data.
+**Anonymous data** is not linked to an end user’s device and does not specifically identify an end user in any way nor provide the potential for future identification of that end user. For instance, aggregated data that you view in Branch on the number of installs in a given time period is anonymous data.
 
-## What is Hashing?
+## What is hashing?
 
 **Hashing** (also known as obfuscation) is a pseudonymization technique whereby a text string (e.g. personal data or PII field) is transformed into an arbitrary numerical value. Hashing is a useful tool for pseudonymizing personal data and PII before sharing it with third parties for a few reasons:
 
@@ -54,9 +54,9 @@ Branch does not collect PII to provide our services and strongly advises custome
 - Hashing is deterministic, in that the same text string will produce the same hash value every time.
 - Hash values are “one-way”, in that it is not possible in practice to take the hash value and reverse the algorithm to reveal the original text string.
 
-Branch utilizes automatic hashing techniques to minimize the personal data we process. Additionally, to the extent you utilize PII in your app’s data records, you should ensure that you hash any such PII before sharing that data with your third-party service providers like Branch to practice data minimization.
+Branch utilizes automatic hashing techniques to minimize the personal data we process. Additionally, to the extent you utilize PII in your app’s data records, hash any such PII before sharing that data with your third-party service providers like Branch to practice data minimization.
 
-### Standard Hashing Algorithms
+### Standard hashing algorithms
 
 There are several standard hashing algorithms you can use to encrypt personal data and PII and securely pass it to Branch and other third parties, such as:
 
@@ -64,7 +64,7 @@ There are several standard hashing algorithms you can use to encrypt personal da
 - **SHA-1** – Produces a 160-bit (20-byte) hash value, typically rendered as a 40 digit hexadecimal number.
 - **SHA-256** – Produces a 256-bit (32-byte) hash value, typically rendered as a 64 digit hexadecimal number.
 
-### Hashing Example
+### Hashing example
 
 Say, for example, your end-user has provided you with their email address – [john@doe.com](mailto:john@doe.com) – which you recognize to be PII and therefore seek to hash it before sending this data to third-party service providers like Branch.
 
@@ -81,9 +81,9 @@ When hashing your data, keep in mind that capitalization and punctuation matter.
 
 As part of [Branch’s guiding Privacy Principles](https://legal.branch.io/#branchio-privacypolicy), we practice data minimization, which means that we avoid collecting or storing information that we don’t need to provide our services. The personal data that we collect is limited to data like advertising identifiers, IP addresses, and information derived from resettable cookies. In addition, we take a variety of measures to make sure personal data like this isn’t stored in raw form in our systems for longer than we need it to provide our services.
 
-### Data Branch Hashes
+### Data Branch hashes
 
-Branch has implemented automated hashing mechanisms for data parameters that are expected to or could reasonably include personal data. The following data parameters are salted and sha256 hashed after 7 days, then stored only in this hashed form thereafter:
+Branch has implemented automated hashing mechanisms for data parameters that are expected to or could reasonably include personal data. The following data parameters are salted and sha256 hashed after seven days, then stored only in this hashed form thereafter:
 
 - **user\_data\_aaid** - The Google Advertising ID associated with the user.
 - **user\_data\_android\_id** - The Android ID associated with the user.
@@ -149,11 +149,11 @@ The following fields are also hashed, but after 60 days. In the case of JSON fie
   - **pw**
   - **password**
 
-## PII Best Practices
+## PII best practices
 
 To protect user privacy, Branch policies strongly discourage you from passing us any data that we could recognize as personally identifiable information (PII).
 
-Branch only collects (and soon thereafter hashes) the Personal Data listed [above](best-practices-to-minimize-data-sent-to-branch.md#data-branch-automatically-hashes).
+Branch only collects (and soon thereafter hashes) the Personal Data listed [above](best-practices-to-minimize-data-sent-to-branch.md#data-branch-hashes).
 
 Branch **does not** intend to collect any of the following PII:
 
@@ -167,11 +167,11 @@ This is by no means an exhaustive list - if the specific data parameter is not t
 
 Please follow the best practices outlined below to reduce the risk of sending this PII to Branch.
 
-### Do Not Send Raw PII to Branch
+### Do not send raw PII to Branch
 
 - Do not send raw PII to Branch via any data parameters you configure to collect information.
 
-### Hash PII Before Sending to Branch
+### Hash PII before sending to Branch
 
 - If you do need to send PII through Branch, you must hash it before sending the data to Branch; ideally using the sha256 hashing function.
 - Branch does not need to collect the [PII fields mentioned above](best-practices-to-minimize-data-sent-to-branch.md#pii-best-practices) for our services to work, and Branch does not support dedicated parameters for you to pass their hashed versions. If you need to send these hashed fields through Branch, you can do so by passing them into a custom data object via API or SDK. You should work with your account team to make sure this is done correctly before sending this data to Branch.
@@ -189,7 +189,7 @@ Please follow the best practices outlined below to reduce the risk of sending th
 - If you plan on using your own user identifier to join your offline data with Branch’s data, there are a few things to keep in mind when choosing what value to use as your **Developer Identity**.
 - You may **NOT** use an identifier for Developer Identity that contains personally identifiable information (PII). This rules out email addresses, user logins, social security numbers, phone numbers, or any piece of data that is deemed to be "PII".
 - You **CAN** use non-obfuscated alphanumeric database identifiers that you might create for your visitors. Another acceptable option is to pass to Branch a hashed or encrypted identifier that is based on PII but that is not Protected Health Information (as defined under HIPAA), as long as you use properly strong hashing or encryption. Branch recommends the use of a strong hashing algorithm and a salt.
-- If you want to join Branch data back to your own unhashed internal identifiers, we recommend creating your own internal reference table that matches the raw PII or personal data with its hashed counterpart. Doing so will enable you to line up exported historical Branch data with your own internal databases without sensitive, unhashed data leaving the relative safety of your own systems.
+- If you want to join Branch data back to your own unhashed internal identifiers, we recommend creating your own internal reference table that matches the raw PII or personal data with its hashed counterpart. Doing so enables you to line up exported historical Branch data with your own internal databases without sensitive, unhashed data leaving the relative safety of your own systems.
 
 ### PII in URLs
 
@@ -197,12 +197,12 @@ Please follow the best practices outlined below to reduce the risk of sending th
 - If the confirmation page’s URL contains PII and the page hosts Branch’s Web SDK, PII could inadvertently end up in Branch’s systems as part of the URL string.
 - **Check links for PII:** Sign up for an account. Check if the URL in the verification/confirmation email includes the email address or other PII. As a best practice, you should never include raw PII in URLs under any circumstances. Instead, hash or encrypt this PII or use a safer, pseudonymous identifier instead.
 
-### PII in Branch Link Data (Including Query Parameters)
+### PII in Branch Link data (including query parameters)
 
-- As outlined above, it is against Branch’s policies to include raw PII in Branch Link data. This includes adding PII as query parameters to an otherwise “clean” Branch Link, since Branch will store the full URL
-- For example, imagine a Branch Link with a raw email appended as a query param, like this: `https://www.test.app.link/abc123?email=sample%40email.com&token=413203`. Branch will store the **full** URL, including the unwanted PII, in our systems when a user clicks on this link.
+- As outlined above, it is against Branch’s policies to include raw PII in Branch Link data. This includes adding PII as query parameters to an otherwise “clean” Branch Link, since Branch stores the full URL
+- For example, imagine a Branch Link with a raw email appended as a query param, like this: `https://www.test.app.link/abc123?email=sample%40email.com&token=413203`. Branch stores the **full** URL, including the unwanted PII, in our systems when a user selects this link.
 - As a best practice, make sure you’re not including raw PII in Branch Link data (even as query parameters added after link creation) by hashing or otherwise pseudonymizing it before appending it.
 
-### HIPAA Disclaimer
+### HIPAA disclaimer
 
 - Unless otherwise specified in writing by Branch, Branch does not intend uses of the Branch Services to create obligations under the Health Insurance Portability and Accountability Act, as amended, (“HIPAA”), and makes no representations that the Branch Services satisfy HIPAA requirements. If you are (or become) a Covered Entity or Business Associate under HIPAA, you may not use the Branch Services for any purpose or in any manner involving Protected Health Information unless you have received prior written consent to such use from Branch.

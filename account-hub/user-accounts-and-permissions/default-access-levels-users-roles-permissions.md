@@ -1,20 +1,20 @@
 ---
-title: "Default Access Levels, Users Roles & Permissions"
+title: "Default access levels, user roles, and permissions"
 slug: default-access-levels-users-roles-permissions
 ---
 
-There are 3 main ingredients to the Branch permissions systems: Entities, Access Levels and Roles.
+There are three main ingredients to the Branch permissions systems: Entities, Access Levels, and Roles.
 
 ## Roles
 
-Branch’s permission system allows you to control access with a high degree of precision. We support an exceptional level of customization of permissions. However, in most cases, you will be able to configure user access very simply. A users ultimate level of access is usually determined by two key factors:
+Branch’s permission system allows you to control access with a high degree of precision. We support an exceptional level of customization of permissions. However, in most cases, you can configure user access very simply. A user's ultimate level of access is usually determined by two key factors:
 
 1. Their Role a.k.a. "Access Level"
-2. Their Entity (which will determine whether they can access data belonging to an [App](entity-views-access-controls-overview.md#section-app-view), [Organization](entity-views-access-controls-overview.md#section-organization-view) or shared with an [Agency](entity-views-access-controls-overview.md#section-agency-view))
+2. Their Entity (which determines whether they can access data belonging to an [App](entity-views-access-controls-overview.md#section-app-view), [Organization](entity-views-access-controls-overview.md#section-organization-view), or shared with an [Agency](entity-views-access-controls-overview.md#section-agency-view))
 
-This article covers Roles/Access Levels. For more information on Entity Views, see this [dedicated article](entity-views-access-controls-overview.md).
+This article covers Roles/Access Levels. For more information on Entity Views, see the [Entity Views overview](entity-views-access-controls-overview.md).
 
-You can assign a user a set Role to determine their levels of access and control. We offer 4 template Roles: Admin, Team Member, Full Read, Limited Read, and User Coordinator. You can also create your own custom role. Each role comes with a bundle of Permissions (explained later) which will affect how the user may view, edit, and export data.
+You can assign a user a set Role to determine their levels of access and control. We offer four template Roles: Admin, Team Member, Full Read, Limited Read, and User Coordinator. You can also create your own custom role. Each role comes with a bundle of Permissions (explained later) that affects how the user may view, edit, and export data.
 
 At a high level, this is how the different roles/access levels are recommended to be used:
 
@@ -26,24 +26,24 @@ At a high level, this is how the different roles/access levels are recommended t
 | Limited Read | - View-only access on aggregate data, such as dashboards showing trends in clicks, installs and user growth | - Analysts who need access to trend data for reporting purposes |
 | User Coordinator | - The ability to add or remove other users from the account | - Designed for large teams who frequently have changes in team membership. The User Coordinator has no direct access to data from the rest of the product, but can handle team logistics, inviting new and removing users and agency team members and altering specific user permissions. Best used in combination with other steps such as implementing SSO on an account. (Note: The User Coordinator cannot be an agency member). |
 
-Under the hood, each of the four default Roles/Access Levels is defined by a number of different Permissions. Understanding Permissions will be important if you decide you need to create Custom roles. Review the section below to understand Permissions.
+Under the hood, each of the four default Roles/Access Levels is defined by a number of different Permissions. Understanding Permissions is important if you decide you need to create Custom roles. Review the section below to understand Permissions.
 
 ## Access Levels
 
 Every feature in Branch is associated with a combination of “Permissions”. To see, edit, or export data from a feature, a user needs to have been granted all of the Permissions associated with that feature. For example, there is a Permission that relates to “exporting” and another which relates to “sensitive data”, such as device IDs. If a user wants to be able to export device IDs from our Custom Exports feature, they would need to have both of these Permissions enabled on their individual user profile.
 
-There are 7 different Permissions which an individual user can be assigned. These will determine whether a user can view, edit, and/or export data for specific elements within the Branch Dashboard. Most Permissions can be granted as either “View” or “Edit”.
+There are seven different Permissions which an individual user can be assigned. These determine whether a user can view, edit, and/or export data for specific elements within Branch. Most Permissions can be granted as either “View” or “Edit”.
 
 - **Link Level**: Settings or features that can impact functionality for single links require this Access Level. This is mostly related to the Ad Links and Short Links configuration pages. Link Level is available as either a “View only” or “Edit”.
 - **Channel Level**: Settings or features that can impact functionality across a marketing channel, such as paid advertising, or across entire Branch features which an app is using, such as Journeys, Text Me The App or Deep Views, require this Access Level. Channel Level is required to access ad partner management settings, and postback configurations, which can be used to send log-level data to ad partners. Channel Level is available as either a “View only” or “Edit”.
 - **App Level**: Settings or features that can impact functionality app-wide require this Access Level. For example, this includes the Billing, single sign on (SSO), and API settings for an individual app. App Level is available as either a “View only” or “Edit”.
-- **Aggregate Data**: Mostly used for reporting. With the Aggregate Data Access Level, a user will be able to see summary information such as clicks, installs and other events over time. Aggregate Data does not contain granular information, such as device IDs or log level events.
+- **Aggregate Data**: Mostly used for reporting. With the Aggregate Data Access Level, a user can see summary information such as clicks, installs, and other events over time. Aggregate Data does not contain granular information, such as device IDs or log level events.
 - **Sensitive Data**: Branch reserves a special control for data that can contain user-identifying, payment-related, or secret information. This enables you to impose stricter controls over actions such as the export of Device IDs, which may require different handling for privacy and security reasons.
-- **Fraud Settings & Data**: Branch’s advanced Fraud rules are calibrated to detect and block fraud before you are billed for fraudulent installs by bad actors. Changes to these rules will increase or decrease your tolerance for potential fraud, and should be handled with due care. The Fraud Settings & Data Access Level is available as either a “View only” or “Edit”.
+- **Fraud Settings & Data**: Branch’s advanced Fraud rules are calibrated to detect and block fraud before you are billed for fraudulent installs by bad actors. Changes to these rules increase or decrease your tolerance for potential fraud, and should be handled with due care. The Fraud Settings & Data Access Level is available as either a “View only” or “Edit”.
 - **Engagement Builder**: Branch's Engagement feature is designed to help marketers conduct precision retargeting and re-engagement campaigns to drive even higher return on advertising spend. Using our simple yet precise rule system, clients can easily segment users into engagement groups based on their past purchases, advertising exposure, and in-app behavior. The Engagement Builder is available as either a “View only” or “Edit”.
 - **Export**: Allows users to export data from pages they can view. The Export Access Level is frequently needed in combination with either Aggregate Data or Sensitive Data to move data from the system.
 
-## How Roles and Access Levels Are Related
+## How roles and access levels relate
 
 Under the hood, each of the four default Roles/Access Levels is defined by a number of different Permissions. The table below shows the Permissions assigned to each role by default.
 
@@ -55,11 +55,11 @@ Under the hood, each of the four default Roles/Access Levels is defined by a num
 | **Limited Read** |  |  |  | View |  |  |  |  |
 | User Coordinator |  |  |  |  |  |  |  |  |
 
-\*\*If a box is blank, the user does not have access to see/edit the information, data, or have the option to export.
+If a box is blank, the user does not have access to see or edit the information, data, or have the option to export.
 
-## Which Features Does A Role Gain Access To?
+## Which features a role can access
 
-Every feature in Branch requires different Permissions to interact with it. The below table shows the required Permissions needed for each Feature. For Example, to access the Summary page a user must have the Aggregate Data Permissions. You can also see whether a user with a default Role (Admin, Team Member, Full Read, or Limited Read) is entitled to View or Edit that feature. In the case of the Summary page, you can see that because all Roles come with the Aggregate Data Access Level, all Roles have View access to the Summary Page.
+Every feature in Branch requires different Permissions to interact with it. The below table shows the required Permissions needed for each Feature. For example, to access the Summary page a user must have the Aggregate Data Permissions. You can also see whether a user with a default Role (Admin, Team Member, Full Read, or Limited Read) is entitled to View or Edit that feature. In the case of the Summary page, you can see that because all Roles come with the Aggregate Data Access Level, all Roles have View access to the Summary Page.
 
 | Page | Required Permissions | Default Profiles for Viewing | Default Profiles for Editing |
 | --- | --- | --- | --- |

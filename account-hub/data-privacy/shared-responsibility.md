@@ -1,5 +1,5 @@
 ---
-title: "Shared Responsibility"
+title: "Shared responsibility"
 slug: shared-responsibility
 ---
 
@@ -19,22 +19,26 @@ Our commitment to providing a secure experience for our customers works in tande
 
 ## Access controls and configuration
 
-#### Branch's responsibilities
+Branch and our customers share the work of securing access to the Service and configuring it correctly.
+
+### Branch's responsibilities
 
 - Promote and maintain robust security and privacy measures within the Service to protect the confidentiality, integrity, and availability of data which includes the maintenance and configuration of Branch's Software Development Kit (SDK), cloud infrastructure, and the operating software deployed on its cloud infrastructure.
 - Maintain secure system access for its personnel, including role-based security access, with multi-factor authentication and password access control.
 - Provide multiple security controls and settings that can be configured by customers to address their security needs.
 
-#### Your responsibilities
+### Your responsibilities
 
 - **Implement the Service and configure appropriate controls** in line with Branch's Documentation, acceptable use guidelines, and industry leading security practices or your own internal security policies.
 - **Assign proper roles and permissions to authorized users**, along with robust user provisioning processes that incorporate the principle of least privilege, to ensure that authorized users only have the minimum access necessary to perform their pre-specified duties.
-- **Implement and enforce secure authentication** (e.g., SSO, MFA) on customer-managed interfaces.  
-   Maintain and configure your own mobile applications, marketing materials, websites, and other assets or digital properties that you deploy the Service in.
+- **Implement and enforce secure authentication** (e.g., SSO, MFA) on customer-managed interfaces.
+- Maintain and configure your own mobile applications, marketing materials, websites, and other assets or digital properties that you deploy the Service in.
 
 ## Privacy and data security
 
-#### Branch's responsibilities
+Branch and our customers each take on distinct responsibilities for protecting the privacy and security of data processed through the Service.
+
+### Branch's responsibilities
 
 - Conduct security vulnerability scanning and penetration tests on the cloud environment and employ system monitoring tools to detect system events for suspicious activity.
 - Patch and repair flaws within the cloud infrastructure, the operating software deployed on its cloud infrastructure, and the SDK it makes available to customers.
@@ -47,7 +51,7 @@ Our commitment to providing a secure experience for our customers works in tande
 - Provide routine security awareness and privacy training to Branch personnel.
 - Comply with laws and regulations applicable to Branch's provision of the Service.
 
-#### Your responsibilities
+### Your responsibilities
 
 - **Ensure that any data uploaded to the Service complies with applicable laws** and regulations, Branch's Acceptable Use Policy, and industry best practices.
 - **Implement internal policies and guidelines designed to protect data** processed through the Service and provide routine security awareness and privacy training to personnel.

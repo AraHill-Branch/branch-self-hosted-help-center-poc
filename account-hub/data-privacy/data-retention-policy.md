@@ -1,5 +1,5 @@
 ---
-title: "Data Retention Policy"
+title: "Data retention policy"
 slug: data-retention-policy
 ---
 

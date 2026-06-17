@@ -5,26 +5,26 @@ slug: configure-sso
 
 ## Overview
 
-Branch uses Auth0 to enable single sign-on (SSO), which allows you to manage your team's access to the Branch Dashboard through your identity provider (IdP).
+Branch uses Auth0 to enable single sign-on (SSO), which allows you to manage your team's access to Branch through your identity provider (IdP).
 
 Using SSO makes it easier to add or remove Branch users, and improves their login experience.
 
 ## Configure SSO
 
-To configure SSO, you'll need to set up Branch in your IdP and enter your IdP information in the Branch Dashboard.
+To configure SSO, you'll need to set up Branch in your IdP and enter your IdP information in Branch.
 
 ### Before you begin
 
-Before you begin, ensure you have:
+To configure SSO, you first need:
 
 - Admin access to your Branch account.
 - Admin access to your organization's IdP (e.g., Okta, Azure AD) account.
 - SSO enabled for your Branch account.
 
-  - Access to SSO requires a Branch plan. Please visit our [Pricing](https://www.branch.io/pricing/) page or [contact our Sales team](https://branchdocs.app.link/e/sso-sign-up) to learn more about pricing and availability.
+  - Access to SSO requires a Branch plan. Visit our [Pricing](https://www.branch.io/pricing/) page or [contact our Sales team](https://branchdocs.app.link/e/sso-sign-up) to learn more about pricing and availability.
 
 ::: info Note
-Please follow the steps below whether you’re setting up SSO for the first time or you’re an existing customer using Branch SSO and migrating.
+Follow the steps below whether you’re setting up SSO for the first time or you’re an existing customer using Branch SSO and migrating.
 :::
 
 ### Step 1: Select identity provider
@@ -33,7 +33,7 @@ This step is different depending on whether you are on the [legacy](branch-dashb
 
 ### Step 2: Configure custom SAML
 
-
+Set up a custom SAML application in your IdP, map the required attributes, configure the connection, and test SSO.
 
 #### Step 2.1: Create application
 
@@ -51,7 +51,7 @@ This step is different depending on whether you are on the [legacy](branch-dashb
    When creating the application in your IdP, you may also need to specify an **Application URL (also called SP URL)**. Use <https://dashboard.branch.io> for this field.
 
    This is the URL where users will access Branch to log in.
-2. Click **Next**.
+2. Select **Next**.
 
 #### Step 2.2: Map attributes
 
@@ -97,31 +97,31 @@ Configure your IdP to send the following three attributes in the SAML response:
 
 1. Configure a connection between your IdP and Branch. You have two options for this:
 
-   1. Automatic: Provide the **Metadata URL** to your IdP. This URL needs to be publicly accessible and ensures your IdP provides important information like login URL and certificate, OR
+   1. Automatic: Provide the **Metadata URL** to your IdP. This URL needs to be publicly accessible and ensures your IdP provides important information like login URL and certificate.
    2. Manual: Configure the **Single Sign-On URL** and upload a **Signing Certificate** manually.
 2. Whether you choose automatic or manual connection configuration, you have the option to set the **Advanced Settings** to configure request signing if required by your IdP:
 
    1. Check the **Sign Request** checkbox.
-   2. When enabled, the SAML authentication request will be signed. Download the certificate and upload it to your IdP to validate the signature.
+   2. When enabled, the SAML authentication request is signed. Download the certificate and upload it to your IdP to validate the signature.
    3. Select an option for **Sign Request Algorithm** (RSA-SHA256 recommended).
    4. Select an option for **Sign Request Algorithm Digest** (SHA256 recommended).
    5. Select an option for **Request Protocol Binding** (HTTP-Post recommended).  
         
-      *[Image: Branch settings for SAML authentication request signing and algorithm selection options displayed.]*.png)
-3. Click **Create Connection**. You will see an alert modal letting you know that doing this will enable SSO access to Branch.
-4. Click **Proceed.**
+      *[Image: Branch settings for SAML authentication request signing and algorithm selection options displayed.]*
+3. Select **Create Connection**. You see an alert modal letting you know that doing this enables SSO access to Branch.
+4. Select **Proceed**.
 
 #### Step 2.4: Test SSO
 
 **Note**: A successful run of this test confirms that Auth0 can receive the SAML response and that your URL, audience ID, and certificate are configured correctly. However, it does not verify [attribute mapping](configure-sso-with-auth0.md#step-23-attribute-mapping). After testing, review the displayed user information to confirm your IdP is passing the correct email, first name, and last name attributes.
 
-1. Click **Test Connection**. This will cause the Branch configuration page to enter “listening mode”.
+1. Select **Test Connection**. The Branch configuration page enters “listening mode.”
 2. In the new tab, log in using your IdP.
-3. Return and note the “Testing complete!” confirmation message.
-4. Important: Select **Enable SSO** to activate SSO. Without this step, the SSO configuration will **not** take effect.
+3. Return and note the “Testing complete.” confirmation message.
+4. Important: Select **Enable SSO** to activate SSO. Without this step, the SSO configuration does **not** take effect.
 5. You can now close the new tab.
 
-## Email domain configuration
+## Configure email domains
 
 Branch's SSO uses email domains to determine which users can authenticate through your SSO connection.
 
@@ -139,37 +139,37 @@ Adding a new SSO email domain: Before adding an email domain that wasn't in your
 
 Branch uses the email domain of the user setting up SSO.
 
-If you are running into restrictions related to the list of email domains that can be configured for your setup, please contact Support at [support@branch.io](mailto:support@branch.io) (include your name and app ID) to update the values in the list.
+If you are running into restrictions related to the list of email domains that can be configured for your setup, contact Support at [support@branch.io](mailto:support@branch.io) (include your name and app ID) to update the values in the list.
 
 ## Use SSO
 
 Once your SSO connection is configured and enabled, your team can access Branch through your IdP.
 
-### Branch Dashboard access
+### Access Branch
 
-Users with email addresses matching your configured domains will be automatically redirected to your IdP when accessing Branch at [https://app.branch.io](https://app.branch.io**). This is the URL users should use to access Branch with SSO.
+Users with email addresses matching your configured domains are automatically redirected to your IdP when accessing Branch at [https://app.branch.io](https://app.branch.io). Use this URL to access Branch with SSO.
 
 ::: warning Caution
 As part of the Auth0 SSO migration, **all vanity URLs** **(e.g.,** `mycompany.dashboard.branch.io`**)** **will be discontinued** by December 31, 2025.
 
-Action required: Make sure you IdP configurations uses `https://app.branch.io`. Legacy vanity URLs will work temporarily during migration but will be fully retired.
+Action required: Make sure your IdP configuration uses `https://app.branch.io`. Legacy vanity URLs will work temporarily during migration but will be fully retired.
 :::
 
 After successful authentication, they'll be logged into Branch.
 
-### User management
+### Manage users
 
 Manage users through your IdP.
 
-Users with email addresses matching your configured domains will automatically authenticate through SSO when accessing Branch.
+Users with email addresses matching your configured domains automatically authenticate through SSO when accessing Branch.
 
-### Modify settings
+### Modify SSO settings
 
-Click **Configure SSO** in your Branch Dashboard SSO settings to modify your SSO configuration.
+Select **Configure SSO** in your Branch SSO settings to modify your SSO configuration.
 
 Previously configured values (login URL, certificate, domains) remain populated for easy editing.
 
-### Connection status
+### View connection status
 
 Your SSO configuration page displays the current connection status and configured email domains after successful setup.
 
@@ -194,7 +194,7 @@ Your SSO configuration page displays the current connection status and configure
 <details>
 <summary>What is the purpose of using Auth0 for Branch?</summary>
 
-Auth0 enables single sign-on (SSO) for managing team access to the Branch Dashboard through an identity provider (IdP).
+Auth0 enables single sign-on (SSO) for managing team access to Branch through an identity provider (IdP).
 
 </details>
 
@@ -210,14 +210,14 @@ Yes, existing Branch SSO users should follow the same steps in this guide to mig
 
 You need admin access to your Branch account and your organization's IdP, as well as SSO enabled for your account.  
   
-SSO requires a premium plan. Please [contact the Sales team](https://branchdocs.app.link/e/sso-sign-up) for pricing and availability.
+SSO requires a premium plan. [Contact the Sales team](https://branchdocs.app.link/e/sso-sign-up) for pricing and availability.
 
 </details>
 
 <details>
 <summary>How can I test the SSO connection after configuration?</summary>
 
-You can test the connection by clicking **Test Connection** on the Branch configuration page and logging in using your IdP.
+You can test the connection by selecting **Test Connection** on the Branch configuration page and logging in using your IdP.
 
 </details>
 

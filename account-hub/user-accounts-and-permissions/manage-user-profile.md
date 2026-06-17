@@ -1,5 +1,5 @@
 ---
-title: "Manage User Profile"
+title: "Manage user profile"
 slug: manage-user-profile
 ---
 
@@ -18,9 +18,9 @@ To learn about the new Branch experience and the features rolling out in 2026, v
 
 On the [Account Settings](https://dashboard.branch.io/account-settings) section, on the [User](https://dashboard.branch.io/account-settings/user) tab, all users can access the following:
 
-- **Link with your Github account** if you wish to login with your Github account.
-- **Dashboard UID** - This assigned by Branch and cannot be changed.
-- **Generate Access Token** - This token is used to extract data from Branch platform via various export API's.
+- **Link with your Github account** if you wish to log in with your Github account.
+- **Dashboard UID** - This is assigned by Branch and cannot be changed.
+- **Generate Access Token** - This token is used to extract data from the Branch platform via various export APIs.
 - **First and Last Names**
 - **Email Address**
 - **Update Password** if you do not have SSO enabled on your account.

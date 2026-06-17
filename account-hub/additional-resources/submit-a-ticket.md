@@ -1,5 +1,5 @@
 ---
-title: "Submit a Ticket"
+title: "Submit a ticket"
 slug: submit-a-ticket
 ---
 

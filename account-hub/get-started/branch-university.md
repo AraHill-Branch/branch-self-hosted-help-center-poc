@@ -27,6 +27,6 @@ You can get to Branch University three ways:
 
 - **Go directly** — Visit <https://university.branch.io/>.
 
-- **From Branch** — Click the help icon (?) in Branch and select Branch University from the drop-down menu.
+- **From Branch** — Select the help icon (?) in Branch, then select Branch University from the drop-down menu.
 
 - **From the Help Center** — Look for University links on the Help Center home page and in the site header.

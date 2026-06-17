@@ -1,5 +1,5 @@
 ---
-title: "Recent Activity (New)"
+title: "Recent activity (New)"
 slug: recent-activity-new
 ---
 

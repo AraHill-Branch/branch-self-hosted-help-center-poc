@@ -1,11 +1,11 @@
 ---
-title: "Alert Notifications (New)"
+title: "Alert notifications (New)"
 slug: alert-notifications-new
 ---
 
 ## Overview
 
-The alerting system lets you set up automatic email alerts on Branch to notify you of any data and account settings changes. This will help keep track of any unwanted account changes, reduce the chance of data loss, and increase visibility into postback flows.
+The alerting system lets you set up automatic email alerts on Branch to notify you of any data and account settings changes. This helps you keep track of any unwanted account changes, reduce the chance of data loss, and increase visibility into postback flows.
 
 Features include:
 
@@ -21,7 +21,7 @@ The Testing & Monitoring page is part of the [new Branch](new-branch-overview.md
 
 ### Email alerts
 
-Branch will notify those on the email list of the following alerts:
+Branch notifies those on the email list of the following alerts:
 
 | Alert | Details |
 | --- | --- |
@@ -48,7 +48,7 @@ Select the three-dot menu icon on any alert row to access the following options:
 
 ### Recipients
 
-Selecting **Recipients** will allow you to view the full list of users who are receiving emails for a given alert. Here you'll be able to add or remove recipients by role or by email address. Only admins can add other recipients, while individual users can subscribe themselves directly using the Subscribe option.
+Selecting **Recipients** lets you view the full list of users who are receiving emails for a given alert. Here you can add or remove recipients by role or by email address. Only admins can add other recipients, while individual users can subscribe themselves directly using the Subscribe option.
 
 When adding recipients, you can choose to add by **Role** or by **Email**:
 
@@ -57,4 +57,4 @@ When adding recipients, you can choose to add by **Role** or by **Email**:
 
 ### Enable/disable alert
 
-Select **Enable Alert** or **Disable Alert** from the three-dot menu to change the status of the alert to **Active** or **Disabled**. Enabled alerts will allow those in the recipient list to receive emails for the given alert. Note, only admins of the Branch account can enable or disable alerts.
+Select **Enable Alert** or **Disable Alert** from the three-dot menu to change the status of the alert to **Active** or **Disabled**. Enabled alerts let those in the recipient list receive emails for the given alert. Note, only admins of the Branch account can enable or disable alerts.

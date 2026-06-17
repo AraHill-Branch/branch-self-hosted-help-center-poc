@@ -1,11 +1,11 @@
 ---
-title: "Additional Link Configuration"
+title: "Additional link configuration"
 slug: additional-link-configuration
 ---
 
 ## Desktop app default link behavior
 
-1. In the Branch Dashboard, navigate to [**App Settings**](https://branch.dashboard.branch.io/configuration/general) → **General** tab → **Desktop Redirects** section.
+1. In Branch, navigate to [**App Settings**](https://branch.dashboard.branch.io/configuration/general) > **General** > **Desktop Redirects**.
 2. For **Default Desktop**, select either:  
     a. Branch-hosted QR Code Landing Page or  
     b. Custom Landing Page
@@ -18,7 +18,7 @@ slug: additional-link-configuration
     c. Windows Package Family Name
 
 ::: info Note
-If the app is not installed when the link is clicked, we will fall back to the Desktop or Default URL, in that order.
+If the app is not installed when the link is selected, we will fall back to the Desktop or Default URL, in that order.
 :::
 
 
@@ -29,8 +29,8 @@ The settings in this section allow you to specify different destination URLs or 
 
 ### Amazon Fire default link behavior
 
-1. In the Branch Dashboard, navigate to [**App Settings**](https://branch.dashboard.branch.io/configuration/general) → **General** tab → **Advanced Mobile Redirects** section.
-2. In the **Fire Redirects** section, enter your Amazon Fire URL. If you have a different package for the Amazon Store than the Plat Store on Fire devices, specify the Amazon Fire URL using the `p=package` [parameter](https://developer.amazon.com/docs/reports-promo/deeplink-to-the-amazon-client.html).
+1. In Branch, navigate to [**App Settings**](https://branch.dashboard.branch.io/configuration/general) > **General** > **Advanced Mobile Redirects**.
+2. In the **Fire Redirects** section, enter your Amazon Fire URL. If you have a different package for the Amazon Store than the Play Store on Fire devices, specify the Amazon Fire URL using the `p=package` [parameter](https://developer.amazon.com/docs/reports-promo/deeplink-to-the-amazon-client.html).
 
 ### iPad redirect link behavior
 

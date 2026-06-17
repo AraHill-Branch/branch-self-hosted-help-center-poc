@@ -1,5 +1,5 @@
 ---
-title: "Manage Billing"
+title: "Manage billing"
 slug: manage-billing
 ---
 
@@ -11,7 +11,7 @@ In the [new version of Branch](new-branch-overview.md), attribution windows are 
 
 ## Required permissions
 
-In order to view/edit specific billing details, you need to have the correct access and permission level:
+To view or edit specific billing details, you need the correct access and permission level:
 
 | Billing feature | Permission requirement |
 | --- | --- |
@@ -20,15 +20,15 @@ In order to view/edit specific billing details, you need to have the correct acc
 | - Change plans - View/download invoices - Cancel subscriptions | **Edit** access to **App-level Settings** |
 | - Add/edit/delete credit card information | **Edit** access to **App-level Settings** and **Sensitive Data** |
 
-For additional details on permissions, view our guide [here](add-manage-users-roles-permissions-access.md).
+For additional details on permissions, view our [Users, roles, and permissions guide](add-manage-users-roles-permissions-access.md).
 
 ## Access billing features
 
-Navigate to the **Billing** tab in the Branch Dashboard to start using billing features.
+Navigate to the **Billing** tab in Branch to start using billing features.
 
 ### Your plan
 
-In the **Your Plan** section, you can view your current plan, MAU limit, and monthly cost. Here you will also be able to update your plan by clicking the **Change Plan** button.
+In the **Your Plan** section, you can view your current plan, MAU limit, and monthly cost. Here you can also update your plan by selecting the **Change Plan** button.
 
 
 
@@ -47,7 +47,7 @@ In the **Account Summary** section, you get quick information on your current pl
 
 ### Subscribed products
 
-In the **Subscribed Products** section, you can view which Branch products are/aren't activated in your Branch account. Here you will be able to navigate to that product to activate it or start a trial.
+In the **Subscribed Products** section, you can view which Branch products are or aren't activated in your Branch account. Here you can navigate to that product to activate it or start a trial.
 
 
 
@@ -57,7 +57,7 @@ In the **Invoice Details** section, you can view and download your recent invoic
 
 
 
-For more details on invoices, view our dedicated guide [here](manage-invoices.md).
+For more details on invoices, view our dedicated [Manage invoices guide](manage-invoices.md).
 
 ### Payment information
 

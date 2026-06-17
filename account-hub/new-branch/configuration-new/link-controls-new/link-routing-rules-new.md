@@ -1,5 +1,5 @@
 ---
-title: "Link Routing Rules (New)"
+title: "Link routing rules (New)"
 slug: link-routing-rules-new
 ---
 
@@ -45,7 +45,7 @@ Configure where to send mobile users based on their platform.
 | Android URI Scheme | Where to send your user if they have the app installed. |
 | Android URL | Where to send users that don't have the app. This can be the Play Store or a custom link. |
 | Android Package Name | Your app's package name from the Play Store. |
-| Enable App Links | App Links will open URLs directly into an app, rather than the usual Link → Browser → App handoff cycle. This requires some setup, but Branch does this for you. You'll need to provide your SHA256 certificate fingerprints. |
+| Enable App Links | App Links open URLs directly into an app, rather than the usual Link → Browser → App handoff cycle. This requires some setup, but Branch does this for you. You'll need to provide your SHA256 certificate fingerprints. |
 | SHA256 Certificate Fingerprints | Required for App Links. You can add multiple fingerprints by selecting **Add another SHA256 fingerprint**. |
 
 ::: info Note
@@ -64,7 +64,7 @@ If you choose to enable App Links, you'll need to generate a SHA256 cert fingerp
 **Android Studio method**
 
 1. In Android Studio, open the Gradle options from the top-right corner of the page by selecting the elephant icon.
-2. Select the terminal icon. It will say "Execute Gradle Task" when you hover over it.
+2. Select the terminal icon. It says "Execute Gradle Task" when you hover over it.
 3. Enter `gradle signingReport` and press Enter/Return.
 4. Select the cat icon to open logcat. Copy the SHA256 cert fingerprint from logcat at the bottom of Android Studio.
 
@@ -75,10 +75,10 @@ If you choose to enable App Links, you'll need to generate a SHA256 cert fingerp
 | iOS URI Scheme | Where to send your user if they have the app installed. |
 | iOS URL | Where to send users that don't have the app. This can be the App Store or a custom link. |
 | App Store ID | Your app's ID from the App Store. |
-| Enable Universal Links | Universal Links will open URLs directly into an app, rather than the usual Link → Safari → App handoff cycle. This requires some setup, but Branch does this for you. You'll need to provide your Apple App Prefix and Bundle Identifiers. |
-| Bundle Identifiers | Required for Universal Links. Your app's Bundle IDs from Xcode. You can add multiple identifiers by selecting **Add another Bundle ID**. |
+| Enable Universal Links | Universal Links open URLs directly into an app, rather than the usual Link → Safari → App handoff cycle. This requires some setup, but Branch does this for you. You'll need to provide your Apple App Prefix and Bundle IDs. |
+| Bundle IDs | Required for Universal Links. Your app's Bundle IDs from Xcode. You can add multiple identifiers by selecting **Add another Bundle ID**. |
 | Apple App Prefix | Required for Universal Links. Retrieve your Apple App Prefix from your Apple Developer account on the App IDs page. Branch only supports one Apple App Prefix with multiple Bundle IDs. |
-| Enable NativeLink™ | NativeLink™ uses the local device clipboard to provide guaranteed deferred deep linking. Users will be presented with a landing page and CTA that copies the deep link to their clipboard. When the user installs the app, the app will automatically receive the deep link they copied. Requires iOS SDK 1.39.4 or higher and a Pasteboard Check Method call. |
+| Enable NativeLink™ | NativeLink™ uses the local device clipboard to provide guaranteed deferred deep linking. Users are presented with a landing page and CTA that copies the deep link to their clipboard. When the user installs the app, the app automatically receives the deep link they copied. Requires iOS SDK 1.39.4 or higher and a Pasteboard Check Method call. |
 | Audience Rule | When NativeLink™ is enabled, select the appropriate audience for this feature (e.g., All iOS Traffic). |
 
 ### Advanced settings
@@ -91,9 +91,9 @@ This selector allows you to control how and when Branch uses URI schemes to open
 
 | Mode | Description |
 | --- | --- |
-| Conservative | Conservative mode will never use URI schemes if there is a risk of error messages. |
+| Conservative | Conservative mode never uses URI schemes if there is a risk of error messages. |
 | Intelligent | **Recommended.** Intelligent mode uses Branch data to safely use URI schemes everywhere, with the slight risk of error messages in certain browsers if the app is uninstalled. |
-| Aggressive | Aggressive will force URI schemes everywhere, causing users without the app to see error messages in some browsers. |
+| Aggressive | Aggressive forces URI schemes everywhere, causing users without the app to see error messages in some browsers. |
 
 #### Match type
 
@@ -101,15 +101,15 @@ Setting Match Type determines the matching methodology Branch uses for your link
 
 | Type | Description |
 | --- | --- |
-| Normal | **Recommended.** Branch will make a deep link through install match based on available footprint data. |
-| Unique | Branch will only make a deep link through install match if there is a single, unique outstanding footprint. This is mostly for very special circumstances. |
+| Normal | **Recommended.** Branch makes a deep link through install match based on available footprint data. |
+| Unique | Branch only makes a deep link through install match if there is a single, unique outstanding footprint. This is mostly for very special circumstances. |
 
 #### Other advanced settings
 
 | Setting | Description |
 | --- | --- |
 | Analytics mapping with UTM | When redirecting to a web URL, Branch automatically passes through any values from the following Branch Link analytics tags as UTM parameters: ~campaign → utm\_campaign, ~channel → utm\_source, ~feature → utm\_medium. If these UTM parameters are already detected on the URLs being redirected to, Branch won't overwrite them. |
-| Enable link scraping | Dynamic links will scrape from appended query parameters like $original\_url, $fallback\_url, and $desktop\_url for meta tags. This ensures social link previews populate correctly for dynamic content. |
+| Enable link scraping | Dynamic links scrape from appended query parameters like $original\_url, $fallback\_url, and $desktop\_url for meta tags. This ensures social link previews populate correctly for dynamic content. |
 | Retrieve Last Attributed Touch Data via SDKs | Allows the app to fetch link data through the SDK rather than persisting it locally. Use this to implement post-onboarding or deferred deep linking. |
 
 ### Desktop redirects

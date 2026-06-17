@@ -55,12 +55,12 @@ Branch provides you with a primary deep linking domain and an alternate domain. 
 3. Select **Confirm Change**.
 
 ::: warning Caution
-Changing a subdomain will result in all links currently using that subdomain not redirecting properly. Make sure to update your mobile app to use the new subdomain after making this change.
+Changing a subdomain results in all links currently using that subdomain not redirecting properly. Make sure to update your mobile app to use the new subdomain after making this change.
 :::
 
 ### Link preview
 
-Configure how your link will look by default when shared on social platforms. You can customize this per individual link during link creation.
+Configure how your link looks by default when shared on social platforms. You can customize this per individual link during link creation.
 
 To configure the default link preview:
 
@@ -71,12 +71,12 @@ To configure the default link preview:
 5. Select **Save Changes**.
 
 ::: info Note
-These settings will be used as defaults for new links. You can still customize individual link previews when creating links.
+These settings are used as defaults for new links. You can still customize individual link previews when creating links.
 :::
 
 ### QR code
 
-Configure your default QR code design. This will apply to all short links created in Branch or via the QR Code API. You can also customize each individual QR code during creation.
+Configure your default QR code design. This applies to all short links created in Branch or via the QR Code API. You can also customize each individual QR code during creation.
 
 To configure the default QR code design:
 

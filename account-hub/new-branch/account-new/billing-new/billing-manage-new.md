@@ -1,11 +1,11 @@
 ---
-title: "Manage Billing (New)"
+title: "Manage billing (New)"
 slug: billing-manage-new
 ---
 
 ## Required permissions
 
-In order to view/edit specific billing details, you need to have the correct access and permission level:
+To view or edit specific billing details, you need to have the correct access and permission level:
 
 | Billing feature | Permission requirement |
 | --- | --- |
@@ -14,13 +14,13 @@ In order to view/edit specific billing details, you need to have the correct acc
 | - Change plans - View/download invoices - Cancel subscriptions | **Edit** access to **App-level Settings** |
 | - Add/edit/delete credit card information | **Edit** access to **App-level Settings** and **Sensitive Data** |
 
-For additional details on permissions, view our guide [here](add-manage-users-roles-permissions-access.md).
+For additional details on permissions, view our [Roles and permissions](add-manage-users-roles-permissions-access.md) guide.
 
 ## Access billing features
 
-Navigate to the [**Billing**](https://branchdocs.app.link/billing-new-to-billing-settings) tab in [Branch](https://branchdocs.app.link/e/home-page-to-dashboard) to start using billing features.
+Go to the [**Billing**](https://branchdocs.app.link/billing-new-to-billing-settings) tab in [Branch](https://branchdocs.app.link/e/home-page-to-dashboard) to start using billing features.
 
-The view you see in the **Billing** tab will depend on whether you have access to Branch’s new or legacy billing experience.
+The view you see in the **Billing** tab depends on whether you have access to Branch’s new or legacy billing experience.
 
 For more details on payment information, including how to add payment methods, view our [dedicated guide](manage-billing.md).
 
@@ -32,7 +32,7 @@ The **Billing** tab is an overview of your Branch plan, including:
 - The number of volume credits you have purchased
 - Your billing cadence
 
-Use the **Manage Plan** button to make changes your Branch plan.
+Use the **Manage Plan** button to make changes to your Branch plan.
 
 
 
@@ -40,7 +40,7 @@ Use the **Manage Plan** button to make changes your Branch plan.
 
 The **Usage** module displays the number of volume credits your app has used this month, out of the total number you’ve purchased. This resets monthly.
 
-Use the **Manage Plan** button to make changes the number of volume credits available for your app.
+Use the **Manage Plan** button to make changes to the number of volume credits available for your app.
 
 ### Payment information
 

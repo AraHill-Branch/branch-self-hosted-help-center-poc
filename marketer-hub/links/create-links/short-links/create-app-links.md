@@ -136,6 +136,10 @@ Add any custom link settings, custom analytics tags, or custom redirect logic. Y
 You can type directly into the text field to add link data.
 :::
 
+::: warning Caution
+The link data fields in Branch support flat key/value pairs only. They don't support nested key/value pairs (nested JSON objects). To recreate a nested JSON structure, like the `data` object your developers send when they create links with the API, use the [Deep Linking API](https://help.branch.io/apidocs/deep-linking-api) instead.
+:::
+
 #### Step 6: Customize QR code (optional)Interface for customizing a QR code with various design options and settings.
 
 Customize the QR code for this link by selecting the pencil icon above the **QR Preview** section. Learn more in our [Customize QR Codes](qr-codes-builder.md) article.

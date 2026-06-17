@@ -1,9 +1,9 @@
 ---
-title: "Configure SSO With Google"
+title: "Configure SSO with Google"
 slug: configure-sso-with-google
 ---
 
-## Introduction
+## Overview
 
 This guide provides step-by-step instructions for setting up Single Sign-On (SSO) with Branch using **Google** as your Identity Provider (IdP).
 
@@ -19,7 +19,7 @@ To configure SSO, you’ll need to get your unique URLs from Branch, configure G
 
 ### Before you begin
 
-Before you begin, ensure you have:
+To configure SSO with Google, you first need:
 
 - Admin access to your Branch account.
 - Admin access to the Google Admin console.

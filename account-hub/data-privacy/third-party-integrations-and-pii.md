@@ -1,5 +1,5 @@
 ---
-title: "Third Party Integrations and PII"
+title: "Third-party integrations and PII"
 slug: third-party-integrations-and-pii
 ---
 
@@ -17,7 +17,7 @@ If you want to enable third-party integrations through the Engagement and Perfor
 
 ### SANs integrations
 
-The SAN integrations use callouts to complete an attribution reconciliation. The following integrations use IP Address as a data point to complete an attribution callout to an ad network. While we make these integrations available for Advanced Compliance customers, note that once enabled, these integrations require IP addresses to complete attribution.
+The SAN integrations use callouts to complete an attribution reconciliation. The following integrations use IP address as a data point to complete an attribution callout to an ad network. While we make these integrations available for Advanced Compliance customers, note that once enabled, these integrations require IP addresses to complete attribution.
 
 - Meta
 - TikTok
@@ -49,4 +49,4 @@ The custom webhook integrations are fully set up by you for specific events to b
 
 ### Email integrations
 
-Integrated email partners have different scenarios to resolve a select after a link is selected. Some ESP integrations receive a callout to resolve the select, while others leverage an underlying Branch Link. However, these integrations typically don't send additional PII data for resolving this information.
+Integrated email partners have different scenarios to resolve a click after a link is selected. Some ESP integrations receive a callout to resolve the click, while others leverage an underlying Branch Link. However, these integrations typically don't send additional PII data for resolving this information.

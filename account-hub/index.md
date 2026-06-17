@@ -1,5 +1,5 @@
 ---
-title: "Account Hub Overview"
+title: "Account Hub overview"
 slug: account-hub-overview
 ---
 
@@ -13,7 +13,7 @@ This hub focuses on account administration and configuration, from initial setup
 
 ## What's inside
 
-[Get Started](get-started-account-hub.md)
+[Get started](get-started-account-hub.md)
 
 New to managing a Branch account? Start here to understand account setup, navigation, and key administrative features.
 
@@ -21,15 +21,15 @@ New to managing a Branch account? Start here to understand account setup, naviga
 
 Learn about the latest platform updates, new features, and improvements to Branch's account management capabilities. Note that these updates are being rolled out to customers in phases.
 
-[App Settings](app-settings.md)
+[App settings](app-settings.md)
 
 Configure your app-level settings including attribution windows, add additional apps to your account, and manage app-specific configurations.
 
-[Link Settings](link-settings.md)
+[Link settings](link-settings.md)
 
 Set up and customize your link configurations, manage link domains, and troubleshoot formatting errors.
 
-[User Accounts and Permissions](user-accounts-and-permissions.md)
+[User accounts and permissions](user-accounts-and-permissions.md)
 
 Manage team member access, assign roles and permissions, and control who can view and edit different aspects of your Branch account.
 
@@ -37,11 +37,11 @@ Manage team member access, assign roles and permissions, and control who can vie
 
 Configure single sign-on for your organization to streamline user authentication and enhance account security.
 
-[Testing and Monitoring](testing-and-monitoring.md)
+[Testing and monitoring](testing-and-monitoring.md)
 
 Monitor account activity with Liveview, manage test devices, find device IDs, and set up notification and alerting systems to stay informed about important events.
 
-[Data Privacy](data-privacy.md)
+[Data privacy](data-privacy.md)
 
 Manage privacy settings, configure data obfuscation, understand third-party integrations and GDPR compliance, minimize data sent to Branch, and review data retention policies and SDK privacy controls.
 
@@ -49,11 +49,11 @@ Manage privacy settings, configure data obfuscation, understand third-party inte
 
 Manage your subscription, view billing information, and update payment methods for your Branch account.
 
-[Additional Resources](additional-resources.md)
+[Additional resources](additional-resources.md)
 
 Access support resources including how to submit tickets, information about professional services, and guides to help you get the most from Branch support.
 
-[Release Notes](release-notes.md)
+[Release notes](release-notes.md)
 
 Stay updated on the latest changes, improvements, and new features released to the Branch platform.
 

@@ -81,15 +81,20 @@ After you connect Pinterest to Branch, navigate to the [**Postback Config**](htt
 
 | Pinterest Event | Branch Event |
 | --- | --- |
-| page\_visit | - OPEN  - INSTALL  - REINSTALL  - PAGEVIEW  - WEB\_SESSION\_START |
+| app\_install | INSTALL |
+| app\_open | OPEN |
+| page\_visit | - REINSTALL  - PAGEVIEW  - WEB\_SESSION\_START |
 | checkout | PURCHASE |
 | view\_category | - VIEW\_ITEM  - VIEW\_ITEMS |
 | add\_to\_cart | ADD\_TO\_CART |
+| add\_to\_wishlist | ADD\_TO\_WISHLIST |
 | signup | COMPLETE\_REGISTRATION |
-| lead | - ADD\_TO\_WISHLIST  - RESERVE  - START\_TRIAL  - SUBSCRIBE |
+| subscribe | SUBSCRIBE |
+| start\_trial | START\_TRIAL |
+| lead | RESERVE |
 | search | SEARCH |
 | custom | {custom\_event\_name} |
-| watch\_video | N/A |
+| watch\_video | COMPLETE\_STREAM |
 
 As best practice, Pinterest recommends toggling the **All Events** checkbox to enable sending Pinterest all in-app conversions. This allows Pinterest to report the full value the platform is driving to your app.
 

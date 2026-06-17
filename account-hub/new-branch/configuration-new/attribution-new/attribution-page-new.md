@@ -35,7 +35,7 @@ For detailed information about PAM, visit the [PAM Overview](predictive-aggregat
 
 SEO App Attribution tracks and attributes organic traffic from search engines. When users arrive from Google, Bing, Yahoo, or [other search engines](seo-app-attribution.md#channel), Branch identifies the source and attributes the session to the `organic search` channel.
 
-AIO App Attribution tracks and attribution organic traffic from AI chat agents. When users arrive from ChatGPT, Claude, Gemini, Copilot, or Perplexity, Branch identifies the source and attributions the session to the `organic chat agent` channel.
+AIO App Attribution tracks and attributes organic traffic from AI chat agents. When users arrive from ChatGPT, Claude, Gemini, Copilot, or Perplexity, Branch identifies the source and attributes the session to the `organic chat agent` channel.
 
 In the **Type to add Search Engine Result Page (SERP) Domains** field, list each domain you want to enable SEO and AIO App Attribution for. Wildcard characters are not supported, so you must specify the exact domain, like `https://www.branch.io`.
 
@@ -77,7 +77,7 @@ For more detailed information about attribution windows, including organization 
 
 Reference the following notes when adjusting your attribution windows:
 
-- `deep linking duration` includes anyone clicking a Branch Link or being automatically redirected to the app through a Branch Web SDK call. This setting also covers the maximum length of time allowed for probabilistic modeling. Hence changing this value will also change the length of time allowed to use probabilistic modeling for attribution.
+- `deep linking duration` includes anyone clicking a Branch Link or being automatically redirected to the app through a Branch Web SDK call. This setting also covers the maximum length of time allowed for probabilistic modeling. Hence changing this value also changes the length of time allowed to use probabilistic modeling for attribution.
 - `click to ...` attribution types refer to events that occur after someone clicks a Branch Link.
 
   - For example, if someone clicks and installs from a Branch Link, and comes back 10 days later to purchase (assuming `click to conversion event` window is set to greater than 10 days), Branch would count that as an attributed conversion.

@@ -119,6 +119,10 @@ Add any custom link settings, custom analytics tags, or custom redirect logic. Y
 You can type into the text field to add link data options.
 :::
 
+::: warning Caution
+The link data fields in Branch support flat key/value pairs only. They don't support nested key/value pairs (nested JSON objects). To recreate a nested JSON structure, like the `data` object your developers send when they create links with the API, use the [Deep Linking API](https://help.branch.io/apidocs/deep-linking-api) instead.
+:::
+
 <details>
 <summary>Advanced link configuration for web links</summary>
 
