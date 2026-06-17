@@ -16,9 +16,17 @@ const props = defineProps<{
 // oneOf / anyOf / additionalProperties (when typed as a schema, not bool)
 // also qualify — handled by ApiSchemaTable.
 const isObject = computed(() => props.schema.type === 'object' && !!props.schema.properties)
-const isArrayOfObjects = computed(
-  () => props.schema.type === 'array' && props.schema.items?.type === 'object',
-)
+// An array whose items are themselves expandable: an object with properties,
+// OR a composition (oneOf/anyOf/allOf). The latter was previously dropped, so
+// array-of-oneOf schemas (e.g. filter operators) showed no expandable detail.
+const isArrayOfExpandable = computed(() => {
+  const items = props.schema.items
+  if (props.schema.type !== 'array' || !items) return false
+  return (
+    (items.type === 'object' && !!items.properties) ||
+    !!(items.oneOf?.length || items.anyOf?.length || items.allOf?.length)
+  )
+})
 const hasComposition = computed(
   () => !!(props.schema.oneOf?.length || props.schema.anyOf?.length || props.schema.allOf?.length),
 )
@@ -26,7 +34,7 @@ const hasAddlPropsSchema = computed(
   () => typeof props.schema.additionalProperties === 'object',
 )
 const hasChildren = computed(
-  () => isObject.value || isArrayOfObjects.value || hasComposition.value || hasAddlPropsSchema.value,
+  () => isObject.value || isArrayOfExpandable.value || hasComposition.value || hasAddlPropsSchema.value,
 )
 const expanded = ref(false)
 
@@ -66,7 +74,7 @@ const typeLabel = computed(() => {
 
 const childSchema = computed<OpenApiSchema | null>(() => {
   if (isObject.value) return props.schema
-  if (isArrayOfObjects.value) return props.schema.items as OpenApiSchema
+  if (isArrayOfExpandable.value) return props.schema.items as OpenApiSchema
   if (hasComposition.value) return props.schema
   if (hasAddlPropsSchema.value) {
     return {

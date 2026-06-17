@@ -86,17 +86,20 @@ const parsedBody = computed(() => {
 })
 
 // ---------------------------------------------------------------------------
-// Accept header — best-guess from the spec's first non-JSON response
-// content-type. Used for both display and the actual fetch.
+// Accept header — derived from the SUCCESS (2xx) response's content type.
+// Deriving it from any response (the old behavior) meant a JSON endpoint
+// with an application/xml 404 would advertise Accept: application/xml.
+// We look at 2xx responses only; fall back to application/json.
 // ---------------------------------------------------------------------------
 
 const acceptHeader = computed(() => {
   const res = props.operation.responses
-  for (const c of Object.keys(res)) {
+  const successCodes = Object.keys(res).filter((c) => /^2\d\d$/.test(c))
+  for (const c of successCodes) {
     const content = res[c]?.content
     if (!content) continue
     const mime = Object.keys(content)[0]
-    if (mime && mime !== 'application/json') return mime
+    if (mime) return mime
   }
   return 'application/json'
 })
