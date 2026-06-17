@@ -29,13 +29,13 @@ paths:
               $ref: '#/components/schemas/create_url_request_body'
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/create_url_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -45,12 +45,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -77,7 +77,7 @@ paths:
           required: true
           schema:
             type: string
-            example: 'https://example.app.link/{UNIQUE_PATH_HERE}'
+            example: 'https://example.app.link/abCdEf123'
       requestBody:
         required: true
         content:
@@ -92,7 +92,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/update_url_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -102,12 +102,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -145,13 +145,13 @@ paths:
               $ref: '#/components/schemas/create_bulk_url_request_array_body'
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/create_bulk_url_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -161,12 +161,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -188,7 +188,7 @@ components:
         url:
           description: Generated URL.
           type: string
-          example: 'https://example.app.link/{UNIQUE_PATH_HERE}'
+          example: 'https://example.app.link/abCdEf123'
     create_bulk_url_200:
       type: array
       items:
@@ -199,7 +199,7 @@ components:
         url:
           description: URL of the updated Quick Link.
           type: string
-          example: 'https://example.app.link/{UNIQUE_PATH_HERE}'
+          example: 'https://example.app.link/abCdEf123'
         updated:
           description: Update status.
           type: boolean
@@ -210,7 +210,7 @@ components:
         url:
           description: Deleted URL.
           type: string
-          example: 'https://example.app.link/{UNIQUE_PATH_HERE}'
+          example: 'https://example.app.link/abCdEf123'
         deleted:
           description: Deletion status.
           type: boolean
@@ -277,7 +277,7 @@ components:
               example: ''
             $ipad_url:
               type: string
-              description: Change the redirect endpoint for iPads $ios_url value
+              description: Change the redirect endpoint for iPads. Falls back to the $ios_url value when unset.
               example: ''
             $android_url:
               type: string
@@ -289,11 +289,11 @@ components:
               example: ''
             $samsung_url:
               type: string
-              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME_HERE}'
+              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME}'
               example: ''
             $huawei_url:
               type: string
-              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID_HERE}'
+              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID}'
               example: ''
             $windows_phone_url:
               type: string
@@ -561,7 +561,7 @@ components:
               example: ''
             $ipad_url:
               type: string
-              description: Change the redirect endpoint for iPads $ios_url value
+              description: Change the redirect endpoint for iPads. Falls back to the $ios_url value when unset.
               example: ''
             $android_url:
               type: string
@@ -573,11 +573,11 @@ components:
               example: ''
             $samsung_url:
               type: string
-              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME_HERE}'
+              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME}'
               example: ''
             $huawei_url:
               type: string
-              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID_HERE}'
+              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID}'
               example: ''
             $windows_phone_url:
               type: string
@@ -892,7 +892,7 @@ components:
               example: ''
             $ipad_url:
               type: string
-              description: Change the redirect endpoint for iPads $ios_url value
+              description: Change the redirect endpoint for iPads. Falls back to the $ios_url value when unset.
               example: ''
             $android_url:
               type: string
@@ -904,11 +904,11 @@ components:
               example: ''
             $samsung_url:
               type: string
-              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME_HERE}'
+              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME}'
               example: ''
             $huawei_url:
               type: string
-              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID_HERE}'
+              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID}'
               example: ''
             $windows_phone_url:
               type: string
@@ -1076,7 +1076,7 @@ components:
       properties:
         message:
           type: string
-          example: Authentication failed !
+          example: Authentication failed.
         code:
           type: integer
           example: 400

@@ -39,13 +39,13 @@ paths:
           required: true
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/app_config_get_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -55,12 +55,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -78,7 +78,7 @@ paths:
       tags:
         - App API
       summary: Update Branch App Config
-      description: This endpoint is used updated the existing branch app configurations.  All parameters passed within the request body will be updated as per the value provided.
+      description: Updates an existing Branch app configuration. Any parameters included in the request body are updated to the provided values.
       operationId: updateBranchAppConfig
       parameters:
         - name: branch_key
@@ -96,13 +96,13 @@ paths:
               $ref: '#/components/schemas/app_config_put_request_body'
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/app_config_get_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -112,12 +112,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -811,7 +811,7 @@ components:
       properties:
         message:
           type: string
-          example: Authentication failed !
+          example: Authentication failed.
         code:
           type: integer
           example: 400

@@ -69,7 +69,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/cohort_200_response_body'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -79,7 +79,7 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
@@ -125,7 +125,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/cohort_export_download_200_response_body'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -135,7 +135,7 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
@@ -1057,7 +1057,7 @@ components:
           example: 200
         status_url:
           type: string
-          example: 'https://api2.branch.io/v2/analytics/{UNIQUE_ALPHANUMERICAL_STATUS_PATH_HERE}'
+          example: 'https://api2.branch.io/v2/analytics/a1b2c3d4'
           description: More information about the subscription's status.
         error_message:
           type: string
@@ -1082,7 +1082,7 @@ components:
           description: HTTP-style code representing the outcome of the status request. A 1xx value indicates a QUEUED or RUNNING status.
         response_url:
           type: string
-          example: 'https://api2.branch.io/v2/analytics/{UNIQUE_ALPHANUMERICAL_STATUS_PATH_HERE}'
+          example: 'https://api2.branch.io/v2/analytics/a1b2c3d4'
           description: S3 url for downloading the response data.
         error_message:
           type: string
@@ -1098,7 +1098,7 @@ components:
       properties:
         message:
           type: string
-          example: Authentication failed !
+          example: Authentication failed.
         code:
           type: integer
           example: 400
@@ -1106,7 +1106,7 @@ components:
     accessToken:
       type: apiKey
       description: |
-        Access-Token | Key that encapsulates the users permission w.r.t an org. Obtained from the Branch Dashboard needed for [authentication](https://help.branch.io/developers-hub/docs/branch-aggregate-api#authentication).
+        Encapsulates your account permissions for an organization. Obtain it from the Branch Dashboard.
       name: Access-Token
       in: header
   examples: {}

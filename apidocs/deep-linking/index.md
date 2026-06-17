@@ -7,7 +7,7 @@ slug: deep-linking
 
 ## Overview
 
-Branch's Deep Linking API is a powerful tool for all things Branch Links. You can programmatically generate links at scale to support all of your campaigns while tagging the links appropriately based on channel and other analytics tags.
+The Deep Linking API creates and manages Branch links programmatically — generate links at scale and tag them by channel and campaign for analytics.
 
 ## Authentication
 

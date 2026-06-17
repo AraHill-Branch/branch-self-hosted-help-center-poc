@@ -7,7 +7,7 @@ slug: aggregate
 
 ## Overview
 
-Export log-level and aggregate-level data for measuring campaign performance.
+Pull aggregate Branch analytics — installs, opens, and events grouped by your chosen dimensions — for measuring campaign performance over time.
 
 ## Packaging
 

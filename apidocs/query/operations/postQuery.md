@@ -26,6 +26,6 @@ Query API postQuery Post Query This endpoint provides a way to query dashboard a
  ordered_by Field indicates which key of result to sort results on. Only supports 1 sort key as of now. Possible values are any element of query "dimensions" or the value of "aggregation" in the query
  ordered Field indicates the sorting order of the output.
  zero_fill Whether to return result objects where the result count was 0. If set to false, results with count = 0 will be omitted from the response. If result is empty and zerofill=true, fields will be loaded with null/0 to provide a schema.
- Status of aggregate export results Array of result rows. Each row pairs a `result` object (the metric values for that grouping) with a `timestamp`. result results.result timestamp results.timestamp Timestamp for the result row. paging next_url paging.next_url URL to next result set total_count paging.total_count Number of total records retrieved against search Authentication Failed error
+ Status of aggregate export results Array of result rows. Each row pairs a `result` object (the metric values for that grouping) with a `timestamp`. result results.result timestamp results.timestamp Timestamp for the result row. paging next_url paging.next_url URL to next result set total_count paging.total_count Number of total records retrieved against search Bad request — typically an invalid or missing credential or parameter. error
 
 </div>

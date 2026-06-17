@@ -7,7 +7,7 @@ slug: events
 
 ## Overview
 
-Branch's Events API is a robust endpoint for tracking all of your conversions in your app. With it, you'll be able to tie in detailed metadata about your Commerce, Content, Lifecycle, and Custom Events to better understand user behavior and attribute to your ongoing campaigns.
+The Events API tracks conversions in your app. Attach metadata for Commerce, Content, Lifecycle, and Custom events to measure user behavior and attribute it to your campaigns.
 
 ## Important considerations
 
@@ -18,12 +18,7 @@ Branch's Events API is a robust endpoint for tracking all of your conversions in
 
 The Events API enforces rate limits on a per-app basis. If you exceed the limit, the API returns a `429 Rate Limit Reached` error. Back off and retry with exponential delay.
 
-| Limit | Value |
-|-------|-------|
-| Requests per second | TBD |
-| Requests per day | TBD |
-
-Contact your Branch account manager for details on your app's specific limits.
+Rate limits are enforced per app. Contact your Branch account manager for your app's specific limits.
 
 ## Authentication
 

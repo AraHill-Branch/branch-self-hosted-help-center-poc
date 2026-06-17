@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useBranchCredentials } from './useBranchCredentials'
+import ApiIcon from './ApiIcon.vue'
 
 const credentials = useBranchCredentials()
 const expanded = ref(false)
@@ -53,7 +54,7 @@ function maskValue(v: string | undefined): string {
       type="button"
       :aria-expanded="expanded"
     >
-      <span class="branch-creds-icon" aria-hidden="true">🔑</span>
+      <span class="branch-creds-icon"><ApiIcon name="key" :size="18" /></span>
       <span class="branch-creds-summary">
         <span class="branch-creds-summary-label">Your credentials</span>
         <span class="branch-creds-summary-state">
@@ -173,8 +174,11 @@ function maskValue(v: string | undefined): string {
 }
 
 .branch-creds-icon {
-  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  color: var(--vp-c-brand-1);
 }
 
 .branch-creds-summary {

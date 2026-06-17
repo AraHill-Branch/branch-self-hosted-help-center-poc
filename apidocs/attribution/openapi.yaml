@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Attribution API
-  description: Branch's Attribution API is a powerful API to use in your mobile app for all things attribution and campaign measurement.
+  description: The Attribution API attributes app sessions and conversions to your active campaigns.
   termsOfService: 'https://branch.io/policies/'
   contact:
     name: Branch Support
@@ -12,7 +12,7 @@ servers:
   - url: 'https://api2.branch.io/v1'
 tags:
   - name: Attribution API
-    description: The Attribution API is a powerful API to use in your mobile app for all things attribution.
+    description: Attributes app sessions and conversions to your active campaigns.
 paths:
   /open:
     post:
@@ -29,13 +29,13 @@ paths:
               $ref: '#/components/schemas/create_api_setup_body'
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/create_api_setup_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -45,12 +45,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -191,7 +191,7 @@ components:
         install_referrer_extras:
           type: string
           description: 'Valid for ANDROID ONLY Populate it with the value of the full Android PlayStore Install Referrer URL. Only include in the app''s first session, if it''s available.'
-          example: utm_source=some_source&utm_medium=preload&utm_campaign=null&gclid=Cj0KCQiA7IDiBRCLARIsABIPohhqdEU00f-Obte_OIVTbjPo-iLDBjkhj8ov=
+          example: utm_source=google&utm_medium=cpc&utm_campaign=spring_sale&gclid=EAIaIQobChMI1a2b3c4d
         google_search_install_referrer:
           type: string
           description: 'Valid for ANDROID ONLY The value of the google_search_install_referrer query parameter on the referrerUrl from the Google Install Referrer. Only include in the app''s first session, if it''s available.'
@@ -289,7 +289,7 @@ components:
       properties:
         message:
           type: string
-          example: Authentication failed !
+          example: Authentication failed.
         code:
           type: integer
           example: 400

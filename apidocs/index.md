@@ -13,7 +13,7 @@ The Branch APIs let you query and export data, create Branch Links, generate cus
 | --- | --- | --- | --- | --- |
 | [**Daily Exports**](/apidocs/daily-exports/) | Export **all** device-level data in batches on a daily basis. | Log | Delayed & batched | Rolling 7 days |
 | [**Custom Exports**](/apidocs/custom-exports/) | Export **select** device-level data using your own filters. | Log | Delayed & batched | Rolling 120 days |
-| [**Scheduled Log Exports**](/apidocs/scheduled-log-exports/) | Set up a recurring export of select device-level data. | Log | Delayed & batched (hourly or daily) | N/A |
+| [**Scheduled Log Exports**](/apidocs/scheduled-log-exports/) | Set up a recurring export of select device-level data. | Log | Delayed & batched (hourly or daily) | — |
 | [**Cross-Events Export**](/apidocs/cross-events-export/) | Query and compare large pools of data across multiple sources. | Aggregate | Delayed & batched | Rolling 2 years |
 | [**Aggregate**](/apidocs/aggregate/) | Pull aggregate Branch data filtered for limited-access users. | Aggregate | Delayed & batched | Rolling 2 years |
 | [**Cohort**](/apidocs/cohort/) | Pull cohort data to understand user behavior and performance over time. | Aggregate | Delayed & batched | Rolling 2 years |

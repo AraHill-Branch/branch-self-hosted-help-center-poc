@@ -7,7 +7,7 @@ slug: custom-exports
 
 ## Overview
 
-Export log-level and aggregate-level data for measuring campaign performance.
+Export selected device-level (log) data using your own filters, delivered as a downloadable file for your data warehouse or analytics pipeline.
 
 ## Packaging
 

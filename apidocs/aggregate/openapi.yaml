@@ -68,10 +68,10 @@ paths:
                     {
                       "code": 200,
                       "job_id": "XXXX-0000-xxxx",
-                      "status_url": "https://api2.branch.io/v2/analytics/{JOB_ID_HERE}"
+                      "status_url": "https://api2.branch.io/v2/analytics/a1b2c3d4"
                     }
         "400":
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -81,7 +81,7 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
@@ -161,7 +161,7 @@ paths:
                     status: FINISHED
                     response_url: "https://branch-exports-usw2.s3.amazonaws.com/partner-query/2023-05-12-2023-05-19-eo_install-day-{JOB_ID}.csv?Signature={SIGNATURE}&AWSAccessKeyId={AWS_KEY}&Expires={EXPIRATION}"
         "400":
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -171,7 +171,7 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
@@ -217,7 +217,7 @@ components:
         status_url:
           type: string
           description: The URL of the export request.
-          example: "https://api2.branch.io/v2/analytics/{JOB_ID_HERE}"
+          example: "https://api2.branch.io/v2/analytics/a1b2c3d4"
     analytics_body:
       type: object
       description: ""
@@ -430,7 +430,7 @@ components:
       properties:
         message:
           type: string
-          example: Authentication failed !
+          example: Authentication failed.
         code:
           type: integer
           example: 400

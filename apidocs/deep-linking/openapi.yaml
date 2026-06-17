@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Deep Linking API
-  description: Branch's Deep Linking API is a powerful tool for all things Branch Links. You can programmatically generate links at scale to support all of your campaigns while tagging the links appropriately based on channel and other analytics tags.
+  description: The Deep Linking API creates and manages Branch links programmatically — generate links at scale and tag them by channel and campaign for analytics.
   termsOfService: 'https://branch.io/policies/'
   contact:
     name: Branch Support
@@ -12,7 +12,7 @@ servers:
   - url: 'https://api2.branch.io/v1'
 tags:
   - name: Deep Linking API
-    description: Branch's Deep Linking API is a powerful tool for all things Branch Links. You can programmatically generate links at scale to support all of your campaigns while tagging the links appropriately based on channel and other analytics tags.
+    description: The Deep Linking API creates and manages Branch links programmatically — generate links at scale and tag them by channel and campaign for analytics.
 paths:
   /url:
     post:
@@ -29,13 +29,13 @@ paths:
               $ref: '#/components/schemas/create_url_request_body'
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/create_url_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -45,12 +45,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -94,7 +94,7 @@ paths:
           required: true
           schema:
             type: string
-            example: 'https://example.app.link/{UNIQUE_PATH_HERE} '
+            example: 'https://example.app.link/abCdEf123 '
         - name: app_id
           in: query
           description: |
@@ -104,13 +104,13 @@ paths:
             type: string
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/delete_url_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -120,12 +120,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -153,7 +153,7 @@ paths:
           required: true
           schema:
             type: string
-            example: 'https://example.app.link/{UNIQUE_PATH_HERE} '
+            example: 'https://example.app.link/abCdEf123 '
         - name: branch_key
           in: query
           description: |
@@ -164,13 +164,13 @@ paths:
             example: key_live_xxxx
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/get_deep_link_details_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -180,12 +180,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -212,7 +212,7 @@ paths:
           required: true
           schema:
             type: string
-            example: 'https://example.app.link/{UNIQUE_PATH_HERE}'
+            example: 'https://example.app.link/abCdEf123'
       requestBody:
         required: true
         content:
@@ -227,7 +227,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/update_url_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -237,12 +237,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -280,13 +280,13 @@ paths:
               $ref: '#/components/schemas/create_bulk_url_request_array_body'
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/create_bulk_url_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -296,12 +296,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -323,7 +323,7 @@ components:
         url:
           description: Generated URL
           type: string
-          example: 'https://example.app.link/{UNIQUE_PATH_HERE}'
+          example: 'https://example.app.link/abCdEf123'
     create_bulk_url_200:
       type: array
       items:
@@ -334,7 +334,7 @@ components:
         url:
           description: URL of the updated deep link.
           type: string
-          example: 'https://example.app.link/{UNIQUE_PATH_HERE}'
+          example: 'https://example.app.link/abCdEf123'
         updated:
           description: Update status.
           type: boolean
@@ -345,7 +345,7 @@ components:
         url:
           description: Deleted URL.
           type: string
-          example: 'https://example.app.link/{UNIQUE_PATH_HERE}'
+          example: 'https://example.app.link/abCdEf123'
         deleted:
           description: Deletion status.
           type: boolean
@@ -412,7 +412,7 @@ components:
               example: ''
             $ipad_url:
               type: string
-              description: Change the redirect endpoint for iPads $ios_url value
+              description: Change the redirect endpoint for iPads. Falls back to the $ios_url value when unset.
               example: ''
             $android_url:
               type: string
@@ -424,11 +424,11 @@ components:
               example: ''
             $samsung_url:
               type: string
-              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME_HERE}'
+              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME}'
               example: ''
             $huawei_url:
               type: string
-              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID_HERE}'
+              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID}'
               example: ''
             $windows_phone_url:
               type: string
@@ -489,7 +489,7 @@ components:
             $og_image_url:
               type: string
               description: 'Set the image of the Deep Link as it will be seen in social media displays.'
-              example: 'http://www.lorempixel.com/400/400/'
+              example: 'https://cdn.branch.io/example/og-image.png'
             ~id:
               type: string
               description: The unique ID for the link.
@@ -618,7 +618,7 @@ components:
               example: ''
             $ipad_url:
               type: string
-              description: Change the redirect endpoint for iPads $ios_url value
+              description: Change the redirect endpoint for iPads. Falls back to the $ios_url value when unset.
               example: ''
             $android_url:
               type: string
@@ -630,11 +630,11 @@ components:
               example: ''
             $samsung_url:
               type: string
-              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME_HERE}'
+              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME}'
               example: ''
             $huawei_url:
               type: string
-              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID_HERE}'
+              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID}'
               example: ''
             $windows_phone_url:
               type: string
@@ -695,7 +695,7 @@ components:
             $og_image_url:
               type: string
               description: 'Set the image of the Deep Link as it will be seen in social media displays.'
-              example: 'http://www.lorempixel.com/400/400/'
+              example: 'https://cdn.branch.io/example/og-image.png'
             ~id:
               type: string
               description: The unique ID for the link.
@@ -853,7 +853,7 @@ components:
               example: ''
             $ipad_url:
               type: string
-              description: Change the redirect endpoint for iPads $ios_url value
+              description: Change the redirect endpoint for iPads. Falls back to the $ios_url value when unset.
               example: ''
             $android_url:
               type: string
@@ -865,11 +865,11 @@ components:
               example: ''
             $samsung_url:
               type: string
-              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME_HERE}'
+              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME}'
               example: ''
             $huawei_url:
               type: string
-              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID_HERE}'
+              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID}'
               example: ''
             $windows_phone_url:
               type: string
@@ -930,7 +930,7 @@ components:
             $og_image_url:
               type: string
               description: 'Set the image of the Deep Link as it will be seen in social media displays.'
-              example: 'http://www.lorempixel.com/400/400/'
+              example: 'https://cdn.branch.io/example/og-image.png'
             ~id:
               type: string
               description: The unique ID for the link.
@@ -1019,7 +1019,7 @@ components:
           example: ''
         type:
           type: integer
-          description: 'Set type to 1, to make the URL a one-time use URL. It won''t deep link after 1 successful deep link. Default is set to 0, which is the standard Branch links created via our SDK.git'
+          description: 'Set type to 1, to make the URL a one-time use URL. It won''t deep link after 1 successful deep link. Default is 0, the standard Branch link behavior used by our SDKs.'
           example: 0
         duration:
           type: integer
@@ -1062,7 +1062,7 @@ components:
             url:
               type: string
               description: Deep link URL
-              example: 'https://branch-demo.app.link/{UNIQUE_PATH_HERE}'
+              example: 'https://branch-demo.app.link/abCdEf123'
             $one_time_use:
               type: boolean
               description: ''
@@ -1070,7 +1070,7 @@ components:
             +url:
               type: string
               description: Deep link URL
-              example: 'https://branch-demo.app.link/{UNIQUE_PATH_HERE}'
+              example: 'https://branch-demo.app.link/abCdEf123'
             ~creation_source:
               type: integer
               description: ''
@@ -1109,7 +1109,7 @@ components:
               example: ''
             $ipad_url:
               type: string
-              description: Change the redirect endpoint for iPads $ios_url value
+              description: Change the redirect endpoint for iPads. Falls back to the $ios_url value when unset.
               example: ''
             $android_url:
               type: string
@@ -1121,11 +1121,11 @@ components:
               example: ''
             $samsung_url:
               type: string
-              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME_HERE}'
+              description: 'Redirect to Samsung Galaxy Store on Samsung devices. Only link level control. Format should be http://www.samsungapps.com/appquery/appDetail.as?appId={PACKAGE_NAME}'
               example: ''
             $huawei_url:
               type: string
-              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID_HERE}'
+              description: 'Redirect to the Huawei App Gallery on Huawei devices. Only link level control. Format should be https://appgallery.huawei.com/app/{HUAWEI_APP_GALLERY_ID}'
               example: ''
             $windows_phone_url:
               type: string
@@ -1186,14 +1186,14 @@ components:
             $og_image_url:
               type: string
               description: 'Set the image of the Deep Link as it will be seen in social media displays.'
-              example: 'http://www.lorempixel.com/400/400/'
+              example: 'https://cdn.branch.io/example/og-image.png'
         alias:
           type: string
           description: 'Instead of our standard encoded short url, you can specify the vanity alias. For example, instead of a random string of characters/integers, you can set the vanity alias as .app.link/devonaustin.'
           example: ''
         type:
           type: integer
-          description: 'Set type to 1, to make the URL a one-time use URL. It won''t deep link after 1 successful deep link. Default is set to 0, which is the standard Branch links created via our SDK.git'
+          description: 'Set type to 1, to make the URL a one-time use URL. It won''t deep link after 1 successful deep link. Default is 0, the standard Branch link behavior used by our SDKs.'
           example: 0
         duration:
           type: integer
@@ -1209,7 +1209,7 @@ components:
       properties:
         message:
           type: string
-          example: Authentication failed !
+          example: Authentication failed.
         code:
           type: integer
           example: 400
