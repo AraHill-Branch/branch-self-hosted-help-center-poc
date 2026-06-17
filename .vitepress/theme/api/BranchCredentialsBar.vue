@@ -69,10 +69,12 @@ function maskValue(v: string | undefined): string {
 
     <div v-if="expanded" class="branch-creds-panel">
       <p class="branch-creds-note">
-        Paste your Branch Key and Access Token below and every code sample
-        and Try-it on this page will use them. Values are stored only in
-        your browser (<code>localStorage</code>) and never sent anywhere
-        except the real API request you trigger from Try-it.
+        Paste your credentials below and every code sample and Try-it on this
+        page will use them. Values stay in your browser and are never sent
+        anywhere except the real API request you trigger from Try-it. Your
+        Branch Key and App ID persist locally; your <strong>Branch Secret and
+        Access Token are kept only for this session</strong> and cleared when
+        you close the tab.
       </p>
 
       <label class="branch-creds-field">
