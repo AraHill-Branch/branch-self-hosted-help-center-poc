@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Request Daily Export - Daily Exports API"
+description: "Request Daily Export — Daily Exports API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Request Daily Export

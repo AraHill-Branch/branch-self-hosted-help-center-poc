@@ -1,6 +1,8 @@
 ---
 title: "Attribution API"
 slug: attribution
+description: The Attribution API attributes app sessions and conversions to your active campaigns.
+...
 ---
 
 # Attribution API

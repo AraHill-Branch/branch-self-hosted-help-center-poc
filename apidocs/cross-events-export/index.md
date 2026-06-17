@@ -1,6 +1,8 @@
 ---
 title: "Cross-Events Export API"
 slug: cross-events-export
+description: Query and compare vast pools of data across multiple sources.
+...
 ---
 
 # Cross-Events Export API

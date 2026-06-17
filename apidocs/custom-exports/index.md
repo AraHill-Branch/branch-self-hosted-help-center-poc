@@ -1,6 +1,8 @@
 ---
 title: "Custom Exports API"
 slug: custom-exports
+description: Export log-level and aggregate-level data for measuring campaign performance.
+...
 ---
 
 # Custom Exports API

@@ -1,6 +1,8 @@
 ---
 title: "Daily Exports API"
 slug: daily-exports
+description: Export ALL device-level data from a specific day.
+...
 ---
 
 # Daily Exports API

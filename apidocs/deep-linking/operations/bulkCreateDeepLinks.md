@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Bulk Create Deep Links - Deep Linking API"
+description: "Bulk Create Deep Links — Deep Linking API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Bulk Create Deep Links

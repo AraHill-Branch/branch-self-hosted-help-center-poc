@@ -1,6 +1,9 @@
 ---
 title: "Quick Links API"
 slug: quick-links
+description: Branch's Quick Links API is a useful tool for programatically generating Branch Links
+  that surface on the Branch Dashboard.
+...
 ---
 
 # Quick Links API

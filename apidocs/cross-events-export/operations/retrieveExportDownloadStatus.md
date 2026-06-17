@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Retrieve Download Status - Cross-Events Export API"
+description: "Retrieve Download Status — Cross-Events Export API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Retrieve Download Status

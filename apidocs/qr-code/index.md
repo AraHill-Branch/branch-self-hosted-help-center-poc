@@ -1,6 +1,8 @@
 ---
 title: "QR Code API"
 slug: qr-code-api
+description: The QR Code API is an HTTP API for creating custom Branch-powered QR Codes programmatically.
+...
 ---
 
 # QR Code API

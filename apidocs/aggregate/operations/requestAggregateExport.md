@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Request Aggregate Export - Aggregate API"
+description: "Request Aggregate Export — Aggregate API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Request Aggregate Export

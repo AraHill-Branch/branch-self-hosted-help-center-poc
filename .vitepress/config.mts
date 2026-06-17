@@ -152,6 +152,22 @@ export default defineConfig({
       crossorigin: ''
     }]
   ],
+  // Emit per-page social/share metadata (Open Graph + Twitter) from each
+  // page's title + description. Without this, every page shares the generic
+  // global description and previews/SEO are uniform and weak.
+  transformPageData(pageData) {
+    const fm = pageData.frontmatter || (pageData.frontmatter = {})
+    const title = pageData.title || fm.title
+    const description = pageData.description || fm.description
+    fm.head ??= []
+    if (title) fm.head.push(['meta', { property: 'og:title', content: String(title) }])
+    if (description) {
+      fm.head.push(['meta', { property: 'og:description', content: String(description) }])
+      fm.head.push(['meta', { name: 'twitter:description', content: String(description) }])
+    }
+    fm.head.push(['meta', { property: 'og:type', content: 'website' }])
+    fm.head.push(['meta', { name: 'twitter:card', content: 'summary' }])
+  },
   markdown: {
     config: (md) => {
       const defaultImageRule = md.renderer.rules.image

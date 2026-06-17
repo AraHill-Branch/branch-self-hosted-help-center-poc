@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Export Cohort Analytics - Cohort API"
+description: "Export Cohort Analytics — Cohort API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Export Cohort Analytics

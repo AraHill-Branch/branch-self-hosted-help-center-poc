@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Request Open - Attribution API"
+description: "Request Open — Attribution API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Request Open

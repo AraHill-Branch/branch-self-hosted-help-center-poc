@@ -1,6 +1,8 @@
 ---
 title: "Aggregate API"
 slug: aggregate
+description: Export log-level and aggregate-level data for measuring campaign performance.
+...
 ---
 
 # Aggregate API

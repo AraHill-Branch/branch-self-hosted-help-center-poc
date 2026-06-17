@@ -1,6 +1,9 @@
 ---
 title: "Scheduled Log Exports API"
 slug: scheduled-log-exports
+description: The Scheduled Log Exports API allows you to set up a recurring export of select device-level
+  data that run on a daily or hourly basis.
+...
 ---
 
 # Scheduled Log Exports API

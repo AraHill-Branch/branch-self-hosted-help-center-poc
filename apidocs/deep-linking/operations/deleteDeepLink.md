@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Delete Deep Link - Deep Linking API"
+description: "Delete Deep Link — Deep Linking API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Delete Deep Link

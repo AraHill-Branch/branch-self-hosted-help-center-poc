@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Create Export Request - Custom Exports API"
+description: "Create Export Request — Custom Exports API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Create Export Request

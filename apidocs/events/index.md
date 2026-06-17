@@ -1,6 +1,8 @@
 ---
 title: "Events API"
 slug: events
+description: The Events API tracks conversions in your app.
+...
 ---
 
 # Events API

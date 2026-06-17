@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Create Quick Link - Quick Links API"
+description: "Create Quick Link — Quick Links API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Create Quick Link

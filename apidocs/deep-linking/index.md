@@ -1,6 +1,8 @@
 ---
 title: "Deep Linking API"
 slug: deep-linking
+description: "The Deep Linking API creates and manages Branch links programmatically \u2014 generate\
+  \ links at scale and tag them by channel and campaign for analytics."
 ---
 
 # Deep Linking API

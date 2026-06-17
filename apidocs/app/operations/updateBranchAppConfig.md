@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Update Branch App Config - App API"
+description: "Update Branch App Config — App API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Update Branch App Config

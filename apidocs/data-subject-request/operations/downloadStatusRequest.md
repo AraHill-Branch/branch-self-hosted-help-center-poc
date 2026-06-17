@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Download / Status Request - Data Subject Request API"
+description: "Download / Status Request — Data Subject Request API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Download / Status Request

@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Export Download Status - Aggregate API"
+description: "Export Download Status — Aggregate API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Export Download Status

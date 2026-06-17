@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Bulk Create Quick Links - Quick Links API"
+description: "Bulk Create Quick Links — Quick Links API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Bulk Create Quick Links

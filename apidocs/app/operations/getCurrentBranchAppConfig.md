@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Get Current Branch App Config - App API"
+description: "Get Current Branch App Config — App API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Get Current Branch App Config

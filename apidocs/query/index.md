@@ -1,6 +1,9 @@
 ---
 title: "Query API"
 slug: query
+description: The Query API is an HTTP API that can be used for programmatically querying pre-aggregated
+  analytics.
+...
 ---
 
 # Query API

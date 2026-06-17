@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Get Export Request - Custom Exports API"
+description: "Get Export Request — Custom Exports API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Get Export Request

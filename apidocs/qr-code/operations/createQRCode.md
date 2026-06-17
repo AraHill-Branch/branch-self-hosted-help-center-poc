@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Create QR Code - QR Code API"
+description: "Create QR Code — QR Code API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Create QR Code

@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Update Quick Link - Quick Links API"
+description: "Update Quick Link — Quick Links API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Update Quick Link

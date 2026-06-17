@@ -1,6 +1,8 @@
 ---
 title: "Cohort API"
 slug: cohort
+description: The Cohort API allows you to programmatically query and export Cohort analytics.
+...
 ---
 
 # Cohort API

@@ -1,6 +1,9 @@
 ---
 title: "App API"
 slug: app
+description: The App API allows developers to view and make updates to an existing Branch app configuration
+  to better support workflows.
+...
 ---
 
 # App API

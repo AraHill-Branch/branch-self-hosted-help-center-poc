@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Details on Many Export Jobs - Scheduled Log Exports API"
+description: "Details on Many Export Jobs — Scheduled Log Exports API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Details on Many Export Jobs
