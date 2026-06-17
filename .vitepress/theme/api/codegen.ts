@@ -46,9 +46,12 @@ export function buildExample(
     for (const [k, v] of Object.entries(schema.properties)) {
       if (opts.requiredOnly && !required.has(k)) continue
       const val = buildExample(v, opts, seen)
-      // Drop properties whose example computes to `null` AND that the user
-      // didn't explicitly require — keeps Try-it bodies clean of null wall.
-      if (val === null && !required.has(k)) continue
+      // For OPTIONAL properties, omit anything that computed to an "empty"
+      // value (null, '', {}, []). Otherwise a schema like QR Code's `data`
+      // — ~60 optional $-prefixed string fields with no example — fills the
+      // Try-it body with a wall of empty keys. Required fields and fields
+      // carrying an explicit example are always kept.
+      if (!required.has(k) && isEmptyExample(val)) continue
       out[k] = val
     }
     return out
@@ -72,6 +75,15 @@ export function buildExample(
     default:
       return null
   }
+}
+
+// "Empty" for the purpose of trimming optional fields from a synthesized
+// example body: null/undefined, empty string, empty object, empty array.
+function isEmptyExample(v: any): boolean {
+  if (v === null || v === undefined || v === '') return true
+  if (Array.isArray(v)) return v.length === 0
+  if (typeof v === 'object') return Object.keys(v).length === 0
+  return false
 }
 
 function j(v: any): string {

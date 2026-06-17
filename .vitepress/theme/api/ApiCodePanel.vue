@@ -30,6 +30,10 @@ const activeLang = ref<SampleLang>('curl')
 // ---------------------------------------------------------------------------
 
 function defaultValue(p: OpenApiParameter): string {
+  // A stored credential (Branch Key / Access Token / App ID) pre-fills the
+  // visible input, so the user sees exactly what will be sent.
+  const cred = storedCredentialFor(p)
+  if (cred) return cred
   if (p.example !== undefined && p.example !== null) return String(p.example)
   if (p.schema?.example !== undefined && p.schema.example !== null) return String(p.schema.example)
   if (p.schema?.default !== undefined && p.schema.default !== null) return String(p.schema.default)
@@ -55,8 +59,9 @@ function storedCredentialFor(p: OpenApiParameter): string | null {
 }
 
 function effectiveInput(p: OpenApiParameter, inputs: Record<string, string>): string {
-  const stored = storedCredentialFor(p)
-  if (stored) return stored
+  // No hidden override: the stored credential is pre-filled into the visible
+  // input (defaultValue + the credentials watch below), so the value shown in
+  // the box is exactly the value sent.
   return inputs[p.name] ?? ''
 }
 
@@ -69,6 +74,23 @@ watch(() => props.operation.operationId, () => {
   queryInputs.value = initInputs(props.queryParams)
   headerInputs.value = initInputs(props.headerParams)
 })
+
+// When the user sets/clears credentials in the bar, push the new value into
+// the matching visible inputs (App ID, Access-Token, Branch Key) so the
+// Try-it form reflects the active credentials.
+watch(credentials, () => {
+  const groups: [OpenApiParameter[] | undefined, typeof pathInputs][] = [
+    [props.pathParams, pathInputs],
+    [props.queryParams, queryInputs],
+    [props.headerParams, headerInputs],
+  ]
+  for (const [params, inputs] of groups) {
+    for (const p of params ?? []) {
+      const cred = storedCredentialFor(p)
+      if (cred) inputs.value[p.name] = cred
+    }
+  }
+}, { deep: true })
 
 // ---------------------------------------------------------------------------
 // Body editor
