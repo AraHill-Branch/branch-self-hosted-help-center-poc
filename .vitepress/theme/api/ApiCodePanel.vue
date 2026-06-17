@@ -370,7 +370,7 @@ const showParamsSection = computed(
         />
       </div>
 
-      <button class="api-panel-send" :disabled="sending" @click="sendRequest">
+      <button class="api-panel-send" :disabled="sending" :aria-busy="sending" @click="sendRequest">
         <span v-if="!sending">Send request</span>
         <span v-else>Sending…</span>
       </button>
@@ -380,12 +380,12 @@ const showParamsSection = computed(
         <code>key_live_xxxx</code> / placeholder values with your own credentials before sending. CORS may block the request from the docs origin; if you see a network error, copy the cURL sample and run it from your shell.
       </div>
 
-      <div v-if="responseError" class="api-panel-section api-panel-error">
+      <div v-if="responseError" class="api-panel-section api-panel-error" role="alert">
         <div class="api-panel-label">Error</div>
         <pre><code>{{ responseError }}</code></pre>
       </div>
 
-      <div v-if="responseStatus !== null" class="api-panel-section">
+      <div v-if="responseStatus !== null" class="api-panel-section" role="status" aria-live="polite">
         <div class="api-panel-response-header">
           <span class="api-panel-status" :class="statusClass(responseStatus)">
             <span class="api-panel-dot" />
