@@ -95,6 +95,12 @@ function indent(s: string, n = 2): string {
   return s.split('\n').map((l, i) => (i === 0 ? l : pad + l)).join('\n')
 }
 
+// Escape a string for a single-quoted POSIX shell argument (close, escaped
+// quote, reopen). Keeps cURL samples valid when a value contains an apostrophe.
+const shq = (s: string) => s.replace(/'/g, "'\\''")
+// Escape a string for a single-quoted source-string literal (JS/Python/Ruby/PHP).
+const sq = (s: string) => s.replace(/\\/g, '\\\\').replace(/'/g, "\\'")
+
 export type SampleLang =
   | 'curl' | 'javascript' | 'python' | 'php'
   | 'ruby' | 'go' | 'java' | 'csharp'
@@ -139,8 +145,8 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
   switch (lang) {
     case 'curl': {
       const lines: (string | null)[] = [`curl --request ${verb} \\`, `  --url ${url} \\`]
-      for (const [k, v] of allHeaders) lines.push(`  --header '${k}: ${v}' \\`)
-      if (hasBody) lines.push(`  --data '${j(body)}' \\`)
+      for (const [k, v] of allHeaders) lines.push(`  --header '${shq(`${k}: ${v}`)}' \\`)
+      if (hasBody) lines.push(`  --data '${shq(j(body))}' \\`)
       if (expectsBinary) lines.push(`  --output response.png`)
       // Strip trailing backslash from the final non-null entry.
       const out = lines.filter((l): l is string => Boolean(l))
@@ -150,7 +156,7 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
 
     case 'javascript': {
       const headersObj = allHeaders.length
-        ? `{ ${allHeaders.map(([k, v]) => `'${k}': '${v}'`).join(', ')} }`
+        ? `{ ${allHeaders.map(([k, v]) => `'${sq(k)}': '${sq(v)}'`).join(', ')} }`
         : null
       return [
         `const response = await fetch('${url}', {`,
@@ -166,7 +172,7 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
 
     case 'python': {
       const headersDict = allHeaders.length
-        ? `{ ${allHeaders.map(([k, v]) => `'${k}': '${v}'`).join(', ')} }`
+        ? `{ ${allHeaders.map(([k, v]) => `'${sq(k)}': '${sq(v)}'`).join(', ')} }`
         : null
       return [
         `import requests`,
@@ -185,7 +191,7 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
     }
 
     case 'ruby': {
-      const headerLines = allHeaders.map(([k, v]) => `request['${k}'] = '${v}'`).join('\n  ')
+      const headerLines = allHeaders.map(([k, v]) => `request['${sq(k)}'] = '${sq(v)}'`).join('\n  ')
       return [
         `require 'net/http'`,
         `require 'json'`,
@@ -207,6 +213,10 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
 
     case 'go': {
       const headerSets = allHeaders.map(([k, v]) => `\treq.Header.Set("${k}", "${v}")`).join('\n')
+      // Raw string literal is cleanest for JSON, but breaks if the body
+      // contains a backtick — fall back to a quoted Go string then.
+      const goBodyJson = hasBody ? j(body) : ''
+      const goBodyLiteral = goBodyJson.includes('`') ? JSON.stringify(goBodyJson) : `\`${goBodyJson}\``
       return [
         `package main`,
         ``,
@@ -217,7 +227,7 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
         `)`,
         ``,
         `func main() {`,
-        hasBody ? `\tpayload := bytes.NewBufferString(\`${j(body)}\`)` : null,
+        hasBody ? `\tpayload := bytes.NewBufferString(${goBodyLiteral})` : null,
         hasBody
           ? `\treq, _ := http.NewRequest("${verb}", "${url}", payload)`
           : `\treq, _ := http.NewRequest("${verb}", "${url}", nil)`,
@@ -242,9 +252,13 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
         `var request = HttpRequest.newBuilder()`,
         `        .uri(URI.create("${url}"))`,
         headerCalls || null,
-        hasBody
-          ? `        .${verb}(HttpRequest.BodyPublishers.ofString(${JSON.stringify(j(body))}))`
-          : `        .${verb}()`,
+        // HttpRequest.Builder has GET/POST/PUT/DELETE methods but no PATCH —
+        // PATCH must go through .method(). Route it correctly.
+        verb === 'PATCH'
+          ? `        .method("PATCH", ${hasBody ? `HttpRequest.BodyPublishers.ofString(${JSON.stringify(j(body))})` : 'HttpRequest.BodyPublishers.noBody()'})`
+          : hasBody
+            ? `        .${verb}(HttpRequest.BodyPublishers.ofString(${JSON.stringify(j(body))}))`
+            : `        .${verb}()`,
         `        .build();`,
         ``,
         `var response = client.send(request, HttpResponse.BodyHandlers.ofString());`,
@@ -270,7 +284,7 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
 
     case 'php': {
       const headerLines = allHeaders.length
-        ? `curl_setopt($ch, CURLOPT_HTTPHEADER, [${allHeaders.map(([k, v]) => `'${k}: ${v}'`).join(', ')}]);`
+        ? `curl_setopt($ch, CURLOPT_HTTPHEADER, [${allHeaders.map(([k, v]) => `'${sq(`${k}: ${v}`)}'`).join(', ')}]);`
         : null
       return [
         `<?php`,
