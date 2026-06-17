@@ -84,3 +84,7 @@ The output of this cURL request is binary image data. Pipe it to a file (like `q
 ## Full reference
 
 For the complete list of parameters, request/response schemas, and an interactive Try-it panel, see the [Create QR Code endpoint reference](./operations/createQRCode).
+
+## Endpoints
+
+<ApiEndpointList api="qr-code" />
