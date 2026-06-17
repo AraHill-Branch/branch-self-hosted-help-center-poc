@@ -5,6 +5,8 @@ slug: daily-exports
 
 # Daily Exports API
 
+<BranchCredentialsBar />
+
 ## Overview
 
 Export ALL device-level data from a specific day.

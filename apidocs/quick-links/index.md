@@ -5,6 +5,8 @@ slug: quick-links
 
 # Quick Links API
 
+<BranchCredentialsBar />
+
 ## Overview
 
 Branch's Quick Links API is a useful tool for programatically generating Branch Links that surface on the Branch Dashboard. You can create Deep Links at scale to support all of your campaigns while tagging the links appropriately based on channel and other analytics tags. The API also supports QR code customization during link creation, allowing you to programmatically apply branding and design settings to the QR codes associated with your Short Links.

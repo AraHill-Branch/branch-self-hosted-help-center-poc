@@ -5,6 +5,8 @@ slug: query
 
 # Query API
 
+<BranchCredentialsBar />
+
 ## Overview
 
 The Query API is an HTTP API that can be used for programmatically querying pre-aggregated analytics.

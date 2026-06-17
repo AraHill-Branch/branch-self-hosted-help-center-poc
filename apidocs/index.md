@@ -5,6 +5,8 @@ slug: apis-overview
 
 # APIs Overview
 
+<BranchCredentialsBar />
+
 The Branch APIs let you query and export data, create Branch Links, generate custom Branch QR Codes, and more.
 
 ## Data APIs

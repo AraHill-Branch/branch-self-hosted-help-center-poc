@@ -5,6 +5,8 @@ slug: qr-code-api
 
 # QR Code API
 
+<BranchCredentialsBar />
+
 ## Overview
 
 The QR Code API is an HTTP API that can be used for creating custom QR Codes programmatically. Every QR Code will contain a unique Branch link which you can deep link and track analytics with.

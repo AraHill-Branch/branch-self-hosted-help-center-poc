@@ -5,6 +5,8 @@ slug: cohort
 
 # Cohort API
 
+<BranchCredentialsBar />
+
 ## Overview
 
 The Cohort API allows you to programmatically query and export Cohort analytics

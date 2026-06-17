@@ -5,6 +5,8 @@ slug: cross-events-export
 
 # Cross-Events Export API
 
+<BranchCredentialsBar />
+
 ## Overview
 
 Query and compare vast pools of data across multiple sources.

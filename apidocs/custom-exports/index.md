@@ -5,6 +5,8 @@ slug: custom-exports
 
 # Custom Exports API
 
+<BranchCredentialsBar />
+
 ## Overview
 
 Export selected device-level (log) data using your own filters, delivered as a downloadable file for your data warehouse or analytics pipeline.

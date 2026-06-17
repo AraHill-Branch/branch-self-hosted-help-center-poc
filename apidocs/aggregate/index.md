@@ -5,6 +5,8 @@ slug: aggregate
 
 # Aggregate API
 
+<BranchCredentialsBar />
+
 ## Overview
 
 Pull aggregate Branch analytics — installs, opens, and events grouped by your chosen dimensions — for measuring campaign performance over time.

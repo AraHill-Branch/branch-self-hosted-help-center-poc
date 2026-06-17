@@ -5,6 +5,8 @@ slug: attribution
 
 # Attribution API
 
+<BranchCredentialsBar />
+
 ## Overview
 
 The Attribution API attributes app sessions and conversions to your active campaigns.

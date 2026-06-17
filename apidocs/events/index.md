@@ -5,6 +5,8 @@ slug: events
 
 # Events API
 
+<BranchCredentialsBar />
+
 ## Overview
 
 The Events API tracks conversions in your app. Attach metadata for Commerce, Content, Lifecycle, and Custom events to measure user behavior and attribute it to your campaigns.

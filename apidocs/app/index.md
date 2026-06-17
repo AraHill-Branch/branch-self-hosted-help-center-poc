@@ -5,6 +5,8 @@ slug: app
 
 # App API
 
+<BranchCredentialsBar />
+
 ## Overview
 
 The App API allows developers to view and make updates to an existing Branch app configuration to better support workflows.

@@ -262,7 +262,13 @@ async function sendRequest() {
       responseIsJson.value = false
     }
   } catch (e: any) {
-    responseError.value = e.message || String(e)
+    // A failed fetch with no response is almost always CORS or a network
+    // block from the docs origin, not a real API error. Give an actionable
+    // hint instead of a bare "Failed to fetch".
+    const raw = e?.message || String(e)
+    responseError.value = /failed to fetch|networkerror|load failed/i.test(raw)
+      ? `${raw}\n\nThis usually means the browser blocked the request (CORS) from the docs origin — not an API error. Copy the cURL sample from the Code samples tab and run it from your terminal instead.`
+      : raw
     responseTime.value = Math.round(performance.now() - started)
   } finally {
     sending.value = false

@@ -5,6 +5,8 @@ slug: data-subject-request
 
 # Data Subject Request API
 
+<BranchCredentialsBar />
+
 ## Overview
 
 The Branch Data Subject Request API supports our customers with two key components of data protection laws like the General Data Protection Regulation 2016/679 (GDPR) and the California Consumer Privacy Act (CCPA) - the right to access personal data and the right to request deletion of personal data (also known as the right be forgotten).

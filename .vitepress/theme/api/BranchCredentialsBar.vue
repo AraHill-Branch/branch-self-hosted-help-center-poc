@@ -64,7 +64,7 @@ function maskValue(v: string | undefined): string {
           <span>App ID: <code>{{ maskValue(credentials.appId) }}</code></span>
         </span>
       </span>
-      <span class="branch-creds-chevron" :class="{ open: expanded }" aria-hidden="true">▾</span>
+      <span class="branch-creds-chevron" :class="{ open: expanded }"><ApiIcon name="chevron" :size="16" /></span>
     </button>
 
     <div v-if="expanded" class="branch-creds-panel">
@@ -213,7 +213,8 @@ function maskValue(v: string | undefined): string {
 }
 
 .branch-creds-chevron {
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
   color: var(--vp-c-text-3);
   transition: transform 160ms ease;
   flex-shrink: 0;
