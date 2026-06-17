@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import type { OpenApiOperation } from './spec'
 import { specs } from './spec'
-import { renderInlineMarkdown } from './markdown'
+import { renderBlockMarkdown } from './markdown'
 
 const props = defineProps<{
   operation: OpenApiOperation
@@ -95,7 +95,7 @@ const authBadges = computed(() => {
 })
 
 const isDeprecated = computed(() => props.operation.deprecated === true)
-const descriptionHtml = computed(() => renderInlineMarkdown(props.operation.description))
+const descriptionHtml = computed(() => renderBlockMarkdown(props.operation.description))
 const apiVersion = computed(() => spec.value?.info?.version)
 
 const urlCopied = ref(false)
@@ -253,6 +253,10 @@ async function copyEndpoint() {
   text-decoration-color: var(--vp-c-divider);
 }
 .api-description :deep(a:hover) { text-decoration-color: var(--vp-c-brand-1); }
+.api-description :deep(p) { margin: 0 0 12px; }
+.api-description :deep(p:last-child) { margin-bottom: 0; }
+.api-description :deep(ul) { margin: 0 0 12px; padding-left: 20px; }
+.api-description :deep(li) { margin: 2px 0; }
 
 .api-endpoint-url {
   display: flex;
