@@ -517,16 +517,16 @@ const showParamsSection = computed(
   font-weight: 700;
   letter-spacing: 0.05em;
   color: #fff;
-  background: #6b7280;
+  background: #4b5563;
   border-radius: 3px;
   line-height: 1;
 }
 
-.api-panel-verb[data-verb="GET"]    { background: #16a34a; }
-.api-panel-verb[data-verb="POST"]   { background: #2563eb; }
-.api-panel-verb[data-verb="PUT"]    { background: #d97706; }
-.api-panel-verb[data-verb="PATCH"]  { background: #db2777; }
-.api-panel-verb[data-verb="DELETE"] { background: #dc2626; }
+.api-panel-verb[data-verb="GET"]    { background: #15803d; }
+.api-panel-verb[data-verb="POST"]   { background: #1d4ed8; }
+.api-panel-verb[data-verb="PUT"]    { background: #b45309; }
+.api-panel-verb[data-verb="PATCH"]  { background: #be185d; }
+.api-panel-verb[data-verb="DELETE"] { background: #b91c1c; }
 
 .api-panel-url {
   font-family: var(--vp-font-family-mono);

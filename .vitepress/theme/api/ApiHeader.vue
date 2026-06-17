@@ -170,16 +170,16 @@ async function copyEndpoint() {
   font-weight: 700;
   letter-spacing: 0.05em;
   color: #fff;
-  background: #6b7280;
+  background: #4b5563;
   border-radius: 4px;
   line-height: 1;
 }
 
-.api-verb[data-verb="GET"]    { background: #16a34a; }
-.api-verb[data-verb="POST"]   { background: #2563eb; }
-.api-verb[data-verb="PUT"]    { background: #d97706; }
-.api-verb[data-verb="PATCH"]  { background: #db2777; }
-.api-verb[data-verb="DELETE"] { background: #dc2626; }
+.api-verb[data-verb="GET"]    { background: #15803d; }
+.api-verb[data-verb="POST"]   { background: #1d4ed8; }
+.api-verb[data-verb="PUT"]    { background: #b45309; }
+.api-verb[data-verb="PATCH"]  { background: #be185d; }
+.api-verb[data-verb="DELETE"] { background: #b91c1c; }
 
 .api-path {
   font-family: var(--vp-font-family-mono);
@@ -320,16 +320,15 @@ async function copyEndpoint() {
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  background: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(37, 99, 235, 0.25);
+  background: var(--vp-c-brand-soft);
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 30%, transparent);
   border-radius: 999px;
   font-size: 12px;
   cursor: help;
 }
 
 .dark .api-auth-badge {
-  background: rgba(96, 165, 250, 0.13);
-  border-color: rgba(96, 165, 250, 0.32);
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 38%, transparent);
 }
 
 .api-auth-badge-key {

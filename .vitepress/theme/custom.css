@@ -82,6 +82,11 @@ body:has(.api-operation-page) {
   --vp-font-family-base: "TT Hoves Pro", "Manrope", sans-serif;
   --vp-font-family-mono: "TT Hoves Pro Mono", monospace;
 
+  /* WCAG 2.2 AA: VitePress's default light-mode --vp-c-text-3 fails 4.5:1 on
+     white. This override keeps muted text visibly dim while clearing AA
+     (~4.6:1), fixing low-contrast muted text across the API components. */
+  --vp-c-text-3: #595962;
+
   --vp-c-brand-1: #651BC8;
   --vp-c-brand-2: #5D0EC0;
   --vp-c-brand-3: #2F0D68;
