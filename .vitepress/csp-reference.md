@@ -12,7 +12,7 @@ object-src 'none';
 form-action 'self';
 upgrade-insecure-requests;
 frame-ancestors 'self'
-  https://branch.app.workramp.com;        # lets WorkRamp iframe the site (header-only directive)
+https://branch.app.workramp.com;           # lets WorkRamp iframe the site (header-only directive)
 worker-src 'self' blob:;                   # Amplitude Session Replay / generic blob workers
 
 script-src 'self'
@@ -44,7 +44,7 @@ img-src 'self' data: blob:               # blob: = API "Try it" image responses 
   https://static.intercomassets.eu https://static.au.intercomassets.com;
 
 connect-src 'self'
-  https://api2.branch.io                 # API docs "Try it" (real requests; only Branch host in your specs)
+  https://api2.branch.io                 # API docs "Try it" (real requests)
   https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net  # GTM/GA/DoubleClick
   https://*.amplitude.com                # Amplitude event ingest (+ Session Replay)
   https://cdn.cookielaw.org https://geolocation.onetrust.com   # OneTrust
@@ -65,30 +65,3 @@ media-src 'self'
 frame-src 'self'
   https://intercom-sheets.com https://www.intercom-reporting.com;   # Intercom
 ```
-
-## Adding video / media providers
-
-No embedded-video providers or AWS media hosts are currently allowed.
-When adding video/media support:
-
-- **YouTube (iframe):**
-  - Add `https://www.youtube.com` (and `https://www.youtube-nocookie.com` for privacy mode) to `frame-src`
-  - Add `https://i.ytimg.com` to `img-src` if showing thumbnails outside the iframe
-- **Vimeo (iframe):**
-  - Add `https://player.vimeo.com` to `frame-src`
-- **Wistia (JS embed):**
-  - `script-src`: `https://fast.wistia.com https://*.wistia.com`
-  - `img-src`: `https://*.wistia.com https://embed-ssl.wistia.com`
-  - `connect-src`: `https://*.wistia.com`
-  - `media-src`: `https://*.wistia.com`
-  - `frame-src`: `https://fast.wistia.com https://fast.wistia.net https://*.wistia.com`
-- **Self-hosted on AWS:**
-  - Prefer a single custom domain (e.g. CloudFront + S3 via `https://media.branch.io`) over wildcarding `*.amazonaws.com` / `*.cloudfront.net`
-  - Add the host to `img-src` and `media-src`
-  - For adaptive streaming (HLS/DASH): also add to `connect-src` and add `blob:` to `media-src` (for MediaSource object URLs)
-  - AWS origin must return `Access-Control-Allow-Origin` for HLS or `crossorigin` fetches
-
-## Excluded sources
-
-- **Document360 (removed during migration):** Algolia, embedly, `cdn.jsdelivr.net` / `unpkg.com` / `cdnjs.cloudflare.com`, `challenges.cloudflare.com` (Turnstile), Google Fonts, all `*.document360.io` hosts
-- **Video providers (not yet added):** YouTube / Vimeo / Wistia (see above)
