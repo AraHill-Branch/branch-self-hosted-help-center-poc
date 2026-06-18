@@ -1,8 +1,7 @@
-# CSP reference — Branch Help Center (VitePress on Netlify)
+# CSP reference — Branch Help Center
 
-This is the human-readable source of truth. Edit here, then re-flatten the
-value into `netlify.toml` (or `public/_headers`) — the deployed header must
-be a single line.
+Human-readable source of truth for the Content-Security-Policy header.
+Edit here, then re-flatten into `netlify.toml` as a single line.
 
 ## Directive-by-directive, grouped by what each source is for
 
@@ -17,8 +16,8 @@ frame-ancestors 'self'
 worker-src 'self' blob:;                   # Amplitude Session Replay / generic blob workers
 
 script-src 'self'
-  'unsafe-inline'                          # VitePress inline bootstrap + GTM snippet; you OK'd this
-  'unsafe-eval'                            # for GTM tag templates; SOFTEST spot — try to drop via Report-Only
+  'unsafe-inline'                          # VitePress inline bootstrap + GTM snippet
+  'unsafe-eval'                            # GTM tag templates
   https://www.googletagmanager.com         # GTM
   https://*.amplitude.com                  # Amplitude SDK
   https://cdn.cookielaw.org                # OneTrust
@@ -30,7 +29,7 @@ style-src 'self'
 
 font-src 'self' data:
   https://js.intercomcdn.com https://fonts.intercomcdn.com;   # Intercom
-  # NOTE: your TT Hoves Pro fonts are self-hosted -> covered by 'self'. No Google Fonts.
+  # TT Hoves Pro fonts are self-hosted and covered by 'self'. No Google Fonts.
 
 img-src 'self' data: blob:               # blob: = API "Try it" image responses (e.g. QR codes)
   https://www.googletagmanager.com https://*.google-analytics.com https://stats.g.doubleclick.net  # GTM/GA/DoubleClick
@@ -67,39 +66,29 @@ frame-src 'self'
   https://intercom-sheets.com https://www.intercom-reporting.com;   # Intercom
 ```
 
-## Adding video / media later
+## Adding video / media providers
 
-No embedded-video providers or AWS media host are allowed right now. When you
-start hosting images/videos, add the source(s) like this:
+No embedded-video providers or AWS media hosts are currently allowed.
+When adding video/media support:
 
-- **YouTube (iframe):** add `https://www.youtube.com` (and `https://www.youtube-nocookie.com`
-  for privacy mode) to `frame-src`. Add `https://i.ytimg.com` to `img-src` only
-  if you show thumbnails outside the iframe.
-- **Vimeo (iframe):** add `https://player.vimeo.com` to `frame-src`.
-- **Wistia (JS embed):** add `https://fast.wistia.com https://*.wistia.com` to
-  `script-src`; `https://*.wistia.com https://embed-ssl.wistia.com` to `img-src`;
-  `https://*.wistia.com` to `connect-src`; `https://*.wistia.com` to `media-src`;
-  and `https://fast.wistia.com https://fast.wistia.net https://*.wistia.com` to
-  `frame-src`.
-- **Self-hosted on AWS:** prefer a single custom domain (e.g. CloudFront in
-  front of S3, like `https://media.branch.io`) over wildcarding `*.amazonaws.com`
-  / `*.cloudfront.net`. Add the host to `img-src` and `media-src`. If video is
-  adaptive streaming (HLS/DASH), also add it to `connect-src` and add `blob:`
-  to `media-src` (for the MediaSource object URL). Remember the AWS side must
-  return `Access-Control-Allow-Origin` for any HLS or `crossorigin` fetch.
+- **YouTube (iframe):**
+  - Add `https://www.youtube.com` (and `https://www.youtube-nocookie.com` for privacy mode) to `frame-src`
+  - Add `https://i.ytimg.com` to `img-src` if showing thumbnails outside the iframe
+- **Vimeo (iframe):**
+  - Add `https://player.vimeo.com` to `frame-src`
+- **Wistia (JS embed):**
+  - `script-src`: `https://fast.wistia.com https://*.wistia.com`
+  - `img-src`: `https://*.wistia.com https://embed-ssl.wistia.com`
+  - `connect-src`: `https://*.wistia.com`
+  - `media-src`: `https://*.wistia.com`
+  - `frame-src`: `https://fast.wistia.com https://fast.wistia.net https://*.wistia.com`
+- **Self-hosted on AWS:**
+  - Prefer a single custom domain (e.g. CloudFront + S3 via `https://media.branch.io`) over wildcarding `*.amazonaws.com` / `*.cloudfront.net`
+  - Add the host to `img-src` and `media-src`
+  - For adaptive streaming (HLS/DASH): also add to `connect-src` and add `blob:` to `media-src` (for MediaSource object URLs)
+  - AWS origin must return `Access-Control-Allow-Origin` for HLS or `crossorigin` fetches
 
-## Things intentionally left out
+## Excluded sources
 
-- **Document360-injected (won't return):** Algolia, embedly, `cdn.jsdelivr.net`
-  / `unpkg.com` / `cdnjs.cloudflare.com`, `challenges.cloudflare.com` (Turnstile),
-  Google Fonts, and all `*.document360.io` hosts.
-- **Parked for later:** YouTube / Vimeo / Wistia (see above).
-
-## Rollout
-
-1. Ship the header as `Content-Security-Policy-Report-Only` (same value).
-2. Click through: home, a hub, an `/apidocs/` operation + run **Try it**,
-   trigger the **Intercom** launcher, accept/reject the **OneTrust** banner,
-   and confirm **GTM/GA/Amplitude** hits in the console. Watch for
-   `Refused to …` console errors.
-3. Add any missing host, then rename the header to `Content-Security-Policy`.
+- **Document360 (removed during migration):** Algolia, embedly, `cdn.jsdelivr.net` / `unpkg.com` / `cdnjs.cloudflare.com`, `challenges.cloudflare.com` (Turnstile), Google Fonts, all `*.document360.io` hosts
+- **Video providers (not yet added):** YouTube / Vimeo / Wistia (see above)
