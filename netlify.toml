@@ -23,15 +23,6 @@
 # embed. `frame-ancestors` below is the modern replacement and supersedes
 # it in every browser you care about.
 #
-# ROLLOUT: this is deployed in report-only mode first. Once verified clean
-# in production (Intercom / GTM / GA / OneTrust / API "Try it" all fire
-# without console errors), rename the header to Content-Security-Policy to
-# enforce.
-#
-# NOTE: no embedded-video providers are allowed yet (YouTube/Vimeo/Wistia
-# were removed). When you add videos and/or AWS-hosted media, see the
-# "Adding video / media later" section in .vitepress/csp-reference.md.
-#
 # The CSP value MUST be a single line. The grouped, commented breakdown of
 # what each source is for lives in .vitepress/csp-reference.md — edit
 # there, then re-flatten into this line.
