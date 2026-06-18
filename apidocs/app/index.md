@@ -1,9 +1,14 @@
 ---
 title: "App API"
 slug: app
+description: The App API allows developers to view and make updates to an existing Branch app configuration
+  to better support workflows.
+...
 ---
 
 # App API
+
+<BranchCredentialsBar />
 
 ## Overview
 
@@ -24,3 +29,7 @@ Content-Type: application/json
 
 Browse the operations in the sidebar for the complete parameter reference, request and response schemas, and an interactive Try-it panel.
 
+
+## Endpoints
+
+<ApiEndpointList api="app" />

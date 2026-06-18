@@ -1,13 +1,17 @@
 ---
 title: "Aggregate API"
 slug: aggregate
+description: Export log-level and aggregate-level data for measuring campaign performance.
+...
 ---
 
 # Aggregate API
 
+<BranchCredentialsBar />
+
 ## Overview
 
-Export log-level and aggregate-level data for measuring campaign performance.
+Pull aggregate Branch analytics — installs, opens, and events grouped by your chosen dimensions — for measuring campaign performance over time.
 
 ## Packaging
 
@@ -33,3 +37,7 @@ Content-Type: application/json
 
 Browse the operations in the sidebar for the complete parameter reference, request and response schemas, and an interactive Try-it panel.
 
+
+## Endpoints
+
+<ApiEndpointList api="aggregate" />

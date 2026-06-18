@@ -9,13 +9,15 @@ const hubName = computed(() => {
   if (route.path.startsWith('/account-hub/')) return 'Account Hub'
   if (route.path.startsWith('/marketer-hub/')) return 'Marketer Hub'
   if (route.path.startsWith('/developer-hub/')) return 'Developer Hub'
+  if (route.path.startsWith('/apidocs/')) return 'API Reference'
   return 'Knowledge Hubs'
 })
 
 const hubs = [
   { text: 'Account Hub', link: '/account-hub/' },
   { text: 'Marketer Hub', link: '/marketer-hub/' },
-  { text: 'Developer Hub', link: '/developer-hub/' }
+  { text: 'Developer Hub', link: '/developer-hub/' },
+  { text: 'API Reference', link: '/apidocs/' }
 ]
 
 function toggleMenu() {

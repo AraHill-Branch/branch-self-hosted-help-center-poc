@@ -79,7 +79,7 @@ paths:
                       next_url: "/v1/query/analytics?limit=5&after=3"
                       total_count: 14
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -89,7 +89,7 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
@@ -356,7 +356,7 @@ components:
       properties:
         message:
           type: string
-          example: Authentication failed !
+          example: Authentication failed.
         code:
           type: integer
           example: 400

@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import type { OpenApiOperation } from './spec'
 import { specs } from './spec'
-import { renderInlineMarkdown } from './markdown'
+import { renderBlockMarkdown } from './markdown'
 
 const props = defineProps<{
   operation: OpenApiOperation
@@ -95,7 +95,8 @@ const authBadges = computed(() => {
 })
 
 const isDeprecated = computed(() => props.operation.deprecated === true)
-const descriptionHtml = computed(() => renderInlineMarkdown(props.operation.description))
+const descriptionHtml = computed(() => renderBlockMarkdown(props.operation.description))
+const apiVersion = computed(() => spec.value?.info?.version)
 
 const urlCopied = ref(false)
 async function copyEndpoint() {
@@ -112,6 +113,7 @@ async function copyEndpoint() {
     <div class="api-header-meta">
       <span class="api-verb" :data-verb="operation._verb">{{ operation._verb }}</span>
       <code class="api-path">{{ operation._path }}</code>
+      <span v-if="apiVersion" class="api-version" title="API version">v{{ apiVersion }}</span>
       <span v-if="isDeprecated" class="api-header-deprecated" title="This operation is deprecated.">Deprecated</span>
     </div>
 
@@ -170,16 +172,16 @@ async function copyEndpoint() {
   font-weight: 700;
   letter-spacing: 0.05em;
   color: #fff;
-  background: #6b7280;
+  background: #4b5563;
   border-radius: 4px;
   line-height: 1;
 }
 
-.api-verb[data-verb="GET"]    { background: #16a34a; }
-.api-verb[data-verb="POST"]   { background: #2563eb; }
-.api-verb[data-verb="PUT"]    { background: #d97706; }
-.api-verb[data-verb="PATCH"]  { background: #db2777; }
-.api-verb[data-verb="DELETE"] { background: #dc2626; }
+.api-verb[data-verb="GET"]    { background: #15803d; }
+.api-verb[data-verb="POST"]   { background: #1d4ed8; }
+.api-verb[data-verb="PUT"]    { background: #b45309; }
+.api-verb[data-verb="PATCH"]  { background: #be185d; }
+.api-verb[data-verb="DELETE"] { background: #b91c1c; }
 
 .api-path {
   font-family: var(--vp-font-family-mono);
@@ -188,6 +190,17 @@ async function copyEndpoint() {
   color: var(--vp-c-text-2);
   background: var(--vp-c-bg-soft);
   padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.api-version {
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--vp-c-text-3);
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  padding: 2px 7px;
   border-radius: 4px;
 }
 
@@ -240,6 +253,10 @@ async function copyEndpoint() {
   text-decoration-color: var(--vp-c-divider);
 }
 .api-description :deep(a:hover) { text-decoration-color: var(--vp-c-brand-1); }
+.api-description :deep(p) { margin: 0 0 12px; }
+.api-description :deep(p:last-child) { margin-bottom: 0; }
+.api-description :deep(ul) { margin: 0 0 12px; padding-left: 20px; }
+.api-description :deep(li) { margin: 2px 0; }
 
 .api-endpoint-url {
   display: flex;
@@ -320,16 +337,15 @@ async function copyEndpoint() {
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  background: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(37, 99, 235, 0.25);
+  background: var(--vp-c-brand-soft);
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 30%, transparent);
   border-radius: 999px;
   font-size: 12px;
   cursor: help;
 }
 
 .dark .api-auth-badge {
-  background: rgba(96, 165, 250, 0.13);
-  border-color: rgba(96, 165, 250, 0.32);
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 38%, transparent);
 }
 
 .api-auth-badge-key {

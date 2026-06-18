@@ -5,23 +5,27 @@ import { ref, watch } from 'vue'
  * and Access Token once at the top of the API docs, and every code
  * sample and Try-it on the site picks them up automatically.
  *
- * Storage: localStorage under `branch-apidocs-credentials`. The values
- * never leave the user's browser — they're substituted into rendered
- * samples client-side.
+ * Storage posture (deliberate): the values never leave the user's browser
+ * (they're substituted into rendered samples client-side), but secrets and
+ * identifiers are stored differently:
+ *   - Identifiers (branchKey, appId): localStorage — persist across sessions
+ *     for convenience; low sensitivity.
+ *   - Secrets (branchSecret, accessToken): sessionStorage — cleared when the
+ *     tab closes, so live secrets are NOT persisted indefinitely on a public
+ *     docs origin.
  *
  * Placeholders we replace:
- *   key_live_xxxx               -> branchKey
- *   key_test_xxxx               -> branchKey
- *   <YOUR_BRANCH_KEY>           -> branchKey
- *   YOUR_ACCESS_TOKEN           -> accessToken
- *   <YOUR_ACCESS_TOKEN>         -> accessToken
- *   api_app_xxxx                -> accessToken
+ *   key_live_xxxx / key_test_xxxx / <YOUR_BRANCH_KEY>  -> branchKey
+ *   secret_live_xxxx / <YOUR_BRANCH_SECRET>            -> branchSecret
+ *   api_app_xxxx / YOUR_ACCESS_TOKEN / <YOUR_...>      -> accessToken
+ *   <YOUR_APP_ID>                                      -> appId
  *
  * Substitution is best-effort string replace at sample-generation time,
  * so the sample shown == the request sent (no hidden state).
  */
 
-const STORAGE_KEY = 'branch-apidocs-credentials'
+const ID_KEY = 'branch-apidocs-id'        // localStorage: identifiers
+const SECRET_KEY = 'branch-apidocs-secret' // sessionStorage: secrets
 
 export interface BranchCredentials {
   branchKey?: string
@@ -30,20 +34,26 @@ export interface BranchCredentials {
   appId?: string
 }
 
-function readInitial(): BranchCredentials {
-  if (typeof window === 'undefined') return {}
+function readStore(store: Storage | undefined, key: string): Record<string, unknown> {
+  if (!store) return {}
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY)
-    if (!raw) return {}
-    const parsed = JSON.parse(raw)
-    return {
-      branchKey: typeof parsed?.branchKey === 'string' ? parsed.branchKey : undefined,
-      branchSecret: typeof parsed?.branchSecret === 'string' ? parsed.branchSecret : undefined,
-      accessToken: typeof parsed?.accessToken === 'string' ? parsed.accessToken : undefined,
-      appId: typeof parsed?.appId === 'string' ? parsed.appId : undefined,
-    }
+    const raw = store.getItem(key)
+    return raw ? (JSON.parse(raw) ?? {}) : {}
   } catch {
     return {}
+  }
+}
+
+function readInitial(): BranchCredentials {
+  if (typeof window === 'undefined') return {}
+  const ids = readStore(window.localStorage, ID_KEY)
+  const secrets = readStore(window.sessionStorage, SECRET_KEY)
+  const str = (v: unknown) => (typeof v === 'string' ? v : undefined)
+  return {
+    branchKey: str(ids.branchKey),
+    appId: str(ids.appId),
+    branchSecret: str(secrets.branchSecret),
+    accessToken: str(secrets.accessToken),
   }
 }
 
@@ -51,22 +61,29 @@ function readInitial(): BranchCredentials {
 // instances on the page.
 const credentials = ref<BranchCredentials>(readInitial())
 
+function persist(store: Storage, key: string, obj: Record<string, string | undefined>) {
+  const kept = Object.fromEntries(Object.entries(obj).filter(([, v]) => v))
+  try {
+    if (Object.keys(kept).length) store.setItem(key, JSON.stringify(kept))
+    else store.removeItem(key)
+  } catch { /* quota / private mode */ }
+}
+
 if (typeof window !== 'undefined') {
   watch(credentials, (v) => {
-    try {
-      const anySet = v.branchKey || v.branchSecret || v.accessToken || v.appId
-      if (!anySet) {
-        window.localStorage.removeItem(STORAGE_KEY)
-      } else {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(v))
-      }
-    } catch { /* quota / private mode */ }
+    persist(window.localStorage, ID_KEY, { branchKey: v.branchKey, appId: v.appId })
+    persist(window.sessionStorage, SECRET_KEY, { branchSecret: v.branchSecret, accessToken: v.accessToken })
   }, { deep: true })
 
-  // Sync across tabs.
+  // Sync identifiers across tabs (sessionStorage isn't shared across tabs).
   window.addEventListener('storage', (e) => {
-    if (e.key !== STORAGE_KEY) return
-    credentials.value = readInitial()
+    if (e.key !== ID_KEY) return
+    const ids = readStore(window.localStorage, ID_KEY)
+    credentials.value = {
+      ...credentials.value,
+      branchKey: typeof ids.branchKey === 'string' ? ids.branchKey : undefined,
+      appId: typeof ids.appId === 'string' ? ids.appId : undefined,
+    }
   })
 }
 

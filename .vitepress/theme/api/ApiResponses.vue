@@ -2,6 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import ApiSchemaTable from './ApiSchemaTable.vue'
 import HighlightedCode from './HighlightedCode.vue'
+import ApiIcon from './ApiIcon.vue'
 import { buildExample } from './codegen'
 
 const props = defineProps<{
@@ -109,7 +110,7 @@ const activeIsBinary = computed(() => {
 
     <div class="api-responses-body">
       <div v-if="activeIsBinary" class="api-responses-binary">
-        <span class="api-responses-binary-icon">🖼</span>
+        <span class="api-responses-binary-icon"><ApiIcon name="image" :size="20" /></span>
         <div>
           <div class="api-responses-binary-title">Binary response</div>
           <div class="api-responses-binary-desc">This endpoint returns image data. Write the response body to a file to view it.</div>
@@ -209,7 +210,7 @@ const activeIsBinary = computed(() => {
   border-radius: 6px;
 }
 
-.api-responses-binary-icon { font-size: 22px; }
+.api-responses-binary-icon { display: inline-flex; align-items: center; color: var(--vp-c-text-2); }
 .api-responses-binary-title { font-size: 13px; font-weight: 600; color: var(--vp-c-text-1); }
 .api-responses-binary-desc { font-size: 12.5px; color: var(--vp-c-text-2); margin-top: 2px; }
 

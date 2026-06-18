@@ -30,6 +30,18 @@ const activeLang = ref<SampleLang>('curl')
 // ---------------------------------------------------------------------------
 
 function defaultValue(p: OpenApiParameter): string {
+  // A stored credential (Branch Key / Access Token / App ID) pre-fills the
+  // visible input, so the user sees exactly what will be sent.
+  const cred = storedCredentialFor(p)
+  if (cred) return cred
+  // Header params are NOT pre-seeded from their example. Auto-sending an
+  // example header the user never typed (e.g. the optional X-IP-Override on
+  // Events) adds a non-safelisted request header, which forces a CORS
+  // preflight that the API rejects — making Try-it fail for headers nobody
+  // intended to send. The example still shows as the input placeholder.
+  // Path/query params ARE seeded: they build the URL and carry no CORS
+  // preflight implications.
+  if (p.in === 'header') return ''
   if (p.example !== undefined && p.example !== null) return String(p.example)
   if (p.schema?.example !== undefined && p.schema.example !== null) return String(p.schema.example)
   if (p.schema?.default !== undefined && p.schema.default !== null) return String(p.schema.default)
@@ -55,8 +67,9 @@ function storedCredentialFor(p: OpenApiParameter): string | null {
 }
 
 function effectiveInput(p: OpenApiParameter, inputs: Record<string, string>): string {
-  const stored = storedCredentialFor(p)
-  if (stored) return stored
+  // No hidden override: the stored credential is pre-filled into the visible
+  // input (defaultValue + the credentials watch below), so the value shown in
+  // the box is exactly the value sent.
   return inputs[p.name] ?? ''
 }
 
@@ -69,6 +82,23 @@ watch(() => props.operation.operationId, () => {
   queryInputs.value = initInputs(props.queryParams)
   headerInputs.value = initInputs(props.headerParams)
 })
+
+// When the user sets/clears credentials in the bar, push the new value into
+// the matching visible inputs (App ID, Access-Token, Branch Key) so the
+// Try-it form reflects the active credentials.
+watch(credentials, () => {
+  const groups: [OpenApiParameter[] | undefined, typeof pathInputs][] = [
+    [props.pathParams, pathInputs],
+    [props.queryParams, queryInputs],
+    [props.headerParams, headerInputs],
+  ]
+  for (const [params, inputs] of groups) {
+    for (const p of params ?? []) {
+      const cred = storedCredentialFor(p)
+      if (cred) inputs.value[p.name] = cred
+    }
+  }
+}, { deep: true })
 
 // ---------------------------------------------------------------------------
 // Body editor
@@ -86,17 +116,20 @@ const parsedBody = computed(() => {
 })
 
 // ---------------------------------------------------------------------------
-// Accept header — best-guess from the spec's first non-JSON response
-// content-type. Used for both display and the actual fetch.
+// Accept header — derived from the SUCCESS (2xx) response's content type.
+// Deriving it from any response (the old behavior) meant a JSON endpoint
+// with an application/xml 404 would advertise Accept: application/xml.
+// We look at 2xx responses only; fall back to application/json.
 // ---------------------------------------------------------------------------
 
 const acceptHeader = computed(() => {
   const res = props.operation.responses
-  for (const c of Object.keys(res)) {
+  const successCodes = Object.keys(res).filter((c) => /^2\d\d$/.test(c))
+  for (const c of successCodes) {
     const content = res[c]?.content
     if (!content) continue
     const mime = Object.keys(content)[0]
-    if (mime && mime !== 'application/json') return mime
+    if (mime) return mime
   }
   return 'application/json'
 })
@@ -259,7 +292,13 @@ async function sendRequest() {
       responseIsJson.value = false
     }
   } catch (e: any) {
-    responseError.value = e.message || String(e)
+    // A failed fetch with no response is almost always CORS or a network
+    // block from the docs origin, not a real API error. Give an actionable
+    // hint instead of a bare "Failed to fetch".
+    const raw = e?.message || String(e)
+    responseError.value = /failed to fetch|networkerror|load failed/i.test(raw)
+      ? `${raw}\n\nThis usually means the browser blocked the request (CORS) from the docs origin — not an API error. Copy the cURL sample from the Code samples tab and run it from your terminal instead.`
+      : raw
     responseTime.value = Math.round(performance.now() - started)
   } finally {
     sending.value = false
@@ -367,7 +406,7 @@ const showParamsSection = computed(
         />
       </div>
 
-      <button class="api-panel-send" :disabled="sending" @click="sendRequest">
+      <button class="api-panel-send" :disabled="sending" :aria-busy="sending" @click="sendRequest">
         <span v-if="!sending">Send request</span>
         <span v-else>Sending…</span>
       </button>
@@ -377,12 +416,12 @@ const showParamsSection = computed(
         <code>key_live_xxxx</code> / placeholder values with your own credentials before sending. CORS may block the request from the docs origin; if you see a network error, copy the cURL sample and run it from your shell.
       </div>
 
-      <div v-if="responseError" class="api-panel-section api-panel-error">
+      <div v-if="responseError" class="api-panel-section api-panel-error" role="alert">
         <div class="api-panel-label">Error</div>
         <pre><code>{{ responseError }}</code></pre>
       </div>
 
-      <div v-if="responseStatus !== null" class="api-panel-section">
+      <div v-if="responseStatus !== null" class="api-panel-section" role="status" aria-live="polite">
         <div class="api-panel-response-header">
           <span class="api-panel-status" :class="statusClass(responseStatus)">
             <span class="api-panel-dot" />
@@ -517,16 +556,16 @@ const showParamsSection = computed(
   font-weight: 700;
   letter-spacing: 0.05em;
   color: #fff;
-  background: #6b7280;
+  background: #4b5563;
   border-radius: 3px;
   line-height: 1;
 }
 
-.api-panel-verb[data-verb="GET"]    { background: #16a34a; }
-.api-panel-verb[data-verb="POST"]   { background: #2563eb; }
-.api-panel-verb[data-verb="PUT"]    { background: #d97706; }
-.api-panel-verb[data-verb="PATCH"]  { background: #db2777; }
-.api-panel-verb[data-verb="DELETE"] { background: #dc2626; }
+.api-panel-verb[data-verb="GET"]    { background: #15803d; }
+.api-panel-verb[data-verb="POST"]   { background: #1d4ed8; }
+.api-panel-verb[data-verb="PUT"]    { background: #b45309; }
+.api-panel-verb[data-verb="PATCH"]  { background: #be185d; }
+.api-panel-verb[data-verb="DELETE"] { background: #b91c1c; }
 
 .api-panel-url {
   font-family: var(--vp-font-family-mono);

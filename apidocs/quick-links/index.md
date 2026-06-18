@@ -1,9 +1,14 @@
 ---
 title: "Quick Links API"
 slug: quick-links
+description: Branch's Quick Links API is a useful tool for programatically generating Branch Links
+  that surface on the Branch Dashboard.
+...
 ---
 
 # Quick Links API
+
+<BranchCredentialsBar />
 
 ## Overview
 
@@ -24,3 +29,7 @@ Content-Type: application/json
 
 Browse the operations in the sidebar for the complete parameter reference, request and response schemas, and an interactive Try-it panel.
 
+
+## Endpoints
+
+<ApiEndpointList api="quick-links" />

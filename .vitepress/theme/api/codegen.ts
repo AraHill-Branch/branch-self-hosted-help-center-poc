@@ -46,9 +46,12 @@ export function buildExample(
     for (const [k, v] of Object.entries(schema.properties)) {
       if (opts.requiredOnly && !required.has(k)) continue
       const val = buildExample(v, opts, seen)
-      // Drop properties whose example computes to `null` AND that the user
-      // didn't explicitly require — keeps Try-it bodies clean of null wall.
-      if (val === null && !required.has(k)) continue
+      // For OPTIONAL properties, omit anything that computed to an "empty"
+      // value (null, '', {}, []). Otherwise a schema like QR Code's `data`
+      // — ~60 optional $-prefixed string fields with no example — fills the
+      // Try-it body with a wall of empty keys. Required fields and fields
+      // carrying an explicit example are always kept.
+      if (!required.has(k) && isEmptyExample(val)) continue
       out[k] = val
     }
     return out
@@ -74,6 +77,15 @@ export function buildExample(
   }
 }
 
+// "Empty" for the purpose of trimming optional fields from a synthesized
+// example body: null/undefined, empty string, empty object, empty array.
+function isEmptyExample(v: any): boolean {
+  if (v === null || v === undefined || v === '') return true
+  if (Array.isArray(v)) return v.length === 0
+  if (typeof v === 'object') return Object.keys(v).length === 0
+  return false
+}
+
 function j(v: any): string {
   return JSON.stringify(v, null, 2)
 }
@@ -82,6 +94,12 @@ function indent(s: string, n = 2): string {
   const pad = ' '.repeat(n)
   return s.split('\n').map((l, i) => (i === 0 ? l : pad + l)).join('\n')
 }
+
+// Escape a string for a single-quoted POSIX shell argument (close, escaped
+// quote, reopen). Keeps cURL samples valid when a value contains an apostrophe.
+const shq = (s: string) => s.replace(/'/g, "'\\''")
+// Escape a string for a single-quoted source-string literal (JS/Python/Ruby/PHP).
+const sq = (s: string) => s.replace(/\\/g, '\\\\').replace(/'/g, "\\'")
 
 export type SampleLang =
   | 'curl' | 'javascript' | 'python' | 'php'
@@ -127,8 +145,8 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
   switch (lang) {
     case 'curl': {
       const lines: (string | null)[] = [`curl --request ${verb} \\`, `  --url ${url} \\`]
-      for (const [k, v] of allHeaders) lines.push(`  --header '${k}: ${v}' \\`)
-      if (hasBody) lines.push(`  --data '${j(body)}' \\`)
+      for (const [k, v] of allHeaders) lines.push(`  --header '${shq(`${k}: ${v}`)}' \\`)
+      if (hasBody) lines.push(`  --data '${shq(j(body))}' \\`)
       if (expectsBinary) lines.push(`  --output response.png`)
       // Strip trailing backslash from the final non-null entry.
       const out = lines.filter((l): l is string => Boolean(l))
@@ -138,7 +156,7 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
 
     case 'javascript': {
       const headersObj = allHeaders.length
-        ? `{ ${allHeaders.map(([k, v]) => `'${k}': '${v}'`).join(', ')} }`
+        ? `{ ${allHeaders.map(([k, v]) => `'${sq(k)}': '${sq(v)}'`).join(', ')} }`
         : null
       return [
         `const response = await fetch('${url}', {`,
@@ -154,7 +172,7 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
 
     case 'python': {
       const headersDict = allHeaders.length
-        ? `{ ${allHeaders.map(([k, v]) => `'${k}': '${v}'`).join(', ')} }`
+        ? `{ ${allHeaders.map(([k, v]) => `'${sq(k)}': '${sq(v)}'`).join(', ')} }`
         : null
       return [
         `import requests`,
@@ -173,7 +191,7 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
     }
 
     case 'ruby': {
-      const headerLines = allHeaders.map(([k, v]) => `request['${k}'] = '${v}'`).join('\n  ')
+      const headerLines = allHeaders.map(([k, v]) => `request['${sq(k)}'] = '${sq(v)}'`).join('\n  ')
       return [
         `require 'net/http'`,
         `require 'json'`,
@@ -195,6 +213,10 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
 
     case 'go': {
       const headerSets = allHeaders.map(([k, v]) => `\treq.Header.Set("${k}", "${v}")`).join('\n')
+      // Raw string literal is cleanest for JSON, but breaks if the body
+      // contains a backtick — fall back to a quoted Go string then.
+      const goBodyJson = hasBody ? j(body) : ''
+      const goBodyLiteral = goBodyJson.includes('`') ? JSON.stringify(goBodyJson) : `\`${goBodyJson}\``
       return [
         `package main`,
         ``,
@@ -205,7 +227,7 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
         `)`,
         ``,
         `func main() {`,
-        hasBody ? `\tpayload := bytes.NewBufferString(\`${j(body)}\`)` : null,
+        hasBody ? `\tpayload := bytes.NewBufferString(${goBodyLiteral})` : null,
         hasBody
           ? `\treq, _ := http.NewRequest("${verb}", "${url}", payload)`
           : `\treq, _ := http.NewRequest("${verb}", "${url}", nil)`,
@@ -230,9 +252,13 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
         `var request = HttpRequest.newBuilder()`,
         `        .uri(URI.create("${url}"))`,
         headerCalls || null,
-        hasBody
-          ? `        .${verb}(HttpRequest.BodyPublishers.ofString(${JSON.stringify(j(body))}))`
-          : `        .${verb}()`,
+        // HttpRequest.Builder has GET/POST/PUT/DELETE methods but no PATCH —
+        // PATCH must go through .method(). Route it correctly.
+        verb === 'PATCH'
+          ? `        .method("PATCH", ${hasBody ? `HttpRequest.BodyPublishers.ofString(${JSON.stringify(j(body))})` : 'HttpRequest.BodyPublishers.noBody()'})`
+          : hasBody
+            ? `        .${verb}(HttpRequest.BodyPublishers.ofString(${JSON.stringify(j(body))}))`
+            : `        .${verb}()`,
         `        .build();`,
         ``,
         `var response = client.send(request, HttpResponse.BodyHandlers.ofString());`,
@@ -258,7 +284,7 @@ export function generateSample(lang: SampleLang, opts: GenerateSampleOpts): stri
 
     case 'php': {
       const headerLines = allHeaders.length
-        ? `curl_setopt($ch, CURLOPT_HTTPHEADER, [${allHeaders.map(([k, v]) => `'${k}: ${v}'`).join(', ')}]);`
+        ? `curl_setopt($ch, CURLOPT_HTTPHEADER, [${allHeaders.map(([k, v]) => `'${sq(`${k}: ${v}`)}'`).join(', ')}]);`
         : null
       return [
         `<?php`,

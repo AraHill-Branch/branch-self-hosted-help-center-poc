@@ -1,13 +1,17 @@
 ---
 title: "Attribution API"
 slug: attribution
+description: The Attribution API attributes app sessions and conversions to your active campaigns.
+...
 ---
 
 # Attribution API
 
+<BranchCredentialsBar />
+
 ## Overview
 
-Branch's Attribution API is a powerful API to use in your mobile app for all things attribution and campaign measurement.
+The Attribution API attributes app sessions and conversions to your active campaigns.
 
 ## Authentication
 
@@ -24,3 +28,7 @@ Content-Type: application/json
 
 Browse the operations in the sidebar for the complete parameter reference, request and response schemas, and an interactive Try-it panel.
 
+
+## Endpoints
+
+<ApiEndpointList api="attribution" />

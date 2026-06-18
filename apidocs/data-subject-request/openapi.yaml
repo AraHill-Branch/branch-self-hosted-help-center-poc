@@ -32,13 +32,13 @@ paths:
               $ref: '#/components/schemas/access_request_body'
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_200_post_access'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -48,7 +48,7 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
@@ -68,7 +68,7 @@ paths:
                       </body>
                     </html>
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -100,13 +100,13 @@ paths:
               $ref: '#/components/schemas/download_status_request_body'
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_200_post_download_status_request'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -116,7 +116,7 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
@@ -192,7 +192,7 @@ components:
         export_url:
           type: string
           description: The pre-assigned s3 URL link to download the CSV file containing the identity objects requested.
-          example: 'https://branch-exports-usw2.s3.amazonaws.com/unique-csv-file-name-here.csv?Signature={SIGNATURE_HERE}%3D&AWSAccessKeyId={AWS_ACCESS_KEY_ID_HERE}&Expires={EXPIRATION_HERE}'
+          example: 'https://branch-exports-usw2.s3.amazonaws.com/unique-csv-file-name-here.csv?Signature=SIGNATURE%3D&AWSAccessKeyId=AWS_ACCESS_KEY&Expires=EXPIRATION'
     inline_response_200_post_access:
       type: object
       properties:
@@ -218,7 +218,7 @@ components:
       properties:
         message:
           type: string
-          example: Authentication failed !
+          example: Authentication failed.
         code:
           type: integer
           example: 400
@@ -231,6 +231,6 @@ components:
     accessToken:
       type: apiKey
       description: |
-        api_key | Key that encapsulates the users permission w.r.t an org. Obtained from the Branch Dashboard needed for [authentication](https://help.branch.io/developers-hub/docs/branch-aggregate-api#authentication).
+        Encapsulates your account permissions for an organization. Obtain it from the Branch Dashboard.
       name: Access-Token
       in: header

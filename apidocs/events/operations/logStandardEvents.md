@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Logging Standard Events - Events API"
+description: "Logging Standard Events — Events API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Logging Standard Events
@@ -51,6 +52,6 @@ Events API logStandardEvents Logging Standard Events This endpoint is used to lo
     * LOGIN
     * START_TRIAL
     * SUBSCRIBE
- customer_event_alias The event alias as defined by you; used in addition to the event name defined above. user_data custom_data Additional custom key-value pairs that you want attached to the event. Values may be of any JSON type. Attached to events retrieved via Exports and sent via Webhooks. event_data content_items Ok Successful event ingestion. The response carries SKAdNetwork-relevant fields that the app can use to update its native SKAN conversion value. ascending_only coarse_key locked update_conversion_value Authentication Failed error Rate Limit Reached error
+ customer_event_alias The event alias as defined by you; used in addition to the event name defined above. user_data custom_data Additional custom key-value pairs that you want attached to the event. Values may be of any JSON type. Attached to events retrieved via Exports and sent via Webhooks. event_data content_items Success. Successful event ingestion. The response carries SKAdNetwork-relevant fields that the app can use to update its native SKAN conversion value. ascending_only coarse_key locked update_conversion_value Bad request — typically an invalid or missing credential or parameter. error Rate limit exceeded — reduce request frequency and retry. error
 
 </div>

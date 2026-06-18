@@ -1,9 +1,14 @@
 ---
 title: "Query API"
 slug: query
+description: The Query API is an HTTP API that can be used for programmatically querying pre-aggregated
+  analytics.
+...
 ---
 
 # Query API
+
+<BranchCredentialsBar />
 
 ## Overview
 
@@ -33,3 +38,7 @@ Content-Type: application/json
 
 Browse the operations in the sidebar for the complete parameter reference, request and response schemas, and an interactive Try-it panel.
 
+
+## Endpoints
+
+<ApiEndpointList api="query" />

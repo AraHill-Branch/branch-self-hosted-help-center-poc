@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useBranchCredentials } from './useBranchCredentials'
+import ApiIcon from './ApiIcon.vue'
 
 const credentials = useBranchCredentials()
 const expanded = ref(false)
@@ -53,7 +54,7 @@ function maskValue(v: string | undefined): string {
       type="button"
       :aria-expanded="expanded"
     >
-      <span class="branch-creds-icon" aria-hidden="true">🔑</span>
+      <span class="branch-creds-icon"><ApiIcon name="key" :size="18" /></span>
       <span class="branch-creds-summary">
         <span class="branch-creds-summary-label">Your credentials</span>
         <span class="branch-creds-summary-state">
@@ -63,15 +64,17 @@ function maskValue(v: string | undefined): string {
           <span>App ID: <code>{{ maskValue(credentials.appId) }}</code></span>
         </span>
       </span>
-      <span class="branch-creds-chevron" :class="{ open: expanded }" aria-hidden="true">▾</span>
+      <span class="branch-creds-chevron" :class="{ open: expanded }"><ApiIcon name="chevron" :size="16" /></span>
     </button>
 
     <div v-if="expanded" class="branch-creds-panel">
       <p class="branch-creds-note">
-        Paste your Branch Key and Access Token below and every code sample
-        and Try-it on this page will use them. Values are stored only in
-        your browser (<code>localStorage</code>) and never sent anywhere
-        except the real API request you trigger from Try-it.
+        Paste your credentials below and every code sample and Try-it on this
+        page will use them. Values stay in your browser and are never sent
+        anywhere except the real API request you trigger from Try-it. Your
+        Branch Key and App ID persist locally; your <strong>Branch Secret and
+        Access Token are kept only for this session</strong> and cleared when
+        you close the tab.
       </p>
 
       <label class="branch-creds-field">
@@ -173,8 +176,11 @@ function maskValue(v: string | undefined): string {
 }
 
 .branch-creds-icon {
-  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  color: var(--vp-c-brand-1);
 }
 
 .branch-creds-summary {
@@ -209,7 +215,8 @@ function maskValue(v: string | undefined): string {
 }
 
 .branch-creds-chevron {
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
   color: var(--vp-c-text-3);
   transition: transform 160ms ease;
   flex-shrink: 0;

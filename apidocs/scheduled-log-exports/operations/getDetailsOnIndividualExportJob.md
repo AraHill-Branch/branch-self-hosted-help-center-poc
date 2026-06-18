@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Details on Single Export Job - Scheduled Log Exports API"
+description: "Details on Single Export Job — Scheduled Log Exports API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Details on Single Export Job
@@ -17,6 +18,6 @@ Scheduled Log Exports API getDetailsOnIndividualExportJob Details on Single Expo
  XXXX-0000-xxxx Export Job success response Export Job Body job_id A persistent identifier for this export job run status whether the job is in progress, succeeded or failed. Available options are PENDING_GENERATION, PENDING_UPLOAD, RUNNING, SUCCEEDED and FAILED start_date The earliest date for which exported objects will be included. Format is set to yyyy-MM-dd'T'HH:mm:ssZ. Timezone is UTC.
  end_date The latest date for which exported objects will be included. Format is set to yyyy-MM-dd'T'HH:mm:ssZ. Timezone is UTC. Please note that this includes data through the final millisecond. So if end_date is 2023-05-30T19:59:59, this export job run will include data through the final millisecond i.e. 2023-05-30T19:59:59.999.
  export_url if the export job is for a subscription with destination.subscription_type set to branch, then this will be an array of pre-signed S3 URLs for export files that you can then download.
- lines_exported Number of objects in the export (e.g. CSV rows). Authentication Failed error Job ID Not Found
+ lines_exported Number of objects in the export (e.g. CSV rows). Bad request — typically an invalid or missing credential or parameter. error Job ID Not Found
 
 </div>

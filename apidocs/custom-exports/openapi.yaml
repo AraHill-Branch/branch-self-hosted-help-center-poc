@@ -43,7 +43,7 @@ paths:
                   value: |
                     {
                       "handle": "xxxx-0000",
-                      "export_job_status_url": "https://api2.branch.io/v2/logs/{UNIQUE_ALPHANUMERICAL_JOB_HANDLE_ID_HERE}?app_id={APP_ID_HERE}"
+                      "export_job_status_url": "https://api2.branch.io/v2/logs/{JOB_HANDLE}?app_id={APP_ID}"
                     }
         '401':
           description: Auth Client failed response
@@ -108,6 +108,7 @@ paths:
           explode: false
           schema:
             type: string
+            example: a1b2c3d4
         - name: limit
           in: query
           description: The maximum number of results to return.
@@ -141,11 +142,11 @@ paths:
                 Result:
                   value:
                     status: complete
-                    response_url: 'https://branch-exports-web-usw2.s3.us-west-1.amazonaws.com/v2/y%3D2023/m%3D05/d%3D17/app_id%3D{APP_ID_HERE}/job_id%3D{JOB_ID_HERE}/task_id%3D{TASK_ID_HERE}/unique-csv-file-name-here.csv?X-Amz-Algorithm={AMZ_ALGORITHM_HERE}&X-Amz-Date={AMZ_DATE_HERE}&X-Amz-SignedHeaders={AMZ_SIGNED_HEADERS_HERE}&X-Amz-Expires={AMZ_EXPIRATION_HERE}&X-Amz-Credential={AMZ_CREDENTIAL_HERE}&X-Amz-Signature={AMZ_SIGNATURE_HERE}'
+                    response_url: 'https://branch-exports-web-usw2.s3.us-west-1.amazonaws.com/v2/y%3D2023/m%3D05/d%3D17/app_id%3D{APP_ID}/job_id%3Da1b2c3d4/task_id%3D{TASK_ID}/unique-csv-file-name-here.csv?X-Amz-Algorithm={AMZ_ALGORITHM}&X-Amz-Date={AMZ_DATE}&X-Amz-SignedHeaders={AMZ_SIGNED_HEADERS}&X-Amz-Expires={AMZ_EXPIRATION}&X-Amz-Credential={AMZ_CREDENTIAL}&X-Amz-Signature={AMZ_SIGNATURE}'
                     lines_exported: 0
                     code: 200
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -155,7 +156,7 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
@@ -244,7 +245,7 @@ components:
         status_url:
           type: string
           description: The URL of the export request.
-          example: 'https://branch-exports-web-usw2.s3.us-west-1.amazonaws.com/v2/y%3D2023/m%3D05/d%3D17/app_id%3D{APP_ID_HERE}/job_id%3D{JOB_ID_HERE}/task_id%3D{TASK_ID_HERE}/unique-csv-file-name-here.csv?X-Amz-Algorithm={AMZ_ALGORITHM_HERE}&X-Amz-Date={AMZ_DATE_HERE}&X-Amz-SignedHeaders={AMZ_SIGNED_HEADERS_HERE}&X-Amz-Expires={AMZ_EXPIRATION_HERE}&X-Amz-Credential={AMZ_CREDENTIAL_HERE}&X-Amz-Signature={AMZ_SIGNATURE_HERE}'
+          example: 'https://branch-exports-web-usw2.s3.us-west-1.amazonaws.com/v2/y%3D2023/m%3D05/d%3D17/app_id%3D{APP_ID}/job_id%3Da1b2c3d4/task_id%3D{TASK_ID}/unique-csv-file-name-here.csv?X-Amz-Algorithm={AMZ_ALGORITHM}&X-Amz-Date={AMZ_DATE}&X-Amz-SignedHeaders={AMZ_SIGNED_HEADERS}&X-Amz-Expires={AMZ_EXPIRATION}&X-Amz-Credential={AMZ_CREDENTIAL}&X-Amz-Signature={AMZ_SIGNATURE}'
     inline_response_200_post_export:
       type: object
       properties:
@@ -255,7 +256,7 @@ components:
         export_job_status_url:
           type: string
           description: The URL of the export request.
-          example: 'https://api2.branch.io/v2/logs/{UNIQUE_ALPHANUMERICAL_JOB_HANDLE_ID_HERE}?app_id={APP_ID_HERE}'
+          example: 'https://api2.branch.io/v2/logs/{JOB_HANDLE}?app_id={APP_ID}'
     inline_response_200_post_data_readiness:
       type: object
       properties:
@@ -1234,7 +1235,7 @@ components:
             - Zulu
         filter:
           type: array
-          description: 'A filter requires an array with 3 specific string values: ["[Cthulhu Prefix](https://help.branch.io/developers-hub/docs/custom-exports#cthulhu-filter-specification)", "[EO Field Key](https://help.branch.io/developers-hub/reference/custom-exports-api#available-eo-fields)", "EO Field Value"]'
+          description: 'A filter requires an array with 3 specific string values: ["[Filter Prefix](https://help.branch.io/developers-hub/docs/custom-exports#cthulhu-filter-specification)", "[EO Field Key](https://help.branch.io/developers-hub/reference/custom-exports-api#available-eo-fields)", "EO Field Value"]'
           example:
             - eq
             - name
@@ -1332,7 +1333,7 @@ components:
       properties:
         message:
           type: string
-          example: Authentication failed !
+          example: Authentication failed.
         code:
           type: integer
           example: 400
@@ -1401,7 +1402,7 @@ components:
     accessToken:
       type: apiKey
       description: |
-        Access-Token | Key that encapsulates the users permission w.r.t an org. Obtained from the Branch Dashboard needed for [authentication](https://help.branch.io/developers-hub/docs/branch-aggregate-api#authentication).
+        Encapsulates your account permissions for an organization. Obtain it from the Branch Dashboard.
       name: Access-Token
       in: header
   examples: {}

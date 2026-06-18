@@ -1,9 +1,13 @@
 ---
 title: "Daily Exports API"
 slug: daily-exports
+description: Export ALL device-level data from a specific day.
+...
 ---
 
 # Daily Exports API
+
+<BranchCredentialsBar />
 
 ## Overview
 
@@ -29,3 +33,7 @@ Content-Type: application/json
 
 Browse the operations in the sidebar for the complete parameter reference, request and response schemas, and an interactive Try-it panel.
 
+
+## Endpoints
+
+<ApiEndpointList api="daily-exports" />

@@ -1,13 +1,17 @@
 ---
 title: "Custom Exports API"
 slug: custom-exports
+description: Export log-level and aggregate-level data for measuring campaign performance.
+...
 ---
 
 # Custom Exports API
 
+<BranchCredentialsBar />
+
 ## Overview
 
-Export log-level and aggregate-level data for measuring campaign performance.
+Export selected device-level (log) data using your own filters, delivered as a downloadable file for your data warehouse or analytics pipeline.
 
 ## Packaging
 
@@ -33,3 +37,7 @@ Content-Type: application/json
 
 Browse the operations in the sidebar for the complete parameter reference, request and response schemas, and an interactive Try-it panel.
 
+
+## Endpoints
+
+<ApiEndpointList api="custom-exports" />

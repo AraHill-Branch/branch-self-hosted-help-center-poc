@@ -53,6 +53,9 @@ function pageFor(apiFolder, spec, operation, pathLevelParameters) {
   const summary = operation.summary ?? operation.operationId
   const pageTitle = `${summary} - ${apiTitle}`
   const searchText = buildApiSearchText(spec, operation, pathLevelParameters)
+  // Per-page meta description for SEO + social previews (consumed by the
+  // transformPageData hook in config.mts). Kept short and specific.
+  const metaDescription = `${summary} — ${apiTitle} endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages.`
 
   // Structure:
   // - H1 is required so VitePress's search indexer picks up the page at
@@ -68,6 +71,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: ${JSON.stringify(pageTitle)}
+description: ${JSON.stringify(metaDescription)}
 ---
 
 # ${summary}

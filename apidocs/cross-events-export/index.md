@@ -1,9 +1,13 @@
 ---
 title: "Cross-Events Export API"
 slug: cross-events-export
+description: Query and compare vast pools of data across multiple sources.
+...
 ---
 
 # Cross-Events Export API
+
+<BranchCredentialsBar />
 
 ## Overview
 
@@ -33,3 +37,7 @@ Content-Type: application/json
 
 Browse the operations in the sidebar for the complete parameter reference, request and response schemas, and an interactive Try-it panel.
 
+
+## Endpoints
+
+<ApiEndpointList api="cross-events-export" />

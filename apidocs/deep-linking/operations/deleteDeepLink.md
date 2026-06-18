@@ -3,6 +3,7 @@ aside: false
 outline: false
 pageClass: api-operation-page
 title: "Delete Deep Link - Deep Linking API"
+description: "Delete Deep Link — Deep Linking API endpoint reference: parameters, request and response schema, and copy-paste code samples in 8 languages."
 ---
 
 # Delete Deep Link
@@ -18,7 +19,7 @@ You must pass an Access Token (API key) to use the DELETE method. Otherwise you 
 section for details.
  Deep Linking API Access-Token header The Branch Access Token of the originating app obtained in your [Account Settings](https://help.branch.io/using-branch/docs/profile-settings)
  api_app_xxxx url query The deep link url against which the details are to be fetched.
- https://example.app.link/{UNIQUE_PATH_HERE}  app_id query The Branch app_id against the associate deep link url
- Ok url Deleted URL. deleted Deletion status. Authentication Failed error Rate Limit Reached error
+ https://example.app.link/abCdEf123  app_id query The Branch app_id against the associate deep link url
+ 123456789012345680 Success. url Deleted URL. deleted Deletion status. Bad request — typically an invalid or missing credential or parameter. error Rate limit exceeded — reduce request frequency and retry. error
 
 </div>

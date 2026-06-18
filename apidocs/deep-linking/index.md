@@ -1,13 +1,17 @@
 ---
 title: "Deep Linking API"
 slug: deep-linking
+description: "The Deep Linking API creates and manages Branch links programmatically \u2014 generate\
+  \ links at scale and tag them by channel and campaign for analytics."
 ---
 
 # Deep Linking API
 
+<BranchCredentialsBar />
+
 ## Overview
 
-Branch's Deep Linking API is a powerful tool for all things Branch Links. You can programmatically generate links at scale to support all of your campaigns while tagging the links appropriately based on channel and other analytics tags.
+The Deep Linking API creates and manages Branch links programmatically — generate links at scale and tag them by channel and campaign for analytics.
 
 ## Authentication
 
@@ -24,3 +28,7 @@ Content-Type: application/json
 
 Browse the operations in the sidebar for the complete parameter reference, request and response schemas, and an interactive Try-it panel.
 
+
+## Endpoints
+
+<ApiEndpointList api="deep-linking" />

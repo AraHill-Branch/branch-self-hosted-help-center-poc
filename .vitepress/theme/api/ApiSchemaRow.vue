@@ -16,9 +16,17 @@ const props = defineProps<{
 // oneOf / anyOf / additionalProperties (when typed as a schema, not bool)
 // also qualify — handled by ApiSchemaTable.
 const isObject = computed(() => props.schema.type === 'object' && !!props.schema.properties)
-const isArrayOfObjects = computed(
-  () => props.schema.type === 'array' && props.schema.items?.type === 'object',
-)
+// An array whose items are themselves expandable: an object with properties,
+// OR a composition (oneOf/anyOf/allOf). The latter was previously dropped, so
+// array-of-oneOf schemas (e.g. filter operators) showed no expandable detail.
+const isArrayOfExpandable = computed(() => {
+  const items = props.schema.items
+  if (props.schema.type !== 'array' || !items) return false
+  return (
+    (items.type === 'object' && !!items.properties) ||
+    !!(items.oneOf?.length || items.anyOf?.length || items.allOf?.length)
+  )
+})
 const hasComposition = computed(
   () => !!(props.schema.oneOf?.length || props.schema.anyOf?.length || props.schema.allOf?.length),
 )
@@ -26,7 +34,7 @@ const hasAddlPropsSchema = computed(
   () => typeof props.schema.additionalProperties === 'object',
 )
 const hasChildren = computed(
-  () => isObject.value || isArrayOfObjects.value || hasComposition.value || hasAddlPropsSchema.value,
+  () => isObject.value || isArrayOfExpandable.value || hasComposition.value || hasAddlPropsSchema.value,
 )
 const expanded = ref(false)
 
@@ -66,7 +74,7 @@ const typeLabel = computed(() => {
 
 const childSchema = computed<OpenApiSchema | null>(() => {
   if (isObject.value) return props.schema
-  if (isArrayOfObjects.value) return props.schema.items as OpenApiSchema
+  if (isArrayOfExpandable.value) return props.schema.items as OpenApiSchema
   if (hasComposition.value) return props.schema
   if (hasAddlPropsSchema.value) {
     return {
@@ -139,29 +147,27 @@ const descriptionHtml = computed(() => renderInlineMarkdown(props.schema.descrip
     :class="{ 'has-children': hasChildren, 'is-expanded': expanded, 'is-deprecated': isDeprecated }"
     :style="{ '--depth': depth }"
   >
-    <div
-      class="api-row-header"
-      :role="hasChildren ? 'button' : undefined"
-      :tabindex="hasChildren ? 0 : undefined"
-      :aria-expanded="hasChildren ? expanded : undefined"
-      @click="toggle"
-      @keydown.enter.prevent="toggle"
-      @keydown.space.prevent="toggle"
-    >
-      <div class="api-row-left">
+    <div class="api-row-header">
+      <component
+        :is="hasChildren ? 'button' : 'div'"
+        :type="hasChildren ? 'button' : undefined"
+        class="api-row-toggle"
+        :class="{ 'is-static': !hasChildren }"
+        :aria-expanded="hasChildren ? expanded : undefined"
+        @click="toggle"
+      >
         <span v-if="hasChildren" class="api-row-caret" :class="{ open: expanded }" aria-hidden="true">▸</span>
         <span v-else class="api-row-caret-placeholder" aria-hidden="true" />
-        <a
-          :href="anchorHref"
-          class="api-row-anchor"
-          :aria-label="`Permalink to ${name}`"
-          @click.stop
-        >#</a>
         <code class="api-row-name">{{ name }}</code>
         <span class="api-row-type">{{ typeLabel }}</span>
         <span v-if="isRequired" class="api-row-required" title="This field is required.">required</span>
         <span v-if="isDeprecated" class="api-row-deprecated" title="This field is deprecated.">deprecated</span>
-      </div>
+      </component>
+      <a
+        :href="anchorHref"
+        class="api-row-anchor"
+        :aria-label="`Permalink to ${name}`"
+      >#</a>
     </div>
 
     <div v-if="showBody" class="api-row-body">
@@ -200,25 +206,38 @@ const descriptionHtml = computed(() => renderInlineMarkdown(props.schema.descrip
 .api-row-header {
   display: flex;
   align-items: center;
+  gap: 8px;
   padding: 12px 16px;
   padding-left: calc(16px + var(--depth, 0) * 20px);
-  user-select: none;
   transition: background-color 140ms ease;
 }
 
-.api-row.has-children > .api-row-header { cursor: pointer; }
 .api-row.has-children > .api-row-header:hover { background: var(--vp-c-bg-soft); }
-.api-row.has-children > .api-row-header:focus-visible {
-  outline: 2px solid var(--vp-c-brand-1);
-  outline-offset: -2px;
-}
 
-.api-row-left {
+/* The disclosure control is a real <button> (native keyboard + a11y
+   semantics); the permalink anchor is a sibling, not nested inside it. */
+.api-row-toggle {
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
   gap: 10px;
   min-width: 0;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+}
+.api-row-toggle.is-static { cursor: default; }
+.api-row-toggle:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
+  border-radius: 3px;
 }
 
 .api-row-caret {

@@ -1,9 +1,13 @@
 ---
 title: "Cohort API"
 slug: cohort
+description: The Cohort API allows you to programmatically query and export Cohort analytics.
+...
 ---
 
 # Cohort API
+
+<BranchCredentialsBar />
 
 ## Overview
 
@@ -33,3 +37,7 @@ Content-Type: application/json
 
 Browse the operations in the sidebar for the complete parameter reference, request and response schemas, and an interactive Try-it panel.
 
+
+## Endpoints
+
+<ApiEndpointList api="cohort" />

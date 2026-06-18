@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Events API
   description: |
-    Branch's Events API is a robust endpoint for tracking all of your conversions in your app. With it, you'll be able to tie in detailed metadata about your Commerce, Content, Lifecycle, and Custom Events to better understand user behavior and attribute to your ongoing campaigns.
+    The Events API tracks conversions in your app. Attach metadata for Commerce, Content, Lifecycle, and Custom events to measure user behavior and attribute it to your campaigns.
 
     ## Important considerations
 
@@ -13,12 +13,7 @@ info:
 
     The Events API enforces rate limits on a per-app basis. If you exceed the limit, the API returns a `429 Rate Limit Reached` error. Back off and retry with exponential delay.
 
-    | Limit | Value |
-    |-------|-------|
-    | Requests per second | TBD |
-    | Requests per day | TBD |
-
-    Contact your Branch account manager for details on your app's specific limits.
+    Rate limits are enforced per app. Contact your Branch account manager for your app's specific limits.
   termsOfService: 'https://branch.io/policies/'
   contact:
     name: Branch Support
@@ -32,7 +27,7 @@ security:
     accessToken: []
 tags:
   - name: Events API
-    description: 'Branch''s Events API is a robust endpoint for tracking all of your conversions in your app. With it, you''ll be able to tie in detailed metadata about your Commerce, Content, Lifecycle, and Custom Events to better understand user behavior and attribute to your ongoing campaigns.'
+    description: Tracks conversions in your app, with metadata for Commerce, Content, Lifecycle, and Custom events.
 paths:
   /event/standard:
     post:
@@ -83,13 +78,13 @@ paths:
               $ref: '#/components/schemas/log_standard_request_body'
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -99,12 +94,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -167,13 +162,13 @@ paths:
               $ref: '#/components/schemas/log_custom_request_body'
       responses:
         '200':
-          description: Ok
+          description: Success.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
         '400':
-          description: Authentication Failed
+          description: Bad request — typically an invalid or missing credential or parameter.
           content:
             application/json:
               schema:
@@ -183,12 +178,12 @@ paths:
                   value: |-
                     {
                         "error": {
-                            "message": "Authentication failed !",
+                            "message": "Authentication failed.",
                             "code": 400
                         }
                     }
         '429':
-          description: Rate Limit Reached
+          description: Rate limit exceeded — reduce request frequency and retry.
           content:
             application/json:
               schema:
@@ -700,7 +695,7 @@ components:
       properties:
         message:
           type: string
-          example: Authentication failed !
+          example: Authentication failed.
         code:
           type: integer
           example: 400
@@ -713,6 +708,6 @@ components:
     accessToken:
       type: apiKey
       description: |
-        api_key | Key that encapsulates the users permission w.r.t an org. Obtained from the Branch Dashboard needed for [authentication](https://help.branch.io/developers-hub/docs/branch-aggregate-api#authentication).
+        Encapsulates your account permissions for an organization. Obtain it from the Branch Dashboard.
       name: Access-Token
       in: header
