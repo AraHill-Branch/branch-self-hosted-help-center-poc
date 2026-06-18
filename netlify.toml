@@ -18,8 +18,8 @@
 # what each source is for lives in .vitepress/csp-reference.md — edit
 # there, then re-flatten into this line.
 #
-# Analytics/consent/support scripts (GTM/GA/Amplitude/OneTrust/Intercom) are
-# commented out in csp-reference.md until set up and ready to test.
+# Analytics/consent scripts (GTM/GA/Amplitude/OneTrust) are commented out
+# in csp-reference.md until set up and ready to test.
 # =============================================================================
 
 [[headers]]
