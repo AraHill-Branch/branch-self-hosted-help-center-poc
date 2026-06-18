@@ -34,6 +34,14 @@ function defaultValue(p: OpenApiParameter): string {
   // visible input, so the user sees exactly what will be sent.
   const cred = storedCredentialFor(p)
   if (cred) return cred
+  // Header params are NOT pre-seeded from their example. Auto-sending an
+  // example header the user never typed (e.g. the optional X-IP-Override on
+  // Events) adds a non-safelisted request header, which forces a CORS
+  // preflight that the API rejects — making Try-it fail for headers nobody
+  // intended to send. The example still shows as the input placeholder.
+  // Path/query params ARE seeded: they build the URL and carry no CORS
+  // preflight implications.
+  if (p.in === 'header') return ''
   if (p.example !== undefined && p.example !== null) return String(p.example)
   if (p.schema?.example !== undefined && p.schema.example !== null) return String(p.schema.example)
   if (p.schema?.default !== undefined && p.schema.default !== null) return String(p.schema.default)
