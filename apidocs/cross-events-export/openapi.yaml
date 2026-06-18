@@ -76,6 +76,7 @@ paths:
           explode: false
           schema:
             type: string
+            example: a1b2c3d4
         - name: app_id
           in: query
           description: The unique identifier for the app. Alternatively, provide `organization_id`.
@@ -83,6 +84,7 @@ paths:
           style: form
           schema:
             type: string
+            example: 123456789012345678
       responses:
         "200":
           description: Job Successfully Finished

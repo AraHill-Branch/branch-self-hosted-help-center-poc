@@ -171,6 +171,7 @@ paths:
     parameters:
       - schema:
           type: string
+          example: a1b2c3d4
         name: subscription_id
         in: path
         required: true
@@ -198,6 +199,7 @@ paths:
       parameters:
         - schema:
             type: string
+            example: '123456789012345678'
           in: query
           name: app_id
           required: true

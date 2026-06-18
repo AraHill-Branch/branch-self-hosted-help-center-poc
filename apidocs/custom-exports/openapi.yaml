@@ -108,6 +108,7 @@ paths:
           explode: false
           schema:
             type: string
+            example: a1b2c3d4
         - name: limit
           in: query
           description: The maximum number of results to return.

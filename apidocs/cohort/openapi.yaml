@@ -32,6 +32,7 @@ paths:
           required: true
           schema:
             type: string
+            example: 123456789012345678
         - name: limit
           in: query
           description: The maximum number of results to return.
@@ -98,6 +99,7 @@ paths:
           required: true
           schema:
             type: string
+            example: 123456789012345678
         - name: job_id
           in: path
           description: Unique identifier for job. Obtained from POST Export Cohort Analytics API.
