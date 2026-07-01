@@ -1,0 +1,2 @@
+source,target,note
+/apidocs/createquicklinkurl,/apidocs/quick-links/operations/createQuickLink,operationId renamed from createQuickLinkUrl during Phase 1 spec cleanup

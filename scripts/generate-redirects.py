@@ -31,6 +31,8 @@ OUT_MAP = os.path.join(REPO, "reports", "redirect-map.csv")
 DEAD_WORKLIST = os.path.join(REPO, "reports", "dead-destinations.csv")
 SITEMAP_TXT = os.path.join(REPO, "reports", "d360-sitemap-urls.txt")
 OUT_SITEMAP_GAPS = os.path.join(REPO, "reports", "sitemap-uncovered.csv")
+MANUAL_CSV = os.path.join(REPO, "reports", "manual-redirects.csv")
+API_ARTICLES_CSV = os.path.join(REPO, "reports", "d360-api-articles.csv")
 
 HUBS = ["account-hub", "marketer-hub", "developer-hub", "apidocs"]
 # aliases seen in D360 source/destination paths -> canonical hub dir
@@ -375,6 +377,80 @@ def main():
     unmapped = still_unmapped
     if rescued:
         print(f"rescued via second pass: {rescued}")
+
+    # apidocs article layer: D360's API-workspace export (d360-api-articles.csv)
+    # lists every live API article with its real URL. Old operation slugs are
+    # the lowercased *old* operationIds, which were renamed during spec
+    # cleanup — match them to current operations by squashed containment
+    # within the article's own API (derived from its D360 category).
+    if os.path.exists(API_ARTICLES_CSV):
+        api_hits, api_misses = 0, []
+        for row in csv.DictReader(open(API_ARTICLES_CSV, encoding="utf-8-sig")):
+            if row["Article status"].strip() != "published":
+                continue
+            cat = row["Category title"].strip()
+            slug = norm_path(row["site URLs"]).rstrip("/").split("/")[-1].lower()
+            if not slug or cat == "Archived":
+                continue
+            # category -> api folder ("Quick Links (Short Links) API" -> quick-links)
+            api = re.sub(r"\s*\(.*?\)", "", cat)
+            api = re.sub(r"\s*APIs?$", "", api).strip().lower().replace(" ", "-")
+            api = {"branch": ""}.get(api, api)
+            api_dir = os.path.join(REPO, "apidocs", api) if api else None
+            tgt = None
+            if not api:
+                tgt = "/apidocs/"       # "Branch APIs" workspace-level pages
+            elif api_dir and os.path.isdir(api_dir):
+                squash = re.sub(r"[^a-z0-9]", "", slug)
+                if squash in (re.sub(r"[^a-z0-9]", "", api) + "api",
+                              re.sub(r"[^a-z0-9]", "", api) + "apioverview"):
+                    tgt = f"/apidocs/{api}/"
+                else:
+                    ops_dir = os.path.join(api_dir, "operations")
+                    ops = [f[:-3] for f in os.listdir(ops_dir)] if os.path.isdir(ops_dir) else []
+                    # exact squashed match; else all of an operation's
+                    # camelCase tokens must appear in the slug (plural-lenient),
+                    # most tokens wins: createbulkquicklinkurl -> bulkCreateQuickLinks
+                    scored = []
+                    for op in ops:
+                        osq = re.sub(r"[^a-z0-9]", "", op.lower())
+                        if osq == squash:
+                            scored.append((100, op))
+                            continue
+                        tokens = [t.lower() for t in re.findall(r"[A-Z]?[a-z0-9]+", op)]
+                        if tokens and all(t in squash or t.rstrip("s") in squash for t in tokens):
+                            scored.append((len(tokens), op))
+                        elif osq in squash or squash in osq:
+                            scored.append((0, op))
+                    if scored:
+                        scored.sort(reverse=True)
+                        tgt = f"/apidocs/{api}/operations/{scored[0][1]}"
+                    elif os.path.isfile(os.path.join(api_dir, "index.md")):
+                        tgt = f"/apidocs/{api}/"  # overview-ish article
+            if tgt:
+                for src in (f"/apidocs/{slug}", f"/v1-api/docs/en/{slug}", f"/v1-api/docs/{slug}"):
+                    if src not in final and src != tgt.lower():
+                        final[src] = tgt
+                        api_hits += 1
+            else:
+                api_misses.append((slug, cat))
+        print(f"apidocs article rules added: {api_hits}; unmatched: {len(api_misses)}")
+        for m in api_misses:
+            print(f"  UNMATCHED api article: {m[0]} ({m[1]})", file=sys.stderr)
+
+    # manual one-off rules (reports/manual-redirects.csv) — for old URLs no
+    # input can derive, e.g. operations renamed during spec cleanup. Wins over
+    # generated rules on conflict.
+    if os.path.exists(MANUAL_CSV):
+        n_manual = 0
+        with open(MANUAL_CSV, encoding="utf-8-sig") as fh:
+            for row in csv.DictReader(fh):
+                src = split_frag(norm_path(row["source"]))[0].lower()
+                tgt = norm_path(row["target"])
+                if src and tgt and src != tgt.lower():
+                    final[src] = tgt
+                    n_manual += 1
+        print(f"manual rules added: {n_manual}")
 
     # drop no-op rules (source == target)
     final = {s: t for s, t in final.items() if s != t.lower()}

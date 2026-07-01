@@ -61,6 +61,14 @@ The generator combines four inputs:
    (`/apidocs/createqrcode`); these map into the new nested structure.
 4. `reports/d360-sitemap-urls.txt` — snapshot of the live D360 sitemap, so
    every URL Google has indexed is either redirected or knowingly dead.
+5. `reports/d360-api-articles.csv` — D360's API-workspace article export.
+   API operations were renamed during spec cleanup, so old operation URLs
+   (`/apidocs/createquicklinkurl`, `/v1-api/docs/en/...`) are matched to
+   current operations by token matching within each article's API.
+6. `reports/manual-redirects.csv` — hand-added one-offs no input can derive,
+   e.g. API operations renamed during spec cleanup (`createquicklinkurl` →
+   `createQuickLink`). Add a row here when someone reports a 404 for an old
+   URL, then rerun the generator.
 
 Old URLs whose content no longer exists anywhere (retired release notes, old
 iOS-14 FAQs, etc.) intentionally 404 — our 404 page turns the slug into a
