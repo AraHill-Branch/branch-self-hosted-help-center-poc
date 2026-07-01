@@ -6,9 +6,7 @@ source,flattened_destination,reason
 /apidocs/create-a-deep-link-url,/apidocs/create-a-short-link-url,destination slug not found in new site
 /apidocs/create-bulk-deep-link-url,/apidocs/create-bulk-short-link-url,destination slug not found in new site
 /apidocs/delete-existing-deep-link,/apidocs/delete-existing-short-link,destination slug not found in new site
-/apidocs/qr-code-branch-api,/apidocs/qr-code-api,destination slug not found in new site
 /apidocs/read-existing-deep-link,/apidocs/read-existing-short-link,destination slug not found in new site
-/apidocs/schedule-log-exports-api,/apidocs/scheduled-log-exports-api,destination slug not found in new site
 /apidocs/update-existing-deep-link,/apidocs/update-existing-short-link,destination slug not found in new site
 /are-organic-channels-under-the-scope-of-apples-new-policy,/complying-with-apples-policy-faq,destination slug not found in new site
 /are-owned-channels-under-the-scope-of-apples-new-policy,/complying-with-apples-policy-faq,destination slug not found in new site
@@ -32,7 +30,6 @@ source,flattened_destination,reason
 /developer-hub/marketer-hub/docs/webhooks-for-developers,/developer-hub/docs/webhooks-for-developers,destination slug not found in new site
 /developers-hub/docs/9apps,/developer-hub/page/9apps,destination slug not found in new site
 /developers-hub/docs/app-api-1,/developer-hub/reference/app-api,destination slug not found in new site
-/developers-hub/docs/attribution-api,/apidocs/attribution-api,destination slug not found in new site
 /developers-hub/docs/attribution-api-1,/developer-hub/reference/attribution-api,destination slug not found in new site
 /developers-hub/docs/branch-aggregate-api,/developer-hub/reference/aggregate-api,destination slug not found in new site
 /developers-hub/docs/cohort-exports,/developer-hub/reference/cohort-api,destination slug not found in new site
@@ -40,7 +37,6 @@ source,flattened_destination,reason
 /developers-hub/docs/daily-exports,/developer-hub/reference/daily-exports-api,destination slug not found in new site
 /developers-hub/docs/data-mapping-formatting,/developer-hub/docs/data-mapping-formatting-index,destination slug not found in new site
 /developers-hub/docs/data-privacy,/developer-hub/docs/data-privacy-index,destination slug not found in new site
-/developers-hub/docs/deep-linking-api,/apidocs/deep-linking-api,destination slug not found in new site
 /developers-hub/docs/deep-linking-api-1,/developer-hub/reference/deep-linking-api,destination slug not found in new site
 /developers-hub/docs/desktop-and-over-the-top-ott-attribution,/developer-hub/reference/desktop-over-the-top-ott-attribution,destination slug not found in new site
 /developers-hub/docs/events-api-1,/developer-hub/reference/events-api,destination slug not found in new site
@@ -186,7 +182,6 @@ source,flattened_destination,reason
 /does-this-new-policy-block-deep-linking,/complying-with-apples-policy-faq,destination slug not found in new site
 /emails/smartech,/marketer-hub/docs/email-integration-guide,destination slug not found in new site
 /exports/query-api,/developer-hub/docs/query-api,destination slug not found in new site
-/faq/docs/aaids-in-invalid-format-in-exports,/apidocs/daily-exports-api,destination slug not found in new site
 /faq/docs/can-branch-track-impressions-on-desktop,/marketer-hub/docs/attribution-methods,destination slug not found in new site
 /faq/docs/can-i-track-user-data-location-through-branch,/marketer-hub/docs/attribution-methods,destination slug not found in new site
 /faq/docs/email-use-cases,/marketer-hub/docs/email-integration-guide,destination slug not found in new site
@@ -194,7 +189,6 @@ source,flattened_destination,reason
 /faq/docs/how-can-i-send-additional-data-to-my-esp,/marketer-hub/docs/email-integration-guide,destination slug not found in new site
 /faq/docs/how-do-i-pass-segment-anonymous-id-in-react-native-when-configuring-segment-export,/developer-hub/docs/segment-export,destination slug not found in new site
 /faq/docs/how-does-limit-ad-tracking-impact-branch-attribution,/marketer-hub/docs/attribution-methods,destination slug not found in new site
-/faq/docs/i-am-setting-the-identity-id-through-the-sdk-code-how-can-i-view-it-on-the-dashboard,/apidocs/daily-exports-api,destination slug not found in new site
 /faq/docs/test-the-branch-ios-android-web-sdk,/developer-hub/docs/test-the-ios-android-and-web-sdks,destination slug not found in new site
 /faq/docs/universal-email-use-cases,/marketer-hub/docs/email-integration-guide,destination slug not found in new site
 /faq/docs/what-do-the-email-validation-errorswarnings-mean-and-how-can-i-fix-them,/marketer-hub/docs/email-integration-guide,destination slug not found in new site
@@ -468,7 +462,6 @@ source,flattened_destination,reason
 /v1/docs/pepipost,/marketer-hub/docs/email-integration-guide,destination slug not found in new site
 /v1/docs/postback-webhook-ip-address-allowlist-expands,/account-hub/docs/postback-webhook-ip-address-allowlist-expands,destination slug not found in new site
 /v1/docs/postup,/marketer-hub/docs/email-integration-guide,destination slug not found in new site
-/v1/docs/qr-code-api,/apidocs/qr-code-api,destination slug not found in new site
 /v1/docs/quick-links,/docs/quick-links-index,destination slug not found in new site
 /v1/docs/rapidmail,/marketer-hub/docs/email-integration-guide,destination slug not found in new site
 /v1/docs/sailthru,/marketer-hub/docs/email-integration-guide,destination slug not found in new site

@@ -29,6 +29,8 @@ OUT_REDIRECTS = os.path.join(REPO, "public", "_redirects")
 OUT_UNMAPPED = os.path.join(REPO, "reports", "redirect-unmapped.csv")
 OUT_MAP = os.path.join(REPO, "reports", "redirect-map.csv")
 DEAD_WORKLIST = os.path.join(REPO, "reports", "dead-destinations.csv")
+SITEMAP_TXT = os.path.join(REPO, "reports", "d360-sitemap-urls.txt")
+OUT_SITEMAP_GAPS = os.path.join(REPO, "reports", "sitemap-uncovered.csv")
 
 HUBS = ["account-hub", "marketer-hub", "developer-hub", "apidocs"]
 # aliases seen in D360 source/destination paths -> canonical hub dir
@@ -277,6 +279,103 @@ def main():
                 live_added += 1
     print(f"live-article rules added: {live_added}")
 
+    # apidocs layer: D360's API reference used flat URLs, the new site nests them.
+    #   operations:  /apidocs/createqrcode -> /apidocs/qr-code/operations/createQRCode
+    #   API landing: /apidocs/qr-code-api (slugified spec title, with and without
+    #                a "branch-" prefix) -> /apidocs/qr-code/
+    # Netlify source matching is case-insensitive, so lowercase sources suffice.
+    api_added = 0
+    apidocs_dir = os.path.join(REPO, "apidocs")
+    for api in sorted(os.listdir(apidocs_dir)):
+        api_path = os.path.join(apidocs_dir, api)
+        if not os.path.isdir(api_path):
+            continue
+        ops_dir = os.path.join(api_path, "operations")
+        if os.path.isdir(ops_dir):
+            for f in sorted(os.listdir(ops_dir)):
+                if not f.endswith(".md"):
+                    continue
+                op = f[:-3]
+                src = f"/apidocs/{op.lower()}"
+                if src not in final:
+                    final[src] = f"/apidocs/{api}/operations/{op}"
+                    api_added += 1
+        # landing-page slug candidates from the OpenAPI spec title
+        spec = os.path.join(api_path, "openapi.yaml")
+        title_slug = None
+        if os.path.exists(spec):
+            for line in open(spec, encoding="utf-8"):
+                m = re.match(r"^\s+title:\s*(.+?)\s*$", line)
+                if m:
+                    title_slug = re.sub(r"[^a-z0-9]+", "-", m.group(1).lower()).strip("-")
+                    break
+        candidates = {f"{api}-api", f"branch-{api}-api"}
+        if title_slug:
+            candidates.update({title_slug, f"branch-{title_slug}"})
+        for c in sorted(candidates):
+            src = f"/apidocs/{c}"
+            if src not in final:
+                final[src] = f"/apidocs/{api}/"
+                api_added += 1
+    print(f"apidocs rules added: {api_added}")
+
+    # sitemap layer: every URL Google knows about must be covered. Handles the
+    # apidocs slug chaos (kebab-case vs concatenated operation slugs) with a
+    # hyphen-insensitive operation lookup.
+    op_by_squash = {}
+    for api in sorted(os.listdir(os.path.join(REPO, "apidocs"))):
+        ops_dir = os.path.join(REPO, "apidocs", api, "operations")
+        if os.path.isdir(ops_dir):
+            for f in sorted(os.listdir(ops_dir)):
+                if f.endswith(".md"):
+                    op = f[:-3]
+                    op_by_squash[op.lower().replace("-", "").replace("_", "")] = \
+                        f"/apidocs/{api}/operations/{op}"
+    sitemap_gaps = []
+    if os.path.exists(SITEMAP_TXT):
+        sm_paths = [norm_path(l) for l in open(SITEMAP_TXT, encoding="utf-8")
+                    if l.strip() and not l.startswith("#")]
+        sm_added = 0
+        for p in sm_paths:
+            key = p.lower()
+            if key == "/" or key in final:
+                continue
+            fp = p.lstrip("/")
+            if os.path.isfile(os.path.join(REPO, fp + ".md")) or \
+               os.path.isfile(os.path.join(REPO, fp, "index.md")):
+                continue  # already resolves on the new site
+            # follow a legacy rule if one exists, else map the path directly
+            dst = flat.get(key, p)
+            tgt = overrides.get(split_frag(dst)[0].lower()) or \
+                map_to_new(dst, per_hub, global_unique, p)
+            if not tgt and key.startswith("/apidocs/"):
+                squash = key.split("/")[-1].replace("-", "").replace("_", "")
+                tgt = op_by_squash.get(squash) or \
+                    op_by_squash.get(squash.removesuffix("api"))
+            if tgt and key != tgt.lower():
+                final[key] = tgt
+                sm_added += 1
+            elif not tgt:
+                sitemap_gaps.append(p)
+        print(f"sitemap rules added: {sm_added}; uncovered: {len(sitemap_gaps)}")
+
+    # rescue pass: an unmapped rule whose destination is itself a known
+    # source (e.g. legacy -> /apidocs/qr-code-api, which we now redirect)
+    # can be flattened through it.
+    still_unmapped = []
+    rescued = 0
+    for src, dst, reason in unmapped:
+        base, frag = split_frag(dst)
+        hit = final.get(base.lower())
+        if hit and src != hit.lower():
+            final[src] = split_frag(hit)[0] + (split_frag(hit)[1] or frag)
+            rescued += 1
+        else:
+            still_unmapped.append((src, dst, reason))
+    unmapped = still_unmapped
+    if rescued:
+        print(f"rescued via second pass: {rescued}")
+
     # drop no-op rules (source == target)
     final = {s: t for s, t in final.items() if s != t.lower()}
 
@@ -312,6 +411,8 @@ def main():
     grouped = defaultdict(list)
     for src, dst, _ in unmapped:
         grouped[dst].append(src)
+    for p in sitemap_gaps:  # live indexed pages with no new home — same worklist
+        grouped[p].append(p + "  [LIVE: in sitemap]")
     with open(DEAD_WORKLIST, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(["flattened_destination", "inbound_rules", "example_sources", "target"])
@@ -322,6 +423,12 @@ def main():
                 " | ".join(sorted(grouped[dst])[:3]),
                 existing.get(dst.lower(), ""),
             ])
+
+    with open(OUT_SITEMAP_GAPS, "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(["live_sitemap_url_with_no_new_home"])
+        for p in sorted(sitemap_gaps):
+            w.writerow([p])
 
     print(f"rules written: {len(final)} -> public/_redirects")
     print(f"unmapped: {len(unmapped)} -> reports/redirect-unmapped.csv")
