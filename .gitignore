@@ -18,3 +18,13 @@ build/
 .vitepress/dist/.claude/
 # Generated search index (rebuilt on every docs:build via search:index)
 public/search-index.json
+
+# Local Netlify folder
+.netlify
+deno.lock
+
+# Python
+__pycache__/
+
+# Transient verifier output (regenerated on every run)
+reports/redirect-verification-failures.csv
